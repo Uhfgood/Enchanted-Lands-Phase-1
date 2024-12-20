@@ -9,75 +9,55 @@ script = ExtResource("1_10ltg")
 
 [node name="RoomViewer" parent="." instance=ExtResource("2_m61cp")]
 
-[node name="RoomStart" type="Node" parent="."]
+[node name="MainMenu" type="Node" parent="."]
 script = ExtResource("1_efxkw")
-description = "Welcome to Nightmare Castle!
+room_name = "main_menu"
+description = "Main Menu
 
 Hit 1. to Start
 
 Hit 0. to exit."
-choices = Array[String](["", "crossroads", "", "", "", "", "", "", "", ""])
+choices = Array[String](["", "start_here", "", "", "", "", "", "", "", ""])
 
-[node name="Crossroads" type="Node" parent="RoomStart"]
+[node name="StartHere" type="Node" parent="MainMenu"]
 script = ExtResource("1_efxkw")
-room_name = "crossroads"
-description = "You're standing at a crossroads.  There's a signpost which has 4 destinations.  Pointing to the right is  a sign that reads \"Nightmare Castle\", pointing to the left is a sign that reads \"Pleasant Village\".  Pointing south says \"To Beach\", and pointing north says \"Mountains of Ice\".
+room_name = "start_here"
+description = "Welcome to Enchanted Lands!  Take a magical vacation, slay a dragon, rescue a princess, become a great and powerful wizard, or stay at one of our many fine hotels.  Anything is possible… At least that’s what the brochure says.  Enchanted Lands, the magical resort kingdom is not doing so well.  The King seems to be acting strangely.  Enchanted Enterprises has been bought out by Enchanted Holdings, Inc.  Administration has closed the various magical training schools, and a dark presence has returned from banished realms.  Is there no one that can solve these mysteries?  Will the schools ever reopen?  Will there ever be anymore stupendous vacation deals?  Stay tuned.
 
-Where would you like to go?
-Hit 1 to go to Nightmare Castle.
-Hit 2 to go to Pleasant Village.
-Hit 3 to go to the beach.
-Hit 4 to go to the mountains. 
+Hubert Halfway is your standard old Wizard.  No one knows his real age, but he has a long white, fluffy, beard, and is currently sporting a pointy blue hat.  While in the castle one day, (that is the administration castle where Enchanted Lands is run), he overheard a familiar female voice, speaking to some other male, regarding buying up the Lands.  When he went to the King about it, the King simply dismissed it.  In fact he acted rather cold toward Hubert, even though they had been friends a long, long time.  Hubert tried to go to the different schools, but they were all closed.  All except Knight school, and he couldn’t get any answers there.  Trying to go to any restaurant or hotel also yielded no help.  He realized he couldn’t trust anyone there, almost except one old friend, so he decided he needed to get some outside help.
 
-Hit 0 to exit."
-choices = Array[String](["", "nightmare_castle", "pleasant_village", "the_beach", "ice_mountains", "", "", "", "", ""])
+Hubert goes to his home, steps through the front door, to a small foyer, where a medium sized table sits in the middle of the floor, and on top is a large book, that reads “Book of Spells”.  Walking to the table.  He looks to the left, to see “the study”.  To the right, he sees what looks like a room full of silly hats adorning the walls. To the north is the rest of the house, but knowing he’s got to get busy, he decides he’s not going to go through the rest of the house.  The important things are either in the study or the hat room.
 
-[node name="NightmareCastle" type="Node" parent="RoomStart/Crossroads"]
+Hit 1 If you wish to go to the study.
+Hit 2 If you wish to go to the hat room. 
+Hit 3 If you would you like to examine the “Book of spells”
+
+Hit 0. to quit.
+"
+choices = Array[String](["", "study", "hat_room", "book_of_spells", "", "", "", "", "", ""])
+
+[node name="Study" type="Node" parent="MainMenu/StartHere"]
 script = ExtResource("1_efxkw")
-room_name = "nightmare_castle"
-description = "Here you are at a forboding and dark castle, aptly named \"Nightmare Castle\".
+room_name = "study"
+description = "Here you see tons of books and you start to look through them.
+Hit 0. to quit.
+"
+choices = Array[String](["", "study", "hat_room", "book_of_spells", "", "", "", "", "", ""])
 
-Hit 1. to go back to the crossroads.
-
-Hit 0 to exit."
-choices = Array[String](["", "crossroads", "", "", "", "", "", "", "", ""])
-
-[node name="PleasantVillage" type="Node" parent="RoomStart/Crossroads"]
+[node name="HatRoom" type="Node" parent="MainMenu/StartHere"]
 script = ExtResource("1_efxkw")
-room_name = "pleasant_village"
-description = "Here we are in friendly Pleasant Village.  Where everyone is welcoming and friendly.
+room_name = "hat_room"
+description = "In here you see a multiude of hats.  You try some on, and notice most of them are really silly, so you take them off and then wait.
 
-Hit 1. to go back to the crossroads.
+Hit 0. to quit.
+"
+choices = Array[String](["", "study", "hat_room", "book_of_spells", "", "", "", "", "", ""])
 
-Hit 0 to exit."
-choices = Array[String](["", "crossroads", "", "", "", "", "", "", "", ""])
-
-[node name="beach" type="Node" parent="RoomStart/Crossroads"]
+[node name="BookOfSpells" type="Node" parent="MainMenu/StartHere"]
 script = ExtResource("1_efxkw")
-room_name = "the_beach"
-description = "Miles of beach go in either direction.
+room_name = "book_of_spells"
+description = "Here on the table before you is the book of spells.  As you open it, you notice it's full of nothing but pictures of sillly hats.
 
-Hit 1. to go back to the crossroads.
-
-Hit 0 to exit."
-choices = Array[String](["", "crossroads", "", "", "", "", "", "", "", ""])
-
-[node name="mountains" type="Node" parent="RoomStart/Crossroads"]
-script = ExtResource("1_efxkw")
-room_name = "ice_mountains"
-description = "Here we are at the forboding Mountains of Ice.  (By the way that's actually it's name too.)  From here you can just spot a cave made of ice at the base of the mountains.
-
-Hit 1. to go back to the crossroads.
-Hit 2. to go to the cave.
-Hit 0 to exit."
-choices = Array[String](["", "crossroads", "icecave", "", "", "", "", "", "", ""])
-
-[node name="icecave" type="Node" parent="RoomStart/Crossroads/mountains"]
-script = ExtResource("1_efxkw")
-room_name = "icecave"
-description = "Here is an icey cave.
-
-Hit 1. to return to the base of the mountains.
-
-Hit 0. to exit."
-choices = Array[String](["", "ice_mountains", "", "", "", "", "", "", "", ""])
+Hit 0. to quit.
+"
+choices = Array[String](["", "study", "hat_room", "book_of_spells", "", "", "", "", "", ""])

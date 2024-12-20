@@ -1,14 +1,14 @@
 extends Node
 
 @onready var room_viewer: Node = $RoomViewer
-@onready var room_start: RoomDescriptor = $RoomStart
+@onready var main_menu: RoomDescriptor = $MainMenu
 @onready var viewer_text: Node = $RoomViewer/Description/DescText
 
 var curr_room : RoomDescriptor = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ChangeRoom( room_start )
+	ChangeRoom( main_menu )
 
 func ChangeRoom( new_room : Node ) -> void:
 	curr_room = new_room
@@ -23,8 +23,6 @@ func GetConnectedRoom( room_name : String ) -> RoomDescriptor:
 	if curr_room:
 		parent = curr_room.get_parent()
 			
-	#if prev_room and ( prev_room.room_name == room_name ):
-	#	return prev_room
 	if parent and parent is RoomDescriptor and parent.room_name == room_name:
 		return parent 
 	else:
@@ -48,7 +46,7 @@ func FindRoomWithName( node: RoomDescriptor, room_name : String ) -> RoomDescrip
 
 # return a room anywhere on the tree (starting with RoomStart)
 func GetRoom(room_name: String) -> Node:
-	return FindRoomWithName(room_start, room_name)
+	return FindRoomWithName(main_menu, room_name)
 
 func _input( event : InputEvent ) -> void:
 	var choice : RoomDescriptor = null;
