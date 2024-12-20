@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvr6ovgspfmby"]
+
+[ext_resource type="PackedScene" uid="uid://bw87e00ukspf7" path="res://Scenes/room_manager.tscn" id="1_f25i0"]
+
+[node name="BaseScene" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.916286, -0.206208, 0.343364, -0.0962105, 0.718865, 0.688459, -0.388798, -0.663861, 0.638847, 1.26861, 2.7229, 2.313)
+
+[node name="StaticBody3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1.81127, 0, 0, 0, 5.8054, 0, 0, 0, 1.71586, -2.62656, 0, -2.80663)
+
+[node name="StaticBody3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(2.02309, 0, 0, 0, 1, 0, 0, 0, 2.94772, 0.857515, 0, 0.266447)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.751943, 0.659228, 0, -0.659228, 0.751943, 0, 60.8833, 4.01787)
+
+[node name="RoomManager" parent="." instance=ExtResource("1_f25i0")]

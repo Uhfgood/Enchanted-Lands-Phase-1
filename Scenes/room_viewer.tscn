@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://csugjk6wb2ag8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utic4"]
+bg_color = Color(0.0068, 0.0476, 0.17, 0.313726)
+
+[node name="RoomViewer" type="Node"]
+
+[node name="Description" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_utic4")
+
+[node name="DescText" type="Label" parent="Description"]
+custom_minimum_size = Vector2(1896, 1056)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -948.0
+offset_top = -528.0
+offset_right = 948.0
+offset_bottom = 528.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.97, 0.612555, 0.3201, 1)
+theme_override_colors/font_outline_color = Color(0.31, 0.195765, 0.1023, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+text = "Lorem ipsum odor amet, consectetuer adipiscing elit. Integer lectus dignissim nam placerat, montes nisl elementum velit. Senectus feugiat gravida nunc habitasse auctor, sapien risus orci. Gravida eu dictumst facilisis molestie ridiculus at orci himenaeos dui. Sodales augue parturient mollis nibh dolor cursus vestibulum. Dapibus ornare turpis morbi justo enim eleifend fames. Nostra efficitur tincidunt luctus libero tincidunt. Lobortis consequat pharetra nunc iaculis consectetur morbi; est magna. Quisque fames feugiat condimentum tellus felis elementum. Mollis lacinia penatibus accumsan augue consectetur. Donec etiam torquent libero aliquam habitant justo. Porttitor elementum dignissim molestie sapien orci parturient nec finibus. Dictum ut vehicula mollis tincidunt conubia purus pretium accumsan? Sociosqu vivamus euismod volutpat venenatis luctus natoque luctus varius. Facilisi vitae quisque, sit lacinia nostra sed. Eros pretium cubilia mus facilisi; cubilia semper. Faucibus fames placerat lectus; malesuada venenatis viverra mauris. Hac varius viverra urna lobortis eu quis nascetur. Ex mus diam molestie cursus fermentum lacinia. Phasellus quisque cursus nibh magna ligula hac praesent lacinia. Eget euismod massa mi suspendisse dis ultrices. Blandit nisi habitant eu curabitur quis arcu. Molestie tristique hac mus natoque nisl; volutpat est penatibus. Iaculis feugiat cubilia cursus finibus tortor vel purus leo. Quisque semper velit justo orci, rutrum torquent pretium nibh. Lectus pretium himenaeos posuere volutpat suspendisse. Augue ex tempor rhoncus penatibus cras. Hac aliquam porta ut nec laoreet odio enim. Interdum sodales maecenas aliquet erat penatibus eu. Ac dapibus parturient lobortis vulputate dolor. Molestie varius mauris nulla adipiscing ultricies mus quisque ridiculus imperdiet. Cubilia odio aliquam fames amet fames. Senectus accumsan faucibus penatibus orci quam parturient maecenas phasellus felis. Nisi amet aenean malesuada aliquet semper. Montes magnis fames erat iaculis aliquet cras inceptos. Turpis et tincidunt facilisis curabitur urna vulputate dolor. Dapibus vitae lobortis a id risus nam habitasse. Fringilla augue mollis litora senectus blandit nunc. Rutrum venenatis luctus morbi habitasse integer parturient. Mi ullamcorper ullamcorper nostra curae parturient magna taciti taciti. Sapien sollicitudin nascetur at pellentesque montes urna. Ultricies mattis metus commodo nunc varius pulvinar mi velit. Ullamcorper turpis mus fermentum vivamus nam. Laoreet lacus eget proin sapien arcu suscipit primis. Ultricies morbi etiam, eget mi ultrices tempus. Lectus dapibus urna convallis a interdum etiam litora. Congue dui himenaeos aliquam potenti aliquam neque rutrum maecenas. Dui duis ridiculus torquent cras diam mauris ullamcorper. Phasellus placerat justo; a risus adipiscing venenatis mauris. Parturient primis orci lacus curae tincidunt vulputate pharetra. Platea ultricies ullamcorper in vehicula inceptos adipiscing torquent. Elementum metus quis nam hac taciti. Integer morbi purus; natoque ligula dapibus aliquet. Luctus urna aptent diam ligula et. Nostra dictum egestas enim mus tempus felis. Nisl nullam cubilia non accumsan sit massa orci dignissim imperdiet. Euismod scelerisque viverra pretium porta id class potenti nisi nascetur. Condimentum volutpat dignissim vulputate molestie Ac dapibus parturient lobortis vulputate dolor. Molestie varius mauris nulla adipiscing ultricies mus quisque ridiculus imperdiet. Cubilia odio aliquam fames amet fames. Senectus accumsan faucibus penatibus orci quam parturient maecenas phasellus felis. Nisi amet aenean malesuada aliquet semper. Montes magnis fames erat iaculis aliquet cras inceptos. Turpis et tincidunt facilisis curabitur urna vulputate dolor. Dapibus vitae lobortis a id risus nam habitasse. Fringilla augue mollis litora senectus blandit nunc. Rutrum venenatis luctus morbi habitasse integer parturient. Mi ullamcorper ullamcorper nostra curae parturient magna taciti taciti. Sapien sollicitudin nascetur at pellentesque montes urna. Ultricies mattis metus commodo nunc varius pulvinar mi velit. Ullamcorper turpis mus fermentum vivamus nam. Laoreet lacus eget proin sapien arcu suscipit primis. Ultricies morbi etiam, eget mi ultrices tempus. Lectus dapibus urna convallis a interdum etiam litora. Congue dui himenaeos aliquam potenti aliquam neque rutrum maecenas. Dui duis ridiculus torquent cras diam mauris ullamcorper. Phasellus placerat"
+autowrap_mode = 2
+clip_text = true

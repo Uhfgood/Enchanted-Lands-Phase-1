@@ -1,0 +1,83 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw87e00ukspf7"]
+
+[ext_resource type="Script" path="res://Scripts/RoomManager.gd" id="1_10ltg"]
+[ext_resource type="Script" path="res://Scripts/RoomDescriptor.gd" id="1_efxkw"]
+[ext_resource type="PackedScene" uid="uid://csugjk6wb2ag8" path="res://Scenes/room_viewer.tscn" id="2_m61cp"]
+
+[node name="RoomManager" type="Node"]
+script = ExtResource("1_10ltg")
+
+[node name="RoomViewer" parent="." instance=ExtResource("2_m61cp")]
+
+[node name="RoomStart" type="Node" parent="."]
+script = ExtResource("1_efxkw")
+description = "Welcome to Nightmare Castle!
+
+Hit 1. to Start
+
+Hit 0. to exit."
+choices = Array[String](["", "crossroads", "", "", "", "", "", "", "", ""])
+
+[node name="Crossroads" type="Node" parent="RoomStart"]
+script = ExtResource("1_efxkw")
+room_name = "crossroads"
+description = "You're standing at a crossroads.  There's a signpost which has 4 destinations.  Pointing to the right is  a sign that reads \"Nightmare Castle\", pointing to the left is a sign that reads \"Pleasant Village\".  Pointing south says \"To Beach\", and pointing north says \"Mountains of Ice\".
+
+Where would you like to go?
+Hit 1 to go to Nightmare Castle.
+Hit 2 to go to Pleasant Village.
+Hit 3 to go to the beach.
+Hit 4 to go to the mountains. 
+
+Hit 0 to exit."
+choices = Array[String](["", "nightmare_castle", "pleasant_village", "the_beach", "ice_mountains", "", "", "", "", ""])
+
+[node name="NightmareCastle" type="Node" parent="RoomStart/Crossroads"]
+script = ExtResource("1_efxkw")
+room_name = "nightmare_castle"
+description = "Here you are at a forboding and dark castle, aptly named \"Nightmare Castle\".
+
+Hit 1. to go back to the crossroads.
+
+Hit 0 to exit."
+choices = Array[String](["", "crossroads", "", "", "", "", "", "", "", ""])
+
+[node name="PleasantVillage" type="Node" parent="RoomStart/Crossroads"]
+script = ExtResource("1_efxkw")
+room_name = "pleasant_village"
+description = "Here we are in friendly Pleasant Village.  Where everyone is welcoming and friendly.
+
+Hit 1. to go back to the crossroads.
+
+Hit 0 to exit."
+choices = Array[String](["", "crossroads", "", "", "", "", "", "", "", ""])
+
+[node name="beach" type="Node" parent="RoomStart/Crossroads"]
+script = ExtResource("1_efxkw")
+room_name = "the_beach"
+description = "Miles of beach go in either direction.
+
+Hit 1. to go back to the crossroads.
+
+Hit 0 to exit."
+choices = Array[String](["", "crossroads", "", "", "", "", "", "", "", ""])
+
+[node name="mountains" type="Node" parent="RoomStart/Crossroads"]
+script = ExtResource("1_efxkw")
+room_name = "ice_mountains"
+description = "Here we are at the forboding Mountains of Ice.  (By the way that's actually it's name too.)  From here you can just spot a cave made of ice at the base of the mountains.
+
+Hit 1. to go back to the crossroads.
+Hit 2. to go to the cave.
+Hit 0 to exit."
+choices = Array[String](["", "crossroads", "icecave", "", "", "", "", "", "", ""])
+
+[node name="icecave" type="Node" parent="RoomStart/Crossroads/mountains"]
+script = ExtResource("1_efxkw")
+room_name = "icecave"
+description = "Here is an icey cave.
+
+Hit 1. to return to the base of the mountains.
+
+Hit 0. to exit."
+choices = Array[String](["", "ice_mountains", "", "", "", "", "", "", "", ""])
