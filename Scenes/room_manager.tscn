@@ -26,7 +26,18 @@ description = "Welcome to Enchanted Lands!  Take a magical vacation, slay a drag
 
 Hubert Halfway is your standard old Wizard.  No one knows his real age, but he has a long white, fluffy, beard, and is currently sporting a pointy blue hat.  While in the castle one day, (that is the administration castle where Enchanted Lands is run), he overheard a familiar female voice, speaking to some other male, regarding buying up the Lands.  When he went to the King about it, the King simply dismissed it.  In fact he acted rather cold toward Hubert, even though they had been friends a long, long time.  Hubert tried to go to the different schools, but they were all closed.  All except Knight school, and he couldn’t get any answers there.  Trying to go to any restaurant or hotel also yielded no help.  He realized he couldn’t trust anyone there, almost except one old friend, so he decided he needed to get some outside help.
 
-Hubert goes to his home, steps through the front door, to a small foyer, where a medium sized table sits in the middle of the floor, and on top is a large book, that reads “Book of Spells”.  Walking to the table.  He looks to the left, to see “the study”.  To the right, he sees what looks like a room full of silly hats adorning the walls. To the north is the rest of the house, but knowing he’s got to get busy, he decides he’s not going to go through the rest of the house.  The important things are either in the study or the hat room.
+Hubert Halfway, the wizard with only half of his magic is standing at the Renaissance Faire (otherwise known as Orthogon Alley) which is basically the street with all of the shoppes and hotels and restaurants.  At the far end of the street is what looks to be almost like a mini-castle, but is in actuality the Grand Enchanted Landian Hotel..  
+
+Hit \"1\"  if you wish to visit Hubert's abode.
+
+Hit \"0\" (zero) to quit.
+"
+choices = Array[String](["", "halfway_house", "", "", "", "", "", "", "", ""])
+
+[node name="HalfwayHouse" type="Node" parent="MainMenu/StartHere"]
+script = ExtResource("1_efxkw")
+room_name = "halfway_house"
+description = "Hubert goes to his home, steps through the front door, to a small foyer, where a medium sized table sits in the middle of the floor, and on top is a large book, that reads “Book of Spells”.  Walking to the table.  He looks to the left, to see “the study”.  To the right, he sees what looks like a room full of silly hats adorning the walls. To the north is the rest of the house, but knowing he’s got to get busy, he decides he’s not going to go through the rest of the house.  The important things are either in the study or the hat room.
 
 Hit 1 If you wish to go to the study.
 Hit 2 If you wish to go to the hat room. 
@@ -36,28 +47,35 @@ Hit 0. to quit.
 "
 choices = Array[String](["", "study", "hat_room", "book_of_spells", "", "", "", "", "", ""])
 
-[node name="Study" type="Node" parent="MainMenu/StartHere"]
+[node name="Study" type="Node" parent="MainMenu/StartHere/HalfwayHouse"]
 script = ExtResource("1_efxkw")
 room_name = "study"
 description = "Here you see tons of books and you start to look through them.
-Hit 0. to quit.
-"
-choices = Array[String](["", "study", "hat_room", "book_of_spells", "", "", "", "", "", ""])
 
-[node name="HatRoom" type="Node" parent="MainMenu/StartHere"]
+Hit \"1\" to go back to the foyer.
+
+Hit \"0\" (zero) to quit.
+"
+choices = Array[String](["", "halfway_house", "", "", "", "", "", "", "", ""])
+
+[node name="HatRoom" type="Node" parent="MainMenu/StartHere/HalfwayHouse"]
 script = ExtResource("1_efxkw")
 room_name = "hat_room"
-description = "In here you see a multiude of hats.  You try some on, and notice most of them are really silly, so you take them off and then wait.
+description = "Here you are in the gigantic hat room.  On the left wall as you enter in, you notice several shelves with hats all across it.  In front of you, stands a small table like the one in the foyer, with a single blue pointy hat.  In other words, a standard Wizards hat.  Behind the table is a half-height mirror, from which to view your stylish headpieces.  To the right of the mirror is a wall twice as long as the left wall with more shelves and more hats.  In the middle of the north wall, are what appear to be handles.  Hubert pulls the handles forward and then pushes them to the side, to reveal a large closet almost as large as the hat room itself, inside, even more head pieces.  On a stand in the middle of the closet is a several dozen hairpieces.  There's another mirror this time on the right wall of the closet.  After examing the closet he closes it.  And then looks at the right wall of the hat room  Which has more shelves and more hats, and a door in the center.  
 
-Hit 0. to quit.
+Hit \"1\" to go back to the foyer.
+
+Hit \"0\" (zero) to quit.
 "
-choices = Array[String](["", "study", "hat_room", "book_of_spells", "", "", "", "", "", ""])
+choices = Array[String](["", "halfway_house", "", "", "", "", "", "", "", ""])
 
-[node name="BookOfSpells" type="Node" parent="MainMenu/StartHere"]
+[node name="BookOfSpells" type="Node" parent="MainMenu/StartHere/HalfwayHouse"]
 script = ExtResource("1_efxkw")
 room_name = "book_of_spells"
 description = "Here on the table before you is the book of spells.  As you open it, you notice it's full of nothing but pictures of sillly hats.
 
-Hit 0. to quit.
+Hit \"1\" to go back to the foyer.
+
+Hit \"0\" (zero) to quit.
 "
-choices = Array[String](["", "study", "hat_room", "book_of_spells", "", "", "", "", "", ""])
+choices = Array[String](["", "halfway_house", "", "", "", "", "", "", "", ""])
