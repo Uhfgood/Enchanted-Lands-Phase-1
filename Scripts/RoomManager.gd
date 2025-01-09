@@ -17,6 +17,14 @@ func ChangeRoom( new_room : Node ) -> void:
 	else:
 		print( "either curr_room or viewer_text not valid" )
 
+func FindConnectedRoom( room_name : String ) -> RoomDescriptor:
+	var rooms = self.get_children()
+	for room in rooms:
+		if room is RoomDescriptor:
+			if room.room_name == room_name:
+				return room
+	return null
+	
 # return a room if it's connected to the current room.
 func GetConnectedRoom( room_name : String ) -> RoomDescriptor:	
 	var parent = null
@@ -56,7 +64,8 @@ func _input( event : InputEvent ) -> void:
 		var action_name = "choice" + str(choice_number)
 		if event.is_action_pressed( action_name ):
 			if curr_room.choices[ choice_number ] != "":
-				choice = GetConnectedRoom( curr_room.choices[ choice_number ] )
+				#choice = GetConnectedRoom( curr_room.choices[ choice_number ] )
+				choice = FindConnectedRoom( curr_room.choices[ choice_number ] )
 				if choice:
 					ChangeRoom( choice )
 					
