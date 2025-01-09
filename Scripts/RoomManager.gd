@@ -44,7 +44,7 @@ func FindRoomWithName( node: RoomDescriptor, room_name : String ) -> RoomDescrip
 				return result
 	return null
 
-# return a room anywhere on the tree (starting with RoomStart)
+# return a room anywhere on the tree (starting with MainMenu)
 func GetRoom(room_name: String) -> Node:
 	return FindRoomWithName(main_menu, room_name)
 
