@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdrtxrmmhtk5p"]
+
+[ext_resource type="Script" path="res://Scripts/RoomDescriptor.gd" id="1_j7ndr"]
+
+[node name="BookOfSpells" type="Node"]
+script = ExtResource("1_j7ndr")
+room_name = "book_of_spells"
+description = "Here on the table before you is the book of spells.  As you open it, you notice it's full of nothing but pictures of sillly hats.
+
+Hit \"1\" to go back to the foyer.
+
+Hit \"0\" (zero) to quit.
+"
+choices = Array[String](["", "halfway_house", "", "", "", "", "", "", "", ""])

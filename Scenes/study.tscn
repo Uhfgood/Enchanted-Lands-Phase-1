@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://djpcb0p1dshqr"]
+
+[ext_resource type="Script" path="res://Scripts/RoomDescriptor.gd" id="1_hjyxe"]
+
+[node name="Study" type="Node"]
+script = ExtResource("1_hjyxe")
+room_name = "study"
+description = "Here you see tons of books and you start to look through them.
+
+Hit \"1\" to go back to the foyer.
+
+Hit \"0\" (zero) to quit.
+"
+choices = Array[String](["", "halfway_house", "", "", "", "", "", "", "", ""])

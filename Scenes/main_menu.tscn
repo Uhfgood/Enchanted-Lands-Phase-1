@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dso0cobuwu2e2"]
+
+[ext_resource type="Script" path="res://Scripts/RoomDescriptor.gd" id="1_csiqd"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_csiqd")
+room_name = "main_menu"
+description = "Main Menu
+
+Hit 1. to Start
+
+Hit 0. to exit."
+choices = Array[String](["", "start_here", "", "", "", "", "", "", "", ""])

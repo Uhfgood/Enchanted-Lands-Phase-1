@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccv6p5khscvta"]
+
+[ext_resource type="Script" path="res://Scripts/RoomDescriptor.gd" id="1_jact8"]
+
+[node name="HatRoom" type="Node"]
+script = ExtResource("1_jact8")
+room_name = "hat_room"
+description = "Here you are in the gigantic hat room.  On the left wall as you enter in, you notice several shelves with hats all across it.  In front of you, stands a small table like the one in the foyer, with a single blue pointy hat.  In other words, a standard Wizards hat.  Behind the table is a half-height mirror, from which to view your stylish headpieces.  To the right of the mirror is a wall twice as long as the left wall with more shelves and more hats.  In the middle of the north wall, are what appear to be handles.  Hubert pulls the handles forward and then pushes them to the side, to reveal a large closet almost as large as the hat room itself, inside, even more head pieces.  On a stand in the middle of the closet is a several dozen hairpieces.  There's another mirror this time on the right wall of the closet.  After examing the closet he closes it.  And then looks at the right wall of the hat room  Which has more shelves and more hats, and a door in the center.  
+
+Hit \"1\" to go back to the foyer.
+
+Hit \"0\" (zero) to quit.
+"
+choices = Array[String](["", "halfway_house", "", "", "", "", "", "", "", ""])
