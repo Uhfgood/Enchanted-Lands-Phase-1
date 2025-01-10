@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://dso0cobuwu2e2"]
 
-[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_csiqd"]
+[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_5ovut"]
 
 [node name="MainMenu" type="Node"]
-script = ExtResource("1_csiqd")
+script = ExtResource("1_5ovut")
 room_name = "main_menu"
 description = "Main Menu
 

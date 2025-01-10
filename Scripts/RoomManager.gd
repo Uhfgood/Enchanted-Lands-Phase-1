@@ -17,7 +17,7 @@ func ChangeRoom( new_room : String ) -> void:
 		curr_room = null
 	
 	if curr_room == null:
-		curr_room = load( "res://Scenes/" + new_room + ".tscn" ).instantiate()
+		curr_room = load( "res://Scenes/Rooms/" + new_room + ".tscn" ).instantiate()
 		add_child( curr_room )
 		
 	if curr_room and viewer_text:
