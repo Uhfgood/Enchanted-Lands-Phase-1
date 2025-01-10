@@ -1,10 +1,10 @@
 extends Node
 
 @onready var room_viewer: Node = $RoomViewer
-@onready var main_menu: RoomDescriptor = $MainMenu
+@onready var main_menu: Room = $MainMenu
 @onready var viewer_text: Node = $RoomViewer/Description/DescText
 
-var curr_room : RoomDescriptor = null
+var curr_room : Room = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,31 +17,31 @@ func ChangeRoom( new_room : Node ) -> void:
 	else:
 		print( "either curr_room or viewer_text not valid" )
 
-func FindConnectedRoom( room_name : String ) -> RoomDescriptor:
+func FindConnectedRoom( room_name : String ) -> Room:
 	var rooms = self.get_children()
 	for room in rooms:
-		if room is RoomDescriptor:
+		if room is Room:
 			if room.room_name == room_name:
 				return room
 	return null
 	
 # return a room if it's connected to the current room.
-func GetConnectedRoom( room_name : String ) -> RoomDescriptor:	
+func GetConnectedRoom( room_name : String ) -> Room:	
 	var parent = null
 	if curr_room:
 		parent = curr_room.get_parent()
 			
-	if parent and parent is RoomDescriptor and parent.room_name == room_name:
+	if parent and parent is Room and parent.room_name == room_name:
 		return parent 
 	else:
 		var children = curr_room.get_children()
 		for child in children:
-			if( child is RoomDescriptor ):
+			if( child is Room ):
 				if( child.room_name == room_name ):
 					return child
 	return null
 	
-func FindRoomWithName( node: RoomDescriptor, room_name : String ) -> RoomDescriptor:
+func FindRoomWithName( node: Room, room_name : String ) -> Room:
 	if "room_name" in node:
 		if( room_name == node.room_name ):
 			return node
@@ -57,7 +57,7 @@ func GetRoom(room_name: String) -> Node:
 	return FindRoomWithName(main_menu, room_name)
 
 func _input( event : InputEvent ) -> void:
-	var choice : RoomDescriptor = null;
+	var choice : Room = null;
 	var choice_number = 1
 	
 	while choice_number <= 9:
