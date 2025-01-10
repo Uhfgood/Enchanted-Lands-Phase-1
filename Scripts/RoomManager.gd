@@ -28,15 +28,21 @@ func ChangeRoom( new_room : String ) -> void:
 func _input( event : InputEvent ) -> void:
 	#var choice : Room = null;
 	var choice_number = 1
+
+	var doors = curr_room.get_children()
 	
 	while choice_number <= 9:
 		var action_name = "choice" + str(choice_number)
 		if event.is_action_pressed( action_name ):
 			if curr_room.choices[ choice_number ] != "":
 				ChangeRoom( curr_room.choices[ choice_number ] )
-					
+			else:
+				for door in doors:
+					if choice_number == int( door.choice ):
+						ChangeRoom( door.destination )
+				
 		choice_number += 1
-		
+	
 	if event.is_action_pressed("choice0"):
 		if curr_room != null:
 			remove_child( curr_room )

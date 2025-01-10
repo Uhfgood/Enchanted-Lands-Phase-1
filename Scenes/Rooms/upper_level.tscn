@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgr5modcdirff"]
+
+[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_tv56r"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_bjjtl"]
+
+[node name="UpperLevel" type="Node"]
+script = ExtResource("1_tv56r")
+room_name = "upper_level"
+description = "Here you are, on the upper level of the study with even more books to go through!
+
+Hit 1. to go back to the lower level.
+
+Hit 0. to exit."
+
+[node name="DoorToStudy" type="Node" parent="."]
+script = ExtResource("2_bjjtl")
+choice = "1"
+destination = "study"
