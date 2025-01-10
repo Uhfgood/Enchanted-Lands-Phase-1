@@ -6,7 +6,9 @@
 [node name="HalfwayHouse" type="Node"]
 script = ExtResource("1_n0huh")
 room_name = "halfway_house"
-description = "Hubert goes to his home, steps through the front door, to a small foyer, where a medium sized table sits in the middle of the floor, and on top is a large book, that reads “Book of Spells”.  Walking to the table.  He looks to the left, to see “the study”.  To the right, he sees what looks like a room full of silly hats adorning the walls. To the north is the rest of the house, but knowing he’s got to get busy, he decides he’s not going to go through the rest of the house.  The important things are either in the study or the hat room.
+description = "HUBERT'S ABODE
+
+Hubert goes to his home, steps through the front door, to a small foyer, where a medium sized table sits in the middle of the floor, and on top is a large book, that reads “Book of Spells”.  Walking to the table.  He looks to the left, to see “the study”.  To the right, he sees what looks like a room full of silly hats adorning the walls. To the north is the rest of the house, but knowing he’s got to get busy, he decides he’s not going to go through the rest of the house.  The important things are either in the study or the hat room.
 
 Hit 1 If you wish to go to the study.
 Hit 2 If you wish to go to the hat room. 

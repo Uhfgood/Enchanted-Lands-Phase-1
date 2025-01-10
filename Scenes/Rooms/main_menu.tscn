@@ -6,7 +6,7 @@
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_5ovut")
 room_name = "main_menu"
-description = "Main Menu
+description = "MAIN MENU:
 
 Hit 1. to Start
 

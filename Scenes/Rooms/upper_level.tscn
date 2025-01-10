@@ -6,7 +6,9 @@
 [node name="UpperLevel" type="Node"]
 script = ExtResource("1_tv56r")
 room_name = "upper_level"
-description = "Here you are, on the upper level of the study with even more books to go through!
+description = "STUDY: UPPER LEVEL
+
+Here you are, on the upper level of the study with even more books to go through!
 
 Hit 1. to go back to the lower level.
 

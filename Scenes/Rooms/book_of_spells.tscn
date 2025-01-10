@@ -6,7 +6,9 @@
 [node name="BookOfSpells" type="Node"]
 script = ExtResource("1_j7ndr")
 room_name = "book_of_spells"
-description = "Here on the table before you is the book of spells.  As you open it, you notice it's full of nothing but pictures of sillly hats.
+description = "BOOK OF SPELLS
+
+Here on the table before you is the book of spells.  As you open it, you notice it's full of nothing but pictures of sillly hats.
 
 Hit \"1\" to go back to the foyer.
 

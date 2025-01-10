@@ -6,7 +6,9 @@
 [node name="Study" type="Node"]
 script = ExtResource("1_hjyxe")
 room_name = "study"
-description = "Here you see tons of books and you start to look through them.  You also notice an upper level also filled with books.
+description = "STUDY, LOWER LEVEL
+
+Here you see tons of books and you start to look through them.  You also notice an upper level also filled with books.
 
 Hit \"1\" to go back to the foyer.
 Hit \"2\" to go to the upper level.
