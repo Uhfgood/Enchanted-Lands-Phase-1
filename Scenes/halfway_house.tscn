@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bnqpw7pljcfxl"]
 
-[ext_resource type="Script" path="res://Scripts/RoomDescriptor.gd" id="1_ysi31"]
+[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_ysi31"]
 
 [node name="HalfwayHouse" type="Node"]
 script = ExtResource("1_ysi31")

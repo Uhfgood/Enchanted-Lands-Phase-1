@@ -1,27 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bw87e00ukspf7"]
+[gd_scene load_steps=3 format=3 uid="uid://bw87e00ukspf7"]
 
 [ext_resource type="Script" path="res://Scripts/RoomManager.gd" id="1_10ltg"]
 [ext_resource type="PackedScene" uid="uid://csugjk6wb2ag8" path="res://Scenes/room_viewer.tscn" id="2_m61cp"]
-[ext_resource type="PackedScene" uid="uid://dso0cobuwu2e2" path="res://Scenes/main_menu.tscn" id="3_ukok3"]
-[ext_resource type="PackedScene" uid="uid://dvxuqwchtb3v3" path="res://Scenes/start_here.tscn" id="4_c2d58"]
-[ext_resource type="PackedScene" uid="uid://bnqpw7pljcfxl" path="res://Scenes/halfway_house.tscn" id="5_3m2ii"]
-[ext_resource type="PackedScene" uid="uid://djpcb0p1dshqr" path="res://Scenes/study.tscn" id="6_4pong"]
-[ext_resource type="PackedScene" uid="uid://ccv6p5khscvta" path="res://Scenes/hat_room.tscn" id="7_1j3u7"]
-[ext_resource type="PackedScene" uid="uid://cdrtxrmmhtk5p" path="res://Scenes/book_of_spells.tscn" id="8_cxi0r"]
 
 [node name="RoomManager" type="Node"]
 script = ExtResource("1_10ltg")
 
 [node name="RoomViewer" parent="." instance=ExtResource("2_m61cp")]
-
-[node name="MainMenu" parent="." instance=ExtResource("3_ukok3")]
-
-[node name="StartHere" parent="." instance=ExtResource("4_c2d58")]
-
-[node name="HalfwayHouse" parent="." instance=ExtResource("5_3m2ii")]
-
-[node name="Study" parent="." instance=ExtResource("6_4pong")]
-
-[node name="HatRoom" parent="." instance=ExtResource("7_1j3u7")]
-
-[node name="BookOfSpells" parent="." instance=ExtResource("8_cxi0r")]
