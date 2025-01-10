@@ -34,8 +34,9 @@ func _input( event : InputEvent ) -> void:
 	while choice_number <= 9:
 		var action_name = "choice" + str(choice_number)
 		if event.is_action_pressed( action_name ):
-			if curr_room.choices[ choice_number ] != "":
-				ChangeRoom( curr_room.choices[ choice_number ] )
+			if "choices" in curr_room:
+				if curr_room.choices[ choice_number ] != "":
+					ChangeRoom( curr_room.choices[ choice_number ] )
 			else:
 				for door in doors:
 					if choice_number == int( door.choice ):

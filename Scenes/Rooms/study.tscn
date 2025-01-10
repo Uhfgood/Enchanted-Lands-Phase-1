@@ -13,9 +13,13 @@ Hit \"2\" to go to the upper level.
 
 Hit \"0\" (zero) to quit.
 "
-choices = Array[String](["", "halfway_house", "", "", "", "", "", "", "", ""])
 
 [node name="DoorToUpperLevel" type="Node" parent="."]
 script = ExtResource("2_53s0g")
 choice = "2"
 destination = "upper_level"
+
+[node name="DoorToFoyer" type="Node" parent="."]
+script = ExtResource("2_53s0g")
+choice = "1"
+destination = "halfway_house"

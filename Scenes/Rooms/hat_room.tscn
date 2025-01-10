@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccv6p5khscvta"]
+[gd_scene load_steps=3 format=3 uid="uid://ccv6p5khscvta"]
 
 [ext_resource type="Script" path="res://Scripts/Room.gd" id="1_jact8"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_w6m7x"]
 
 [node name="HatRoom" type="Node"]
 script = ExtResource("1_jact8")
@@ -11,4 +12,8 @@ Hit \"1\" to go back to the foyer.
 
 Hit \"0\" (zero) to quit.
 "
-choices = Array[String](["", "halfway_house", "", "", "", "", "", "", "", ""])
+
+[node name="DoorToFoyer" type="Node" parent="."]
+script = ExtResource("2_w6m7x")
+choice = "1"
+destination = "halfway_house"

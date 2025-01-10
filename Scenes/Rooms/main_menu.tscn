@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dso0cobuwu2e2"]
+[gd_scene load_steps=3 format=3 uid="uid://dso0cobuwu2e2"]
 
 [ext_resource type="Script" path="res://Scripts/Room.gd" id="1_5ovut"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_tialj"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_5ovut")
@@ -10,4 +11,8 @@ description = "Main Menu
 Hit 1. to Start
 
 Hit 0. to exit."
-choices = Array[String](["", "start_here", "", "", "", "", "", "", "", ""])
+
+[node name="DoorToGameStart" type="Node" parent="."]
+script = ExtResource("2_tialj")
+choice = "1"
+destination = "start_here"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnqpw7pljcfxl"]
+[gd_scene load_steps=3 format=3 uid="uid://bnqpw7pljcfxl"]
 
 [ext_resource type="Script" path="res://Scripts/Room.gd" id="1_n0huh"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_gg8is"]
 
 [node name="HalfwayHouse" type="Node"]
 script = ExtResource("1_n0huh")
@@ -13,4 +14,18 @@ Hit 3 If you would you like to examine the “Book of spells”
 
 Hit 0. to quit.
 "
-choices = Array[String](["", "study", "hat_room", "book_of_spells", "", "", "", "", "", ""])
+
+[node name="DoorToStudy" type="Node" parent="."]
+script = ExtResource("2_gg8is")
+choice = "1"
+destination = "study"
+
+[node name="DoorToHatRoom" type="Node" parent="."]
+script = ExtResource("2_gg8is")
+choice = "2"
+destination = "hat_room"
+
+[node name="DoorToBookOfSpells" type="Node" parent="."]
+script = ExtResource("2_gg8is")
+choice = "3"
+destination = "book_of_spells"

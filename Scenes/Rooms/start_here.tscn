@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvxuqwchtb3v3"]
+[gd_scene load_steps=3 format=3 uid="uid://dvxuqwchtb3v3"]
 
 [ext_resource type="Script" path="res://Scripts/Room.gd" id="1_rv5wo"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_xxwqi"]
 
 [node name="StartHere" type="Node"]
 script = ExtResource("1_rv5wo")
@@ -15,4 +16,8 @@ Hit \"1\"  if you wish to visit Hubert's abode.
 
 Hit \"0\" (zero) to quit.
 "
-choices = Array[String](["", "halfway_house", "", "", "", "", "", "", "", ""])
+
+[node name="DoorToHubertsHouse" type="Node" parent="."]
+script = ExtResource("2_xxwqi")
+choice = "1"
+destination = "halfway_house"
