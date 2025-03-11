@@ -1,0 +1,3 @@
+Typical play of CYOA-style game consists of a description that shows up on the screen, and a list of choices below indicated by a character or letter you must press to choose it.
+
+When you make a choice, it will switch to whatever that choice links to.

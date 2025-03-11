@@ -1,0 +1,89 @@
+Intro video notes:
+
+Wanted to provide a comprehensive behind the scenes look at making an adventure game.  
+
+This is for anyone who likes watching behind-the-scenes footage of their favorite movies, or dvd audio commentary, or someone who goes to the arcade and instead of playing, enjoys watching other people playing.
+
+Impetus was Double Fine Adventure (Broken Age) documentary not providing much useful info.  
+
+Noting how I created the story years ago, and so can't provide as much insight into my story/character creation.  However I can provide the format for my notes, and just a few things I remember.
+
+Too many games out, and too easy to play anything you want.  Difficulty of making a living from games. 
+
+Realizing that many people make money with videos, either on YouTube or other platforms, and thinking I might want to do that.
+
+I decided to focus on the development and the documenting of it, rather than the end result and/or selling it.
+
+Because of this, I will be providing spoilers, solutions to puzzles, etc.  As I will be developing it and documenting it.
+
+This is something I've wanted to create since at least 2010 perhaps even earlier, and I had started or attempted to start several times, never making any progress.
+
+I planned on doing a smaller prequel in AGS but ran into some technical difficulties implementing my custom interface.
+
+Tried to start another video series about the making, which included learning, but ended up with a few blender process videos, and going through a few tutorials.
+
+Using the documenting process to help me develop the game.
+
+--------------------------------------------------------------------------
+
+Hey!  I need your help.  So I've been trying to make this Point and Click adventure game for almost 20 years, but was never really able to do it.  If you don't know what an adventure game is, it's basically a narrative based game, that encourages exploration and puzzle solving.  I could really go on about the history of adventure games, but I really just want to get to my problem of making one.
+
+So I had a couple of ideas for stories (really I'm always thinking about games, so not necessarily books, sometimes movies, but mostly games), one was about a guy who goes from our world into some fantasy land, where it turns out he's the lost 7th son of the King and Queen of the land.  Another one I had this world, that was broken apart into pieces (I guess that kind of sounds like Death Gate, but, I wasn't really thinking of that at the time), and there's a huge machine you have to activate in order to bring the pieces back together.
+
+I tend to come up with ideas all the time, but don't necessarily do anything with them, or even in some cases write them down.  One of the ideas I came up with around 2005, was about a magic kingdom, that turned itself into a tourist resort, but had fallen on hard times.  So I tend to think in terms of movies, and I was picturing the opening scene, and then I came up some characters, and then more characters.  Eventually I sort of wrote out each character's bio, and a bit of history, and then wrote their adventures as plot points as if I were writing a movie screenplay.
+
+Once I got everything done, I think later on I rewrote it and reworked some of teh characters, and so I decided I wanted to try making it.  But it's like too big, and I know some people would say, start something small.  I've never been the kind of guy to start small, but then again I'm not the kind of guy that finishes much either.  I also came up with some things which are sort of different than typical ideas.  I want you to play the villains even though ultimately the villains don't win.  
+
+I wanted to do a different than typical UI.  I was using computers around the late 80's early 90's, and so I really like the old Sierra games, which utilized a text parser (as well as some text adventures, but I really didn't play much of those back then).  So I wanted that sort of flexibility in my game.  Around the early-to-mid 90's most games had a point and click interface.  
+
+Lucasarts utilized a sort of "verb" panel, like look, open, etc... so you would click on a verb, then click on an object to execute the verb.  They graduated to a verb coin which means an icon representing the various actions appeared on the screen, like look, use, etc...  (eventually Lucasarts did away with any sort of interactive UI, and just relied on the cursor to do an action based on context, in The Dig, you clicked on the screen, and depending on if it was a person or a thing, it might talk or look).  
+
+Sierra's interface was a bit different, they had an icon bar, for walk, look, use, talk, etc, and you could often use the right mouse button to cycle between actions before clicking on the screen.
+
+So my own idea for an interface was to use a pie menu (like a verb coin, but with more items) and allow you to click and drag on it, depending on the direction you were in, execute an action.  This would even work on touch screens, because you could just hold your finger (or left mouse button) and it would pop up the menu, otherwise you would click drag and let go and if you remembered where the action was, it would execute it automatically without popping the menu up.  This wasy I could add in a ton of different options, like look at, on, under, behind, use, grab, push, pull, and so on.
+
+So all this to say that I decided I wanted to use adventure game studio, and I started by doing a little scene, where I could make my pie menu interface.  Eventually I hit some point where it just wasn't doing what I want, and I did like I always do, and shelve it indefinitely.
+
+At one point I was going to make a prequel game, which meant smaller in scope and would tell the story of what happened to arrive at the point in time where the actual game starts.  I did a few backgrounds, and then life got in the way, and I stopped again.
+
+So here comes 2019, and I was going to start a new devlog, and show you how I made this dream game of mine, including everything I needed to learn.  So I started doing some videos, where I went through a few tutorials, (at this time I was thinking about using Unity), I also started to do some sketches of characters, and some early blender modelling for the throne/meeting room.  I made something like 600+ videos, that you can see if you want, but they are all utter rubbish.  I'm boring, my voice sounds nasally, and in the end I didn't want to spend all that time editing, so I got good at using vlc to play back videos of me doing some of the drawing or tutorials, and sort of did it in one take.  
+
+As you can tell, this doesn't make for very interesting videos.  So here it is 4 years later, and I'm going to try to do this again, but this time, I'm hopefully going to make it more interesting.  More time and care in the editing, and I'm going to show actual game progress.  Essentially I would like to maybe make some money off of this by doing the videos, insead of focusing on the game selling, I would isntead focus on the videos of the game creation process, and hopefully some people would find it interesting enough to support me (maybe).
+
+So in order to help me actually make this game, I decided to break it up into phases, and start with the simplest I could start with.  A choose your own adventure stlye game.  Then I would in the next phase start adding static images, the more interactive elements, eventually it should be a fully graphical point and click game.  To also help me out I got chatGPT to help me build this road map.
+
+So this is really where YOU come in.  I'm going to need you to come on this adventure about making adventures, with me.  Are you game?  (come on this adventure, are you game?  See what I did there?).  I'm basically just asking you to watch these videos, maybe give me feedback, maybe give me suggestions.  Talking out some things will really help me get over some humps, and suggestions will spark ideas.
+
+So let me know what you think.
+
+-------------------------------------------------------------------------------
+
+Been trying to make a point and click adventure game for 20 years.  It's about a real magic kindom turned tourist resort, that has fallen on hard times.  Around 2005 or thereabouts I created the characters in text form, along with their plot lines.
+
+I've tried to start this thing many many times, but always ran into a wall.  And never really finished it.  Around 2009 I started working a prototype for a prequel to the main game in Adventure Game Studio.  Ran into some problems, never continued.
+
+About 4 years ago I decided I would vlog the progress of my "dream game" (so-called), and in the end produced about 600+ boring pieces of content fodder.  But I believe I've figured out, what made it boring, and unwatchable, and am here to try again.
+
+The biggest problem, other than my rather droll delivery, nasally voice, and what appears to be some sort of lisp,  (Do I sound like I have a lisp?), is progress.  I needed to show some actual game progress, which I didn't do before.
+
+So to tell a little bit about myself, without going into too much detail, My name is Keith.  I have social anxiety, so I don't have a job, and have only had one real job in my life.  So since I don't have much money, and I'm not all that comfortable around people, I figured maybe I could make my dream game, and at the same time gain support by filming it.
+
+So here I am and you could help me a lot by giving suggestions,feedback, or whatever, because I have a hard time conceptualizing certain things.  But more about that in my next update! 
+
+------------------------------------------------------------------------------------------
+
+Update 1:
+
+Thanks for joining me again for my first actual update.  The current name of the game is Enchanted Lands.
+
+So what I've been working on, is transferring my notes into the computer.  It took a while since that was about 30 pages worth.  Remember I mentioned using ChatGPT to help me build a roadmap, so let me explain a bit how this is going to work.
+
+So I think you might have heard the term "grayboxing" if you are a game developer at all.  It simply means to creating levels in a 3d game with untextured primatives or "boxes" and since there's no texturing or color, they're usually gray.  You also do this in 2d games, by using shapes, or programmer art, basically not spending any time on content until you get the game play and mechanics worked out.
+
+But I'm making a point-and-click in 2D (it won't be strictly 2d but for development purposes it helps to think of it as a traditional 2d game).  This would mean programmer art, and very little actual graphics, or about as little as I could get away with.
+
+So what's the simplest form of an adventure game?  A choose your own adventure of course!  I know it's a far cry from a fully animated, fully voiced, completely interactive point and click adventure game, but I have a method to my madness.
+
+I'm going to gradually add in things like graphics, and interactivity, until it gets to the finished state.  So i'll start with, the Choose Your Own Adventure style, then I'll start adding in things like navigation as their own choices, and then start adding in static images, and build from there.
+
+This makes it easier for me to learn how to do all of this stuff, as I'm doing it gradually. So let me know what you think of this, and mabye in the next update, I'll actually show you the Roadmap.

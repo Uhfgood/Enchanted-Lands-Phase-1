@@ -1,0 +1,997 @@
+Text adventure:
+
+1. **Basic CYOA Style Game**:
+   - Begin with a simple CYOA game where players make choices from a predetermined set of options at each decision point.
+   - Craft a narrative with branching paths and multiple endings based on player choices.
+
+2. **Navigation System**:
+   - Develop a navigation system independent of the choices made in the scene, allowing players to move between locations or explore the game world freely.
+   - Implement commands for navigating in different directions (north, south, east, west, etc.) or using relative directions (forward, backward, left, right, up, down).
+
+3. **Introduction of Parser**:
+   - Introduce a parser system to allow players to input text commands and interact with the game world more freely.
+   - Implement basic parsing functionality to recognize and interpret player commands.
+
+4. **Expansion of Interactivity**:
+   - Expand the interactivity of the game by adding more complex interactions and responses to player commands.
+   - Implement a wider range of verbs and actions for interacting with objects and characters in the game world.
+
+5. **Integration of Inventory System**:
+   - Develop an inventory system to allow players to collect, manage, and use items found throughout the game.
+   - Implement commands for manipulating the inventory, such as "take," "drop," "use," and "examine."
+
+6. **Refinement and Polish**:
+   - Refine the navigation, parser, and inventory systems to improve usability, responsiveness, and overall player experience.
+   - Test the game extensively to identify and address any issues or inconsistencies.
+   - Polish the game's text descriptions, responses, and interactions to enhance immersion and storytelling.
+
+Graphic adventure:
+
+**Graphical Adventure Stages:**
+
+1. **Static Scene Image**:
+   - Begin with a static image representing the scene description.
+
+2. **Implement Navigation Controls**:
+   - Introduce navigation controls, such as clickable doors, arrows, or navigation buttons, to allow players to move between areas of the game world.
+
+3. **Identification and Representation of Other Hotspots**:
+   - Identify other clickable hotspots within the static scene to allow player interaction.
+   - Add graphical representations, such as sprites or icons, to visually indicate these clickable hotspots within the scene.
+
+4. **Animated Feedback**:
+   - Introduce subtle animations or effects to provide feedback when players interact with objects or hotspots within the scene.
+
+5. **Inventory System**:
+   - Develop a system for players to collect, manage, and use items they find throughout the game.
+
+6. **Character Movement**:
+   - Add controllable character movement to allow players to explore the game world and interact with objects and characters.
+
+7. **Animated Characters and Objects**:
+   - Animate characters and objects within the scene to bring them to life and enhance immersion.
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+ 1. **Basic CYOA Style Game**:
+    - Begin with a simple CYOA game where players make choices from a predetermined set of options at each decision point.
+    - Craft a narrative with branching paths and multiple endings based on player choices.
+   
+    - Add a static image representing the scene description.
+    - Add temporary playback of music, possibly classical.
+
+ 2. **Navigation System**:
+    - Develop a navigation system independent of the choices made in the scene, allowing players to move between locations or explore the game world freely.
+    - Implement commands for navigating in different directions (north, south, east, west, etc.) or using relative directions (forward, backward, left, right, up, down).
+
+    - Add navigation controls, such as clickable doors, arrows, or navigation buttons, to allow players to move between areas of the game world.
+
+ 3. **Identification and Representation of Other Hotspots**:
+    - Identify other clickable hotspots within the static scene to allow player interaction.
+    - Add graphical representations, such as sprites or icons, to visually indicate these clickable hotspots within the scene.
+
+ 4. **Feedback**:
+    - Introduce subtle animations or effects to provide feedback when players interact with objects or hotspots within the scene.
+    - Add audible feedback to complement the graphical feedback in the form of temporary sound effects.
+
+ 5. **Introduction of Parser**:
+    - Introduce a parser system to allow players to input text commands and interact with the game world more freely.
+    - Implement basic parsing functionality to recognize and interpret player commands.
+
+ 6. **Expansion of Interactivity**:
+    - Expand the interactivity of the game by adding more complex interactions and responses to player commands.
+    - Implement a wider range of verbs and actions for interacting with objects and characters in the game world.
+
+ 7. **NPC's as separate objects**:
+    - Make NPC's clickable objects
+    - Add clickable Dialog Trees with multiple levels
+
+ 8. **Implementation of Inventory System**:
+    - Develop an inventory system to allow players to collect, manage, and use items found throughout the game.
+    - Implement commands for manipulating the inventory, such as "take," "drop," "use," and "examine."
+   
+ 9. **Make Inventory System Interactive**:
+    - Create graphical representation of the inventory system
+    - Make graphical inventory system interactive by adding clickable hotspots.
+    - Add graphical and audible feedback to Inventory
+
+10. **Character Movement**:
+    - Add controllable character movement to allow players to explore the game world and interact with objects and characters.
+    - Animate characters
+    - Include audio feedback
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+## Development Roadmap : Revision Alpha
+
+### 1. Basic CYOA Style Game:
+   - **Objective**: Establish the foundation of the game's narrative and decision-making mechanics.
+   - **Tasks**:
+     - Write the narrative with branching paths.
+     - Implement decision points, via keyboard input.
+     - Test to ensure all branches lead to intended outcomes.
+
+### 2. Add Audio-Visual Elements:
+   - **Objective**: Enhance the game with static visuals and music.
+   - **Tasks**:
+     - Add static images for each scene.
+     - Include background music to set the mood.
+     - Ensure music and images align with the narrative.
+
+### 3. Navigation System:
+   - **Objective**: Introduce a navigation system for player movement.
+   - **Tasks**:
+     - Develop a navigation system independent of the choices made in the scene, allowing players to move between locations or explore the game world freely.
+     - Implement commands for navigating in different directions (north, south, east, west, etc.) or using relative directions (forward, backward, left, right, up, down).
+     - Test navigation to ensure seamless movement between scenes.
+
+### 4. Implement Interactive Decision Points:
+   - **Objective**: Transition from keyboard input decision points to clickable decision points.
+   - **Tasks**:
+     - Convert existing keyboard input decision points to clickable areas.
+     - Ensure clickable areas provide the same choices as previous keyboard input options.
+     - Test to ensure the clickable areas work as intended and enhance player engagement.
+
+### 5. Creation of Clickable Hotspots, Including the Navigation System:
+   - **Objective**: Allow player interaction through clickable elements.
+   - **Tasks**:
+     - Create clickable hotspots within the static scene to allow player interaction.
+     - Add graphical representations, such as sprites or icons, to visually indicate these clickable hotspots within the scene.
+     - Add navigation controls, such as clickable doors, arrows, or navigation buttons, to allow players to move between areas of the game world.
+
+### 6. Create Visual and Auditory Feedback for Scene Interactions:
+   - **Objective**: Provide feedback for player interactions.
+   - **Tasks**:
+     - Introduce subtle animations or effects to provide feedback when players interact with objects or hotspots within the scene.
+     - Add audible feedback to complement the graphical feedback in the form of temporary sound effects.
+     - Test feedback mechanisms for responsiveness and clarity.
+
+### 7. Introduction of Parser:
+   - **Objective**: Enable text command inputs for player interactions.
+   - **Tasks**:
+     - Develop a basic parser to interpret text commands.
+     - Implement basic parsing functionality to recognize and interpret player commands.
+     - Test parser to ensure it recognizes and responds to inputs correctly.
+
+### 8. Expansion of Interactivity:
+   - **Objective**: Increase the complexity of interactions.
+   - **Tasks**:
+     - Expand the parser vocabulary with more verbs and actions.
+     - Add complex interactions and responses.
+     - Ensure consistency and logical flow in interactions.
+
+### 9. NPCs as Separate Objects:
+   - **Objective**: Introduce non-player characters (NPCs) as interactive elements.
+   - **Tasks**:
+     - Make NPCs clickable objects.
+     - Add clickable dialog trees with multiple levels.
+     - Ensure NPC interactions are engaging and meaningful.
+
+### 10. Implementation of Inventory System:
+   - **Objective**: Allow players to collect and manage items.
+   - **Tasks**:
+     - Develop an inventory system to allow players to collect, manage, and use items found throughout the game.
+     - Implement commands for manipulating the inventory, such as "take," "drop," "use," and "examine."
+     - Test the inventory system for usability.
+
+### 11. Make Inventory System Interactive:
+   - **Objective**: Enhance the inventory system with graphical elements.
+   - **Tasks**:
+     - Create graphical representations of inventory items.
+     - Make the graphical inventory system interactive by adding clickable hotspots.
+     - Add graphical and audible feedback to the inventory.
+
+### 12. Character Movement:
+   - **Objective**: Add character movement for exploration.
+   - **Tasks**:
+     - Implement controllable character movement.
+     - Animate character movements.
+     - Include audio feedback for character actions.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+## Development Roadmap : Revision Beta
+
+---
+
+### 1. Basic CYOA Style Game:
+   - **Objective**: Establish the foundation of the game's narrative and decision-making mechanics.
+   - **Tasks**:
+     - Write the narrative with branching paths.
+     - Implement decision points, via keyboard input.
+     - Test to ensure all branches lead to intended outcomes.
+
+### 2. Navigation System:
+   - **Objective**: Introduce a navigation system for player movement.
+   - **Tasks**:
+     - Develop a navigation system independent of the choices made in the scene, allowing players to move between locations or explore the game world freely.
+     - Implement commands for navigating in different directions (north, south, east, west, etc.) or using relative directions (forward, backward, left, right, up, down).
+     - Test navigation to ensure seamless movement between scenes.
+
+### 3. Multiple Player Characters:
+   - **Objective**: Introduce multiple playable characters into the game.
+   - **Tasks**:
+     - Define roles and attributes for each playable character.
+     - Implement the ability for players to switch between characters or control multiple characters.
+     - Ensure interactions and story progression accommodate multiple characters.
+
+### 4. Add Audio-Visual Elements:
+   - **Objective**: Enhance the game with static visuals and music.
+   - **Tasks**:
+     - Add static images for each scene.
+     - Include background music to set the mood.
+     - Ensure music and images align with the narrative.
+
+### 5. Introduction of Parser:
+   - **Objective**: Enable text command inputs for player interactions.
+   - **Tasks**:
+     - Develop a basic parser to interpret text commands.
+     - Implement basic parsing functionality to recognize and interpret player commands.
+     - Test parser to ensure it recognizes and responds to inputs correctly.
+
+### 6. Expansion of Interactivity:
+   - **Objective**: Increase the complexity of interactions.
+   - **Tasks**:
+     - Expand the parser vocabulary with more verbs and actions.
+     - Add complex interactions and responses.
+     - Ensure consistency and logical flow in interactions.
+
+### 7. Implement Interactive Decision Points:
+   - **Objective**: Transition from keyboard input decision points to clickable decision points.
+   - **Tasks**:
+     - Convert existing keyboard input decision points to clickable areas.
+     - Ensure clickable areas provide the same choices as previous keyboard input options.
+     - Test to ensure the clickable areas work as intended and enhance player engagement.
+
+### 8. Creation of Clickable Hotspots, Including the Navigation System:
+   - **Objective**: Allow player interaction through clickable elements.
+   - **Tasks**:
+     - Create clickable hotspots within the static scene to allow player interaction.
+     - Add graphical representations, such as sprites or icons, to visually indicate these clickable hotspots within the scene.
+     - Add navigation controls, such as clickable doors, arrows, or navigation buttons, to allow players to move between areas of the game world.
+
+### 9. Create Visual and Auditory Feedback for Scene Interactions:
+   - **Objective**: Provide feedback for player interactions.
+   - **Tasks**:
+     - Introduce subtle animations or effects to provide feedback when players interact with objects or hotspots within the scene.
+     - Add audible feedback to complement the graphical feedback in the form of temporary sound effects.
+     - Test feedback mechanisms for responsiveness and clarity.
+
+### 10. NPCs as Separate Objects:
+   - **Objective**: Introduce non-player characters (NPCs) as interactive elements.
+   - **Tasks**:
+     - Make NPCs clickable objects.
+     - Add clickable dialog trees with multiple levels.
+     - Ensure NPC interactions are engaging and meaningful.
+
+### 11. Implementation of Inventory System:
+   - **Objective**: Allow players to collect and manage items.
+   - **Tasks**:
+     - Develop an inventory system to allow players to collect, manage, and use items found throughout the game.
+     - Implement commands for manipulating the inventory, such as "take," "drop," "use," and "examine."
+     - Test the inventory system for usability.
+
+### 12. Make Inventory System Interactive:
+   - **Objective**: Enhance the inventory system with graphical elements.
+   - **Tasks**:
+     - Create graphical representations of inventory items.
+     - Make the graphical inventory system interactive by adding clickable hotspots.
+     - Add graphical and audible feedback to the inventory.
+
+### 13. Character Movement:
+   - **Objective**: Add character movement for exploration.
+   - **Tasks**:
+     - Implement controllable character movement.
+     - Animate character movements.
+     - Include audio feedback for character actions.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+## Development Roadmap : Revision Gamma
+
+---
+
+### 1. Basic CYOA Style Game:
+   - **Objective**: Establish the foundation of the game's narrative and decision-making mechanics.
+   - **Tasks**:
+     - Write the narrative with branching paths.
+     - Implement decision points, via keyboard input.
+     - Test to ensure all branches lead to intended outcomes.
+
+### 2. Navigation System:
+   - **Objective**: Introduce a navigation system for player movement.
+   - **Tasks**:
+     - Develop a navigation system independent of the choices made in the scene, allowing players to move between locations or explore the game world freely.
+     - Implement commands for navigating in different directions (north, south, east, west, etc.) or using relative directions (forward, backward, left, right, up, down).
+     - Test navigation to ensure seamless movement between scenes.
+
+### 3. Multiple Player Characters:
+   - **Objective**: Introduce multiple playable characters into the game.
+   - **Tasks**:
+     - Define roles and attributes for each playable character.
+     - Implement the ability for players to switch between characters or control multiple characters.
+     - Ensure interactions and story progression accommodate multiple characters.
+
+### 4. Add Audio-Visual Elements:
+   - **Objective**: Enhance the game with static visuals and music.
+   - **Tasks**:
+     - Add static images for each scene.
+     - Include background music to set the mood.
+     - Ensure music and images align with the narrative.
+
+### 5. Introduction of Parser:
+   - **Objective**: Enable text command inputs for player interactions.
+   - **Tasks**:
+     - Develop a basic parser to interpret text commands.
+     - Implement basic parsing functionality to recognize and interpret player commands.
+     - Test parser to ensure it recognizes and responds to inputs correctly.
+
+### 6. Expansion of Interactivity:
+   - **Objective**: Increase the complexity of interactions.
+   - **Tasks**:
+     - Expand the parser vocabulary with more verbs and actions.
+     - Add complex interactions and responses.
+     - Ensure consistency and logical flow in interactions.
+
+### 7. Implementation of Inventory System:
+   - **Objective**: Allow players to collect and manage items.
+   - **Tasks**:
+     - Develop an inventory system to allow players to collect, manage, and use items found throughout the game.
+     - Implement commands for manipulating the inventory, such as "take," "drop," "use," and "examine."
+     - Test the inventory system for usability.
+
+### 8. Implement Interactive Decision Points:
+   - **Objective**: Transition from keyboard input decision points to clickable decision points.
+   - **Tasks**:
+     - Convert existing keyboard input decision points to clickable areas.
+     - Ensure clickable areas provide the same choices as previous keyboard input options.
+     - Test to ensure the clickable areas work as intended and enhance player engagement.
+
+### 9. Create Backgrounds and Scene Visuals:
+   - **Objective**: Replace textual descriptions with visual representations of scenes.
+   - **Tasks**:
+     - Develop backgrounds for each scene.
+     - Replace textual descriptions with visual depictions.
+     - Test to ensure visuals align with the narrative and enhance player experience.
+
+### 10. Creation of Clickable Hotspots, Including the Navigation System:
+   - **Objective**: Allow player interaction through clickable elements.
+   - **Tasks**:
+     - Create clickable hotspots within the static scene to allow player interaction.
+     - Add graphical representations, such as sprites or icons, to visually indicate these clickable hotspots within the scene.
+     - Add navigation controls, such as clickable doors, arrows, or navigation buttons, to allow players to move between areas of the game world.
+
+### 11. Create Visual and Auditory Feedback for Scene Interactions:
+   - **Objective**: Provide feedback for player interactions.
+   - **Tasks**:
+     - Introduce subtle animations or effects to provide feedback when players interact with objects or hotspots within the scene.
+     - Add audible feedback to complement the graphical feedback in the form of temporary sound effects.
+     - Test feedback mechanisms for responsiveness and clarity.
+
+### 12. UI Design and Implementation:
+   - **Objective**: Develop and integrate a user interface for interacting with the game.
+   - **Tasks**:
+     - Design the UI layout, including elements like inventory displays, dialogue boxes, and action buttons.
+     - Implement the UI in a way that complements the existing gameplay and enhances usability.
+     - Test the UI for functionality and user experience.
+
+### 13. NPCs as Separate Objects:
+   - **Objective**: Introduce non-player characters (NPCs) as interactive elements.
+   - **Tasks**:
+     - Make NPCs clickable objects.
+     - Add clickable dialog trees with multiple levels.
+     - Ensure NPC interactions are engaging and meaningful.
+
+### 14. Make Inventory System Interactive:
+   - **Objective**: Enhance the inventory system with graphical elements.
+   - **Tasks**:
+     - Create graphical representations of inventory items.
+     - Make the graphical inventory system interactive by adding clickable hotspots.
+     - Add graphical and audible feedback to the inventory.
+
+### 15. Character Movement:
+   - **Objective**: Add character movement for exploration.
+   - **Tasks**:
+     - Implement controllable character movement.
+     - Animate character movements.
+     - Include audio feedback for character actions.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+## Development Roadmap : Revision Delta
+
+---
+
+### 1. Basic CYOA Style Game:
+   - **Objective**: Establish the foundation of the game's narrative and decision-making mechanics.
+   - **Tasks**:
+     - Write the narrative with branching paths.
+     - Implement decision points, via keyboard input.
+     - Test to ensure all branches lead to intended outcomes.
+
+### 2. Navigation System:
+   - **Objective**: Introduce a navigation system for player movement.
+   - **Tasks**:
+     - Develop a navigation system independent of the choices made in the scene, allowing players to move between locations or explore the game world freely.
+     - Implement commands for navigating in different directions (north, south, east, west, etc.) or using relative directions (forward, backward, left, right, up, down).
+     - Test navigation to ensure seamless movement between scenes.
+
+### 3. Multiple Player Characters:
+   - **Objective**: Introduce multiple playable characters into the game.
+   - **Tasks**:
+     - Define roles and attributes for each playable character.
+     - Implement the ability for players to switch between characters or control multiple characters.
+     - Ensure interactions and story progression accommodate multiple characters.
+
+### 4. Add Audio-Visual Elements:
+   - **Objective**: Enhance the game with static visuals and music.
+   - **Tasks**:
+     - Add static images for each scene.
+     - Include background music to set the mood.
+     - Ensure music and images align with the narrative.
+
+### 5. Introduction of Parser:
+   - **Objective**: Enable text command inputs for player interactions.
+   - **Tasks**:
+     - Develop a basic parser to interpret text commands.
+     - Implement basic parsing functionality to recognize and interpret player commands.
+     - Test parser to ensure it recognizes and responds to inputs correctly.
+
+### 6. Expansion of Interactivity:
+   - **Objective**: Increase the complexity of interactions.
+   - **Tasks**:
+     - Expand the parser vocabulary with more verbs and actions.
+     - Add complex interactions and responses.
+     - Ensure consistency and logical flow in interactions.
+
+### 7. Implementation of Inventory System:
+   - **Objective**: Allow players to collect and manage items.
+   - **Tasks**:
+     - Develop an inventory system to allow players to collect, manage, and use items found throughout the game.
+     - Implement commands for manipulating the inventory, such as "take," "drop," "use," and "examine."
+     - Test the inventory system for usability.
+
+### 8. Puzzle Design and Implementation:
+   - **Objective**: Create engaging and challenging puzzles for the game.
+   - **Tasks**:
+     - Design puzzles that integrate with the narrative and gameplay.
+     - Implement puzzle mechanics and solutions.
+     - Test puzzles to ensure they are logical and fun.
+
+### 9. Implement Interactive Decision Points:
+   - **Objective**: Transition from keyboard input decision points to clickable decision points.
+   - **Tasks**:
+     - Convert existing keyboard input decision points to clickable areas.
+     - Ensure clickable areas provide the same choices as previous keyboard input options.
+     - Test to ensure the clickable areas work as intended and enhance player engagement.
+
+### 10. Create Backgrounds and Scene Visuals:
+   - **Objective**: Replace textual descriptions with visual representations of scenes.
+   - **Tasks**:
+     - Develop backgrounds for each scene.
+     - Replace textual descriptions with visual depictions.
+     - Test to ensure visuals align with the narrative and enhance player experience.
+
+### 11. Creation of Clickable Hotspots, Including the Navigation System:
+   - **Objective**: Allow player interaction through clickable elements.
+   - **Tasks**:
+     - Create clickable hotspots within the static scene to allow player interaction.
+     - Add graphical representations, such as sprites or icons, to visually indicate these clickable hotspots within the scene.
+     - Add navigation controls, such as clickable doors, arrows, or navigation buttons, to allow players to move between areas of the game world.
+
+### 12. Create Visual and Auditory Feedback for Scene Interactions:
+   - **Objective**: Provide feedback for player interactions.
+   - **Tasks**:
+     - Introduce subtle animations or effects to provide feedback when players interact with objects or hotspots within the scene.
+     - Add audible feedback to complement the graphical feedback in the form of temporary sound effects.
+     - Test feedback mechanisms for responsiveness and clarity.
+
+### 13. UI Design and Implementation:
+   - **Objective**: Develop and integrate a user interface for interacting with the game.
+   - **Tasks**:
+     - Design the UI layout, including elements like inventory displays, dialogue boxes, and action buttons.
+     - Implement the UI in a way that complements the existing gameplay and enhances usability.
+     - Test the UI for functionality and user experience.
+
+### 14. NPCs as Separate Objects:
+   - **Objective**: Introduce non-player characters (NPCs) as interactive elements.
+   - **Tasks**:
+     - Make NPCs clickable objects.
+     - Add clickable dialog trees with multiple levels.
+     - Ensure NPC interactions are engaging and meaningful.
+
+### 15. Make Inventory System Interactive:
+   - **Objective**: Enhance the inventory system with graphical elements.
+   - **Tasks**:
+     - Create graphical representations of inventory items.
+     - Make the graphical inventory system interactive by adding clickable hotspots.
+     - Add graphical and audible feedback to the inventory.
+
+### 16. Character Movement:
+   - **Objective**: Add character movement for exploration.
+   - **Tasks**:
+     - Implement controllable character movement.
+     - Animate character movements.
+     - Include audio feedback for character actions.
+
+Timeline for steps:
+
+1. **Basic CYOA Style Game**: **2-4 months**
+   - Writing narrative and implementing basic decision points are foundational tasks. The duration depends on the complexity and length of the narrative.
+
+2. **Navigation System**: **1-2 months**
+   - Developing navigation and testing can be relatively quick once the basic game engine is set up.
+
+3. **Multiple Player Characters**: **2-3 months**
+   - Adding and balancing multiple characters can be complex and may involve significant testing.
+
+4. **Add Audio-Visual Elements**: **2-4 months**
+   - Integrating static images and music requires design, integration, and testing, which can be time-consuming.
+
+5. **Introduction of Parser**: **2-3 months**
+   - Developing and testing a parser can be technical and might involve iterations.
+
+6. **Expansion of Interactivity**: **2-4 months**
+   - Expanding the parser and interactions involves coding and extensive testing.
+
+7. **Implementation of Inventory System**: **2-3 months**
+   - Implementing and testing an inventory system can be complex but manageable within a few months.
+
+8. **Puzzle Design and Implementation**: **3-6 months**
+   - Designing and implementing puzzles requires creativity, testing, and iteration, often making it a lengthier process.
+
+9. **Implement Interactive Decision Points**: **1-2 months**
+   - Transitioning to clickable decision points is technical but should be manageable once the visuals are in place.
+
+10. **Create Backgrounds and Scene Visuals**: **3-6 months**
+    - Creating and integrating visuals can be time-consuming depending on the number of scenes.
+
+11. **Creation of Clickable Hotspots, Including the Navigation System**: **2-4 months**
+    - This involves creating and integrating interactive elements and testing them extensively.
+
+12. **Create Visual and Auditory Feedback for Scene Interactions**: **2-3 months**
+    - Designing and integrating feedback requires detailed work but is usually manageable within a few months.
+
+13. **UI Design and Implementation**: **2-4 months**
+    - Designing and implementing a user interface is crucial and often involves multiple iterations.
+
+14. **NPCs as Separate Objects**: **2-4 months**
+    - Making NPCs interactive and adding dialog trees involves design and testing.
+
+15. **Make Inventory System Interactive**: **2-3 months**
+    - Enhancing the inventory system with graphics and interactions can be complex but feasible within this timeframe.
+
+16. **Character Movement**: **3-6 months**
+    - Implementing and animating character movement can be one of the more time-consuming tasks.
+
+### Total Estimated Time:
+Adding these estimates, the total time might range from **24 to 48 months**. Considering your 5-year timeline, this fits well within your schedule, allowing time for unexpected delays and iterative improvements.
+
+---------------------------------------------------------------------------------------------
+
+### Step 1: Basic CYOA Style Game
+
+#### Objective
+Establish the foundation of the game's narrative and decision-making mechanics.
+
+### Breakdown of Tasks:
+
+#### 1. **Set Up the Project Environment:**
+   - **Create a Project Directory:** Organize your files and folders for the project.
+   - **Select Development Tools:** Choose the tools or game engine you'll use (e.g., Unity, Twine, custom engine).
+
+#### 2. **Design the Narrative Structure:**
+   - **Map Out the Story Flow:**
+     - Create a flowchart or diagram to visualize how the narrative branches and decisions affect the story.
+     - Define each scene or chapter and how they connect.
+   - **Identify Decision Points:**
+     - Mark where players will make choices and how those choices will branch the story.
+
+#### 3. **Implement the Narrative:**
+   - **Create Scene Templates:**
+     - Set up templates or modules for each scene, including text, choices, and outcomes.
+   - **Input the Written Narrative:**
+     - Enter the written text into the game, ensuring proper formatting and flow.
+   - **Implement Decision Points:**
+     - Program the choices available to players at each decision point.
+     - Ensure that choices correctly lead to the appropriate branching paths or outcomes.
+
+#### 4. **Add Basic Interaction Mechanics:**
+   - **Keyboard Input Handling:**
+     - Implement code to handle player input for making choices (e.g., number keys, arrow keys).
+   - **Display Choices:**
+     - Create a system to display choices and process player selections.
+
+#### 5. **Testing and Debugging:**
+   - **Playtesting:**
+     - Test each branch of the narrative to ensure that all choices lead to the correct outcomes.
+   - **Debugging:**
+     - Fix any issues with navigation or branching that arise during testing.
+   - **Feedback Collection:**
+     - Gather feedback from testers on the narrative flow and choice mechanics.
+
+#### 6. **Refinement and Optimization:**
+   - **Refine the User Experience:**
+     - Improve the interface and interaction based on testing feedback.
+   - **Optimize Performance:**
+     - Ensure that the game runs smoothly and efficiently.
+
+#### 7. **Documentation:**
+   - **Document Implementation:**
+     - Write documentation detailing how the narrative and choices are implemented.
+   - **Prepare for Future Development:**
+     - Note any areas that might need further development or improvement.
+
+### Example Breakdown for a Specific Task:
+
+**Implement Decision Points:**
+   - **Define Choices:** Identify all choices and their possible outcomes.
+   - **Code Choice Handling:**
+     - Write code to handle player input and determine which branch to follow.
+   - **Test Choices:**
+     - Verify that all choices lead to the correct narrative branches and that no dead ends or loops occur.
+
+By following these steps, you can systematically implement your CYOA game and ensure a well-structured and engaging experience for players.
+
+---------------------------------------------------------------------------------------------
+
+## Development Roadmap: Revision Epsilon
+
+---
+
+### 1. Basic CYOA Style Game:
+   - **Objective**: Establish the foundation of the game's narrative and decision-making mechanics.
+   - **Tasks**:
+     - Write the narrative with branching paths.
+     - Implement decision points, via keyboard input.
+     - Test to ensure all branches lead to intended outcomes.
+
+---
+
+### 2. Navigation System:
+   - **Objective**: Introduce a navigation system for player movement.
+   - **Tasks**:
+     - Develop a navigation system independent of the choices made in the scene, allowing players to move between locations or explore the game world freely.
+     - Implement commands for navigating in different directions (north, south, east, west, etc.) or using relative directions (forward, backward, left, right, up, down).
+     - Test navigation to ensure seamless movement between scenes.
+
+---
+
+### 3. Multiple Player Characters:
+   - **Objective**: Introduce multiple playable characters into the game.
+   - **Tasks**:
+     - Define roles and attributes for each playable character.
+     - Implement the ability for players to switch between characters or control multiple characters.
+     - Ensure interactions and story progression accommodate multiple characters.
+
+---
+
+### 4. Add Audio-Visual Elements:
+   - **Objective**: Enhance the game with static visuals and music.
+   - **Tasks**:
+     - Add static images for each scene.
+     - Include background music to set the mood.
+     - Ensure music and images align with the narrative.
+
+---
+
+### 5. Introduction of Parser:
+   - **Objective**: Enable text command inputs for player interactions.
+   - **Tasks**:
+     - Develop a basic parser to interpret text commands.
+     - Implement basic parsing functionality to recognize and interpret player commands.
+     - Test parser to ensure it recognizes and responds to inputs correctly.
+
+---
+
+### 6. Expansion of Interactivity:
+   - **Objective**: Increase the complexity of interactions.
+   - **Tasks**:
+     - Expand the parser vocabulary with more verbs and actions.
+     - Add complex interactions and responses.
+     - Ensure consistency and logical flow in interactions.
+
+---
+
+### 7. Implementation of Inventory System:
+   - **Objective**: Allow players to collect and manage items.
+   - **Tasks**:
+     - Develop an inventory system to allow players to collect, manage, and use items found throughout the game.
+     - Implement commands for manipulating the inventory, such as "take," "drop," "use," and "examine."
+     - Test the inventory system for usability.
+
+---
+
+### 8. Puzzle Design and Implementation:
+   - **Objective**: Create engaging and challenging puzzles for the game.
+   - **Tasks**:
+     - Design puzzles that integrate with the narrative and gameplay.
+     - Implement puzzle mechanics and solutions.
+     - Test puzzles to ensure they are logical and fun.
+
+---
+
+### 9. Create Backgrounds and Scene Visuals:
+   - **Objective**: Replace textual descriptions with visual representations of scenes.
+   - **Tasks**:
+     - Develop backgrounds for each scene.
+     - Replace textual descriptions with visual depictions.
+     - Test to ensure visuals align with the narrative and enhance player experience.
+
+---
+
+### 10. Creation of Clickable Hotspots, Including the Navigation System:
+   - **Objective**: Allow player interaction through clickable elements.
+   - **Tasks**:
+     - Create clickable hotspots within the static scene to allow player interaction.
+     - Add graphical representations, such as sprites or icons, to visually indicate these clickable hotspots within the scene.
+     - Add navigation controls, such as clickable doors, arrows, or navigation buttons, to allow players to move between areas of the game world.
+
+---
+
+### 11. Create Visual and Auditory Feedback for Scene Interactions:
+   - **Objective**: Provide feedback for player interactions.
+   - **Tasks**:
+     - Introduce subtle animations or effects to provide feedback when players interact with objects or hotspots within the scene.
+     - Add audible feedback to complement the graphical feedback in the form of temporary sound effects.
+     - Test feedback mechanisms for responsiveness and clarity.
+
+---
+
+### 12. UI Design and Implementation:
+   - **Objective**: Develop and integrate a user interface for interacting with the game.
+   - **Tasks**:
+     - Design the UI layout, including elements like inventory displays, dialogue boxes, and action buttons.
+     - Implement the UI in a way that complements the existing gameplay and enhances usability.
+     - Test the UI for functionality and user experience.
+
+---
+
+### 13. NPCs as Separate Objects:
+   - **Objective**: Introduce non-player characters (NPCs) as interactive elements.
+   - **Tasks**:
+     - Make NPCs clickable objects.
+     - Add clickable dialog trees with multiple levels.
+     - Ensure NPC interactions are engaging and meaningful.
+
+---
+
+### 14. Make Inventory System Interactive:
+   - **Objective**: Enhance the inventory system with graphical elements.
+   - **Tasks**:
+     - Create graphical representations of inventory items.
+     - Make the graphical inventory system interactive by adding clickable hotspots.
+     - Add graphical and audible feedback to the inventory.
+
+---
+
+### 15. Character Movement:
+   - **Objective**: Add character movement for exploration.
+   - **Tasks**:
+     - Implement controllable character movement.
+     - Animate character movements.
+     - Include audio feedback for character actions.
+
+--- 
+
+## **Development Roadmap: Revision Zeta**
+
+---
+
+### 1. Basic CYOA Style Game:  
+   - **Objective**: Establish the foundation of the game's narrative and decision-making mechanics.  
+   - **Tasks**:  
+     - Write the narrative with branching paths.  
+     - Implement decision points, via keyboard input.  
+     - Test to ensure all branches lead to intended outcomes.  
+
+---
+
+### 2. Navigation System:  
+   - **Objective**: Introduce a navigation system for player movement.  
+   - **Tasks**:  
+     - Develop a navigation system independent of scene choices, allowing free exploration.  
+     - Implement directional commands (e.g., north, south, east, west) and relative directions (e.g., forward, backward).  
+     - Test navigation for seamless transitions.  
+
+---
+
+### 3. Multiple Player Characters:  
+   - **Objective**: Introduce multiple playable characters into the game.  
+   - **Tasks**:  
+     - Define roles and attributes for each playable character.  
+     - Implement the ability to switch between characters or control multiple characters.  
+     - Ensure interactions and story progression accommodate multiple characters.  
+
+---
+
+### 4. Add Audio-Visual Elements:  
+   - **Objective**: Enhance the game with static visuals and music.  
+   - **Tasks**:  
+     - Add static images for each scene.  
+     - Include background music to set the mood.  
+     - Ensure music and images align with the narrative.  
+
+---
+
+### 5. Introduction of Parser:  
+   - **Objective**: Enable text command inputs for player interactions.  
+   - **Tasks**:  
+     - Develop a basic parser to interpret text commands.  
+     - Implement basic parsing functionality to recognize and interpret player commands.  
+     - Test parser to ensure it responds correctly.  
+
+---
+
+### 6. Implementation of Inventory System:  
+   - **Objective**: Allow players to collect and manage items.  
+   - **Tasks**:  
+     - Develop an inventory system to allow players to collect, manage, and use items found throughout the game.  
+     - Implement commands for manipulating the inventory, such as \"take,\" \"drop,\" \"use,\" and \"examine.\"  
+     - Test the inventory system for usability.  
+
+---
+
+### 7. Expansion of Interactivity:  
+   - **Objective**: Increase the complexity of interactions.  
+   - **Tasks**:  
+     - Expand the parser vocabulary with more verbs and actions.  
+     - Add complex interactions and responses.  
+     - Ensure logical flow and consistency in interactions.  
+
+---
+
+### 8. Puzzle Design and Implementation:  
+   - **Objective**: Create engaging and challenging puzzles for the game.  
+   - **Tasks**:  
+     - Design puzzles that integrate with the narrative and gameplay.  
+     - Implement puzzle mechanics and solutions.  
+     - Test puzzles for logic and fun.  
+
+---
+
+### 9. Create Backgrounds and Scene Visuals:  
+   - **Objective**: Replace textual descriptions with visual representations.  
+   - **Tasks**:  
+     - Develop backgrounds for each scene.  
+     - Replace textual descriptions with visual depictions.  
+     - Test visuals for alignment with the narrative.  
+
+---
+
+### 10. Creation of Clickable Hotspots, Including the Navigation System:  
+   - **Objective**: Allow player interaction through clickable elements.  
+   - **Tasks**:  
+     - Add clickable hotspots within scenes for player interaction.  
+     - Implement navigation controls, such as clickable doors or arrows.  
+     - Test clickable elements for responsiveness.  
+
+---
+
+### 11. Create Visual and Auditory Feedback for Scene Interactions:  
+   - **Objective**: Provide feedback for player interactions.  
+   - **Tasks**:  
+     - Add animations or effects for interactive elements.  
+     - Include audible feedback (e.g., sound effects).  
+     - Test feedback mechanisms.  
+
+---
+
+### 12. UI Design and Implementation:  
+   - **Objective**: Develop and integrate a user interface.  
+   - **Tasks**:  
+     - Design the UI layout (e.g., inventory displays, dialogue boxes).  
+     - Implement UI elements.  
+     - Test the UI for usability.  
+
+---
+
+### 13. NPCs as Separate Objects:  
+   - **Objective**: Introduce non-player characters (NPCs) as interactive elements.  
+   - **Tasks**:  
+     - Make NPCs clickable objects.  
+     - Add dialogue trees with multiple levels.  
+     - Ensure NPC interactions are engaging and meaningful.  
+
+---
+
+### 14. Make Inventory System Interactive:  
+   - **Objective**: Enhance the inventory system with graphical elements.  
+   - **Tasks**:  
+     - Create graphical representations of inventory items.  
+     - Add clickable hotspots to the inventory.  
+     - Include graphical and audible feedback.  
+
+---
+
+### 15. Character Movement:  
+   - **Objective**: Add character movement for exploration.  
+   - **Tasks**:  
+     - Implement controllable character movement.  
+     - Animate character movements.  
+     - Include audio feedback for character actions.  
+
+---
+
+### **Milestone Schedule A (MSA)**
+
+---
+
+### **1. Basic CYOA Style Game**  
+   - **Time Estimate**: 4 weeks  
+
+### **2. Navigation System**  
+   - **Time Estimate**: 3 weeks  
+
+### **3. Multiple Player Characters**  
+   - **Time Estimate**: 3 weeks  
+
+### **4. Add Audio-Visual Elements**  
+   - **Time Estimate**: 2 weeks  
+
+### **5. Introduction of Parser**  
+   - **Time Estimate**: 4 weeks  
+
+### **6. Implementation of Inventory System**  
+   - **Time Estimate**: 3 weeks  
+
+### **7. Expansion of Interactivity**  
+   - **Time Estimate**: 2 weeks  
+
+### **8. Puzzle Design and Implementation**  
+   - **Time Estimate**: 4 weeks  
+
+### **9. Create Backgrounds and Scene Visuals**  
+   - **Time Estimate**: 4 weeks  
+
+### **10. Creation of Clickable Hotspots, Including the Navigation System**  
+   - **Time Estimate**: 2 weeks  
+
+### **11. Create Visual and Auditory Feedback for Scene Interactions**  
+   - **Time Estimate**: 2 weeks  
+
+### **12. UI Design and Implementation**  
+   - **Time Estimate**: 4 weeks  
+
+### **13. NPCs as Separate Objects**  
+   - **Time Estimate**: 2 weeks  
+
+### **14. Make Inventory System Interactive**  
+   - **Time Estimate**: 2 weeks  
+
+### **15. Character Movement**  
+   - **Time Estimate**: 3 weeks  
+
+---
+
+### **Total Time Estimate**: **46 Weeks (11.5 Months)**  
+
+This is the full milestone schedule (MSA)
+
+---------------------------------------------------------------
+
+Phase 1: Basic CYOA Style Game
+Objective:
+Establish the foundation of the game's narrative and decision-making mechanics.
+
+Week 1: Finalize Narrative Framework
+Organize story arcs, plot points, and key events into a cohesive outline.
+Break the story into "scenes" or "rooms," ensuring each aligns with the CYOA format.
+Identify major decision points and their branching outcomes.
+
+Week 2: Write and Flesh Out Narrative
+Develop detailed descriptions, dialogue, and actions for each scene.
+Ensure the narrative is engaging, concise, and logically structured.
+Verify that decisions are meaningful and support character and story development.
+
+Week 3: Implement Narrative into the Game Framework
+Input written scenes and decisions into the game.
+Test each decision point to ensure proper functionality and transitions.
+Refine input mechanics as needed to support the narrative flow.
+
+Week 4: Testing and Refinement
+Conduct full playtests to verify the narrative and gameplay mechanics work seamlessly.
+Address any continuity errors, bugs, or feedback from testers.
+Polish and finalize Phase 1 to ensure it meets the defined objectives.
+

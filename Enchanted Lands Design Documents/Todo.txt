@@ -1,0 +1,87 @@
+Todo:
+
+1. See if I can't come up with the concept of rooms or scenes in the "engine" portion of my game.*
+2. Create a room object in Redot which contains the description box and the choices box. * 
+
+Todo Friday Dec 6th, 2024
+---------------------------
+
+    1. Introduction (endtime: 0:40)
+    2. Todo list (endtime: 1:01)
+    3. make a copy of the current test project (endtime: - )
+    4. Clear out current project, and start over (endtime: - )
+    5. Create a room viewer (endtime: 1:16)
+    6. create my own node or class for a room (endtime: 1:47)
+    7. take a break (endtime: 3:11)
+    8. attach room viewer to room descriptor (endtime: 4:25)
+
+Todo Monday Dec 9th, 2024
+---------------------------
+    9. create a one page room description with choices *
+   10. find a way to connect the rooms *
+   11. add key actions for the number keys for the choices *
+   12. Add the code to be able to switch rooms *
+   13. link the choices to other rooms *
+
+Todo Tuesday Dec 10th, 2024
+---------------------------
+   14. Run through the tree nodes as data "tutorial" *
+   15. Add a previous room to the room manager. *
+   16. Modify "ChangeRoom" to save the previous room before changing *
+   17. Modify "FindRoom" to check the previous room before checking child rooms. *
+   18. Link the rest of the choices make sure you can go to any connected room. *
+   19. Create a menu out of a room descriptor and rename RoomStart to the initial room *
+   20. Decide how I want the rooms to be organized. *
+
+Todo Thursday Dec 12th, 2024
+---------------------------
+   21. Create another "FindRoom" that traverses the whole tree. *
+   22. Refactor some code *
+   23. We'll try to access parent node (room) and refactor. *
+
+Todo Friday Dec 13th, 2024
+---------------------------
+   24. Type in more of my notes *
+
+Todo Monday Dec 30th, 2024
+---------------------------
+   25. Come up with a timeline, possibly in a 1 year instead of 5 year time frame. *
+   26. Add more story to the "narrative" version *
+
+Todo Monday Dec 31st 2024
+---------------------------
+   27. Come up with a milestone schedule for phase 1 *
+
+Todo Thursday Mar 6th 2025
+---------------------------
+   28. Ask Grok to check list for ambiguities *
+
+Todo Friday Mar 7th 2025
+---------------------------
+   29. Recheck the list for abiguous locations *
+
+Todo Monday Mar 10th 2025
+---------------------------
+   30. Have Grok list off each room location
+   31. Have Grok name each of the rooms
+   32. Have Grok convert list to json
+   33. Have Grok add room nodes to the json
+   34. Have Grok write the gdscript to load an instantiate rooms
+   35.
+   36.
+   37.
+   38.
+   39.
+   40.
+   41.
+   42.
+   43.
+   44.
+   45.
+   46.
+   47.
+   48.
+   49.
+   50.
+
+
