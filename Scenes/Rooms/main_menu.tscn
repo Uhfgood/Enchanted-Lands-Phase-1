@@ -9,10 +9,15 @@ room_name = "main_menu"
 description = "MAIN MENU:
 
 Hit 1. to Start
-
+Hit 2. to go to the first JSON based room.
 Hit 0. to exit."
 
 [node name="DoorToGameStart" type="Node" parent="."]
 script = ExtResource("2_tialj")
 choice = "1"
 destination = "start_here"
+
+[node name="DoorToFirstJSONRoom" type="Node" parent="."]
+script = ExtResource("2_tialj")
+choice = "2"
+destination = "rm001-resort-max-closure"

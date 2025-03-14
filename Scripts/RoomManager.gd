@@ -9,21 +9,42 @@ var curr_room : Room = null
 func _ready() -> void:
 	ChangeRoom( "main_menu" )
 
-func ChangeRoom( new_room : String ) -> void:
+#func ChangeRoom( new_room : String ) -> void:
 	
-	if curr_room != null:
-		remove_child( curr_room )
-		curr_room.queue_free()
-		curr_room = null
+#	if curr_room != null:
+#		remove_child( curr_room )
+#		curr_room.queue_free()
+#		curr_room = null
 	
-	if curr_room == null:
-		curr_room = load( "res://Scenes/Rooms/" + new_room + ".tscn" ).instantiate()
-		add_child( curr_room )
+#	if curr_room == null:
+#		curr_room = load( "res://Scenes/Rooms/" + new_room + ".tscn" ).instantiate()
+#		add_child( curr_room )
 		
-	if curr_room and viewer_text:
-		viewer_text.text = curr_room.description
-	else:
-		print( "either curr_room or viewer_text not valid" )
+#	if curr_room and viewer_text:
+#		viewer_text.text = curr_room.description
+#	else:
+#		print( "either curr_room or viewer_text not valid" )
+func LoadRoomFromJSON( room_name : String ) -> Room:
+	var room = null
+	return room
+	
+func ChangeRoom( room_name : String ) -> void:
+	var scene = load( "res://Scenes/Rooms/" + room_name + ".tscn" )
+	if scene != null:
+		var new_room = scene.instantiate()
+		if curr_room != null:
+			remove_child( curr_room )
+			curr_room.queue_free()
+			curr_room = null
+		
+		if curr_room == null:
+			curr_room = new_room
+			add_child( curr_room )
+			
+		if curr_room and viewer_text:
+			viewer_text.text = curr_room.description
+		else:
+			print( "either curr_room or viewer_text not valid" )
 
 func _input( event : InputEvent ) -> void:
 	#var choice : Room = null;
