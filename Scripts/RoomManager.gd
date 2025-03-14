@@ -32,7 +32,6 @@ func ChangeRoom( room_name : String ) -> void:
 			print( "either curr_room or viewer_text not valid" )
 
 func _input( event : InputEvent ) -> void:
-	#var choice : Room = null;
 	var choice_number = 1
 
 	var doors = curr_room.get_children()
