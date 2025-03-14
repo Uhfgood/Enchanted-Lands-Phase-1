@@ -1,0 +1,12 @@
+{
+"id": "rm058",
+"name": "castle-hubert-search",
+"description": "Sir William lands on the west side terrace of the Castle, and let's Hubert off.\nHubert start systematically searching the grounds for Violet, taking care not to be seen.\nSir William flies off and heads back toward the Bats-in-the-Belfry.\n\nHit 1 if you wish to go to mines-roland-capture.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm059-mines-roland-capture"
+}
+]
+}

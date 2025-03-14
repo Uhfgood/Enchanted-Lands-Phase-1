@@ -1,0 +1,12 @@
+{
+"id": "rm031",
+"name": "hotel-princess-recapture",
+"description": "After getting out of the hotel's dumbwaiter, The Princess searches for a way out by checking out various doors.\nShe stumbles upon a room with some maps and other documents, which she grabs, but is recaptured.\n\nHit 1 if you wish to go to faire-count-report.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm032-faire-count-report"
+}
+]
+}

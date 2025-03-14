@@ -1,0 +1,12 @@
+{
+"id": "rm017",
+"name": "princessprep-john-sneak",
+"description": "When John sneaks into Princess Prep he learns her first stop was supposed to be the Grand Enchanted Landian Hotel.\n\nHit 1 if you wish to go to village-zanzibar-show.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm018-village-zanzibar-show"
+}
+]
+}

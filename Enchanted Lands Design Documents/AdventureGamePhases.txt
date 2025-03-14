@@ -995,3 +995,192 @@ Conduct full playtests to verify the narrative and gameplay mechanics work seaml
 Address any continuity errors, bugs, or feedback from testers.
 Polish and finalize Phase 1 to ensure it meets the defined objectives.
 
+----------------------------------------------------------------
+
+## **Development Roadmap: Revision Eta**
+
+---
+
+### 1. Basic CYOA Style Game
+- **Objective**: Establish the foundation of the game's narrative and decision-making mechanics.
+- **Tasks**:
+  - Write the narrative with branching paths.
+  - Implement decision points via keyboard input.
+  - Test to ensure all branches lead to intended outcomes.
+- **Milestone**: Functional CYOA game with linear narrative.
+
+---
+
+### 2. Navigation System
+- **Objective**: Introduce a navigation system for player movement.
+- **Tasks**:
+  - Develop a navigation system independent of scene choices, allowing free exploration.
+  - Implement directional commands (e.g., north, south, east, west) and relative directions (e.g., forward, backward).
+  - Test navigation for seamless transitions.
+  - Map out the game world (e.g., grid or room connections).
+- **Milestone**: Working navigation system.
+
+---
+
+### 3. Room Independence for Reusability
+- **Objective**: Make rooms independent and reusable by decoupling their descriptions and choices from a single linear path.
+- **Tasks**:
+  - Refactor room data to include a generic description and multiple choice sets (e.g., a JSON structure with a description and choice sets).
+  - Implement logic to select the appropriate choice set based on context (e.g., the previous room or player state).
+  - Test room reusability by ensuring the same room can be revisited with different choices.
+- **Milestone**: Rooms are independent and reusable with context-based choices.
+
+---
+
+### 4. Multiple Player Characters
+- **Objective**: Introduce multiple playable characters into the game.
+- **Tasks**:
+  - Define roles and attributes for each playable character.
+  - Implement the ability to switch between characters or control multiple characters.
+  - Ensure interactions and story progression accommodate multiple characters.
+  - Note: Character switching enhances non-linearity by allowing players to tackle different tasks or overcome obstacles.
+- **Milestone**: Multi-character gameplay implemented.
+
+---
+
+### 5. Add Audio-Visual Elements
+- **Objective**: Enhance the game with static visuals and music.
+- **Tasks**:
+  - Add static images for each scene.
+  - Include background music to set the mood (using public domain or Creative Commons tracks).
+  - Ensure music and images align with the narrative.
+- **Milestone**: Basic audio-visual integration.
+
+---
+
+### 6. Introduction of Parser
+- **Objective**: Enable text command inputs for player interactions.
+- **Tasks**:
+  - Develop a basic parser to interpret text commands.
+  - Implement basic parsing functionality to recognize and interpret player commands (e.g., "1" + Enter, mimicking current system).
+  - Test parser to ensure it responds correctly.
+- **Milestone**: Functional text parser.
+
+---
+
+### 7. Implementation of Inventory System
+- **Objective**: Allow players to collect and manage items.
+- **Tasks**:
+  - Develop an inventory system to allow players to collect, manage, and use items found throughout the game.
+  - Implement commands for manipulating the inventory (e.g., "take", "drop", "use", "examine"; initially inventory-focused).
+  - Test the inventory system for usability.
+  - Define initial items and their purposes.
+- **Milestone**: Working inventory system.
+
+---
+
+### 8. Expansion of Interactivity
+- **Objective**: Increase the complexity of interactions.
+- **Tasks**:
+  - Expand the parser vocabulary with more verbs and actions (build on Phase 7 commands, ensuring they work for in-game items and environment).
+  - Add complex interactions and responses.
+  - Ensure logical flow and consistency in interactions.
+  - Test edge cases (e.g., invalid commands).
+- **Milestone**: Enhanced interactivity.
+
+---
+
+### 9. State Save System
+- **Objective**: Implement a comprehensive save and load system to preserve game progress, including room states, to enhance player experience and support non-linear gameplay.
+- **Tasks**:
+  - Design a data structure to store game state (e.g., current room ID, player choices, room states like "door unlocked" or "item taken").
+  - Develop a save system to write the game state to a file (e.g., JSON or a custom format).
+  - Implement a load system to restore the game state from a saved file.
+  - Test the save/load system to ensure all states (including room-specific changes) are preserved and restored correctly.
+  - Ensure compatibility with reusable rooms (from Phase 3) and multiple character states (from Phase 4).
+- **Milestone**: A fully functional save/load system with room state preservation.
+
+---
+
+### 10. Puzzle Design and Implementation
+- **Objective**: Create engaging and challenging puzzles for the game.
+- **Tasks**:
+  - Design puzzles that integrate with the narrative and gameplay.
+  - Implement puzzle mechanics and solutions.
+  - Test puzzles for logic and fun.
+  - Categorize puzzles (e.g., logic, inventory-based, environmental) for testing and variety.
+- **Milestone**: Implemented puzzles.
+
+---
+
+### 11. Create Backgrounds and Scene Visuals
+- **Objective**: Replace textual descriptions with visual representations.
+- **Tasks**:
+  - Develop backgrounds for each scene.
+  - Replace textual descriptions with visual depictions.
+  - Add sound effects to enhance scenes.
+  - Test visuals for alignment with the narrative.
+  - Test visuals across different resolutions.
+  - Create a style guide for art consistency.
+- **Milestone**: Visual scene replacements.
+
+---
+
+### 12. Creation of Clickable Hotspots, Including Navigation
+- **Objective**: Allow player interaction through clickable elements.
+- **Tasks**:
+  - Define hotspot areas (e.g., doors, items).
+  - Add clickable hotspots within scenes for player interaction.
+  - Implement navigation controls (e.g., clickable doors or arrows).
+  - Test clickable elements for responsiveness.
+- **Milestone**: Clickable navigation and hotspots.
+
+---
+
+### 13. Create Visual and Auditory Feedback for Scene Interactions
+- **Objective**: Provide feedback for player interactions.
+- **Tasks**:
+  - Add animations or effects for interactive elements.
+  - Include audible feedback (e.g., sound effects).
+  - Test feedback mechanisms.
+  - Balance feedback volume and duration.
+- **Milestone**: Interactive feedback implemented.
+
+---
+
+### 14. UI Design and Implementation
+- **Objective**: Develop and integrate a user interface.
+- **Tasks**:
+  - Prototype UI in a separate project (e.g., inventory displays, dialogue boxes).
+  - Design the UI layout.
+  - Implement UI elements.
+  - Test the UI for usability.
+- **Milestone**: Functional UI.
+
+---
+
+### 15. NPCs as Separate Objects
+- **Objective**: Introduce non-player characters (NPCs) as interactive elements.
+- **Tasks**:
+  - Make NPCs clickable objects.
+  - Add dialogue trees with multiple levels.
+  - Ensure NPC interactions are engaging and meaningful.
+- **Milestone**: Interactive NPCs.
+
+---
+
+### 16. Make Inventory System Interactive
+- **Objective**: Enhance the inventory system with graphical elements.
+- **Tasks**:
+  - Create graphical representations of inventory items.
+  - Add clickable hotspots to the inventory.
+  - Include graphical and audible feedback.
+  - Map items to hotspots (e.g., click to use).
+- **Milestone**: Graphical inventory system.
+
+---
+
+### 17. Character Movement
+- **Objective**: Add character movement for exploration.
+- **Tasks**:
+  - Implement controllable character movement.
+  - Animate character movements.
+  - Include audio feedback for character actions.
+  - Test movement boundaries (e.g., room edges).
+- **Milestone**: Character movement implemented.
+

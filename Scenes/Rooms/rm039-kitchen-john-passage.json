@@ -1,0 +1,12 @@
+{
+"id": "rm039",
+"name": "kitchen-john-passage",
+"description": "As they go in to the kitchen of the Grant Enchanted Landian, they find a secret passage into the wine cellar.\n\nHit 1 if you wish to go to cellar-john-rescue.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm040-cellar-john-rescue"
+}
+]
+}

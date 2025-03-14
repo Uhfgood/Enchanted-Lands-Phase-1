@@ -1,0 +1,12 @@
+{
+"id": "rm045",
+"name": "lapsewood-hubert-lost",
+"description": "The Black Knight chases Hubert and company in their wagon across the open land.\nThey come upon the edge of Lapsewood, the bare forest, still pursued by the Black Knight.\nThey go into the forest, and before they know it, they're lost among the leafless trees.\n\nHit 1 if you wish to go to lapsewood-unicorn-meet.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm046-lapsewood-unicorn-meet"
+}
+]
+}

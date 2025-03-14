@@ -1,0 +1,12 @@
+{
+"id": "rm083",
+"name": "hotel-count-romance",
+"description": "They all meet back at the \"Bats\" lobby.\nThe Count, then, comes to Karin and asks if she can help him now, and she just points.\nThe Count looking at where she's pointing meets a beautiful woman who happens to also be a vampire and a real princess.\nIn the library Roland Jr. tells Hubert, him and his Dad are going get the help of his people.\nRoland leaves the Hotel.\n\nHit 1 if you wish to go to castle-max-call.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm084-castle-max-call"
+}
+]
+}

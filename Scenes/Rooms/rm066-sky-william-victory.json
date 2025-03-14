@@ -1,0 +1,12 @@
+{
+"id": "rm066",
+"name": "sky-william-victory",
+"description": "Sir William and the twins manage to batter Crooktooth and his rider, the Black Knight.\nThe battle ends quickly, when the Black Knight and Crooktooth separate and fall to their deaths.\n\nHit 1 if you wish to go to forest-kurt-ambush.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm067-forest-kurt-ambush"
+}
+]
+}

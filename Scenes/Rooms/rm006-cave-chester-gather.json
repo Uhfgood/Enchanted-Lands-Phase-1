@@ -1,0 +1,12 @@
+{
+"id": "rm006",
+"name": "cave-chester-gather",
+"description": "Chester picks up a few shiny objects from his cave, and then leaves again to search for more of his friends.\n\nHit 1 if you wish to go to train-woman-tumble.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm007-train-woman-tumble"
+}
+]
+}

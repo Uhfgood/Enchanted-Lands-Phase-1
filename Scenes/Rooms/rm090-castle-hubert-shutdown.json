@@ -1,0 +1,12 @@
+{
+"id": "rm090",
+"name": "castle-hubert-shutdown",
+"description": "Coming back down, out of breath and full of bruises and scratches, he notices the battle is almost over.\nAs the it comes to a close, the princess and Hubert manage to make their way over to John.\nJohn points to the machines controls, and Hubert runs over to the control panel to shut the machine down.\n\nHit 1 if you wish to go to battlefield-john-aftermath.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm091-battlefield-john-aftermath"
+}
+]
+}

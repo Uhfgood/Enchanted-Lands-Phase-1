@@ -1,0 +1,12 @@
+{
+"id": "rm061",
+"name": "depot-hubert-flee",
+"description": "The guards chase Hubert to the east depot.\n\nHit 1 if you wish to go to sky-william-battle.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm062-sky-william-battle"
+}
+]
+}

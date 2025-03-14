@@ -1,0 +1,12 @@
+{
+"id": "rm032",
+"name": "faire-count-report",
+"description": "The Count comes back to SFC and tells John and Hubert what he's found.\nThe Princess is chained to a wine cask in the cellar of the Grand Enchanted Landian.\nHubert and John take an empty wagon, and head toward the hotel.\n\nHit 1 if you wish to go to gnomekingdom-max-conscript.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm033-gnomekingdom-max-conscript"
+}
+]
+}

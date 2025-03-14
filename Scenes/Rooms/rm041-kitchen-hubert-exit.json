@@ -1,0 +1,12 @@
+{
+"id": "rm041",
+"name": "kitchen-hubert-exit",
+"description": "They try to walk out of the side doors of the kitchen, calmly and slowly.\n\nHit 1 if you wish to go to hotel-max-stash.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm042-hotel-max-stash"
+}
+]
+}

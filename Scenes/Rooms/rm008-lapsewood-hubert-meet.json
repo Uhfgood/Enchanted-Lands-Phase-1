@@ -1,0 +1,12 @@
+{
+"id": "rm008",
+"name": "lapsewood-hubert-meet",
+"description": "John awakens in a forest without leaves as Hubert walks over and introduces himself.\nHubert tells John, that he brought him here, to help find out why Enchanted Lands has closed.\nHubert mentions that it's a good thing, that he fell near the edge of Lapsewood, since it makes you forget things.\nHubert and John start walking out of the leafless forest.\n\nHit 1 if you wish to go to street-zanzibar-escape.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm009-street-zanzibar-escape"
+}
+]
+}

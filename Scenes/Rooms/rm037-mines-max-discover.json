@@ -1,0 +1,12 @@
+{
+"id": "rm037",
+"name": "mines-max-discover",
+"description": "Max is in the mines overseeing the quicksilver extraction, when a messenger comes up and speaks quietly to him.\nMax finds out that Zanzibar is stealing from the taxes but doesn't know where Zanzibar hides it yet.\n\nHit 1 if you wish to go to hotel-hubert-illusion.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm038-hotel-hubert-illusion"
+}
+]
+}

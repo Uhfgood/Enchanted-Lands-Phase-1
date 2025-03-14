@@ -1,0 +1,12 @@
+{
+"id": "rm086",
+"name": "hotel-hubert-rally",
+"description": "Everyone meets at the Bats in the Belfry Hotel.\nEveryone gathers around, even spilling into the streets.\nHubert speaks to the crowd and they all make their battle plans.\n\nHit 1 if you wish to go to castle-max-battle.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm087-castle-max-battle"
+}
+]
+}

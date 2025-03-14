@@ -1,0 +1,12 @@
+{
+"id": "rm021",
+"name": "cave-nestor-talk",
+"description": "Desperate Chester flies to Nestor's cave, somewhere in the White Serpent range, west of DragonMount.\nNestor gets ready to breath fire on Chester, when Chester speaks to him.\nNestor tells Chester that Crooktooth has enchanted the dragons to act hostile.\n\nHit 1 if you wish to go to wizardu-unicorn-entry.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm022-wizardu-unicorn-entry"
+}
+]
+}

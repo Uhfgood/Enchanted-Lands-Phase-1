@@ -1,0 +1,12 @@
+{
+"id": "rm063",
+"name": "sky-chester-intervene",
+"description": "Crooktooth starts heading toward Sir William again, when two other dragons swoop in behind him.\nThese two dragons, Chester, and Nestor, fly toward Sir William and turn around to confront Crooktooth.\nAll three start flying towards the Black Knight.\n\nHit 1 if you wish to go to mines-john-work.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm064-mines-john-work"
+}
+]
+}

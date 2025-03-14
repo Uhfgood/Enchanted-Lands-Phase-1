@@ -1,0 +1,12 @@
+{
+"id": "rm042",
+"name": "hotel-max-stash",
+"description": "Unbeknownst to Zanzibar, Max had his guards searching everywhere for Zanzibar's money.\nThey finally found his stash in his hotel room in the Grand Enchanted Landian and take it.\n\nHit 1 if you wish to go to hotel-max-proposal.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm043-hotel-max-proposal"
+}
+]
+}

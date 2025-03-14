@@ -1,0 +1,12 @@
+{
+"id": "rm077",
+"name": "fairygodcollege-princess-entry",
+"description": "The Princess gets into Fairy GodCollege with the password, when she has to throw her bag into a box.\n\nHit 1 if you wish to go to library-princess-trap.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm078-library-princess-trap"
+}
+]
+}
