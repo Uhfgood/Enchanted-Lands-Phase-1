@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccv6p5khscvta"]
 
-[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_jact8"]
-[ext_resource type="Script" path="res://Scripts/door.gd" id="2_w6m7x"]
+[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_u6rjj"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_hycb8"]
 
 [node name="HatRoom" type="Node"]
-script = ExtResource("1_jact8")
+script = ExtResource("1_u6rjj")
 room_name = "hat_room"
 description = "HAT ROOM:
 
@@ -16,6 +16,6 @@ Hit \"0\" (zero) to quit.
 "
 
 [node name="DoorToFoyer" type="Node" parent="."]
-script = ExtResource("2_w6m7x")
+script = ExtResource("2_hycb8")
 choice = "1"
 destination = "halfway_house"

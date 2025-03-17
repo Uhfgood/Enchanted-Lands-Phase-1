@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dso0cobuwu2e2"]
 
-[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_5ovut"]
-[ext_resource type="Script" path="res://Scripts/door.gd" id="2_tialj"]
+[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_0kb3l"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_aga7d"]
 
 [node name="MainMenu" type="Node"]
-script = ExtResource("1_5ovut")
+script = ExtResource("1_0kb3l")
 room_name = "main_menu"
 description = "MAIN MENU:
 
@@ -13,11 +13,11 @@ Hit 2. to go to the first JSON based room.
 Hit 0. to exit."
 
 [node name="DoorToGameStart" type="Node" parent="."]
-script = ExtResource("2_tialj")
+script = ExtResource("2_aga7d")
 choice = "1"
 destination = "start_here"
 
 [node name="DoorToFirstJSONRoom" type="Node" parent="."]
-script = ExtResource("2_tialj")
+script = ExtResource("2_aga7d")
 choice = "2"
 destination = "rm001-resort-max-closure"

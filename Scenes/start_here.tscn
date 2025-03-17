@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvxuqwchtb3v3"]
 
-[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_rv5wo"]
-[ext_resource type="Script" path="res://Scripts/door.gd" id="2_xxwqi"]
+[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_jrujx"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_xclc1"]
 
 [node name="StartHere" type="Node"]
-script = ExtResource("1_rv5wo")
+script = ExtResource("1_jrujx")
 room_name = "start_here"
 description = "WELCOME!
 
@@ -20,6 +20,6 @@ Hit \"0\" (zero) to quit.
 "
 
 [node name="DoorToHubertsHouse" type="Node" parent="."]
-script = ExtResource("2_xxwqi")
+script = ExtResource("2_xclc1")
 choice = "1"
 destination = "halfway_house"
