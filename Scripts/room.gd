@@ -1,13 +1,22 @@
-class_name Room extends Node
-var id : String = "rmXXX"
+class_name Room extends Node2D
+@export var id : String = "rmXXX"
 
 @export var room_name : String = "blank_room"
 @export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit."
 
 var doors : Array[ Door ] = []
-			
+
+# Convert snake_case to PascalCase (e.g., "hotel_max_stash" -> "HotelMaxStash")
+func ToPascalCase( snake: String ) -> String:
+	var words = snake.split("-")
+	var result = ""
+	for word in words:
+		if word.length() > 0:
+			result += word.capitalize()
+	return result
+	
 func LoadDataFromJSON( json_name : String )->bool:
-	var filename = "res://Rooms/" + json_name + ".json"
+	var filename = "res://Rooms/json_data/" + json_name + ".json"
 	
 	if not FileAccess.file_exists( filename ):
 		print( filename + " does not exist." )
@@ -28,15 +37,20 @@ func LoadDataFromJSON( json_name : String )->bool:
 	# set room properties
 	self.id = json_data[ "id" ]
 	self.room_name = json_data[ "name" ]
+	self.name = self.id + "-" + ToPascalCase( self.room_name )
 	self.description = json_data[ "description" ]
 	
 	# create and attach door nodes
-	for door_data in json_data[ "doors" ]:
-		var new_door = Door.create( 
-			door_data[ "id" ], door_data[ "choice" ], door_data[ "destination"] )
-		doors.append( new_door )
-		add_child( new_door )
-		
+	if "doors" in json_data:
+		for door_data in json_data[ "doors" ]:
+			var new_door = Door.create( 
+				door_data[ "id" ], door_data[ "choice" ], door_data[ "destination"] )
+			if new_door:
+				doors.append( new_door )
+				add_child( new_door )
+			else:
+				print( "New door not valid." )
+			
 	return true
 	
 static func CreateFromJSON( json_name : String )->Room:

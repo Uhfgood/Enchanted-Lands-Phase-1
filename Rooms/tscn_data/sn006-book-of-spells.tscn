@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdrtxrmmhtk5p"]
 
-[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_dn6pd"]
-[ext_resource type="Script" path="res://Scripts/door.gd" id="2_sl5bn"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="1_xujdq"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_bxass"]
 
-[node name="BookOfSpells" type="Node"]
-script = ExtResource("1_dn6pd")
+[node name="sn006-BookOfSpells" type="Node2D"]
+script = ExtResource("1_xujdq")
+id = "sn006"
 room_name = "book_of_spells"
 description = "BOOK OF SPELLS
 
@@ -16,6 +17,6 @@ Hit \"0\" (zero) to quit.
 "
 
 [node name="DoorToFoyer" type="Node" parent="."]
-script = ExtResource("2_sl5bn")
+script = ExtResource("2_bxass")
 choice = "1"
-destination = "halfway_house"
+destination = "sn002-halfway-house"

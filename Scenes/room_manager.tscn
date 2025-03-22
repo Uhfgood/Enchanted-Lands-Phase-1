@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bw87e00ukspf7"]
 
-[ext_resource type="Script" path="res://Scripts/RoomManager.gd" id="1_10ltg"]
+[ext_resource type="Script" path="res://Scripts/room_manager.gd" id="1_10ltg"]
 [ext_resource type="PackedScene" uid="uid://csugjk6wb2ag8" path="res://Scenes/room_viewer.tscn" id="2_m61cp"]
 
 [node name="RoomManager" type="Node"]

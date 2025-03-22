@@ -9,5 +9,6 @@ static func create( ident : String, ch : String, dest : String ) -> Door:
 	new_door.id = ident
 	new_door.choice = ch
 	new_door.destination = dest
+	new_door.name = ident + "-" + dest
 	return new_door
 	

@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://bnqpw7pljcfxl"]
 
-[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_kthp6"]
-[ext_resource type="Script" path="res://Scripts/door.gd" id="2_2imju"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="1_hk54f"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_2ed3j"]
 
-[node name="HalfwayHouse" type="Node"]
-script = ExtResource("1_kthp6")
+[node name="sn002-HalfwayHouse" type="Node2D"]
+script = ExtResource("1_hk54f")
+id = "sn002"
 room_name = "halfway_house"
 description = "HUBERT'S ABODE
 
@@ -18,16 +19,16 @@ Hit 0. to quit.
 "
 
 [node name="DoorToStudy" type="Node" parent="."]
-script = ExtResource("2_2imju")
+script = ExtResource("2_2ed3j")
 choice = "1"
-destination = "study"
+destination = "sn003-study"
 
 [node name="DoorToHatRoom" type="Node" parent="."]
-script = ExtResource("2_2imju")
+script = ExtResource("2_2ed3j")
 choice = "2"
-destination = "hat_room"
+destination = "sn005-hat-room"
 
 [node name="DoorToBookOfSpells" type="Node" parent="."]
-script = ExtResource("2_2imju")
+script = ExtResource("2_2ed3j")
 choice = "3"
-destination = "book_of_spells"
+destination = "sn006-book-of-spells"

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dso0cobuwu2e2"]
+
+[ext_resource type="Script" path="res://Scripts/room.gd" id="1_2geqb"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_pkmc3"]
+
+[node name="sn000-MainMenu" type="Node2D"]
+script = ExtResource("1_2geqb")
+id = "sn000"
+room_name = "main_menu"
+description = "MAIN MENU:
+
+Hit 1. to Start
+Hit 2. to go to the first JSON based room.
+Hit 0. to exit."
+
+[node name="DoorToGameStart" type="Node" parent="."]
+script = ExtResource("2_pkmc3")
+choice = "1"
+destination = "sn001-start-here"
+
+[node name="DoorToFirstJSONRoom" type="Node" parent="."]
+script = ExtResource("2_pkmc3")
+choice = "2"
+destination = "rm000-welcome"

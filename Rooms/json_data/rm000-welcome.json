@@ -1,0 +1,12 @@
+{
+"id": "rm000",
+"name": "welcome",
+"description": "Welcome to enchanted lands.\n\nHit 1 if you wish to start.\n\nHit 0 to quit.",
+"doors": [
+{
+"id": "dr001",
+"choice": "1",
+"destination": "rm001-resort-max-closure"
+}
+]
+}

@@ -7,11 +7,11 @@ var curr_room : Room = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ChangeRoom( "main_menu" )
+	ChangeRoom( "sn000-main-menu" )
 
 func LoadRoom( room_name : String ) -> Room:
 	var room = null
-	var filename = "res://Scenes/" + room_name + ".tscn";
+	var filename = "res://Rooms/tscn_data/" + room_name + ".tscn";
 	if ResourceLoader.exists( filename ):
 		var scene = load( filename )
 		if scene != null:

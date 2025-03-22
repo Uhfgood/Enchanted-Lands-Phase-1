@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgr5modcdirff"]
 
-[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_8flfl"]
-[ext_resource type="Script" path="res://Scripts/door.gd" id="2_sp8yg"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="1_iabll"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_55lsm"]
 
-[node name="UpperLevel" type="Node"]
-script = ExtResource("1_8flfl")
+[node name="sn004-UpperLevel" type="Node2D"]
+script = ExtResource("1_iabll")
+id = "sn004"
 room_name = "upper_level"
 description = "STUDY: UPPER LEVEL
 
@@ -15,6 +16,6 @@ Hit 1. to go back to the lower level.
 Hit 0. to exit."
 
 [node name="DoorToStudy" type="Node" parent="."]
-script = ExtResource("2_sp8yg")
+script = ExtResource("2_55lsm")
 choice = "1"
-destination = "study"
+destination = "sn003-study"

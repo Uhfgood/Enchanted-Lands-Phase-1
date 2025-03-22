@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://djpcb0p1dshqr"]
 
-[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_k8qax"]
-[ext_resource type="Script" path="res://Scripts/door.gd" id="2_gi375"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="1_x8i1n"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_t13y8"]
 
-[node name="Study" type="Node"]
-script = ExtResource("1_k8qax")
+[node name="sn003-Study" type="Node2D"]
+script = ExtResource("1_x8i1n")
+id = "sn003"
 room_name = "study"
 description = "STUDY, LOWER LEVEL
 
@@ -17,11 +18,11 @@ Hit \"0\" (zero) to quit.
 "
 
 [node name="DoorToUpperLevel" type="Node" parent="."]
-script = ExtResource("2_gi375")
+script = ExtResource("2_t13y8")
 choice = "2"
-destination = "upper_level"
+destination = "sn004-upper-level"
 
 [node name="DoorToFoyer" type="Node" parent="."]
-script = ExtResource("2_gi375")
+script = ExtResource("2_t13y8")
 choice = "1"
-destination = "halfway_house"
+destination = "sn002-halfway-house"
