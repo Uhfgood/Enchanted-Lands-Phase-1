@@ -6,19 +6,14 @@
 [node name="sn000-MainMenu" type="Node2D"]
 script = ExtResource("1_2geqb")
 id = "sn000"
-room_name = "main_menu"
-description = "MAIN MENU:
+room_name = "main-menu"
+description = "Main Menu.
 
-Hit 1. to Start
-Hit 2. to go to the first JSON based room.
-Hit 0. to exit."
+Hit 1 to Start.
 
-[node name="DoorToGameStart" type="Node" parent="."]
+Hit 0 to Exit."
+
+[node name="DoorToWelcome" type="Node" parent="."]
 script = ExtResource("2_pkmc3")
 choice = "1"
-destination = "sn001-start-here"
-
-[node name="DoorToFirstJSONRoom" type="Node" parent="."]
-script = ExtResource("2_pkmc3")
-choice = "2"
 destination = "rm000-welcome"

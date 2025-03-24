@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func LoadRoom( room_name : String ) -> Room:
 	var room = null
-	var filename = "res://Rooms/tscn_data/" + room_name + ".tscn";
+	var filename = "res://Rooms/" + room_name + ".tscn";
 	if ResourceLoader.exists( filename ):
 		var scene = load( filename )
 		if scene != null:
