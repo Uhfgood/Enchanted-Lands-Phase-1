@@ -3,40 +3,35 @@ extends Node
 @onready var room_viewer: Node = $RoomViewer
 @onready var viewer_text: Node = $RoomViewer/Description/DescText
 
-var curr_room = null
+var curr_room : Room = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ChangeRoom( "sn000-main-menu" )
 
-func LoadRoom( room_name : String ):
+func LoadRoom( room_name : String ) -> Room:
 	var room = null
-	var tscn_fn = "res://Rooms/" + room_name + ".tscn";
-	var json_fn = "res://Rooms/" + room_name + ".json";
-	
-	print( "---" )
-	if ResourceLoader.exists( tscn_fn ):
-		var scene = load( tscn_fn )
+	var filename = "res://Rooms/" + room_name + ".tscn";
+	if ResourceLoader.exists( filename ):
+		var scene = load( filename )
 		if scene != null:
 			room = scene.instantiate()
 			var doors = room.get_children()
 			for door in doors:
 				if( door is Door ):
 					room.doors.append( door )
-			var str_room_name = str( room.name )
-			var modified_name = str_room_name[ 0 ].to_upper() + str_room_name.substr( 1 )					
-			print( modified_name + " created successfully.")
 		else:
-			print( "Scene couldn't load." )
-	elif ResourceLoader.exists( json_fn ):
-		room = Room.CreateFromJSON( room_name )
+			print( "Couldn't load " + filename + ", trying json." )
+			room = null
+			room = Room.CreateFromJSON( room_name )
 	else:
-		print( room_name + " does not exist, as either .tscn or .json." )
-
+		print( "The file: " + filename + " doesn't exist.  Trying json." )
+		room = null
+		room = Room.CreateFromJSON( room_name )
+		
 	return room
-
-
-func ChangeRoom( room_name : String ):
+	
+func ChangeRoom( room_name : String ) -> void:
 	var new_room = LoadRoom( room_name )
 	if( new_room ):
 		if curr_room != null:

@@ -9,7 +9,14 @@ var editor_map: Node = null
 @export var room_name : String = "blank_room"
 @export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit."
 
-var doors : Array = []
+var doors : Array[ Door ] = []
+
+func _init():
+	print("Initializing Room: ", name, " script: ", get_script())
+	# Connect the initialize signal to the setup function
+	if editor_map and editor_map.has_signal("initialize_room"):
+		if not editor_map.initialize_room.is_connected( SetupVisuals ):
+			editor_map.initialize_room.connect( SetupVisuals )
 
 # Convert snake_case to PascalCase (e.g., "hotel_max_stash" -> "HotelMaxStash")
 func ToPascalCase( snake: String ) -> String:
@@ -27,6 +34,7 @@ func TruncateText(text: String, max_length: int) -> String:
 	return text.substr(0, max_length) + "..."	
 
 func LoadDataFromJSON( json_name : String )->bool:
+	print( "Loading data from JSON" )
 	var filename = "res://Rooms/" + json_name + ".json"
 	
 	if not FileAccess.file_exists( filename ):
@@ -71,10 +79,9 @@ static func CreateFromJSON( json_name : String )->Room:
 	if new_room.LoadDataFromJSON( json_name ) == false:
 		return null
 				
-	print( "Successfully loaded json: ", json_name )
 	return new_room
 	
-func GetDoorByChoice( choice : String ):
+func GetDoorByChoice( choice : String ) -> Door:
 	for door in doors:
 		if( door.choice == choice ):
 			return door
@@ -85,7 +92,7 @@ func SetupVisuals( room ):
 	if room != self:
 		return # ignore singals for other rooms
 		
-	print("Running SetupVisuals for room: ", name )
+	print("Running SetupVisuals for room: ", name, " id: ", id, " room_name: ", room_name)	
 	
 	if not has_node( "Panel" ):
 		# Create a Panel as the visual base with a border
@@ -128,5 +135,5 @@ func SetupVisuals( room ):
 		desc_label.autowrap_mode = TextServer.AUTOWRAP_WORD  # Enable word wrapping
 		desc_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		vbox.add_child(desc_label)
-	else:
+	else
 		print( "Panel already exists for room: ", name )

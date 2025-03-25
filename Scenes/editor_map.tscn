@@ -9,6 +9,7 @@
 script = ExtResource("1_k3d1g")
 
 [node name="sn000-MainMenu" type="Node2D" parent="." instance=ExtResource("9_6wmkr")]
+position = Vector2(-94, 44)
 script = ExtResource("2_82fcb")
 id = "sn000"
 room_name = "main-menu"
@@ -19,6 +20,7 @@ Hit 1 to Start.
 Hit 0 to Exit."
 
 [node name="rm000-Welcome" type="Node2D" parent="."]
+position = Vector2(149, 183)
 script = ExtResource("2_82fcb")
 id = "rm000"
 room_name = "welcome"
@@ -36,6 +38,7 @@ choice = "1"
 destination = "rm001-resort-max-closure"
 
 [node name="rm001-ResortMaxClosure" type="Node2D" parent="."]
+position = Vector2(139, -115)
 script = ExtResource("2_82fcb")
 id = "rm001"
 room_name = "resort-max-closure"
@@ -55,6 +58,7 @@ choice = "1"
 destination = "rm002-home-hubert-search"
 
 [node name="rm002-HomeHubertSearch" type="Node2D" parent="."]
+position = Vector2(463, 172)
 script = ExtResource("2_82fcb")
 id = "rm002"
 room_name = "home-hubert-search"
@@ -73,6 +77,7 @@ choice = "1"
 destination = "rm003-street-john-portal"
 
 [node name="rm003-StreetJohnPortal" type="Node2D" parent="."]
+position = Vector2(363, -93)
 script = ExtResource("2_82fcb")
 id = "rm003"
 room_name = "street-john-portal"
@@ -91,6 +96,7 @@ choice = "1"
 destination = "rm004-caves-chester-explore"
 
 [node name="rm004-CavesChesterExplore" type="Node2D" parent="."]
+position = Vector2(492, 33)
 script = ExtResource("2_82fcb")
 id = "rm004"
 room_name = "caves-chester-explore"
