@@ -14,10 +14,15 @@ script = ExtResource("2_82fcb")
 id = "sn000"
 room_name = "main-menu"
 description = "Main Menu.
-
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 Hit 1 to Start.
 
 Hit 0 to Exit."
+
+[node name="em_DoorToWelcome" type="Node" parent="sn000-MainMenu"]
+script = ExtResource("3_1jvlo")
+choice = "1"
+destination = "rm000-welcome"
 
 [node name="rm000-Welcome" type="Node2D" parent="."]
 script = ExtResource("2_82fcb")
@@ -31,10 +36,11 @@ Hit 1 if you wish to start.
 
 Hit 0 to quit."
 
-[node name="dr001-rm001-resort-max-closure" type="Node" parent="rm000-Welcome"]
+[node name="DoorToResortMaxClosure" type="Node" parent="rm000-Welcome"]
 script = ExtResource("3_1jvlo")
 choice = "1"
 destination = "rm001-resort-max-closure"
+id = "dr001"
 
 [node name="rm001-ResortMaxClosure" type="Node2D" parent="."]
 script = ExtResource("2_82fcb")
@@ -50,10 +56,11 @@ Hit 1 if you wish to go to home-hubert-search.
 
 Hit 0 to quit."
 
-[node name="dr001-rm002-home-hubert-search" type="Node" parent="rm001-ResortMaxClosure"]
+[node name="DoorToHomeHubertSearch" type="Node" parent="rm001-ResortMaxClosure"]
 script = ExtResource("3_1jvlo")
 choice = "1"
 destination = "rm002-home-hubert-search"
+id = "dr001"
 
 [node name="rm002-HomeHubertSearch" type="Node2D" parent="."]
 script = ExtResource("2_82fcb")
@@ -68,10 +75,11 @@ Hit 1 if you wish to go to street-john-portal.
 
 Hit 0 to quit."
 
-[node name="dr001-rm003-street-john-portal" type="Node" parent="rm002-HomeHubertSearch"]
+[node name="DoorToStreetJohnPortal" type="Node" parent="rm002-HomeHubertSearch"]
 script = ExtResource("3_1jvlo")
 choice = "1"
 destination = "rm003-street-john-portal"
+id = "dr001"
 
 [node name="rm003-StreetJohnPortal" type="Node2D" parent="."]
 script = ExtResource("2_82fcb")
@@ -86,10 +94,11 @@ Hit 1 if you wish to go to caves-chester-explore.
 
 Hit 0 to quit."
 
-[node name="dr001-rm004-caves-chester-explore" type="Node" parent="rm003-StreetJohnPortal"]
+[node name="DoorToCavesChesterExplore" type="Node" parent="rm003-StreetJohnPortal"]
 script = ExtResource("3_1jvlo")
 choice = "1"
 destination = "rm004-caves-chester-explore"
+id = "dr001"
 
 [node name="rm004-CavesChesterExplore" type="Node2D" parent="."]
 script = ExtResource("2_82fcb")
@@ -103,7 +112,8 @@ Hit 1 if you wish to go to sky-chester-fight.
 
 Hit 0 to quit."
 
-[node name="dr001-rm005-sky-chester-fight" type="Node" parent="rm004-CavesChesterExplore"]
+[node name="DoorToSkyChesterFight" type="Node" parent="rm004-CavesChesterExplore"]
 script = ExtResource("3_1jvlo")
 choice = "1"
 destination = "rm005-sky-chester-fight"
+id = "dr001"
