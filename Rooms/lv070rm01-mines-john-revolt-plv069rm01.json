@@ -1,0 +1,13 @@
+{
+    "id": "lv070rm01",
+    "parent": "lv069rm01",
+    "name": "mines-john-revolt",
+    "description": "Back in the mines, gnome guards are easily overpowered after they hear what sounds like an explosion.\nThe slaves get released and start to run out of the mines.\nHubert shouts for everyone to head to the Bats-in-the-Belfry Hotel.\n\nHit 1 if you wish to go to hotel-hubert-restore.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv071rm01-hotel-hubert-restore-plv070rm01"
+        }
+    ]
+}

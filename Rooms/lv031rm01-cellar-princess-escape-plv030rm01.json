@@ -1,0 +1,13 @@
+{
+    "id": "lv031rm01",
+    "parent": "",
+    "name": "cellar-princess-escape",
+    "description": "In the wine cellar of the Grand Enchanted Landian, the Princess is struggling with the ropes tying her to a wine cask.\nWith the help of some mice, she manages to get free of the ropes binding her.\nThe Princess then tries to escape by getting into the dumbwaiter, only to be sent upstairs.\n\nHit 1 if you wish to go to hotel-princess-recapture.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv032rm01-hotel-princess-recapture-plv031rm01"
+        }
+    ]
+}

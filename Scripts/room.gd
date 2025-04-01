@@ -4,8 +4,8 @@ class_name Room extends Node2D
 # Reference to the editor_map node (set by editor_map.gd)
 var editor_map: Node = null
 
-@export var id : String = "rmXXX"
-
+@export var room_id : String = "rmXXX"
+@export var room_parent : String = "lvXXXrmXX"
 @export var room_name : String = "blank_room"
 @export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit."
 
@@ -20,11 +20,70 @@ func ToPascalCase( snake: String ) -> String:
 			result += word.capitalize()
 	return result
 	
-# Truncate a string to a max length, adding "..." if truncated
-#func TruncateText(text: String, max_length: int) -> String:
-#	if text.length() <= max_length:
-#		return text
-#	return text.substr(0, max_length) + "..."	
+
+func LoadDataFromJSON( json_name : String )->bool:
+	var filename = "res://Rooms/" + json_name + ".json"
+	
+	if not FileAccess.file_exists( filename ):
+		print( filename + " does not exist." )
+		
+	# load the json here:
+	var file = FileAccess.open( filename, FileAccess.READ )
+	if not file:
+		print( "Error loading file from json: " + filename )
+		return false
+		
+	# parse json
+	var json_data = JSON.parse_string( file.get_as_text() )
+	file.close()
+	if json_data == null:
+		print( "Error parsing JSON data: " + filename )
+		return false
+		
+	# set room properties
+	self.room_id = json_data[ "id" ]
+	self.room_parent = json_data[ "parent" ]
+	self.room_name = json_data[ "name" ]
+	self.name = self.room_id + "-" + ToPascalCase( self.room_name )
+	print( "***self.name: ", self.name )
+	self.description = json_data[ "description" ]
+	
+	# create and attach door nodes
+	if "doors" in json_data:
+		for door_data in json_data[ "doors" ]:
+			var door_id = door_data[ "id" ]
+			var choice = door_data[ "choice" ] 
+			var dest = door_data[ "destination" ]
+			print( "dest is: ", dest )
+			var dest_substr = dest.substr( 10, dest.length() - 21 )
+			print( "dest_substr: ", dest_substr )
+			var door_name = "DoorTo" + ToPascalCase( dest_substr )
+			var new_door = Door.create( door_id, choice, dest, door_name )
+			if new_door:
+				doors.append( new_door )
+				add_child( new_door )
+			else:
+				print( "New door not valid." )
+			
+	return true
+	
+static func CreateFromJSON( json_name : String )->Room:
+	print( "Creating Room from JSON Data" )
+	var new_room = Room.new()
+	
+	if new_room.LoadDataFromJSON( json_name ) == false:
+		return null
+				
+	print( "Successfully loaded json: ", json_name )
+	return new_room
+	
+func GetDoorByChoice( choice : String ):
+	for door in doors:
+		if( door.choice == choice ):
+			return door
+	
+	return null
+	
 
 func TruncateText(text: String, max_lines: int = 5, chars_per_line: int = 40) -> String:
 	var current_lines = 0
@@ -36,7 +95,7 @@ func TruncateText(text: String, max_lines: int = 5, chars_per_line: int = 40) ->
 
 	# Split the text into lines based on natural \n characters
 	var lines = text.split("\n")
-	var current_text = ""
+	#var current_text = ""
 
 	# Process lines until we have 5 description lines
 	while current_lines < max_lines and processed_lines < lines.size():
@@ -140,65 +199,7 @@ func TruncateText(text: String, max_lines: int = 5, chars_per_line: int = 40) ->
 	# Debug: Print the result
 	#print("TruncateText result for room ", name, ": '", result, "'")
 	return result
-
-func LoadDataFromJSON( json_name : String )->bool:
-	var filename = "res://Rooms/" + json_name + ".json"
-	
-	if not FileAccess.file_exists( filename ):
-		print( filename + " does not exist." )
 		
-	# load the json here:
-	var file = FileAccess.open( filename, FileAccess.READ )
-	if not file:
-		print( "Error loading file from json: " + filename )
-		return false
-		
-	# parse json
-	var json_data = JSON.parse_string( file.get_as_text() )
-	file.close()
-	if json_data == null:
-		print( "Error parsing JSON data: " + filename )
-		return false
-		
-	# set room properties
-	self.id = json_data[ "id" ]
-	self.room_name = json_data[ "name" ]
-	self.name = self.id + "-" + ToPascalCase( self.room_name )
-	self.description = json_data[ "description" ]
-	
-	# create and attach door nodes
-	if "doors" in json_data:
-		for door_data in json_data[ "doors" ]:
-			var id = door_data[ "id" ]
-			var choice = door_data[ "choice" ] 
-			var dest = door_data[ "destination" ]
-			var door_name = "DoorTo" + ToPascalCase( door_data[ "destination" ].substr( 6 ) )
-			var new_door = Door.create( id, choice, dest, door_name )
-			if new_door:
-				doors.append( new_door )
-				add_child( new_door )
-			else:
-				print( "New door not valid." )
-			
-	return true
-	
-static func CreateFromJSON( json_name : String )->Room:
-	print( "Creating Room from JSON Data" )
-	var new_room = Room.new()
-	
-	if new_room.LoadDataFromJSON( json_name ) == false:
-		return null
-				
-	print( "Successfully loaded json: ", json_name )
-	return new_room
-	
-func GetDoorByChoice( choice : String ):
-	for door in doors:
-		if( door.choice == choice ):
-			return door
-	
-	return null
-	
 func SetupVisuals():
 	if not Engine.is_editor_hint():
 		return  # Safeguard: Only run in the editor
@@ -288,7 +289,7 @@ func resize_panel(panel: Panel, vbox: VBoxContainer, name_label: Label, desc_lab
 	desc_label.queue_redraw()
 
 	# Get the font and default font size
-	var font = desc_label.get_theme_font("font") if desc_label.has_theme_font("font") else desc_label.get_theme_default_font()
+	#var font = desc_label.get_theme_font("font") if desc_label.has_theme_font("font") else desc_label.get_theme_default_font()
 	var font_size = 32
 	var line_spacing = desc_label.get_theme_constant("line_spacing") if desc_label.has_theme_constant("line_spacing") else 0
 

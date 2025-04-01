@@ -1,0 +1,13 @@
+{
+    "id": "lv049rm01",
+    "parent": "lv048rm01",
+    "name": "lapsewood-hubert-spell",
+    "description": "Back in Lapsewood, Hubert realizes this may be Sir William, and then casts a spell to change him back.\nThe spell doesn't work correctly, but allows the Unicorn to talk to them in human speech.\nThe Unicorn is unable to remember his name, and they all start walking together.\nSoon nobody remembers what they were doing.\nThey all stop walking, and stand and stare at each other.\n\nHit 1 if you wish to go to faire-roland-search.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv050rm01-faire-roland-search-plv049rm01"
+        }
+    ]
+}

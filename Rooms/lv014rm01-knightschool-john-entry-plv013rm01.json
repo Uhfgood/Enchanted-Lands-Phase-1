@@ -1,0 +1,13 @@
+{
+    "id": "lv014rm01",
+    "parent": "lv013rm01",
+    "name": "knightschool-john-entry",
+    "description": "At the Knight School entrance, John talks to the guards, and then gains entrance to the school.\n\nHit 1 if you wish to go to knightschool-john-learn.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv015rm01-knightschool-john-learn-plv014rm01"
+        }
+    ]
+}

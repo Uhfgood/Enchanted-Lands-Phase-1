@@ -7,7 +7,7 @@ var curr_room = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ChangeRoom( "sn000-main-menu" )
+	ChangeRoom( "lv001sn01-main-menu-plvXXXsnXX" )
 
 func LoadRoom( room_name : String ):
 	var room = null

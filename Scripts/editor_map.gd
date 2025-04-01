@@ -36,20 +36,21 @@ func load_all_rooms():
 			file_name = item
 			if file_name.ends_with(".tscn"):
 				print("---")
+				print( "Next tscn in file list: ", item)
 				var scene_path = "res://Rooms/" + file_name
 				var room = load(scene_path).instantiate()
 				var room_name = room.name
+				print( "room_name = ", room_name )
 				rooms_dict[room_name] = room
 				add_child(room)
 				room.owner = get_tree().edited_scene_root
 				room.editor_map = self
 				
-				
 				for child in room.get_children():
 					if child is Door:
 						# Create a new Door instance with a unique name
 						var editor_door = Door.new()
-						editor_door.id = child.id
+						editor_door.door_id = child.door_id
 						editor_door.choice = child.choice
 						editor_door.destination = child.destination
 						editor_door.name = "em_" + child.name
@@ -70,6 +71,7 @@ func load_all_rooms():
 			file_name = item
 			if file_name.ends_with(".json"):
 				print("---")
+				print( "Next json in file list: ", item)
 				var json_name = file_name.replace(".json", "")
 				var room = Room.CreateFromJSON(json_name)
 				if room:
@@ -83,7 +85,7 @@ func load_all_rooms():
 							door.owner = get_tree().edited_scene_root
 					room.editor_map = self
 					room.SetupVisuals()  # Direct call
-				if file_name.begins_with("rm004"):
+				if file_name.begins_with("lv005"):
 					break
 
 	print( "***" )
@@ -95,14 +97,18 @@ func load_all_rooms():
 		var room = rooms_dict[room_name]
 		room_tree[room_name] = []
 		for door in room.doors:
-			var dest = door.destination.substr( 0, 6 ) + room.ToPascalCase( door.destination.substr( 6 ) )
+			#var destination = door.destination
+			#var dest = door.destination.substr( 0, 10 ) + room.ToPascalCase( ) # door.destination.substr( 6 ) )
+			var dest_name = door.destination
+			var dest_substr = dest_name.substr( 10, dest_name.length() - 21 )
+			var dest = room.ToPascalCase( dest_substr )
 			print( "dest = " + dest )
 			if dest in rooms_dict:
 				room_tree[room_name].append(dest)
 
 	# Step 3: Organize rooms by level
 	var levels = []  # Array of arrays: levels[i] is a list of room names at level i
-	var root_room = "sn000-MainMenu"  # Starting point
+	var root_room = "sn001-MainMenu"  # Starting point
 	var to_process = [[root_room]]  # Queue of rooms to process by level
 	var processed = {root_room: true}  # Track which rooms have been processed
 

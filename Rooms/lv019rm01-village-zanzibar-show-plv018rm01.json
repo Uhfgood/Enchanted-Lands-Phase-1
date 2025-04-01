@@ -1,0 +1,13 @@
+{
+    "id": "lv019rm01",
+    "parent": "lv018rm01",
+    "name": "village-zanzibar-show",
+    "description": "Zanzibar does some more shows in some other villages.\nMax attends one of his shows, but Corvus manages to steal from Max without his notice.\n\nHit 1 if you wish to go to village-max-deal.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv020rm01-village-max-deal-plv019rm01"
+        }
+    ]
+}

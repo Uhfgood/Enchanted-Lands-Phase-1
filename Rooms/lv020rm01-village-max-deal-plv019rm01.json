@@ -1,0 +1,13 @@
+{
+    "id": "lv020rm01",
+    "parent": "lv019rm01",
+    "name": "village-max-deal",
+    "description": "Max leaves the last show Zanzibar put on, but on the road discovers his money is gone.\nMax catches up to Zanzibar in another village, and then confronts him after a show, and makes a deal with him.\nMax helps Zanzibar with larger productions, in exchange for doing some tax collection for Max.\n\nHit 1 if you wish to go to village-chester-rescue.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv021rm01-village-chester-rescue-plv020rm01"
+        }
+    ]
+}

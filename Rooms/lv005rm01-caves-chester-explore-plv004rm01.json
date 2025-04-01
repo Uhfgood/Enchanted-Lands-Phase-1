@@ -1,0 +1,13 @@
+{
+    "id": "lv005rm01",
+    "parent": "lv004rm01",
+    "name": "caves-chester-explore",
+    "description": "Somewhere in the kingdom, Chester, a friendly dragon, lands at the entrance to the \"Caves of Dragonmount.\"\nChester walks around the cave system trying to find his friends.\nChester then leaves, and flies around while looking some more.\n\nHit 1 if you wish to go to sky-chester-fight.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv006rm01-sky-chester-fight-plv005rm01"
+        }
+    ]
+}

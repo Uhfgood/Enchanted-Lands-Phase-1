@@ -1,32 +1,34 @@
 [gd_scene load_steps=5 format=3 uid="uid://bl74drpt5u5vp"]
 
 [ext_resource type="Script" path="res://Scripts/editor_map.gd" id="1_k3d1g"]
-[ext_resource type="Script" path="res://Scripts/room.gd" id="2_82fcb"]
-[ext_resource type="Script" path="res://Scripts/door.gd" id="3_1jvlo"]
-[ext_resource type="PackedScene" uid="uid://dso0cobuwu2e2" path="res://Rooms/sn000-main-menu.tscn" id="9_6wmkr"]
+[ext_resource type="PackedScene" uid="uid://dso0cobuwu2e2" path="res://Rooms/lv001sn01-main-menu-plvXXXsnXX.tscn" id="2_lug80"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="3_32iud"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="4_h2xtq"]
 
 [node name="EditorMap" type="Node2D"]
 position = Vector2(-2, 20)
 script = ExtResource("1_k3d1g")
 
-[node name="sn000-MainMenu" type="Node2D" parent="." instance=ExtResource("9_6wmkr")]
-script = ExtResource("2_82fcb")
-id = "sn000"
+[node name="lv001sn01-MainMenu" type="Node2D" parent="." instance=ExtResource("2_lug80")]
+script = ExtResource("3_32iud")
+room_id = "lv001sn01"
+room_parent = "lvXXXsnXX"
 room_name = "main-menu"
 description = "Main Menu.
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+
 Hit 1 to Start.
 
 Hit 0 to Exit."
 
-[node name="em_DoorToWelcome" type="Node" parent="sn000-MainMenu"]
-script = ExtResource("3_1jvlo")
+[node name="em_DoorToWelcome" type="Node" parent="lv001sn01-MainMenu"]
+script = ExtResource("4_h2xtq")
 choice = "1"
-destination = "rm000-welcome"
+destination = "lv001rm01-welcome-plv001sn01"
 
-[node name="rm000-Welcome" type="Node2D" parent="."]
-script = ExtResource("2_82fcb")
-id = "rm000"
+[node name="lv001rm01-Welcome" type="Node2D" parent="."]
+script = ExtResource("3_32iud")
+room_id = "lv001rm01"
+room_parent = "lv001sn01"
 room_name = "welcome"
 description = "WELCOME!
 
@@ -36,15 +38,16 @@ Hit 1 if you wish to start.
 
 Hit 0 to quit."
 
-[node name="DoorToResortMaxClosure" type="Node" parent="rm000-Welcome"]
-script = ExtResource("3_1jvlo")
+[node name="DoorToResortMaxClosure" type="Node" parent="lv001rm01-Welcome"]
+script = ExtResource("4_h2xtq")
 choice = "1"
-destination = "rm001-resort-max-closure"
-id = "dr001"
+destination = "lv002rm01-resort-max-closure-plv001rm01"
+door_id = "dr001"
 
-[node name="rm001-ResortMaxClosure" type="Node2D" parent="."]
-script = ExtResource("2_82fcb")
-id = "rm001"
+[node name="lv002rm01-ResortMaxClosure" type="Node2D" parent="."]
+script = ExtResource("3_32iud")
+room_id = "lv002rm01"
+room_parent = "lv001rm01"
 room_name = "resort-max-closure"
 description = "Enchanted Lands Magical Resort was sold to a mysterious figure, by the ruler of the kingdom.
 This figure, named Max, has systematically closed down, most of the resort.
@@ -56,15 +59,16 @@ Hit 1 if you wish to go to home-hubert-search.
 
 Hit 0 to quit."
 
-[node name="DoorToHomeHubertSearch" type="Node" parent="rm001-ResortMaxClosure"]
-script = ExtResource("3_1jvlo")
+[node name="DoorToHomeHubertSearch" type="Node" parent="lv002rm01-ResortMaxClosure"]
+script = ExtResource("4_h2xtq")
 choice = "1"
-destination = "rm002-home-hubert-search"
-id = "dr001"
+destination = "lv003rm01-home-hubert-search-plv002rm01"
+door_id = "dr001"
 
-[node name="rm002-HomeHubertSearch" type="Node2D" parent="."]
-script = ExtResource("2_82fcb")
-id = "rm002"
+[node name="lv003rm01-HomeHubertSearch" type="Node2D" parent="."]
+script = ExtResource("3_32iud")
+room_id = "lv003rm01"
+room_parent = "lv002rm01"
 room_name = "home-hubert-search"
 description = "Hubert walks around his home, examining spell books, scrolls, and loose papers, to figure out the best course of action.
 Hubert goes to a large crystal ball, which allows him to see into different realms, and he searches for someone to help.
@@ -75,15 +79,16 @@ Hit 1 if you wish to go to street-john-portal.
 
 Hit 0 to quit."
 
-[node name="DoorToStreetJohnPortal" type="Node" parent="rm002-HomeHubertSearch"]
-script = ExtResource("3_1jvlo")
+[node name="DoorToStreetJohnPortal" type="Node" parent="lv003rm01-HomeHubertSearch"]
+script = ExtResource("4_h2xtq")
 choice = "1"
-destination = "rm003-street-john-portal"
-id = "dr001"
+destination = "lv004rm01-street-john-portal-plv003rm01"
+door_id = "dr001"
 
-[node name="rm003-StreetJohnPortal" type="Node2D" parent="."]
-script = ExtResource("2_82fcb")
-id = "rm003"
+[node name="lv004rm01-StreetJohnPortal" type="Node2D" parent="."]
+script = ExtResource("3_32iud")
+room_id = "lv004rm01"
+room_parent = "lv003rm01"
 room_name = "street-john-portal"
 description = "In our realm, also called Cerulea by Enchanted Landians, John is leaving work and walking home, down the street.
 John, stops in at a store nearby, and gets his favorite candy bar with a silver \"ticket\" inside.
@@ -94,15 +99,16 @@ Hit 1 if you wish to go to caves-chester-explore.
 
 Hit 0 to quit."
 
-[node name="DoorToCavesChesterExplore" type="Node" parent="rm003-StreetJohnPortal"]
-script = ExtResource("3_1jvlo")
+[node name="DoorToCavesChesterExplore" type="Node" parent="lv004rm01-StreetJohnPortal"]
+script = ExtResource("4_h2xtq")
 choice = "1"
-destination = "rm004-caves-chester-explore"
-id = "dr001"
+destination = "lv005rm01-caves-chester-explore-plv004rm01"
+door_id = "dr001"
 
-[node name="rm004-CavesChesterExplore" type="Node2D" parent="."]
-script = ExtResource("2_82fcb")
-id = "rm004"
+[node name="lv005rm01-CavesChesterExplore" type="Node2D" parent="."]
+script = ExtResource("3_32iud")
+room_id = "lv005rm01"
+room_parent = "lv004rm01"
 room_name = "caves-chester-explore"
 description = "Somewhere in the kingdom, Chester, a friendly dragon, lands at the entrance to the \"Caves of Dragonmount.\"
 Chester walks around the cave system trying to find his friends.
@@ -112,8 +118,8 @@ Hit 1 if you wish to go to sky-chester-fight.
 
 Hit 0 to quit."
 
-[node name="DoorToSkyChesterFight" type="Node" parent="rm004-CavesChesterExplore"]
-script = ExtResource("3_1jvlo")
+[node name="DoorToSkyChesterFight" type="Node" parent="lv005rm01-CavesChesterExplore"]
+script = ExtResource("4_h2xtq")
 choice = "1"
-destination = "rm005-sky-chester-fight"
-id = "dr001"
+destination = "lv006rm01-sky-chester-fight-plv005rm01"
+door_id = "dr001"

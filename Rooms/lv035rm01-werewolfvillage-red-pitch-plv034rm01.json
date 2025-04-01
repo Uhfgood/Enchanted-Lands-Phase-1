@@ -1,0 +1,13 @@
+{
+    "id": "lv035rm01",
+    "parent": "",
+    "name": "werewolfvillage-red-pitch",
+    "description": "Red goes to the werewolf village.\nRed tells the werewolves led by Rottweiler, they might be rid of their curse if they join Max's army.\n\nHit 1 if you wish to go to fairygodcollege-kurt-deal.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv036rm01-fairygodcollege-kurt-deal-plv035rm01"
+        }
+    ]
+}

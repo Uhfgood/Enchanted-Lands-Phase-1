@@ -1,0 +1,13 @@
+{
+    "id": "lv034rm01",
+    "parent": "lv033rm01",
+    "name": "gnomekingdom-max-conscript",
+    "description": "Within the boundaries of the Gnome Kingdom, Max finds Scarlet \"Red\" Clover, and pulls her out of hiding.\nMax asks Red to go and conscript the werewolves from their village into his service, due to her history with them.\n\nHit 1 if you wish to go to werewolfvillage-red-pitch.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv035rm01-werewolfvillage-red-pitch-plv034rm01"
+        }
+    ]
+}
