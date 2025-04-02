@@ -11,7 +11,6 @@ room_name = "main-menu"
 description = "Main Menu.
 
 Hit 1 to Start.
-Hit 2 to go to test.
 
 Hit 0 to Exit."
 
@@ -19,8 +18,3 @@ Hit 0 to Exit."
 script = ExtResource("2_pkmc3")
 choice = "1"
 destination = "lv001rm01-welcome-plv001sn01"
-
-[node name="DoorToTestroot" type="Node" parent="."]
-script = ExtResource("2_pkmc3")
-choice = "2"
-destination = "lv001rm02-testroot-plv001sn01"
