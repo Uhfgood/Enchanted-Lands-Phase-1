@@ -1,0 +1,7 @@
+{
+    "id": "lv001rm02",
+    "parent": "lv001sn01",
+    "name": "testroot",
+    "description": "Another test.\n\nHit 0 to quit.",
+    "doors": []
+}

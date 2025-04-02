@@ -100,15 +100,16 @@ func load_all_rooms():
 			#var destination = door.destination
 			#var dest = door.destination.substr( 0, 10 ) + room.ToPascalCase( ) # door.destination.substr( 6 ) )
 			var dest_name = door.destination
+			var prefix_str = dest_name.substr( 0, 10 )
 			var dest_substr = dest_name.substr( 10, dest_name.length() - 21 )
-			var dest = room.ToPascalCase( dest_substr )
+			var dest = prefix_str + room.ToPascalCase( dest_substr )
 			print( "dest = " + dest )
 			if dest in rooms_dict:
 				room_tree[room_name].append(dest)
 
 	# Step 3: Organize rooms by level
 	var levels = []  # Array of arrays: levels[i] is a list of room names at level i
-	var root_room = "sn001-MainMenu"  # Starting point
+	var root_room = "lv001sn01-MainMenu"  # Starting point
 	var to_process = [[root_room]]  # Queue of rooms to process by level
 	var processed = {root_room: true}  # Track which rooms have been processed
 
