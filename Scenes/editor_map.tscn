@@ -26,6 +26,7 @@ choice = "1"
 destination = "lv001rm01-welcome-plv001sn01"
 
 [node name="lv001rm01-Welcome" type="Node2D" parent="."]
+position = Vector2(0, 300)
 script = ExtResource("3_32iud")
 room_id = "lv001rm01"
 room_parent = "lv001sn01"
@@ -36,6 +37,8 @@ Welcome to Enchanted Lands!  Take a magical vacation, slay a dragon, rescue a pr
 
 Hit 1 if you wish to start.
 
+Hit 2 if you want to go to test room 1
+
 Hit 0 to quit."
 
 [node name="DoorToResortMaxClosure" type="Node" parent="lv001rm01-Welcome"]
@@ -44,7 +47,14 @@ choice = "1"
 destination = "lv002rm01-resort-max-closure-plv001rm01"
 door_id = "dr001"
 
+[node name="DoorToTest 1" type="Node" parent="lv001rm01-Welcome"]
+script = ExtResource("4_h2xtq")
+choice = "2"
+destination = "lv002rm02-test1-plv001rm01"
+door_id = "dr002"
+
 [node name="lv002rm01-ResortMaxClosure" type="Node2D" parent="."]
+position = Vector2(-470, 592)
 script = ExtResource("3_32iud")
 room_id = "lv002rm01"
 room_parent = "lv001rm01"
@@ -57,6 +67,8 @@ Chief advisor and friend to the King, the Wizard Hubert, after seeing the him, g
 
 Hit 1 if you wish to go to home-hubert-search.
 
+Hit 2 if you wish to go to test2.
+
 Hit 0 to quit."
 
 [node name="DoorToHomeHubertSearch" type="Node" parent="lv002rm01-ResortMaxClosure"]
@@ -65,7 +77,32 @@ choice = "1"
 destination = "lv003rm01-home-hubert-search-plv002rm01"
 door_id = "dr001"
 
+[node name="DoorToTest 2" type="Node" parent="lv002rm01-ResortMaxClosure"]
+script = ExtResource("4_h2xtq")
+choice = "2"
+destination = "lv003rm02-test2-plv002rm01"
+door_id = "dr002"
+
+[node name="lv002rm02-Test 1" type="Node2D" parent="."]
+position = Vector2(474, 602)
+script = ExtResource("3_32iud")
+room_id = "lv002rm02"
+room_parent = "lv001rm01"
+room_name = "test1"
+description = "First test.
+
+Hit 1 if you wish to go to the next test room.
+
+Hit 0 to quit."
+
+[node name="DoorToTest 3" type="Node" parent="lv002rm02-Test 1"]
+script = ExtResource("4_h2xtq")
+choice = "1"
+destination = "lv003rm03-test3-plv002rm02"
+door_id = "dr001"
+
 [node name="lv003rm01-HomeHubertSearch" type="Node2D" parent="."]
+position = Vector2(-786, 892)
 script = ExtResource("3_32iud")
 room_id = "lv003rm01"
 room_parent = "lv002rm01"
@@ -85,7 +122,28 @@ choice = "1"
 destination = "lv004rm01-street-john-portal-plv003rm01"
 door_id = "dr001"
 
+[node name="lv003rm02-Test 2" type="Node2D" parent="."]
+position = Vector2(-166, 894)
+script = ExtResource("3_32iud")
+room_id = "lv003rm02"
+room_parent = "lv002rm01"
+room_name = "test2"
+description = "2nd test.
+
+Hit 0 to quit."
+
+[node name="lv003rm03-Test 3" type="Node2D" parent="."]
+position = Vector2(476, 896)
+script = ExtResource("3_32iud")
+room_id = "lv003rm03"
+room_parent = "lv002rm02"
+room_name = "test3"
+description = "Third test.
+
+Hit 0 to quit."
+
 [node name="lv004rm01-StreetJohnPortal" type="Node2D" parent="."]
+position = Vector2(-790, 1190)
 script = ExtResource("3_32iud")
 room_id = "lv004rm01"
 room_parent = "lv003rm01"
@@ -106,6 +164,7 @@ destination = "lv005rm01-caves-chester-explore-plv004rm01"
 door_id = "dr001"
 
 [node name="lv005rm01-CavesChesterExplore" type="Node2D" parent="."]
+position = Vector2(-798, 1482)
 script = ExtResource("3_32iud")
 room_id = "lv005rm01"
 room_parent = "lv004rm01"
