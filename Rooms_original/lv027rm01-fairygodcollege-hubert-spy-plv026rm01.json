@@ -1,0 +1,13 @@
+{
+    "id": "lv027rm01",
+    "parent": "lv026rm01",
+    "name": "fairygodcollege-hubert-spy",
+    "description": "Hubert makes his way to Fairy Godcollege, and peeks in one of the windows.\nAt Fairy Godcollege, an old friend tells Hubert, Violet is back, and is trying to force students to become evil witches.\n\nHit 1 if you wish to go to gnomekingdom-roland-reunion.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv028rm01-gnomekingdom-roland-reunion-plv027rm01"
+        }
+    ]
+}

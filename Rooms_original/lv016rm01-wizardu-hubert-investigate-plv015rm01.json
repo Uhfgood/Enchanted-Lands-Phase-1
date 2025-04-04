@@ -1,0 +1,13 @@
+{
+    "id": "lv016rm01",
+    "parent": "lv015rm01",
+    "name": "wizardu-hubert-investigate",
+    "description": "Hubert sneaks into Wizard U and examines the \"hall of fame\" paintings and notices one is missing.\nAfter realizing what's missing, he leaves the school.\n\nHit 1 if you wish to go to knightschool-unicorn-reflection.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv017rm01-knightschool-unicorn-reflection-plv016rm01"
+        }
+    ]
+}

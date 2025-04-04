@@ -1,0 +1,13 @@
+{
+    "id": "lv076rm01",
+    "parent": "lv075rm01",
+    "name": "knightschool-john-recruit",
+    "description": "John and Sir William arrive at Knight School.\nThey convince most of the Knights and Knights-in-Training, to join them in fighting Max and his armies.\nThey, then, leave to go back to the Bats in the Belfry.\n\nHit 1 if you wish to go to princessprep-princess-note.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv077rm01-princessprep-princess-note-plv076rm01"
+        }
+    ]
+}

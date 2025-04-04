@@ -1,0 +1,13 @@
+{
+    "id": "lv008rm01",
+    "parent": "lv007rm01",
+    "name": "train-woman-tumble",
+    "description": "John steps into what looks like a train cabin, when he sees a beautiful young woman sitting near the front.\nThe beautiful woman is grabbed by a short fat little man, as the train cabin starts tumbling, causing John to fall.\n\nHit 1 if you wish to go to lapsewood-hubert-meet.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv009rm01-lapsewood-hubert-meet-plv008rm01"
+        }
+    ]
+}

@@ -152,7 +152,7 @@ func load_all_rooms():
 							door.owner = get_tree().edited_scene_root
 					room.editor_map = self
 					room.SetupVisuals()  # Direct call
-				if file_name.begins_with("lv005"):
+				if file_name.begins_with("lv015"):
 					break
 
 	print("***")

@@ -1,0 +1,13 @@
+{
+    "id": "lv028rm01",
+    "parent": "lv027rm01",
+    "name": "gnomekingdom-roland-reunion",
+    "description": "In the Gnome Kingdom, Roland notices all kinds of people and creatures working the mines.\nHe spots a giant chained to one of the machines that he can't identify, and starts walking towards him.\nRoland asks the giant, if he's his Dad, and the giant confirms it.\nHe tells Roland to find Hubert Halfway, the wizard, and to tell Hubert that Max seems to need a lot of quick silver.\n\nHit 1 if you wish to go to faire-john-rendezvous.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv029rm01-faire-john-rendezvous-plv028rm01"
+        }
+    ]
+}

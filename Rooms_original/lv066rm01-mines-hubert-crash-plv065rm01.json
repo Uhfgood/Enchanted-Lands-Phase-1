@@ -1,0 +1,13 @@
+{
+    "id": "lv066rm01",
+    "parent": "lv065rm01",
+    "name": "mines-hubert-crash",
+    "description": "There\u2019s an explosion that seems to come from one of the mine walls.\nWhen the smoke clears, a train appears to have crashed into the mine.\nHubert pops out of the train.\n\nHit 1 if you wish to go to sky-william-victory.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv067rm01-sky-william-victory-plv066rm01"
+        }
+    ]
+}
