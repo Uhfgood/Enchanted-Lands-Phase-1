@@ -10,7 +10,6 @@ position = Vector2(-2, 20)
 script = ExtResource("1_k3d1g")
 
 [node name="lv001sn01-MainMenu" type="Node2D" parent="." instance=ExtResource("2_lug80")]
-position = Vector2(-292, 0)
 script = ExtResource("3_32iud")
 room_id = "lv001sn01"
 room_parent = "lvXXXsnXX"
@@ -27,7 +26,7 @@ choice = "1"
 destination = "lv001rm01-welcome-plv001sn01"
 
 [node name="lv001rm01-Welcome" type="Node2D" parent="."]
-position = Vector2(-594, 300)
+position = Vector2(0, 300)
 script = ExtResource("3_32iud")
 room_id = "lv001rm01"
 room_parent = "lv001sn01"
@@ -55,7 +54,7 @@ destination = "lv002rm02-test1-plv001rm01"
 door_id = "dr002"
 
 [node name="lv002rm01-ResortMaxClosure" type="Node2D" parent="."]
-position = Vector2(-1198, 600)
+position = Vector2(-951, 600)
 script = ExtResource("3_32iud")
 room_id = "lv002rm01"
 room_parent = "lv001rm01"
@@ -85,7 +84,7 @@ destination = "lv003rm02-test2-plv002rm01"
 door_id = "dr002"
 
 [node name="lv002rm02-Test 1" type="Node2D" parent="."]
-position = Vector2(312, 600)
+position = Vector2(634, 600)
 script = ExtResource("3_32iud")
 room_id = "lv002rm02"
 room_parent = "lv001rm01"
@@ -103,7 +102,7 @@ destination = "lv003rm03-test3-plv002rm02"
 door_id = "dr001"
 
 [node name="lv003rm01-HomeHubertSearch" type="Node2D" parent="."]
-position = Vector2(-1802, 900)
+position = Vector2(-317, 900)
 script = ExtResource("3_32iud")
 room_id = "lv003rm01"
 room_parent = "lv002rm01"
@@ -124,7 +123,7 @@ destination = "lv004rm01-street-john-portal-plv003rm01"
 door_id = "dr001"
 
 [node name="lv003rm02-Test 2" type="Node2D" parent="."]
-position = Vector2(10, 900)
+position = Vector2(317, 900)
 script = ExtResource("3_32iud")
 room_id = "lv003rm02"
 room_parent = "lv002rm01"
@@ -134,7 +133,7 @@ description = "2nd test.
 Hit 0 to quit."
 
 [node name="lv003rm03-Test 3" type="Node2D" parent="."]
-position = Vector2(-292, 900)
+position = Vector2(0, 900)
 script = ExtResource("3_32iud")
 room_id = "lv003rm03"
 room_parent = "lv002rm02"
@@ -162,7 +161,7 @@ destination = "lv004rm04-test6-plv003rm03"
 door_id = "dr003"
 
 [node name="lv004rm01-StreetJohnPortal" type="Node2D" parent="."]
-position = Vector2(-1802, 1200)
+position = Vector2(0, 1200)
 script = ExtResource("3_32iud")
 room_id = "lv004rm01"
 room_parent = "lv003rm01"
@@ -183,7 +182,7 @@ destination = "lv005rm01-caves-chester-explore-plv004rm01"
 door_id = "dr001"
 
 [node name="lv004rm02-Test 4" type="Node2D" parent="."]
-position = Vector2(-292, 1200)
+position = Vector2(-634, 1200)
 script = ExtResource("3_32iud")
 room_id = "lv004rm02"
 room_parent = "lv003rm03"
@@ -193,7 +192,7 @@ description = "4th test.
 Hit 0 to quit."
 
 [node name="lv004rm03-Test 5" type="Node2D" parent="."]
-position = Vector2(312, 1200)
+position = Vector2(0, 1200)
 script = ExtResource("3_32iud")
 room_id = "lv004rm03"
 room_parent = "lv003rm03"
@@ -203,7 +202,7 @@ description = "Fifth test.
 Hit 0 to quit."
 
 [node name="lv004rm04-Test 6" type="Node2D" parent="."]
-position = Vector2(916, 1200)
+position = Vector2(634, 1200)
 script = ExtResource("3_32iud")
 room_id = "lv004rm04"
 room_parent = "lv003rm03"
@@ -213,7 +212,7 @@ description = "Sixth test.
 Hit 0 to quit."
 
 [node name="lv005rm01-CavesChesterExplore" type="Node2D" parent="."]
-position = Vector2(-1802, 1500)
+position = Vector2(0, 1500)
 script = ExtResource("3_32iud")
 room_id = "lv005rm01"
 room_parent = "lv004rm01"
@@ -230,42 +229,4 @@ Hit 0 to quit."
 script = ExtResource("4_h2xtq")
 choice = "1"
 destination = "lv006rm01-sky-chester-fight-plv005rm01"
-door_id = "dr001"
-
-[node name="lv006rm01-SkyChesterFight" type="Node2D" parent="."]
-position = Vector2(-1802, 1800)
-script = ExtResource("3_32iud")
-room_id = "lv006rm01"
-room_parent = "lv005rm01"
-room_name = "sky-chester-fight"
-description = "As Chester is flying around, he sees a random village being burned down by a friend.
-Chester flies right into the other dragon hard enough to cause him to stop.
-Before the other dragon could recover, Chester flies back to his own cave, under Dragonmount.
-
-Hit 1 if you wish to go to cave-chester-gather.
-
-Hit 0 to quit."
-
-[node name="DoorToCaveChesterGather" type="Node" parent="lv006rm01-SkyChesterFight"]
-script = ExtResource("4_h2xtq")
-choice = "1"
-destination = "lv007rm01-cave-chester-gather-plv006rm01"
-door_id = "dr001"
-
-[node name="lv007rm01-CaveChesterGather" type="Node2D" parent="."]
-position = Vector2(-1802, 2100)
-script = ExtResource("3_32iud")
-room_id = "lv007rm01"
-room_parent = "lv006rm01"
-room_name = "cave-chester-gather"
-description = "Chester picks up a few shiny objects from his cave, and then leaves again to search for more of his friends.
-
-Hit 1 if you wish to go to train-woman-tumble.
-
-Hit 0 to quit."
-
-[node name="DoorToTrainWomanTumble" type="Node" parent="lv007rm01-CaveChesterGather"]
-script = ExtResource("4_h2xtq")
-choice = "1"
-destination = "lv008rm01-train-woman-tumble-plv007rm01"
 door_id = "dr001"

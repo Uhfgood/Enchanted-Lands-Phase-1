@@ -7,6 +7,13 @@ extends Node2D
 # Flag to prevent load_all_rooms from running multiple times
 var has_loaded_rooms: bool = false
 
+# Positioning variables
+var panel_width: int = 584  # From your debug output
+var horizontal_gap: int = 50  # Gap between rooms
+var level_height: int = 300  # Vertical spacing between levels
+var y_offset: int = 0  # Starting Y position
+var max_children_per_level: Array = []  # Array: max_children_per_level[i] is the max number of children for any parent in level i
+
 func _ready():
 	print( "***" )
 	print( "EDITOR MAP READY" )
@@ -15,7 +22,6 @@ func _ready():
 			load_all_rooms()
 			has_loaded_rooms = true
 			print( "***" )
-
 
 func load_all_rooms():
 	print("Running load_all_rooms")
@@ -58,12 +64,9 @@ func load_all_rooms():
 						room.add_child(editor_door)
 						editor_door.owner = get_tree().edited_scene_root
 						
-						
 				room.SetupVisuals()  # Direct call
 
 	# Load .json files
-	file_list = []
-	file_name = ""
 	var json_dir = DirAccess.open("res://Rooms/")
 	if json_dir:
 		file_list = json_dir.get_files()
@@ -97,8 +100,6 @@ func load_all_rooms():
 		var room = rooms_dict[room_name]
 		room_tree[room_name] = []
 		for door in room.doors:
-			#var destination = door.destination
-			#var dest = door.destination.substr( 0, 10 ) + room.ToPascalCase( ) # door.destination.substr( 6 ) )
 			var dest_name = door.destination
 			var prefix_str = dest_name.substr( 0, 10 )
 			var dest_substr = dest_name.substr( 10, dest_name.length() - 21 )
@@ -127,20 +128,81 @@ func load_all_rooms():
 
 	print("Levels: ", levels)
 
-	# Step 4: Position rooms
-	var panel_width = 584  # From your debug output
-	var level_height = 300  # Vertical spacing between levels
-	var base_x = 0  # Center X position for the root
-	var y_offset = 0  # Starting Y position
-
+	# Step 4: Find the widest group in each level
+	max_children_per_level.clear()  # Clear the array in case this function is called multiple times
 	for level_idx in range(levels.size()):
-		var level = levels[level_idx]
-		var level_y = y_offset + level_idx * level_height
-		var total_width = (level.size() - 1) * panel_width  # Total width needed for this level
-		var start_x = base_x - total_width / 2  # Center the level
+		var max_children = 0  # Start at 0 since some levels may have no children
+		# For each room in the previous level, count its children (which are in the current level)
+		if level_idx == 0:
+			# For the root level, use the number of children of the root
+			max_children = room_tree[root_room].size()
+		else:
+			var parent_level = levels[level_idx - 1]
+			for parent_name in parent_level:
+				var child_count = room_tree[parent_name].size()
+				max_children = max(max_children, child_count)
+		max_children_per_level.append(max_children)
+	print("Max children per level: ", max_children_per_level)
 
+	# Step 5: Position rooms recursively
+	# Start positioning from the root
+	var root = rooms_dict[root_room]
+	root.position = Vector2(0, y_offset)  # Start at the top center
+	position_room(root_room, 0, rooms_dict, room_tree)
+
+# Helper function to position a room and its children recursively
+func position_room(room_name: String, level_idx: int, rooms_dict: Dictionary, room_tree: Dictionary) -> Dictionary:
+	var room = rooms_dict[room_name]
+	var level_y = y_offset + level_idx * level_height
+	var children = room_tree[room_name]
+	
+	# Base case: If no children, return the room's bounds
+	if children.size() == 0:
+		return {"x_min": room.position.x - panel_width / 2.0, "x_max": room.position.x + panel_width / 2.0, "center_x": room.position.x}
+	
+	# Recursive case: Position all children first
+	var child_positions = []
+	var child_level = level_idx + 1
+	var group_width = max_children_per_level[child_level] * (panel_width + horizontal_gap) - horizontal_gap if max_children_per_level[child_level] > 0 else panel_width
+	
+	# Temporarily position each child to calculate its subtree
+	for child_name in children:
+		var child = rooms_dict[child_name]
+		child.position = Vector2(0, y_offset + child_level * level_height)
+		var child_result = position_room(child_name, child_level, rooms_dict, room_tree)
+		child_positions.append(child_result)
+	
+	# Position the children within the "big box" centered under the parent
+	if children.size() > 0:
+		# Calculate the starting x position to center the group under the parent
+		var start_x = room.position.x - (group_width / 2.0)
+		var child_spacing = (group_width - (children.size() * panel_width)) / max(1, children.size() - 1) if children.size() > 1 else 0
 		var current_x = start_x
-		for room_name in level:
-			var room = rooms_dict[room_name]
-			room.position = Vector2(current_x, level_y)
-			current_x += panel_width  # Simple spacing for now
+		
+		for i in range(children.size()):
+			var child = rooms_dict[children[i]]
+			var child_result = child_positions[i]
+			
+			# Position the child within the "big box"
+			var new_center_x = current_x + panel_width / 2.0
+			var offset = new_center_x - child_result["center_x"]
+			child.position.x = new_center_x
+			child_positions[i]["x_min"] = child_result["x_min"] + offset
+			child_positions[i]["x_max"] = child_result["x_max"] + offset
+			child_positions[i]["center_x"] = new_center_x
+			
+			# Move current_x to the next position
+			if children.size() > 1:
+				current_x += panel_width + child_spacing
+			else:
+				current_x += panel_width
+	
+	# Calculate the group's bounds
+	var x_min = child_positions[0]["x_min"] if children.size() > 0 else room.position.x - panel_width / 2.0
+	var x_max = child_positions[children.size() - 1]["x_max"] if children.size() > 0 else room.position.x + panel_width / 2.0
+	var center_x = (x_min + x_max) / 2.0
+	
+	# Reposition the parent to be centered over its children
+	room.position.x = center_x
+	
+	return {"x_min": x_min, "x_max": x_max, "center_x": center_x}
