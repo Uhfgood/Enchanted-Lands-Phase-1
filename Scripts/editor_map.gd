@@ -48,6 +48,11 @@ func calculate_level_max_children(room_name: String, level: int, visited: Dictio
 		if child_name in rooms_dict:
 			calculate_level_max_children(child_name, level + 1, visited)
 
+func calculate_subtree_width(num_children: int) -> float:
+	if num_children == 0:
+		return panel_width
+	return num_children * panel_width + (num_children - 1) * horizontal_spacing
+
 func position_room(room_name: String, x_center: float, y_level: float, level: int, visited: Dictionary):
 	if room_name in visited:
 		return
@@ -63,27 +68,41 @@ func position_room(room_name: String, x_center: float, y_level: float, level: in
 	if children.size() == 0:
 		return
 
-	# Determine the effective width for this level based on the max number of children
+	# Calculate the effective width for spacing the parents at this level
 	var child_level = level + 1
 	var max_children = level_max_children[child_level] if child_level in level_max_children else 1
-	var effective_width = max_children * panel_width + (max_children - 1) * horizontal_spacing
+	var max_subtree_width = calculate_subtree_width(max_children)
 
-	# Calculate the total width for positioning the children
-	var total_children_width = children.size() * effective_width
+	# Calculate the actual subtree width for each child
+	var child_subtree_widths = []
+	for child_name in children:
+		if child_name in rooms_dict:
+			var child_children = room_tree[child_name] if child_name in room_tree else []
+			var subtree_width = calculate_subtree_width(child_children.size())
+			child_subtree_widths.append(subtree_width)
+
+	# Use the maximum subtree width to position the parents
+	var total_children_width = children.size() * max_subtree_width
 	if children.size() > 1:
 		total_children_width += horizontal_spacing * (children.size() - 1)
 
 	# Calculate the starting x position for the children (centered under the parent)
-	var start_x66 = x_center - total_children_width / 2
-	var current_x = start_x66
+	var start_x = x_center - total_children_width / 2
+	var current_x = start_x
 
 	# Position each child
-	for child_name in children:
+	for i in range(children.size()):
+		var child_name = children[i]
 		if child_name in rooms_dict:
-			# Center the child within its allocated effective_width space
-			var child_x_center = current_x + effective_width / 2
+			var actual_subtree_width = child_subtree_widths[i]
+			# Center the child's actual subtree within the allocated max_subtree_width space
+			var child_x_center = current_x + max_subtree_width / 2
 			position_room(child_name, child_x_center, y_level + level_height, level + 1, visited)
-			current_x += effective_width + horizontal_spacing  # Move to the next slot
+			# Adjust the child's position to center its actual subtree
+			var child_x_adjusted = child_x_center - actual_subtree_width / 2
+			rooms_dict[child_name].position.x = child_x_adjusted
+			room_positions[child_name].x = child_x_adjusted
+			current_x += max_subtree_width + horizontal_spacing  # Move to the next slot
 
 func load_all_rooms():
 	print("Running load_all_rooms")
@@ -152,7 +171,7 @@ func load_all_rooms():
 							door.owner = get_tree().edited_scene_root
 					room.editor_map = self
 					room.SetupVisuals()  # Direct call
-				if file_name.begins_with("lv015"):
+				if file_name.begins_with("lv007"):
 					break
 
 	print("***")
