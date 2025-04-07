@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bl74drpt5u5vp"]
 
 [ext_resource type="Script" path="res://Scripts/editor_map.gd" id="1_k3d1g"]
-[ext_resource type="PackedScene" uid="uid://dso0cobuwu2e2" path="res://Rooms/lv001sn01-main-menu-plvXXXsnXX.tscn" id="2_lug80"]
+[ext_resource type="PackedScene" uid="uid://dso0cobuwu2e2" path="res://Rooms/lv001sn01-main-menu-plvXXXsnXX.tscn" id="2_hfo14"]
 [ext_resource type="Script" path="res://Scripts/room.gd" id="3_32iud"]
 [ext_resource type="Script" path="res://Scripts/door.gd" id="4_h2xtq"]
 
@@ -9,7 +9,7 @@
 position = Vector2(-2, 20)
 script = ExtResource("1_k3d1g")
 
-[node name="lv001sn01-MainMenu" type="Node2D" parent="." instance=ExtResource("2_lug80")]
+[node name="lv001sn01-MainMenu" type="Node2D" parent="." instance=ExtResource("2_hfo14")]
 script = ExtResource("3_32iud")
 room_id = "lv001sn01"
 room_parent = "lvXXXsnXX"
@@ -54,7 +54,7 @@ destination = "lv002rm02-test1-plv001rm01"
 door_id = "dr002"
 
 [node name="lv002rm01-ResortMaxClosure" type="Node2D" parent="."]
-position = Vector2(-317, 600)
+position = Vector2(-877, 503)
 script = ExtResource("3_32iud")
 room_id = "lv002rm01"
 room_parent = "lv001rm01"
@@ -84,7 +84,7 @@ destination = "lv003rm02-test2-plv002rm01"
 door_id = "dr002"
 
 [node name="lv002rm02-Test 1" type="Node2D" parent="."]
-position = Vector2(317, 600)
+position = Vector2(892, 494)
 script = ExtResource("3_32iud")
 room_id = "lv002rm02"
 room_parent = "lv001rm01"
@@ -102,7 +102,7 @@ destination = "lv003rm03-test3-plv002rm02"
 door_id = "dr001"
 
 [node name="lv003rm01-HomeHubertSearch" type="Node2D" parent="."]
-position = Vector2(-317, 900)
+position = Vector2(-584, 900)
 script = ExtResource("3_32iud")
 room_id = "lv003rm01"
 room_parent = "lv002rm01"
@@ -123,7 +123,7 @@ destination = "lv004rm01-street-john-portal-plv003rm01"
 door_id = "dr001"
 
 [node name="lv003rm02-Test 2" type="Node2D" parent="."]
-position = Vector2(317, 900)
+position = Vector2(0, 900)
 script = ExtResource("3_32iud")
 room_id = "lv003rm02"
 room_parent = "lv002rm01"
@@ -133,7 +133,7 @@ description = "2nd test.
 Hit 0 to quit."
 
 [node name="lv003rm03-Test 3" type="Node2D" parent="."]
-position = Vector2(-317, 900)
+position = Vector2(584, 900)
 script = ExtResource("3_32iud")
 room_id = "lv003rm03"
 room_parent = "lv002rm02"
@@ -161,7 +161,7 @@ destination = "lv004rm04-test6-plv003rm03"
 door_id = "dr003"
 
 [node name="lv004rm01-StreetJohnPortal" type="Node2D" parent="."]
-position = Vector2(-634, 1200)
+position = Vector2(-876, 1200)
 script = ExtResource("3_32iud")
 room_id = "lv004rm01"
 room_parent = "lv003rm01"
@@ -182,7 +182,7 @@ destination = "lv005rm01-caves-chester-explore-plv004rm01"
 door_id = "dr001"
 
 [node name="lv004rm02-Test 4" type="Node2D" parent="."]
-position = Vector2(-634, 1200)
+position = Vector2(-292, 1200)
 script = ExtResource("3_32iud")
 room_id = "lv004rm02"
 room_parent = "lv003rm03"
@@ -192,7 +192,7 @@ description = "4th test.
 Hit 0 to quit."
 
 [node name="lv004rm03-Test 5" type="Node2D" parent="."]
-position = Vector2(0, 1200)
+position = Vector2(292, 1200)
 script = ExtResource("3_32iud")
 room_id = "lv004rm03"
 room_parent = "lv003rm03"
@@ -202,7 +202,7 @@ description = "Fifth test.
 Hit 0 to quit."
 
 [node name="lv004rm04-Test 6" type="Node2D" parent="."]
-position = Vector2(634, 1200)
+position = Vector2(876, 1200)
 script = ExtResource("3_32iud")
 room_id = "lv004rm04"
 room_parent = "lv003rm03"
