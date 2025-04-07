@@ -1,0 +1,24 @@
+{
+    "id": "lv003rm03",
+    "parent": "lv002rm02",
+    "name": "test3",
+    "description": "Third test.\n\nHit 0 to quit.",
+        "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv004rm02-test4-plv003rm03"
+        },
+        {
+            "id": "dr002",
+            "choice": "2",
+            "destination": "lv004rm03-test5-plv003rm03"
+        },
+        {
+            "id": "dr003",
+            "choice": "3",
+            "destination": "lv004rm04-test6-plv003rm03"
+        }
+    ]
+
+}

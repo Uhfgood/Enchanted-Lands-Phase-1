@@ -1,0 +1,13 @@
+{
+    "id": "lv073rm01",
+    "parent": "lv072rm01",
+    "name": "fairygodcollege-violet-alter",
+    "description": "Kurt returns to Violet at Fairy Godcollege.\nShe casts a spell, which visibly alters Kurt, and then he goes back to the Village.\n\nHit 1 if you wish to go to village-kurt-coup.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv074rm01-village-kurt-coup-plv073rm01"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "id": "lv082rm01",
+    "parent": "lv081rm01",
+    "name": "fairygodcollege-hubert-rescue",
+    "description": "Hubert, John, and the Count, all go back to Fairy Godcollege.\nWith Hubert's full magic, they force their way in.\nAs soon as they release the vacation Fairy Godmothers, and go and get the books.\nThey then leave to go back to the Count's hotel.\n\nHit 1 if you wish to go to hotel-john-rescue.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv083rm01-hotel-john-rescue-plv082rm01"
+        }
+    ]
+}

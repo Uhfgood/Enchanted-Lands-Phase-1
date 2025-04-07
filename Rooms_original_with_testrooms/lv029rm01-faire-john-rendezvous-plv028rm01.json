@@ -1,0 +1,13 @@
+{
+    "id": "lv029rm01",
+    "parent": "lv028rm01",
+    "name": "faire-john-rendezvous",
+    "description": "John and Hubert rendezvous at Scarborough Faire Chicken at the Renaissance Faire.\nSince the Princess was kidnapped for a reason, they decide to find her and rescue her if possible.\nHubert contacts his old friend, The Count, and tells him to turn into a bat, and see if he can find the Princess.\n\nHit 1 if you wish to go to lapsewood-unicorn-chase.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv030rm01-lapsewood-unicorn-chase-plv029rm01"
+        }
+    ]
+}

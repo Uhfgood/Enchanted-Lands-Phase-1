@@ -1,0 +1,13 @@
+{
+    "id": "lv012rm01",
+    "parent": "lv011rm01",
+    "name": "lapsewood-hubert-instruct",
+    "description": "Once they're out of the confines of Lapsewood, Hubert stops to give instructions.\nHubert sends John to Knight School and Princess Prep to figure out what's happening.\nHubert himself, goes to examine Wizard U and Fairy Godcollege.\n\nHit 1 if you wish to go to mines-roland-arrival.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv013rm01-mines-roland-arrival-plv012rm01"
+        }
+    ]
+}

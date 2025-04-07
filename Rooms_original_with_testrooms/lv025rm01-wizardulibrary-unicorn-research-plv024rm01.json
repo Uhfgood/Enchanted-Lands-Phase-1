@@ -1,0 +1,13 @@
+{
+    "id": "lv025rm01",
+    "parent": "lv024rm01",
+    "name": "wizardulibrary-unicorn-research",
+    "description": "After finding the library and exploring it, he finds a section on curses, and pulls off a few books with his horn.\nInside the library at Wizard U, the Unicorn notices the page about 'transmogrification'.\nUsing his horn to turn the pages, he reads that anyone can be turned into anything, even a unicorn.\nAfter closing the book the Unicorn notices the picture appears to be the same wizard who had his painting defaced.\nThe dust jacket reads \"Hubert Halfway, resides with his spellbooks at a house near the edge of Lapsewood\".\nThe Unicorn then leaves Wizard U.\n\nHit 1 if you wish to go to mines-roland-secret.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "dr001",
+            "choice": "1",
+            "destination": "lv026rm01-mines-roland-secret-plv025rm01"
+        }
+    ]
+}
