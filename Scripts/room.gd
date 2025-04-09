@@ -45,7 +45,7 @@ func LoadDataFromJSON( json_name : String )->bool:
 	self.room_parent = json_data[ "parent" ]
 	self.room_name = json_data[ "name" ]
 	self.name = self.room_id + "-" + ToPascalCase( self.room_name )
-	print( "***self.name: ", self.name )
+	print( "self.name: ", self.name )
 	self.description = json_data[ "description" ]
 	
 	# create and attach door nodes
@@ -340,9 +340,3 @@ func resize_panel(panel: Panel, vbox: VBoxContainer, name_label: Label, desc_lab
 	# Center the VBoxContainer within the Panel
 	var vbox_x_offset = (total_width - text_width) / 2  # Should be (584 - 560) / 2 = 12
 	vbox.position = Vector2(vbox_x_offset + 1, padding.y / 2)
-
-	# Debug output
-	#print("Panel width: ", panel.size.x)
-	#print("VBox width: ", vbox.size.x)
-	#print("VBox position.x: ", vbox.position.x)
-	#print("Text width (calculated): ", text_width)

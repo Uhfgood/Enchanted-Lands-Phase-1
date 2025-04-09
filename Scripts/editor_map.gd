@@ -14,7 +14,7 @@ func _ready():
 		if not has_loaded_rooms:
 			load_all_rooms()
 			has_loaded_rooms = true
-			print( "***" )
+			#print( "***" )
 
 
 func load_all_rooms():
@@ -89,58 +89,3 @@ func load_all_rooms():
 					break
 
 	print( "***" )
-	print( "Building room tree." )
-	# Step 2: Build the room tree
-	var room_tree = {}  # Maps room name to list of child room names
-	print( "Number of rooms in dictionary: ", rooms_dict.size())
-	for room_name in rooms_dict:
-		var room = rooms_dict[room_name]
-		room_tree[room_name] = []
-		for door in room.doors:
-			#var destination = door.destination
-			#var dest = door.destination.substr( 0, 10 ) + room.ToPascalCase( ) # door.destination.substr( 6 ) )
-			var dest_name = door.destination
-			var prefix_str = dest_name.substr( 0, 10 )
-			var dest_substr = dest_name.substr( 10, dest_name.length() - 21 )
-			var dest = prefix_str + room.ToPascalCase( dest_substr )
-			print( "dest = " + dest )
-			if dest in rooms_dict:
-				room_tree[room_name].append(dest)
-
-	# Step 3: Organize rooms by level
-	var levels = []  # Array of arrays: levels[i] is a list of room names at level i
-	var root_room = "lv001sn01-MainMenu"  # Starting point
-	var to_process = [[root_room]]  # Queue of rooms to process by level
-	var processed = {root_room: true}  # Track which rooms have been processed
-
-	while to_process.size() > 0:
-		var current_level = to_process.pop_front()
-		levels.append(current_level)
-		var next_level = []
-		for room_name in current_level:
-			for child_name in room_tree[room_name]:
-				if not child_name in processed:
-					next_level.append(child_name)
-					processed[child_name] = true
-		if next_level.size() > 0:
-			to_process.append(next_level)
-
-	print("Levels: ", levels)
-
-	# Step 4: Position rooms
-	var panel_width = 584  # From your debug output
-	var level_height = 300  # Vertical spacing between levels
-	var base_x = 0  # Center X position for the root
-	var y_offset = 0  # Starting Y position
-
-	for level_idx in range(levels.size()):
-		var level = levels[level_idx]
-		var level_y = y_offset + level_idx * level_height
-		var total_width = (level.size() - 1) * panel_width  # Total width needed for this level
-		var start_x = base_x - total_width / 2  # Center the level
-
-		var current_x = start_x
-		for room_name in level:
-			var room = rooms_dict[room_name]
-			room.position = Vector2(current_x, level_y)
-			current_x += panel_width  # Simple spacing for now
