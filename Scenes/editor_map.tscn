@@ -1,15 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://bl74drpt5u5vp"]
 
 [ext_resource type="Script" path="res://Scripts/editor_map.gd" id="1_k3d1g"]
-[ext_resource type="Script" path="res://Scripts/room.gd" id="3_32iud"]
-[ext_resource type="Script" path="res://Scripts/door.gd" id="4_h2xtq"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="2_ihfh8"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="3_lr4b1"]
 
-[node name="EditorMap" type="Node2D"]
-position = Vector2(-2, 20)
+[node name="EditorMap" type="Node"]
 script = ExtResource("1_k3d1g")
 
-[node name="lv001rm01-Welcome" type="Node2D" parent="."]
-script = ExtResource("3_32iud")
+[node name="Rooms" type="Node2D" parent="."]
+
+[node name="lv001rm01-Welcome" type="Node2D" parent="Rooms"]
+script = ExtResource("2_ihfh8")
 room_id = "lv001rm01"
 room_parent = "lv001sn01"
 room_name = "welcome"
@@ -21,14 +22,14 @@ Hit 1 if you wish to start.
 
 Hit 0 to quit."
 
-[node name="DoorToResortMaxClosure" type="Node" parent="lv001rm01-Welcome"]
-script = ExtResource("4_h2xtq")
+[node name="DoorToResortMaxClosure" type="Node" parent="Rooms/lv001rm01-Welcome"]
+script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "lv002rm01-resort-max-closure-plv001rm01"
 door_id = "dr001"
 
-[node name="lv002rm01-ResortMaxClosure" type="Node2D" parent="."]
-script = ExtResource("3_32iud")
+[node name="lv002rm01-ResortMaxClosure" type="Node2D" parent="Rooms"]
+script = ExtResource("2_ihfh8")
 room_id = "lv002rm01"
 room_parent = "lv001rm01"
 room_name = "resort-max-closure"
@@ -42,14 +43,14 @@ Hit 1 if you wish to go to home-hubert-search.
 
 Hit 0 to quit."
 
-[node name="DoorToHomeHubertSearch" type="Node" parent="lv002rm01-ResortMaxClosure"]
-script = ExtResource("4_h2xtq")
+[node name="DoorToHomeHubertSearch" type="Node" parent="Rooms/lv002rm01-ResortMaxClosure"]
+script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "lv003rm01-home-hubert-search-plv002rm01"
 door_id = "dr001"
 
-[node name="lv003rm01-HomeHubertSearch" type="Node2D" parent="."]
-script = ExtResource("3_32iud")
+[node name="lv003rm01-HomeHubertSearch" type="Node2D" parent="Rooms"]
+script = ExtResource("2_ihfh8")
 room_id = "lv003rm01"
 room_parent = "lv002rm01"
 room_name = "home-hubert-search"
@@ -62,14 +63,15 @@ Hit 1 if you wish to go to street-john-portal.
 
 Hit 0 to quit."
 
-[node name="DoorToStreetJohnPortal" type="Node" parent="lv003rm01-HomeHubertSearch"]
-script = ExtResource("4_h2xtq")
+[node name="DoorToStreetJohnPortal" type="Node" parent="Rooms/lv003rm01-HomeHubertSearch"]
+script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "lv004rm01-street-john-portal-plv003rm01"
 door_id = "dr001"
 
-[node name="lv004rm01-StreetJohnPortal" type="Node2D" parent="."]
-script = ExtResource("3_32iud")
+[node name="lv004rm01-StreetJohnPortal" type="Node2D" parent="Rooms"]
+position = Vector2(-778, 629)
+script = ExtResource("2_ihfh8")
 room_id = "lv004rm01"
 room_parent = "lv003rm01"
 room_name = "street-john-portal"
@@ -82,14 +84,15 @@ Hit 1 if you wish to go to caves-chester-explore.
 
 Hit 0 to quit."
 
-[node name="DoorToCavesChesterExplore" type="Node" parent="lv004rm01-StreetJohnPortal"]
-script = ExtResource("4_h2xtq")
+[node name="DoorToCavesChesterExplore" type="Node" parent="Rooms/lv004rm01-StreetJohnPortal"]
+script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "lv005rm01-caves-chester-explore-plv004rm01"
 door_id = "dr001"
 
-[node name="lv005rm01-CavesChesterExplore" type="Node2D" parent="."]
-script = ExtResource("3_32iud")
+[node name="lv005rm01-CavesChesterExplore" type="Node2D" parent="Rooms"]
+position = Vector2(710, 585)
+script = ExtResource("2_ihfh8")
 room_id = "lv005rm01"
 room_parent = "lv004rm01"
 room_name = "caves-chester-explore"
@@ -101,8 +104,8 @@ Hit 1 if you wish to go to sky-chester-fight.
 
 Hit 0 to quit."
 
-[node name="DoorToSkyChesterFight" type="Node" parent="lv005rm01-CavesChesterExplore"]
-script = ExtResource("4_h2xtq")
+[node name="DoorToSkyChesterFight" type="Node" parent="Rooms/lv005rm01-CavesChesterExplore"]
+script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "lv006rm01-sky-chester-fight-plv005rm01"
 door_id = "dr001"
