@@ -10,6 +10,5 @@ static func create( ident : String, ch : String, dest : String, door_name : Stri
 	new_door.choice = ch
 	new_door.destination = dest
 	new_door.name = door_name
-	print( "Door name = ", new_door.name )
 	return new_door
 	

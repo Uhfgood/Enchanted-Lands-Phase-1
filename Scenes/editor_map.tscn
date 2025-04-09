@@ -89,12 +89,11 @@ destination = "lv005rm01-caves-chester-explore-plv004rm01"
 door_id = "dr001"
 
 [node name="lv005rm01-CavesChesterExplore" type="Node2D" parent="."]
-position = Vector2(-110, 962)
 script = ExtResource("3_32iud")
 room_id = "lv005rm01"
 room_parent = "lv004rm01"
 room_name = "caves-chester-explore"
-description = "Somewhere in the kingdo, Chester, a friendly dragon, lands at the entrance to the \"Caves of Dragonmount.\"
+description = "Somewhere in the kingdom, Chester, a friendly dragon, lands at the entrance to the \"Caves of Dragonmount.\"
 Chester walks around the cave system trying to find his friends.
 Chester then leaves, and flies around while looking some more.
 

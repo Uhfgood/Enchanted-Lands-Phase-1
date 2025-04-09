@@ -45,8 +45,8 @@ func LoadDataFromJSON( json_name : String )->bool:
 	self.room_parent = json_data[ "parent" ]
 	self.room_name = json_data[ "name" ]
 	self.name = self.room_id + "-" + ToPascalCase( self.room_name )
-	print( "self.name: ", self.name )
 	self.description = json_data[ "description" ]
+	print( "Creating " + self.name + " from JSON data." )
 	
 	# create and attach door nodes
 	if "doors" in json_data:
@@ -54,21 +54,20 @@ func LoadDataFromJSON( json_name : String )->bool:
 			var door_id = door_data[ "id" ]
 			var choice = door_data[ "choice" ] 
 			var dest = door_data[ "destination" ]
-			print( "dest is: ", dest )
 			var dest_substr = dest.substr( 10, dest.length() - 21 )
-			print( "dest_substr: ", dest_substr )
 			var door_name = "DoorTo" + ToPascalCase( dest_substr )
+			print( "Creating " + door_name + " from JSON data." )
 			var new_door = Door.create( door_id, choice, dest, door_name )
 			if new_door:
 				doors.append( new_door )
 				add_child( new_door )
+				print( "Successfully created " + new_door.name + "." )
 			else:
 				print( "New door not valid." )
 			
 	return true
 	
 static func CreateFromJSON( json_name : String )->Room:
-	print( "Creating Room from JSON Data" )
 	var new_room = Room.new()
 	
 	if new_room.LoadDataFromJSON( json_name ) == false:
@@ -203,8 +202,6 @@ func TruncateText(text: String, max_lines: int = 5, chars_per_line: int = 40) ->
 func SetupVisuals():
 	if not Engine.is_editor_hint():
 		return  # Safeguard: Only run in the editor
-
-	print("Running SetupVisuals for room: ", name)
 
 	if not has_node("Panel"):
 		# Create a Panel as the visual base with a border

@@ -38,7 +38,6 @@ func load_all_rooms():
 				var room = Room.CreateFromJSON(json_name)
 				if room:
 					var room_name = room.name
-					print( "JSON room name = ", room_name )
 					rooms_dict[room_name] = room
 					add_child(room)
 					room.owner = get_tree().edited_scene_root
