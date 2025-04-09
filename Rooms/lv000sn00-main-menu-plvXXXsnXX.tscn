@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dso0cobuwu2e2"]
 
-[ext_resource type="Script" path="res://Scripts/room.gd" id="1_2geqb"]
-[ext_resource type="Script" path="res://Scripts/door.gd" id="2_pkmc3"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="1_muppc"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_55kkp"]
 
 [node name="lv001sn01-MainMenu" type="Node2D"]
-script = ExtResource("1_2geqb")
+script = ExtResource("1_muppc")
 room_id = "lv001sn01"
 room_parent = "lvXXXsnXX"
 room_name = "main-menu"
@@ -15,6 +15,6 @@ Hit 1 to Start.
 Hit 0 to Exit."
 
 [node name="DoorToWelcome" type="Node" parent="."]
-script = ExtResource("2_pkmc3")
+script = ExtResource("2_55kkp")
 choice = "1"
 destination = "lv001rm01-welcome-plv001sn01"

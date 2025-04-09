@@ -9,44 +9,50 @@ func _ready():
 	print( "EDITOR MAP READY" )
 	if Engine.is_editor_hint():
 		if not has_loaded_rooms:
-			load_all_rooms()
+			LoadAllRooms()
 			has_loaded_rooms = true
+# end func _ready()
 
-func load_all_rooms():
+func AddRoomToEditorMap( room ):
+	add_child( room )
+	room.owner = get_tree().edited_scene_root
+	for door in room.get_children():
+		if door is Door:
+			door.owner = get_tree().edited_scene_root
+	room.editor_map = self
+	room.SetupVisuals()  
+	
+func LoadMetadataForRoom( filename ):
+	print( "Checking for metadata for ", filename )
+		
+func LoadAllRooms():
 	print("Running load_all_rooms")
 	for child in get_children():
 		remove_child(child)
 		child.queue_free()
 
 	# Step 1: Load all rooms into a dictionary
-	var rooms_dict = {}  # Maps room name (e.g., "sn000-MainMenu") to Room node
-	var file_list = []
-	var file_name = ""
+	var filelist = []
+	var filename = ""
 
 	# Load .json files
-	file_list = []
-	file_name = ""
+	filelist = []
+	filename = ""
 	var json_dir = DirAccess.open("res://Rooms/")
 	if json_dir:
-		file_list = json_dir.get_files()
-		for item in file_list:
-			file_name = item
-			if file_name.ends_with(".json"):
+		filelist = json_dir.get_files()
+		for item in filelist:
+			filename = item
+			if filename.ends_with( ".json" ):
 				print("---")
-				print( "Next json in file list: ", item)
-				var json_name = file_name.replace(".json", "")
+				print( "Next json in file list: ", item )
+				var json_name = filename.replace(".json", "")
 				var room = Room.CreateFromJSON(json_name)
 				if room:
-					var room_name = room.name
-					rooms_dict[room_name] = room
-					add_child(room)
-					room.owner = get_tree().edited_scene_root
-					for door in room.get_children():
-						if door is Door:
-							door.owner = get_tree().edited_scene_root
-					room.editor_map = self
-					room.SetupVisuals()  # Direct call
-				if file_name.begins_with("lv005"):
+					AddRoomToEditorMap( room )
+					LoadMetadataForRoom( filename )
+					
+				if filename.begins_with("lv005"):
 					break
 
 	print( "***" )
