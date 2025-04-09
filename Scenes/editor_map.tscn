@@ -1,29 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl74drpt5u5vp"]
+[gd_scene load_steps=4 format=3 uid="uid://bl74drpt5u5vp"]
 
 [ext_resource type="Script" path="res://Scripts/editor_map.gd" id="1_k3d1g"]
-[ext_resource type="PackedScene" uid="uid://dso0cobuwu2e2" path="res://Rooms/lv001sn01-main-menu-plvXXXsnXX.tscn" id="2_hfo14"]
 [ext_resource type="Script" path="res://Scripts/room.gd" id="3_32iud"]
 [ext_resource type="Script" path="res://Scripts/door.gd" id="4_h2xtq"]
 
 [node name="EditorMap" type="Node2D"]
 position = Vector2(-2, 20)
 script = ExtResource("1_k3d1g")
-
-[node name="lv001sn01-MainMenu" type="Node2D" parent="." instance=ExtResource("2_hfo14")]
-script = ExtResource("3_32iud")
-room_id = "lv001sn01"
-room_parent = "lvXXXsnXX"
-room_name = "main-menu"
-description = "Main Menu.
-
-Hit 1 to Start.
-
-Hit 0 to Exit."
-
-[node name="em_DoorToWelcome" type="Node" parent="lv001sn01-MainMenu"]
-script = ExtResource("4_h2xtq")
-choice = "1"
-destination = "lv001rm01-welcome-plv001sn01"
 
 [node name="lv001rm01-Welcome" type="Node2D" parent="."]
 script = ExtResource("3_32iud")
@@ -45,7 +28,6 @@ destination = "lv002rm01-resort-max-closure-plv001rm01"
 door_id = "dr001"
 
 [node name="lv002rm01-ResortMaxClosure" type="Node2D" parent="."]
-position = Vector2(-509, 296)
 script = ExtResource("3_32iud")
 room_id = "lv002rm01"
 room_parent = "lv001rm01"
@@ -67,7 +49,6 @@ destination = "lv003rm01-home-hubert-search-plv002rm01"
 door_id = "dr001"
 
 [node name="lv003rm01-HomeHubertSearch" type="Node2D" parent="."]
-position = Vector2(513, 301)
 script = ExtResource("3_32iud")
 room_id = "lv003rm01"
 room_parent = "lv002rm01"
@@ -88,7 +69,6 @@ destination = "lv004rm01-street-john-portal-plv003rm01"
 door_id = "dr001"
 
 [node name="lv004rm01-StreetJohnPortal" type="Node2D" parent="."]
-position = Vector2(-860, 625)
 script = ExtResource("3_32iud")
 room_id = "lv004rm01"
 room_parent = "lv003rm01"
@@ -109,12 +89,12 @@ destination = "lv005rm01-caves-chester-explore-plv004rm01"
 door_id = "dr001"
 
 [node name="lv005rm01-CavesChesterExplore" type="Node2D" parent="."]
-position = Vector2(-205, 627)
+position = Vector2(-110, 962)
 script = ExtResource("3_32iud")
 room_id = "lv005rm01"
 room_parent = "lv004rm01"
 room_name = "caves-chester-explore"
-description = "Somewhere in the kingdom, Chester, a friendly dragon, lands at the entrance to the \"Caves of Dragonmount.\"
+description = "Somewhere in the kingdo, Chester, a friendly dragon, lands at the entrance to the \"Caves of Dragonmount.\"
 Chester walks around the cave system trying to find his friends.
 Chester then leaves, and flies around while looking some more.
 
