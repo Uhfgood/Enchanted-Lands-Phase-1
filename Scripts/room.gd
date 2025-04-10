@@ -19,7 +19,6 @@ func ToPascalCase( snake: String ) -> String:
 		if word.length() > 0:
 			result += word.capitalize()
 	return result
-	
 
 func LoadDataFromJSON( json_name : String )->bool:
 	var filename = "res://Rooms/" + json_name + ".json"

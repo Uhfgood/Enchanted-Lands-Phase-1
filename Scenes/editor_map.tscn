@@ -70,7 +70,6 @@ destination = "lv004rm01-street-john-portal-plv003rm01"
 door_id = "dr001"
 
 [node name="lv004rm01-StreetJohnPortal" type="Node2D" parent="Rooms"]
-position = Vector2(-778, 629)
 script = ExtResource("2_ihfh8")
 room_id = "lv004rm01"
 room_parent = "lv003rm01"
@@ -91,7 +90,6 @@ destination = "lv005rm01-caves-chester-explore-plv004rm01"
 door_id = "dr001"
 
 [node name="lv005rm01-CavesChesterExplore" type="Node2D" parent="Rooms"]
-position = Vector2(710, 585)
 script = ExtResource("2_ihfh8")
 room_id = "lv005rm01"
 room_parent = "lv004rm01"
