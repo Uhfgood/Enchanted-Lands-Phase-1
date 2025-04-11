@@ -10,6 +10,7 @@ script = ExtResource("1_k3d1g")
 [node name="Rooms" type="Node2D" parent="."]
 
 [node name="lv001rm01-Welcome" type="Node2D" parent="Rooms"]
+position = Vector2(0, -448)
 script = ExtResource("2_ihfh8")
 room_id = "lv001rm01"
 room_parent = "lv001sn01"
@@ -29,6 +30,7 @@ destination = "lv002rm01-resort-max-closure-plv001rm01"
 door_id = "dr001"
 
 [node name="lv002rm01-ResortMaxClosure" type="Node2D" parent="Rooms"]
+position = Vector2(-426, 353)
 script = ExtResource("2_ihfh8")
 room_id = "lv002rm01"
 room_parent = "lv001rm01"
@@ -50,6 +52,7 @@ destination = "lv003rm01-home-hubert-search-plv002rm01"
 door_id = "dr001"
 
 [node name="lv003rm01-HomeHubertSearch" type="Node2D" parent="Rooms"]
+position = Vector2(394, -105)
 script = ExtResource("2_ihfh8")
 room_id = "lv003rm01"
 room_parent = "lv002rm01"
@@ -70,6 +73,7 @@ destination = "lv004rm01-street-john-portal-plv003rm01"
 door_id = "dr001"
 
 [node name="lv004rm01-StreetJohnPortal" type="Node2D" parent="Rooms"]
+position = Vector2(397, 356)
 script = ExtResource("2_ihfh8")
 room_id = "lv004rm01"
 room_parent = "lv003rm01"
@@ -90,6 +94,7 @@ destination = "lv005rm01-caves-chester-explore-plv004rm01"
 door_id = "dr001"
 
 [node name="lv005rm01-CavesChesterExplore" type="Node2D" parent="Rooms"]
+position = Vector2(-403, -107)
 script = ExtResource("2_ihfh8")
 room_id = "lv005rm01"
 room_parent = "lv004rm01"

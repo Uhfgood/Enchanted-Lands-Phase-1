@@ -18,13 +18,9 @@ func ToKebabCase( pascal_name: String ) -> String:
 func ExtractFilenameFromRoom( room ) -> String:
 	print( "Creating filename from room: ", room.name )
 	var tokens = room.name.split( "-", false )
-	print( "Tokens = ", tokens )
 	var prefix = tokens[ 0 ] + "-"
-	print( "prefix = ", prefix)
 	var desc_name = ToKebabCase( tokens[ 1 ] )
-	print( "descriptive name = ", desc_name )
 	var suffix = "-p" + room.room_parent
-	print( "suffix = ", suffix )
 	return prefix + desc_name + suffix
 	
 func _on_save_button_pressed():
@@ -39,6 +35,8 @@ func _on_save_button_pressed():
 			
 		print( "Extracted Filename = ", filename )
 		print( "-----" )
+
+# end func _on_save_button_pressed()
 	
 func _ready():
 	print( "***" )
@@ -47,6 +45,7 @@ func _ready():
 		if not has_loaded_rooms:
 			LoadAllRooms()
 			has_loaded_rooms = true
+
 # end func _ready()
 
 func AddRoomToEditorMap( room ):

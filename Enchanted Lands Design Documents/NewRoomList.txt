@@ -1,3 +1,6 @@
+rm000-welcome.json
+WELCOME!  Welcome to Enchanted Lands!  Take a magical vacation, slay a dragon, rescue a princess, become a great and powerful wizard, or stay at one of our many fine hotels.  Anything is possible\u2026 At least that's what the brochure says.  Enchanted Lands, the magical resort kingdom is not doing so well.  The King seems to be acting strangely.  Enchanted Enterprises has been bought out by Enchanted Holdings, Inc.  Administration has closed the various magical training schools, and a dark presence has returned from banished realms.  Is there no one that can solve these mysteries?  Will the schools ever reopen?  Will there ever be anymore stupendous vacation deals?  Stay tuned.
+
 rm001-resort-max-closure.json
 Enchanted Lands Magical Resort was sold to a mysterious figure, by the ruler of the kingdom.
 This figure, named Max, has systematically closed down, most of the resort.
