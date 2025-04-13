@@ -1,5 +1,6 @@
 id: 001-EnchantedLands
 label: Enchanted Lands
+parent: 000
 desc: 
 Welcome to Enchanted Lands!
 Take a magical vacation, slay a dragon, rescue a princess, become a great and powerful wizard, or stay at one of our many fine hotels. Anything is possible... At least that's what the brochure says. Enchanted Lands, the magical resort kingdom is not doing so well. The King seems to be acting strangely. Enchanted Enterprises has been bought out by Enchanted Holdings, Inc. Administration has closed the various magical training schools, and a dark presence has returned from banished realms.
@@ -7,124 +8,140 @@ Is there no one that can solve these mysteries?
 Will the schools ever reopen?
 Will there ever be anymore stupendous vacation deals?
 Stay tuned.
-door: 002-EnchantedLands1
+door: 001-EnchantedLands1
 
-id: 002-EnchantedLands1
+id: 001-EnchantedLands1
 label: Enchanted Lands 1
+parent: 001-EnchantedLands
 desc: 
 Enchanted Lands Magical Resort was sold to a mysterious figure, by the ruler of the kingdom.
 This figure, named Max, has systematically closed down most of the resort.
 Many people have disappeared including both citizens and tourists.
 Ever since the King closed down the resort, he's been acting strangely.
 Chief advisor and friend to the King, the Wizard Hubert, after seeing him, goes home to prepare to get external help.
-door: 003-HubertHome
+door: 002-HubertHome
 
-id: 003-HubertHome
+id: 002-HubertHome
 label: Hubert Home
+parent: 001-EnchantedLands1
 desc: 
 Hubert walks around his home, examining spell books, scrolls, and loose papers, to figure out the best course of action.
 Hubert goes to a large crystal ball, which allows him to see into different realms, and he searches for someone to help.
 Hubert then spots John, pulls up info about him, and then sees him enter a convenience store, to grab a Benny Wonky Bar.
 Hubert puts a silver ticket into a 'magic' mailbox on his desk, which magically appears inside the wrapper.
-door: 004-Cerulea
+door: 003-Cerulea
 
-id: 004-Cerulea
+id: 003-Cerulea
 label: Cerulea
+parent: 002-HubertHome
 desc: 
 In our realm, also called Cerulea by Enchanted Landians, John is leaving work and walking home, down the street.
 John stops in at a store nearby, and gets his favorite candy bar with a silver "ticket" inside.
 John looks at the silver ticket, and says some words in the fine print, and a portal opens.
 John steps through the portal as it closes behind him.
-door: 005-CavesOfDragonmount
+door: 004-CavesOfDragonmount
 
-id: 005-CavesOfDragonmount
+id: 004-CavesOfDragonmount
 label: Caves Of Dragonmount
+parent: 003-Cerulea
 desc: 
 Somewhere in the kingdom, Chester, a friendly dragon, lands at the entrance to the "Caves of Dragonmount."
 Chester walks around the cave system trying to find his friends.
 Chester then leaves, and flies around while looking some more.
-door: 006-Sky
+door: 005-Sky
 
-id: 006-Sky
+id: 005-Sky
 label: Sky
+parent: 004-CavesOfDragonmount
 desc: 
 As Chester is flying around, he sees a random village being burned down by a friend.
 Chester flies right into the other dragon hard enough to cause him to stop.
 Before the other dragon could recover, Chester flies back to his own cave, under Dragonmount.
-door: 007-ChesterCave
+door: 006-ChesterCave
 
-id: 007-ChesterCave
+id: 006-ChesterCave
 label: Chester Cave
+parent: 005-Sky
 desc: 
 Chester picks up a few shiny objects from his cave, and then leaves again to search for more of his friends.
-door: 008-TrainCabin
+door: 007-TrainCabin
 
-id: 008-TrainCabin
+id: 007-TrainCabin
 label: Train Cabin
+parent: 006-ChesterCave
 desc: 
 John steps into what looks like a train cabin, when he sees a beautiful young woman sitting near the front.
 The beautiful woman is grabbed by a short fat little man, as the train cabin starts tumbling, causing John to fall.
-door: 009-Lapsewood
+door: 008-Lapsewood
 
-id: 009-Lapsewood
+id: 008-Lapsewood
 label: Lapsewood
+parent: 007-TrainCabin
 desc: 
 John awakens in a forest without leaves as Hubert walks over and introduces himself.
 Hubert tells John that he brought him here, to help find out why Enchanted Lands has closed.
 Hubert mentions that it's a good thing that he fell near the edge of Lapsewood, since it makes you forget things.
 Hubert and John start walking out of the leafless forest.
-door: 010-Cerulea1
+door: 003-Cerulea1
 
-id: 010-Cerulea1
+id: 003-Cerulea1
 label: Cerulea 1
+parent: 008-Lapsewood
 desc: 
 In our realm (Cerulea), Zanzibar the great, magician, con artist, and thief, manages to escape the police into the Lands.
-door: 011-RandomVillages
+door: 009-RandomVillages
 
-id: 011-RandomVillages
+id: 009-RandomVillages
 label: Random Villages
+parent: 003-Cerulea1
 desc: 
 Zanzibar then does a few tricks for the first locals he sees, in some random village.
 Zanzibar gets his crow, Corvus, to steal from the locals.
-door: 012-LapsewoodEdge
+door: 010-LapsewoodEdge
 
-id: 012-LapsewoodEdge
+id: 010-LapsewoodEdge
 label: Lapsewood Edge
+parent: 009-RandomVillages
 desc: 
 Once they're out of the confines of Lapsewood, Hubert stops to give instructions.
 Hubert sends John to Knight School and Princess Prep to figure out what's happening.
 Hubert himself goes to examine Wizard U and Fairy Godcollege.
-door: 013-DwarfMines
+door: 011-DwarfMines
 
-id: 013-DwarfMines
+id: 011-DwarfMines
 label: Dwarf Mines
+parent: 010-LapsewoodEdge
 desc: 
 Near the dwarf mines, Roland, the half-dwarf/half-giant approaches the entrance.
 An old dwarf Roland knows stumbles out and tells him his Dad is trapped in the Gnome Kingdom.
-door: 014-KnightSchoolEntrance
+door: 012-KnightSchoolEntrance
 
-id: 014-KnightSchoolEntrance
+id: 012-KnightSchoolEntrance
 label: Knight School Entrance
+parent: 011-DwarfMines
 desc: 
 At the Knight School entrance, John talks to the guards, and then gains entrance to the school.
-door: 015-KnightSchool
+door: 013-KnightSchool
 
-id: 015-KnightSchool
+id: 013-KnightSchool
 label: Knight School
+parent: 012-KnightSchoolEntrance
 desc: 
 While inside Knight School, John learns a Princess was going to speak at Princess Prep but never made it.
 Someone tells him the Knights are using real weapons, and dragons are terrorizing small villages.
-door: 016-WizardUHall
+door: 014-WizardUHall
 
-id: 016-WizardUHall
+id: 014-WizardUHall
 label: Wizard U Hall
+parent: 013-KnightSchool
 desc: 
 Hubert sneaks into Wizard U and examines the "hall of fame" paintings and notices one is missing.
 After realizing what's missing, he leaves the school.
-door: 017-KnightSchoolPool
+door: 015-KnightSchoolPool
 
-id: 017-KnightSchoolPool
+id: 015-KnightSchoolPool
 label: Knight School Pool
+parent: 014-WizardUHall
 desc: 
 Within Knight School grounds, two Knights are standing in front of a statue of a Knight.
 They start discussing the disappearance of Sir William.
@@ -133,63 +150,71 @@ The unicorn notices a man's face for a moment, in place of his own reflection.
 The two knights say they don't think even the Wizards at Wizard U could help, and then they leave.
 The unicorn walks up to the statue and recognizes it as the face he saw in the reflecting pool.
 The unicorn leaves Knight School grounds to search for Wizard U.
-door: 018-PrincessPrep
+door: 016-PrincessPrep
 
-id: 018-PrincessPrep
+id: 016-PrincessPrep
 label: Princess Prep
+parent: 015-KnightSchoolPool
 desc: 
 When John sneaks into Princess Prep he learns her first stop was supposed to be the Grand Enchanted Landian Hotel.
-door: 019-RandomVillages1
+door: 009-RandomVillages1
 
-id: 019-RandomVillages1
+id: 009-RandomVillages1
 label: Random Villages 1
+parent: 016-PrincessPrep
 desc: 
 Zanzibar does some more shows in some other villages.
 Max attends one of his shows, but Corvus manages to steal from Max without his notice.
-door: 020-RandomVillages2
+door: 009-RandomVillages2
 
-id: 020-RandomVillages2
+id: 009-RandomVillages2
 label: Random Villages 2
+parent: 009-RandomVillages1
 desc: 
 Max leaves the last show Zanzibar put on, but on the road discovers his money is gone.
 Max catches up to Zanzibar in another village, and then confronts him after a show, and makes a deal with him.
 Max helps Zanzibar with larger productions, in exchange for doing some tax collection for Max.
-door: 021-RandomVillages3
+door: 009-RandomVillages3
 
-id: 021-RandomVillages3
+id: 009-RandomVillages3
 label: Random Villages 3
+parent: 009-RandomVillages2
 desc: 
 Chester manages to catch up to a few of his friends in various villages to try to break them from the enchantment.
 Chester tries to give them shiny gifts, and then breathe fire on them, neither of which works.
-door: 022-NestorCave
+door: 017-NestorCave
 
-id: 022-NestorCave
+id: 017-NestorCave
 label: Nestor Cave
+parent: 009-RandomVillages3
 desc: 
 Desperate, Chester flies to Nestor's cave, somewhere in the White Serpent range, west of DragonMount.
 Nestor gets ready to breathe fire on Chester, when Chester speaks to him.
 Nestor tells Chester that Crooktooth has enchanted the dragons to act hostile.
-door: 023-WizardUEntrance
+door: 018-WizardUEntrance
 
-id: 023-WizardUEntrance
+id: 018-WizardUEntrance
 label: Wizard U Entrance
+parent: 017-NestorCave
 desc: 
 The Unicorn walks up to the door of Wizard University.
 The Unicorn tries to push the door open, but it doesn't budge.
 The Unicorn then gets a running start and rams the door with his horn, and then goes inside.
-door: 024-WizardUHall1
+door: 014-WizardUHall1
 
-id: 024-WizardUHall1
+id: 014-WizardUHall1
 label: Wizard U Hall 1
+parent: 018-WizardUEntrance
 desc: 
 Just inside the door at Wizard U, the Unicorn reads a sign that hints at the library.
 The Unicorn then passes through the "hall of fame", noting the paintings of each of the Wizards.
 The Unicorn sees Hubert's painting in the hall of fame, and particularly notes it has been defaced.
 He then proceeds to find the library.
-door: 025-WizardULibrary
+door: 019-WizardULibrary
 
-id: 025-WizardULibrary
+id: 019-WizardULibrary
 label: Wizard U Library
+parent: 014-WizardUHall1
 desc: 
 After finding the library and exploring it, he finds a section on curses, and pulls off a few books with his horn.
 Inside the library at Wizard U, the Unicorn notices the page about 'transmogrification'.
@@ -197,165 +222,187 @@ Using his horn to turn the pages, he reads that anyone can be turned into anythi
 After closing the book, the Unicorn notices the picture appears to be the same wizard who had his painting defaced.
 The dust jacket reads "Hubert Halfway, resides with his spellbooks at a house near the edge of Lapsewood".
 The Unicorn then leaves Wizard U.
-door: 026-DwarfMines1
+door: 011-DwarfMines1
 
-id: 026-DwarfMines1
+id: 011-DwarfMines1
 label: Dwarf Mines 1
+parent: 019-WizardULibrary
 desc: 
 Roland goes into the dwarf mines, and then from there finds a secret entrance into the Gnome Kingdom.
-door: 027-FairyGodcollege
+door: 020-FairyGodcollege
 
-id: 027-FairyGodcollege
+id: 020-FairyGodcollege
 label: Fairy Godcollege
+parent: 011-DwarfMines1
 desc: 
 Hubert makes his way to Fairy Godcollege, and peeks in one of the windows.
 At Fairy Godcollege, an old friend tells Hubert, Violet is back, and is trying to force students to become evil witches.
-door: 028-GnomeKingdom
+door: 021-GnomeKingdom
 
-id: 028-GnomeKingdom
+id: 021-GnomeKingdom
 label: Gnome Kingdom
+parent: 020-FairyGodcollege
 desc: 
 In the Gnome Kingdom, Roland notices all kinds of people and creatures working the mines.
 He spots a giant chained to one of the machines that he can't identify, and starts walking towards him.
 Roland asks the giant if he's his Dad, and the giant confirms it.
 He tells Roland to find Hubert Halfway, the wizard, and to tell Hubert that Max seems to need a lot of quicksilver.
-door: 029-ScarboroughFaireChicken
+door: 022-ScarboroughFaireChicken
 
-id: 029-ScarboroughFaireChicken
+id: 022-ScarboroughFaireChicken
 label: Scarborough Faire Chicken
+parent: 021-GnomeKingdom
 desc: 
 John and Hubert rendezvous at Scarborough Faire Chicken at the Renaissance Faire.
 Since the Princess was kidnapped for a reason, they decide to find her and rescue her if possible.
 Hubert contacts his old friend, The Count, and tells him to turn into a bat, and see if he can find the Princess.
-door: 030-LapsewoodEdge1
+door: 010-LapsewoodEdge1
 
-id: 030-LapsewoodEdge1
+id: 010-LapsewoodEdge1
 label: Lapsewood Edge 1
+parent: 022-ScarboroughFaireChicken
 desc: 
 As the Unicorn leaves Wizard U, he spots the Black Knight, and starts running.
 The Black Knight chases the Unicorn into a forest without leaves on the trees.
 After a few hours, the Unicorn starts losing his memory until he no longer cares to go on.
-door: 031-GrandEnchantedLandianWineCellar
+door: 023-GrandEnchantedLandianWineCellar
 
-id: 031-GrandEnchantedLandianWineCellar
+id: 023-GrandEnchantedLandianWineCellar
 label: Grand Enchanted Landian Wine Cellar
+parent: 010-LapsewoodEdge1
 desc: 
 In the wine cellar of the Grand Enchanted Landian, the Princess is struggling with the ropes tying her to a wine cask.
 With the help of some mice, she manages to get free of the ropes binding her.
 The Princess then tries to escape by getting into the dumbwaiter, only to be sent upstairs.
-door: 032-GrandEnchantedLandian
+door: 024-GrandEnchantedLandian
 
-id: 032-GrandEnchantedLandian
+id: 024-GrandEnchantedLandian
 label: Grand Enchanted Landian
+parent: 023-GrandEnchantedLandianWineCellar
 desc: 
 After getting out of the hotel's dumbwaiter, The Princess searches for a way out by checking out various doors.
 She stumbles upon a room with some maps and other documents, which she grabs, but is recaptured.
-door: 033-ScarboroughFaireChicken1
+door: 022-ScarboroughFaireChicken1
 
-id: 033-ScarboroughFaireChicken1
+id: 022-ScarboroughFaireChicken1
 label: Scarborough Faire Chicken 1
+parent: 024-GrandEnchantedLandian
 desc: 
 The Count comes back to SFC and tells John and Hubert what he's found.
 The Princess is chained to a wine cask in the cellar of the Grand Enchanted Landian.
 Hubert and John take an empty wagon, and head toward the hotel.
-door: 034-GnomeKingdom1
+door: 021-GnomeKingdom1
 
-id: 034-GnomeKingdom1
+id: 021-GnomeKingdom1
 label: Gnome Kingdom 1
+parent: 022-ScarboroughFaireChicken1
 desc: 
 Within the boundaries of the Gnome Kingdom, Max finds Scarlet "Red" Clover, and pulls her out of hiding.
 Max asks Red to go and conscript the werewolves from their village into his service, due to her history with them.
-door: 035-WerewolfVillage
+door: 025-WerewolfVillage
 
-id: 035-WerewolfVillage
+id: 025-WerewolfVillage
 label: Werewolf Village
+parent: 021-GnomeKingdom1
 desc: 
 Red goes to the werewolf village.
 Red tells the werewolves led by Rottweiler, they might be rid of their curse if they join Max's army.
-door: 036-FairyGodcollege1
+door: 020-FairyGodcollege1
 
-id: 036-FairyGodcollege1
+id: 020-FairyGodcollege1
 label: Fairy Godcollege 1
+parent: 025-WerewolfVillage
 desc: 
 Kurt, Rottweiler's second in command, leaves the werewolf village, after remembering Red and Violet's rivalry.
 Kurt then travels to Fairy Godcollege to meet with Violet.
 Violet agrees to help Kurt become the leader of the pack, if Kurt eliminates Red.
-door: 037-RandomVillages4
+door: 009-RandomVillages4
 
-id: 037-RandomVillages4
+id: 009-RandomVillages4
 label: Random Villages 4
+parent: 020-FairyGodcollege1
 desc: 
 Zanzibar travels to a few villages and collects some tax money.
 Then he puts some of the money he's collected, into his own pocket.
-door: 038-MaxMines
+door: 026-MaxMines
 
-id: 038-MaxMines
+id: 026-MaxMines
 label: Max Mines
+parent: 009-RandomVillages4
 desc: 
 Max is in the mines overseeing the quicksilver extraction, when a messenger comes up and speaks quietly to him.
 Max finds out that Zanzibar is stealing from the taxes but doesn't know where Zanzibar hides it yet.
-door: 039-GrandEnchantedLandianSideDoor
+door: 027-GrandEnchantedLandianSideDoor
 
-id: 039-GrandEnchantedLandianSideDoor
+id: 027-GrandEnchantedLandianSideDoor
 label: Grand Enchanted Landian Side Door
+parent: 026-MaxMines
 desc: 
 Hubert and John go to the Grand Enchanted Landian Hotel and arrive at the side door with some guards in front.
 Hubert tries to conjure up a wagon with food, but only succeeds in giving the guards the illusion of the wagon.
-door: 040-GrandEnchantedLandianKitchen
+door: 028-GrandEnchantedLandianKitchen
 
-id: 040-GrandEnchantedLandianKitchen
+id: 028-GrandEnchantedLandianKitchen
 label: Grand Enchanted Landian Kitchen
+parent: 027-GrandEnchantedLandianSideDoor
 desc: 
 As they go in to the kitchen of the Grand Enchanted Landian, they find a secret passage into the wine cellar.
-door: 041-GrandEnchantedLandianWineCellar1
+door: 023-GrandEnchantedLandianWineCellar1
 
-id: 041-GrandEnchantedLandianWineCellar1
+id: 023-GrandEnchantedLandianWineCellar1
 label: Grand Enchanted Landian Wine Cellar 1
+parent: 028-GrandEnchantedLandianKitchen
 desc: 
 Inside the wine cellar, John hits the guard who's watching the Princess with a heavy wine bottle.
 They go back upstairs to the kitchen.
-door: 042-GrandEnchantedLandianKitchen1
+door: 028-GrandEnchantedLandianKitchen1
 
-id: 042-GrandEnchantedLandianKitchen1
+id: 028-GrandEnchantedLandianKitchen1
 label: Grand Enchanted Landian Kitchen 1
+parent: 023-GrandEnchantedLandianWineCellar1
 desc: 
 They try to walk out of the side doors of the kitchen, calmly and slowly.
-door: 043-GrandEnchantedLandianHotelRoom
+door: 029-GrandEnchantedLandianHotelRoom
 
-id: 043-GrandEnchantedLandianHotelRoom
+id: 029-GrandEnchantedLandianHotelRoom
 label: Grand Enchanted Landian Hotel Room
+parent: 028-GrandEnchantedLandianKitchen1
 desc: 
 Unbeknownst to Zanzibar, Max had his guards searching everywhere for Zanzibar's money.
 They finally found his stash in his hotel room in the Grand Enchanted Landian and take it.
-door: 044-RandomVillages5
+door: 009-RandomVillages5
 
-id: 044-RandomVillages5
+id: 009-RandomVillages5
 label: Random Villages 5
+parent: 029-GrandEnchantedLandianHotelRoom
 desc: 
 Max uses Zanzibar's shows to abduct more citizens and tourists for his mines, as he goes from village to village.
 Max proposes one final big show in the hotel, since Max has enough people for his mines.
 Zanzibar agrees to Max's proposal because he feels he has enough money to live like a King.
-door: 045-GrandEnchantedLandian1
+door: 024-GrandEnchantedLandian1
 
-id: 045-GrandEnchantedLandian1
+id: 024-GrandEnchantedLandian1
 label: Grand Enchanted Landian 1
+parent: 009-RandomVillages5
 desc: 
 The Black Knight rides up to the Grand Enchanted Landian on his black charger.
 Hubert and company calmly out of the kitchen doors.
 The guard that was guarding the Princess in the cellar stumbles out, and yells "She's Escaped!"
 They then run to the wagon and they take off, as the Black Knight begins to chase them.
-door: 046-LapsewoodEdge2
+door: 010-LapsewoodEdge2
 
-id: 046-LapsewoodEdge2
+id: 010-LapsewoodEdge2
 label: Lapsewood Edge 2
+parent: 024-GrandEnchantedLandian1
 desc: 
 The Black Knight chases Hubert and company in their wagon across the open land.
 They come upon the edge of Lapsewood, the bare forest, still pursued by the Black Knight.
 They go into the forest, and before they know it, they're lost among the leafless trees.
-door: 047-Lapsewood1
+door: 008-Lapsewood1
 
-id: 047-Lapsewood1
+id: 008-Lapsewood1
 label: Lapsewood 1
+parent: 010-LapsewoodEdge2
 desc: 
 Somewhere in the middle of the bare forest, they spot a Unicorn.
 The Unicorn stands around but doesn't run away as they approach.
@@ -364,10 +411,11 @@ John then mentions he read a book on "Unicorn sign language once."
 John gestures to the Unicorn, and they proceed to "talk".
 When John and the Unicorn are finished, John translates and says he's forgotten where he was going, and is lost.
 Hubert then says, he must be losing his memory because they're in Lapsewood.
-door: 048-GrandEnchantedLandian2
+door: 024-GrandEnchantedLandian2
 
-id: 048-GrandEnchantedLandian2
+id: 024-GrandEnchantedLandian2
 label: Grand Enchanted Landian 2
+parent: 008-Lapsewood1
 desc: 
 At the Grand Enchanted Landian Max tells Zanzibar that he knows he's been stealing and that this is his last show.
 Zanzibar performs his whole show, and then Corvus (his pet crow) steals money from the audience as usual.
@@ -375,328 +423,368 @@ Just then, Max yells that he took all his money.
 The crowd looks angrily toward Zanzibar and starts chasing him.
 Max gets word that the Omni-Gate is ready for testing, so he leaves for the Castle.
 Zanzibar distracts the crowd with a few cheap tricks and escapes out the back with his loot.
-door: 049-Lapsewood2
+door: 008-Lapsewood2
 
-id: 049-Lapsewood2
+id: 008-Lapsewood2
 label: Lapsewood 2
+parent: 024-GrandEnchantedLandian2
 desc: 
 Back in Lapsewood, Hubert realizes this may be Sir William, and then casts a spell to change him back.
 The spell doesn't work correctly, but allows the Unicorn to talk to them in human speech.
 The Unicorn is unable to remember his name, and they all start walking together.
 Soon nobody remembers what they were doing.
 They all stop walking, and stand and stare at each other.
-door: 050-ScarboroughFaireChicken2
+door: 022-ScarboroughFaireChicken2
 
-id: 050-ScarboroughFaireChicken2
+id: 022-ScarboroughFaireChicken2
 label: Scarborough Faire Chicken 2
+parent: 008-Lapsewood2
 desc: 
 Roland walks to the only open restaurant in town, Scarborough Faire Chicken.
 Roland looks around and starts asking about Hubert until finally getting to The Count sitting down at a table.
 Roland asks the count if he has any idea of where Hubert is.
 The Count says he'll try to go find him, and turns into a bat, as Roland sits down.
-door: 051-Lapsewood3
+door: 008-Lapsewood3
 
-id: 051-Lapsewood3
+id: 008-Lapsewood3
 label: Lapsewood 3
+parent: 022-ScarboroughFaireChicken2
 desc: 
 Standing in the middle of Lapsewood, John notices Hubert wearing Wizard garb and suggests he cast a spell or something.
 Hubert reaches into a bag and pulls out some hats and puts them on then wiggles his fingers.
 When he does this they're instantly teleported elsewhere.
 Hubert and company wake up on the road, and confirm it was definitely Lapsewood, because splitting headaches.
 Hubert recognizes the road, and they travel without event to The Bats in the Belfry Hotel.
-door: 052-WerewolfVillage2
+door: 025-WerewolfVillage2
 
-id: 052-WerewolfVillage2
+id: 025-WerewolfVillage2
 label: Werewolf Village 2
+parent: 008-Lapsewood3
 desc: 
 In the werewolf village, they tell Red they want proof of the curse being lifted.
 She leaves and brings Max back to the village, who promptly gets rid of the curse for a few of them.
 The Werewolves led by Rottweiler, throw Red into a hut, and discuss, and then Kurt comes back to the village.
 The Werewolves debate joining Max's army and eventually agree, and then bring Red back out.
 Red goes back to Max's mines and tells him the news, as Kurt and a lot of the other werewolves start grumbling.
-door: 053-BatsInTheBelfry
+door: 030-BatsInTheBelfry
 
-id: 053-BatsInTheBelfry
+id: 030-BatsInTheBelfry
 label: Bats In The Belfry
+parent: 025-WerewolfVillage2
 desc: 
 At the Bats-in-the-Belfry, Hubert dings the bell loudly a few times.
 The Count as a bat, flies in and rematerializes in front of them.
 The Count tells Hubert, Roland is waiting for him at SFC, but Hubert tells him to bring him back here.
 After the Count comes back, Roland tells them that Max's quicksilver mines are in the Gnome Kingdom.
 In the papers the Princess grabbed, are plans to some huge machine called the "Omni-Gate".
-door: 054-BatsInTheBelfry1
+door: 030-BatsInTheBelfry1
 
-id: 054-BatsInTheBelfry1
+id: 030-BatsInTheBelfry1
 label: Bats In The Belfry 1
+parent: 030-BatsInTheBelfry
 desc: 
 Hubert sends Roland and John into the mines, to free the slaves.
 Hubert tells Sir William that they're going to have to head to the castle.
 Hubert then proceeds to cast a spell on Sir William, when Sir William sprouts some wings.
 Sir William tells Hubert to hop on, and that they'll fly to the Castle.
-door: 055-NestorCave1
+door: 017-NestorCave1
 
-id: 055-NestorCave1
+id: 017-NestorCave1
 label: Nestor Cave 1
+parent: 030-BatsInTheBelfry1
 desc: 
 Back at Nestor's cave, Chester presents him with a shiny polished stone, and they both talk about the past.
 After finding out they're long lost twin brothers, Chester and Nestor go on a search for Crooktooth.
-door: 056-LapsewoodRoad
+door: 031-LapsewoodRoad
 
-id: 056-LapsewoodRoad
+id: 031-LapsewoodRoad
 label: Lapsewood Road
+parent: 017-NestorCave1
 desc: 
 The Black Knight, while hunting for Sir William, circumscribes Lapsewood, and comes to the road leaving the forest.
 The Black Knight looks in the direction of the Bats-in-the-Belfry Hotel and sees a flying unicorn with a wizard atop.
-door: 057-DwarfMines2
+door: 011-DwarfMines2
 
-id: 057-DwarfMines2
+id: 011-DwarfMines2
 label: Dwarf Mines 2
+parent: 031-LapsewoodRoad
 desc: 
 Roland and John go back into the dwarf mines.
 They use the secret door to gain entrance into the Gnome Kingdom.
-door: 058-CastleNorthTerrace
+door: 032-CastleNorthTerrace
 
-id: 058-CastleNorthTerrace
+id: 032-CastleNorthTerrace
 label: Castle North Terrace
+parent: 011-DwarfMines2
 desc: 
 Max arrives at the administration castle aboard a transport train.
 Max has his techs activate the machine for the first time.
 First at half power, he has them open a few gates, then a few more.
 Thousands of gates are opened simultaneously, and then shut off.
-door: 059-CastleWestTerrace
+door: 033-CastleWestTerrace
 
-id: 059-CastleWestTerrace
+id: 033-CastleWestTerrace
 label: Castle West Terrace
+parent: 032-CastleNorthTerrace
 desc: 
 Sir William lands on the west side terrace of the Castle, and lets Hubert off.
 Hubert starts systematically searching the grounds for Violet, taking care not to be seen.
 Sir William flies off and heads back toward the Bats-in-the-Belfry.
-door: 060-MaxMinesOffice
+door: 034-MaxMinesOffice
 
-id: 060-MaxMinesOffice
+id: 034-MaxMinesOffice
 label: Max Mines Office
+parent: 033-CastleWestTerrace
 desc: 
 Roland and John locate the office in Max's mines.
 Roland and John then spot the dwarves tied and gagged on the floor.
 Sneaking in Roland easily snaps the bonds holding them.
 Roland and John are then surprised and captured by the Gnomes.
-door: 061-CastleEastGate
+door: 035-CastleEastGate
 
-id: 061-CastleEastGate
+id: 035-CastleEastGate
 label: Castle East Gate
+parent: 034-MaxMinesOffice
 desc: 
 Violet comes out of the east gate of the castle toward the east side train depot.
 Hubert confronts Violet and before she can do anything, casts the spell that returns the magic.
 Violet yells to alert the guards and Hubert starts running.
-door: 062-EastDepot
+door: 036-EastDepot
 
-id: 062-EastDepot
+id: 036-EastDepot
 label: East Depot
+parent: 035-CastleEastGate
 desc: 
 The guards chase Hubert to the east depot.
-door: 063-Sky1
+door: 005-Sky1
 
-id: 063-Sky1
+id: 005-Sky1
 label: Sky 1
+parent: 036-EastDepot
 desc: 
 While Sir William is flying, a huge black dragon swoops out from the sky and hits him full on.
 The Black Knight sitting atop Crooktooth circles around and starts flying toward Sir William again.
 After falling a bit Sir William regains his balance and starts flying towards Crooktooth.
 Sir William gets a few hits, but doesn't do much damage to Crooktooth as he knocks Sir William out of the sky again.
-door: 064-Sky2
+door: 005-Sky2
 
-id: 064-Sky2
+id: 005-Sky2
 label: Sky 2
+parent: 005-Sky1
 desc: 
 Crooktooth starts heading toward Sir William again, when two other dragons swoop in behind him.
 These two dragons, Chester, and Nestor, fly toward Sir William and turn around to confront Crooktooth.
 All three start flying towards the Black Knight.
-door: 065-MaxMines1
+door: 026-MaxMines1
 
-id: 065-MaxMines1
+id: 026-MaxMines1
 label: Max Mines 1
+parent: 005-Sky2
 desc: 
 In the mines, the gnomes promptly put John, Roland, and the rest to work.
 After a bit, John signals the dwarves to overpower the guards.
-door: 066-MaxMines2
+door: 026-MaxMines2
 
-id: 066-MaxMines2
+id: 026-MaxMines2
 label: Max Mines 2
+parent: 026-MaxMines1
 desc: 
 There's an explosion that seems to come from one of the mine walls.
 When the smoke clears, a train appears to have crashed into the mine.
 Hubert pops out of the train.
-door: 067-Sky3
+door: 005-Sky3
 
-id: 067-Sky3
+id: 005-Sky3
 label: Sky 3
+parent: 026-MaxMines2
 desc: 
 Sir William and the twins manage to batter Crooktooth and his rider, the Black Knight.
 The battle ends quickly, when the Black Knight and Crooktooth separate and fall to their deaths.
-door: 068-WerewolfVillageRoad
+door: 037-WerewolfVillageRoad
 
-id: 068-WerewolfVillageRoad
+id: 037-WerewolfVillageRoad
 label: Werewolf Village Road
+parent: 005-Sky3
 desc: 
 Red heads back to the Werewolf village when Kurt jumps out of the bushes, and they tumble back into the forest.
-door: 069-FairyGodcollege2
+door: 020-FairyGodcollege2
 
-id: 069-FairyGodcollege2
+id: 020-FairyGodcollege2
 label: Fairy Godcollege 2
+parent: 037-WerewolfVillageRoad
 desc: 
 Kurt then takes Red's "riding hood" back to Violet at Fairy Godcollege.
 Kurt reveals Red was promising to remove their curses, and that he didn't want that.
 He asks Violet to enhance the effects.
 Violet agrees if he steals the "Totem of Leadership" and brings it to her, because she claims it will bind the pack to him.
-door: 070-MaxMines3
+door: 026-MaxMines3
 
-id: 070-MaxMines3
+id: 026-MaxMines3
 label: Max Mines 3
+parent: 020-FairyGodcollege2
 desc: 
 Back in the mines, gnome guards are easily overpowered after they hear what sounds like an explosion.
 The slaves get released and start to run out of the mines.
 Hubert shouts for everyone to head to the Bats-in-the-Belfry Hotel.
-door: 071-BatsInTheBelfry2
+door: 030-BatsInTheBelfry2
 
-id: 071-BatsInTheBelfry2
+id: 030-BatsInTheBelfry2
 label: Bats In The Belfry 2
+parent: 026-MaxMines3
 desc: 
 Back at the Bats-in-the-Belfry, Hubert changes Sir William back into a man.
 Hubert then sends John and Sir William to Knight School, to inform them and enlist their help.
-door: 072-WerewolfVillageHut
+door: 025-WerewolfVillageHut
 
-id: 072-WerewolfVillageHut
+id: 025-WerewolfVillageHut
 label: Werewolf Village Hut
+parent: 030-BatsInTheBelfry2
 desc: 
 When Kurt gets back to the werewolf village he goes into Rottweiler's hut and starts to grab the totem.
 Thorne, Rottweiler's third in command, stops Kurt from getting the totem, they fight, and Kurt takes the totem.
-door: 073-FairyGodcollege3
+door: 020-FairyGodcollege3
 
-id: 073-FairyGodcollege3
+id: 020-FairyGodcollege3
 label: Fairy Godcollege 3
+parent: 025-WerewolfVillageHut
 desc: 
 Kurt returns to Violet at Fairy Godcollege.
 She casts a spell, which visibly alters Kurt, and then he goes back to the Village.
-door: 074-WerewolfVillage3
+door: 025-WerewolfVillage3
 
-id: 074-WerewolfVillage3
+id: 025-WerewolfVillage3
 label: Werewolf Village 3
+parent: 020-FairyGodcollege3
 desc: 
 At the village Kurt disposes of Rottweiler and most of his followers.
 When Violet casts the spell to alter Kurt, Thorne in the village sees Kurt's own followers change as well.
 Thorne goes and hides just out of town, and waits.
-door: 075-BatsInTheBelfryLobby
+door: 038-BatsInTheBelfryLobby
 
-id: 075-BatsInTheBelfryLobby
+id: 038-BatsInTheBelfryLobby
 label: Bats In The Belfry Lobby
+parent: 025-WerewolfVillage3
 desc: 
 The Princess, the Count, and Hubert, all sit in the Lobby of the Bats-in-the-Belfry.
 They decide to rescue the vacation Fairy Godmothers and vacation princesses, and start making plans.
 The Count makes a deal with the Princess to help him find a mate, if he helps her with finding the princesses.
 The Count then hides in her handbag in his bat form.
-door: 076-KnightSchool1
+door: 013-KnightSchool1
 
-id: 076-KnightSchool1
+id: 013-KnightSchool1
 label: Knight School 1
+parent: 038-BatsInTheBelfryLobby
 desc: 
 John and Sir William arrive at Knight School.
 They convince most of the Knights and Knights-in-Training, to join them in fighting Max and his armies.
 They, then, leave to go back to the Bats in the Belfry.
-door: 077-PrincessPrepDoor
+door: 039-PrincessPrepDoor
 
-id: 077-PrincessPrepDoor
+id: 039-PrincessPrepDoor
 label: Princess Prep Door
+parent: 013-KnightSchool1
 desc: 
 The Princess goes back to Princess Prep and sees a note on the door.
 The Note says to go to Fairy GodCollege with a password.
 The Princess with The Count, still a bat in her handbag, start towards Fairy Godcollege.
-door: 078-FairyGodcollege4
+door: 020-FairyGodcollege4
 
-id: 078-FairyGodcollege4
+id: 020-FairyGodcollege4
 label: Fairy Godcollege 4
+parent: 039-PrincessPrepDoor
 desc: 
 The Princess gets into Fairy GodCollege with the password, when she has to throw her bag into a box.
-door: 079-FairyGodcollegeLibrary
+door: 040-FairyGodcollegeLibrary
 
-id: 079-FairyGodcollegeLibrary
+id: 040-FairyGodcollegeLibrary
 label: Fairy Godcollege Library
+parent: 020-FairyGodcollege4
 desc: 
 The Princess is taken to the Library as the box with her handbag goes into another room.
 She's asked to grab some books, and opens one and then is immediately sucked inside.
-door: 080-FairyGodcollegeIncinerator
+door: 041-FairyGodcollegeIncinerator
 
-id: 080-FairyGodcollegeIncinerator
+id: 041-FairyGodcollegeIncinerator
 label: Fairy Godcollege Incinerator
+parent: 040-FairyGodcollegeLibrary
 desc: 
 The box travels into a room with an incinerator which the Count is barely able to make out from within the handbag.
 Before being thrown in, The Count causes the attendant to trip, and then the Count escapes.
 The count then leaves the incinerator room back into the hallway and hides in the shadows.
 The Count then spots a girl going into the library, and follows her.
-door: 081-FairyGodcollege5
+door: 020-FairyGodcollege5
 
-id: 081-FairyGodcollege5
+id: 020-FairyGodcollege5
 label: Fairy Godcollege 5
+parent: 041-FairyGodcollegeIncinerator
 desc: 
 The count stops at the door to the library as it closes, and then peeks into the windows of the door.
 The Count then sees the girl being sucked into a book, and figures this must be what happened to the Princess.
 The Count makes it back to Hubert and John.
-door: 082-FairyGodcollege6
+door: 020-FairyGodcollege6
 
-id: 082-FairyGodcollege6
+id: 020-FairyGodcollege6
 label: Fairy Godcollege 6
+parent: 020-FairyGodcollege5
 desc: 
 Hubert, John, and the Count, all go back to Fairy Godcollege.
 With Hubert's full magic, they force their way in.
 As soon as they release the vacation Fairy Godmothers, and go and get the books.
 They then leave to go back to the Count's hotel.
-door: 083-BatsInTheBelfry3
+door: 030-BatsInTheBelfry3
 
-id: 083-BatsInTheBelfry3
+id: 030-BatsInTheBelfry3
 label: Bats In The Belfry 3
+parent: 020-FairyGodcollege6
 desc: 
 Back at the Bats in the Belfry, John goes into the books to bring Karin out.
 They instruct Sir William and his men to go into the rest of the books and retrieve the rest vacation princesses.
-door: 084-BatsInTheBelfry4
+door: 030-BatsInTheBelfry4
 
-id: 084-BatsInTheBelfry4
+id: 030-BatsInTheBelfry4
 label: Bats In The Belfry 4
+parent: 030-BatsInTheBelfry3
 desc: 
 They all meet back at the "Bats" lobby.
 The Count, then, comes to Karin and asks if she can help him now, and she just points.
 The Count looking at where she's pointing meets a beautiful woman who happens to also be a vampire and a real princess.
 In the library Roland Jr. tells Hubert, him and his Dad are going get the help of his people.
 Roland leaves the Hotel.
-door: 085-CastleThroneRoom
+door: 042-CastleThroneRoom
 
-id: 085-CastleThroneRoom
+id: 042-CastleThroneRoom
 label: Castle Throne Room
+parent: 030-BatsInTheBelfry4
 desc: 
 Back at the castle in the throne room, Max gets a "magic mirror" call.
 Barty sitting on his squat throne inside the Gnome Kingdom, tells Max what has been going on.
 Max finds out that John and Roland and most of the slaves were rescued by Hubert.
 Max gets suspicious of Red's long absence, and so gets a servant to go and find out what happened.
 The servant returns later with Red's hood, and tells Max it was in the possession of Violet.
-door: 086-WerewolfVillage4
+door: 025-WerewolfVillage4
 
-id: 086-WerewolfVillage4
+id: 025-WerewolfVillage4
 label: Werewolf Village 4
+parent: 042-CastleThroneRoom
 desc: 
 After going to the werewolf village with Violet, and confronting her and Kurt, about Red, he kills Kurt with a fireball.
 Violet runs into the forest, and Max says he'll make anyone the leader who disposes of her.
 Thorne comes back, but before giving him the totem, he says he'll only give it back if they agree to join his army.
 The Werewolves under Thorne agree to join the army and Max gives him the Totem before returning to the Castle.
-door: 087-BatsInTheBelfry5
+door: 030-BatsInTheBelfry5
 
-id: 087-BatsInTheBelfry5
+id: 030-BatsInTheBelfry5
 label: Bats In The Belfry 5
+parent: 025-WerewolfVillage4
 desc: 
 Everyone meets at the Bats in the Belfry Hotel.
 Everyone gathers around, even spilling into the streets.
 Hubert speaks to the castle and they all make their battle plans.
-door: 088-CastleNorthTerrace1
+door: 032-CastleNorthTerrace1
 
-id: 088-CastleNorthTerrace1
+id: 032-CastleNorthTerrace1
 label: Castle North Terrace 1
+parent: 030-BatsInTheBelfry5
 desc: 
 On the castle grounds, on the north terrace near the Omni-Gate, Max and his armies assemble.
 Max orders his technicians to put the machine at full power, and open all the portals.
@@ -704,43 +792,48 @@ As soon as all armies are assembled, he starts seeing a large amount of trains f
 Realizing who they are, he commands his armies to attack them.
 A large battle ensues.
 The battle starts waning in favor of the Enchanted Landians.
-door: 089-CastleNorthTerrace2
+door: 032-CastleNorthTerrace2
 
-id: 089-CastleNorthTerrace2
+id: 032-CastleNorthTerrace2
 label: Castle North Terrace 2
+parent: 032-CastleNorthTerrace1
 desc: 
 John spots Max trying to escape via one of the portals and chases him.
 John tackles Max but Max throws him off, and starts running for a stair well.
 John chases Max up the stairs, and onto a catwalk, and they begin to fight.
-door: 090-CastleNorthTerraceCatwalk
+door: 043-CastleNorthTerraceCatwalk
 
-id: 090-CastleNorthTerraceCatwalk
+id: 043-CastleNorthTerraceCatwalk
 label: Castle North Terrace Catwalk
+parent: 032-CastleNorthTerrace2
 desc: 
 John still has his silver ticket, and Max manages to grab it out of his coat.
 While grabbing for the ticket, he pulls John down with him as he goes over the edge.
 John holds on to the catwalk with his feet, as Max dangles below.
 Max starts slipping and with the ticket in hand eventually falls.
 John turns away as Max falls, and when he turns back, Max is gone.
-door: 091-CastleNorthTerrace3
+door: 032-CastleNorthTerrace3
 
-id: 091-CastleNorthTerrace3
+id: 032-CastleNorthTerrace3
 label: Castle North Terrace 3
+parent: 043-CastleNorthTerraceCatwalk
 desc: 
 Coming back down, out of breath and full of bruises and scratches, he notices the battle is almost over.
 As it comes to a close, the Princess and Hubert manage to make their way over to John.
 John points to the machines controls, and Hubert runs over to the control panel to shut the machine down.
-door: 092-CastleNorthTerraceBattlefield
+door: 044-CastleNorthTerraceBattlefield
 
-id: 092-CastleNorthTerraceBattlefield
+id: 044-CastleNorthTerraceBattlefield
 label: Castle North Terrace Battlefield
+parent: 032-CastleNorthTerrace3
 desc: 
 After the battle is over, bodies are thrown into piles, and burned.
 Enemies are rounded up.
-door: 093-CastleThroneRoom1
+door: 042-CastleThroneRoom1
 
-id: 093-CastleThroneRoom1
+id: 042-CastleThroneRoom1
 label: Castle Throne Room 1
+parent: 044-CastleNorthTerraceBattlefield
 desc: 
 Some time later in the throne room, Hubert talks privately to John and Princess Karin.
 Hubert states that John is probably going to become King.
