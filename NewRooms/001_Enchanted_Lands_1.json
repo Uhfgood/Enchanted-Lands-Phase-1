@@ -1,0 +1,13 @@
+{
+    "id": "001_Enchanted_Lands_1",
+    "parent": "001_Enchanted_Lands",
+    "label": "Enchanted Lands 1",
+    "description": "Enchanted Lands Magical Resort was sold to a mysterious figure, by the ruler of the kingdom.\nThis figure, named Max, has systematically closed down most of the resort.\nMany people have disappeared including both citizens and tourists.\nEver since the King closed down the resort, he's been acting strangely.\nChief advisor and friend to the King, the Wizard Hubert, after seeing him, goes home to prepare to get external help.\n\nHit 1 if you wish to go to Hubert Home.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Hubert_Home",
+            "choice": "1",
+            "destination": "002_Hubert_Home"
+        }
+    ]
+}

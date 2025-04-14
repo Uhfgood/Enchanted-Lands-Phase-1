@@ -1,0 +1,13 @@
+{
+    "id": "030_Bats_In_The_Belfry_1",
+    "parent": "030_Bats_In_The_Belfry",
+    "label": "Bats In The Belfry 1",
+    "description": "Hubert sends Roland and John into the mines, to free the slaves.\nHubert tells Sir William that they're going to have to head to the castle.\nHubert then proceeds to cast a spell on Sir William, when Sir William sprouts some wings.\nSir William tells Hubert to hop on, and that they'll fly to the Castle.\n\nHit 1 if you wish to go to Nestor Cave 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Nestor_Cave_1",
+            "choice": "1",
+            "destination": "017_Nestor_Cave_1"
+        }
+    ]
+}

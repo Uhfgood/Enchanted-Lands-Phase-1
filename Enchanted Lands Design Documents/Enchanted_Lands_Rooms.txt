@@ -1,0 +1,1203 @@
+{
+    "id": "001_Enchanted_Lands",
+    "parent": "000",
+    "label": "Enchanted Lands",
+    "description": "Welcome to Enchanted Lands!\nTake a magical vacation, slay a dragon, rescue a princess, become a great and powerful wizard, or stay at one of our many fine hotels. Anything is possible... At least that's what the brochure says. Enchanted Lands, the magical resort kingdom is not doing so well. The King seems to be acting strangely. Enchanted Enterprises has been bought out by Enchanted Holdings, Inc. Administration has closed the various magical training schools, and a dark presence has returned from banished realms.\nIs there no one that can solve these mysteries?\nWill the schools ever reopen?\nWill there ever be anymore stupendous vacation deals?\nStay tuned.\n\nHit 1 if you wish to go to Enchanted Lands 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Enchanted_Lands_1",
+            "choice": "1",
+            "destination": "001_Enchanted_Lands_1"
+        }
+    ]
+}
+{
+    "id": "001_Enchanted_Lands_1",
+    "parent": "001_Enchanted_Lands",
+    "label": "Enchanted Lands 1",
+    "description": "Enchanted Lands Magical Resort was sold to a mysterious figure, by the ruler of the kingdom.\nThis figure, named Max, has systematically closed down most of the resort.\nMany people have disappeared including both citizens and tourists.\nEver since the King closed down the resort, he's been acting strangely.\nChief advisor and friend to the King, the Wizard Hubert, after seeing him, goes home to prepare to get external help.\n\nHit 1 if you wish to go to Hubert Home.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Hubert_Home",
+            "choice": "1",
+            "destination": "002_Hubert_Home"
+        }
+    ]
+}
+{
+    "id": "002_Hubert_Home",
+    "parent": "001_Enchanted_Lands_1",
+    "label": "Hubert Home",
+    "description": "Hubert walks around his home, examining spell books, scrolls, and loose papers, to figure out the best course of action.\nHubert goes to a large crystal ball, which allows him to see into different realms, and he searches for someone to help.\nHubert then spots John, pulls up info about him, and then sees him enter a convenience store, to grab a Benny Wonky Bar.\nHubert puts a silver ticket into a 'magic' mailbox on his desk, which magically appears inside the wrapper.\n\nHit 1 if you wish to go to Cerulea.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Cerulea",
+            "choice": "1",
+            "destination": "003_Cerulea"
+        }
+    ]
+}
+{
+    "id": "003_Cerulea",
+    "parent": "002_Hubert_Home",
+    "label": "Cerulea",
+    "description": "In our realm, also called Cerulea by Enchanted Landians, John is leaving work and walking home, down the street.\nJohn stops in at a store nearby, and gets his favorite candy bar with a silver \"ticket\" inside.\nJohn looks at the silver ticket, and says some words in the fine print, and a portal opens.\nJohn steps through the portal as it closes behind him.\n\nHit 1 if you wish to go to Caves Of Dragonmount.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Caves_Of_Dragonmount",
+            "choice": "1",
+            "destination": "004_Caves_Of_Dragonmount"
+        }
+    ]
+}
+{
+    "id": "004_Caves_Of_Dragonmount",
+    "parent": "003_Cerulea",
+    "label": "Caves Of Dragonmount",
+    "description": "Somewhere in the kingdom, Chester, a friendly dragon, lands at the entrance to the \"Caves of Dragonmount.\"\nChester walks around the cave system trying to find his friends.\nChester then leaves, and flies around while looking some more.\n\nHit 1 if you wish to go to Sky.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Sky",
+            "choice": "1",
+            "destination": "005_Sky"
+        }
+    ]
+}
+{
+    "id": "005_Sky",
+    "parent": "004_Caves_Of_Dragonmount",
+    "label": "Sky",
+    "description": "As Chester is flying around, he sees a random village being burned down by a friend.\nChester flies right into the other dragon hard enough to cause him to stop.\nBefore the other dragon could recover, Chester flies back to his own cave, under Dragonmount.\n\nHit 1 if you wish to go to Chester Cave.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Chester_Cave",
+            "choice": "1",
+            "destination": "006_Chester_Cave"
+        }
+    ]
+}
+{
+    "id": "006_Chester_Cave",
+    "parent": "005_Sky",
+    "label": "Chester Cave",
+    "description": "Chester picks up a few shiny objects from his cave, and then leaves again to search for more of his friends.\n\nHit 1 if you wish to go to Train Cabin.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Train_Cabin",
+            "choice": "1",
+            "destination": "007_Train_Cabin"
+        }
+    ]
+}
+{
+    "id": "007_Train_Cabin",
+    "parent": "006_Chester_Cave",
+    "label": "Train Cabin",
+    "description": "John steps into what looks like a train cabin, when he sees a beautiful young woman sitting near the front.\nThe beautiful woman is grabbed by a short fat little man, as the train cabin starts tumbling, causing John to fall.\n\nHit 1 if you wish to go to Lapsewood.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Lapsewood",
+            "choice": "1",
+            "destination": "008_Lapsewood"
+        }
+    ]
+}
+{
+    "id": "008_Lapsewood",
+    "parent": "007_Train_Cabin",
+    "label": "Lapsewood",
+    "description": "John awakens in a forest without leaves as Hubert walks over and introduces himself.\nHubert tells John that he brought him here, to help find out why Enchanted Lands has closed.\nHubert mentions that it's a good thing that he fell near the edge of Lapsewood, since it makes you forget things.\nHubert and John start walking out of the leafless forest.\n\nHit 1 if you wish to go to Cerulea 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Cerulea_1",
+            "choice": "1",
+            "destination": "003_Cerulea_1"
+        }
+    ]
+}
+{
+    "id": "003_Cerulea_1",
+    "parent": "008_Lapsewood",
+    "label": "Cerulea 1",
+    "description": "In our realm (Cerulea), Zanzibar the great, magician, con artist, and thief, manages to escape the police into the Lands.\n\nHit 1 if you wish to go to Random Villages.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Random_Villages",
+            "choice": "1",
+            "destination": "009_Random_Villages"
+        }
+    ]
+}
+{
+    "id": "009_Random_Villages",
+    "parent": "003_Cerulea_1",
+    "label": "Random Villages",
+    "description": "Zanzibar then does a few tricks for the first locals he sees, in some random village.\nZanzibar gets his crow, Corvus, to steal from the locals.\n\nHit 1 if you wish to go to Lapsewood Edge.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Lapsewood_Edge",
+            "choice": "1",
+            "destination": "010_Lapsewood_Edge"
+        }
+    ]
+}
+{
+    "id": "010_Lapsewood_Edge",
+    "parent": "009_Random_Villages",
+    "label": "Lapsewood Edge",
+    "description": "Once they're out of the confines of Lapsewood, Hubert stops to give instructions.\nHubert sends John to Knight School and Princess Prep to figure out what's happening.\nHubert himself goes to examine Wizard U and Fairy Godcollege.\n\nHit 1 if you wish to go to Dwarf Mines.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Dwarf_Mines",
+            "choice": "1",
+            "destination": "011_Dwarf_Mines"
+        }
+    ]
+}
+{
+    "id": "011_Dwarf_Mines",
+    "parent": "010_Lapsewood_Edge",
+    "label": "Dwarf Mines",
+    "description": "Near the dwarf mines, Roland, the half-dwarf/half-giant approaches the entrance.\nAn old dwarf Roland knows stumbles out and tells him his Dad is trapped in the Gnome Kingdom.\n\nHit 1 if you wish to go to Knight School Entrance.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Knight_School_Entrance",
+            "choice": "1",
+            "destination": "012_Knight_School_Entrance"
+        }
+    ]
+}
+{
+    "id": "012_Knight_School_Entrance",
+    "parent": "011_Dwarf_Mines",
+    "label": "Knight School Entrance",
+    "description": "At the Knight School entrance, John talks to the guards, and then gains entrance to the school.\n\nHit 1 if you wish to go to Knight School.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Knight_School",
+            "choice": "1",
+            "destination": "013_Knight_School"
+        }
+    ]
+}
+{
+    "id": "013_Knight_School",
+    "parent": "012_Knight_School_Entrance",
+    "label": "Knight School",
+    "description": "While inside Knight School, John learns a Princess was going to speak at Princess Prep but never made it.\nSomeone tells him the Knights are using real weapons, and dragons are terrorizing small villages.\n\nHit 1 if you wish to go to Wizard U Hall.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Wizard_U_Hall",
+            "choice": "1",
+            "destination": "014_Wizard_U_Hall"
+        }
+    ]
+}
+{
+    "id": "014_Wizard_U_Hall",
+    "parent": "013_Knight_School",
+    "label": "Wizard U Hall",
+    "description": "Hubert sneaks into Wizard U and examines the \"hall of fame\" paintings and notices one is missing.\nAfter realizing what's missing, he leaves the school.\n\nHit 1 if you wish to go to Knight School Pool.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Knight_School_Pool",
+            "choice": "1",
+            "destination": "015_Knight_School_Pool"
+        }
+    ]
+}
+{
+    "id": "015_Knight_School_Pool",
+    "parent": "014_Wizard_U_Hall",
+    "label": "Knight School Pool",
+    "description": "Within Knight School grounds, two Knights are standing in front of a statue of a Knight.\nThey start discussing the disappearance of Sir William.\nA unicorn steps up to a pool in front of the statue but behind the knights.\nThe unicorn notices a man's face for a moment, in place of his own reflection.\nThe two knights say they don't think even the Wizards at Wizard U could help, and then they leave.\nThe unicorn walks up to the statue and recognizes it as the face he saw in the reflecting pool.\nThe unicorn leaves Knight School grounds to search for Wizard U.\n\nHit 1 if you wish to go to Princess Prep.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Princess_Prep",
+            "choice": "1",
+            "destination": "016_Princess_Prep"
+        }
+    ]
+}
+{
+    "id": "016_Princess_Prep",
+    "parent": "015_Knight_School_Pool",
+    "label": "Princess Prep",
+    "description": "When John sneaks into Princess Prep he learns her first stop was supposed to be the Grand Enchanted Landian Hotel.\n\nHit 1 if you wish to go to Random Villages 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Random_Villages_1",
+            "choice": "1",
+            "destination": "009_Random_Villages_1"
+        }
+    ]
+}
+{
+    "id": "009_Random_Villages_1",
+    "parent": "016_Princess_Prep",
+    "label": "Random Villages 1",
+    "description": "Zanzibar does some more shows in some other villages.\nMax attends one of his shows, but Corvus manages to steal from Max without his notice.\n\nHit 1 if you wish to go to Random Villages 2.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Random_Villages_2",
+            "choice": "1",
+            "destination": "009_Random_Villages_2"
+        }
+    ]
+}
+{
+    "id": "009_Random_Villages_2",
+    "parent": "009_Random_Villages_1",
+    "label": "Random Villages 2",
+    "description": "Max leaves the last show Zanzibar put on, but on the road discovers his money is gone.\nMax catches up to Zanzibar in another village, and then confronts him after a show, and makes a deal with him.\nMax helps Zanzibar with larger productions, in exchange for doing some tax collection for Max.\n\nHit 1 if you wish to go to Random Villages 3.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Random_Villages_3",
+            "choice": "1",
+            "destination": "009_Random_Villages_3"
+        }
+    ]
+}
+{
+    "id": "009_Random_Villages_3",
+    "parent": "009_Random_Villages_2",
+    "label": "Random Villages 3",
+    "description": "Chester manages to catch up to a few of his friends in various villages to try to break them from the enchantment.\nChester tries to give them shiny gifts, and then breathe fire on them, neither of which works.\n\nHit 1 if you wish to go to Nestor Cave.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Nestor_Cave",
+            "choice": "1",
+            "destination": "017_Nestor_Cave"
+        }
+    ]
+}
+{
+    "id": "017_Nestor_Cave",
+    "parent": "009_Random_Villages_3",
+    "label": "Nestor Cave",
+    "description": "Desperate, Chester flies to Nestor's cave, somewhere in the White Serpent range, west of DragonMount.\nNestor gets ready to breathe fire on Chester, when Chester speaks to him.\nNestor tells Chester that Crooktooth has enchanted the dragons to act hostile.\n\nHit 1 if you wish to go to Wizard U Entrance.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Wizard_U_Entrance",
+            "choice": "1",
+            "destination": "018_Wizard_U_Entrance"
+        }
+    ]
+}
+{
+    "id": "018_Wizard_U_Entrance",
+    "parent": "017_Nestor_Cave",
+    "label": "Wizard U Entrance",
+    "description": "The Unicorn walks up to the door of Wizard University.\nThe Unicorn tries to push the door open, but it doesn't budge.\nThe Unicorn then gets a running start and rams the door with his horn, and then goes inside.\n\nHit 1 if you wish to go to Wizard U Hall 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Wizard_U_Hall_1",
+            "choice": "1",
+            "destination": "014_Wizard_U_Hall_1"
+        }
+    ]
+}
+{
+    "id": "014_Wizard_U_Hall_1",
+    "parent": "018_Wizard_U_Entrance",
+    "label": "Wizard U Hall 1",
+    "description": "Just inside the door at Wizard U, the Unicorn reads a sign that hints at the library.\nThe Unicorn then passes through the \"hall of fame\", noting the paintings of each of the Wizards.\nThe Unicorn sees Hubert's painting in the hall of fame, and particularly notes it has been defaced.\nHe then proceeds to find the library.\n\nHit 1 if you wish to go to Wizard U Library.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Wizard_U_Library",
+            "choice": "1",
+            "destination": "019_Wizard_U_Library"
+        }
+    ]
+}
+{
+    "id": "019_Wizard_U_Library",
+    "parent": "014_Wizard_U_Hall_1",
+    "label": "Wizard U Library",
+    "description": "After finding the library and exploring it, he finds a section on curses, and pulls off a few books with his horn.\nInside the library at Wizard U, the Unicorn notices the page about 'transmogrification'.\nUsing his horn to turn the pages, he reads that anyone can be turned into anything, even a unicorn.\nAfter closing the book, the Unicorn notices the picture appears to be the same wizard who had his painting defaced.\nThe dust jacket reads \"Hubert Halfway, resides with his spellbooks at a house near the edge of Lapsewood\".\nThe Unicorn then leaves Wizard U.\n\nHit 1 if you wish to go to Dwarf Mines 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Dwarf_Mines_1",
+            "choice": "1",
+            "destination": "011_Dwarf_Mines_1"
+        }
+    ]
+}
+{
+    "id": "011_Dwarf_Mines_1",
+    "parent": "019_Wizard_U_Library",
+    "label": "Dwarf Mines 1",
+    "description": "Roland goes into the dwarf mines, and then from there finds a secret entrance into the Gnome Kingdom.\n\nHit 1 if you wish to go to Fairy Godcollege.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Fairy_Godcollege",
+            "choice": "1",
+            "destination": "020_Fairy_Godcollege"
+        }
+    ]
+}
+{
+    "id": "020_Fairy_Godcollege",
+    "parent": "011_Dwarf_Mines_1",
+    "label": "Fairy Godcollege",
+    "description": "Hubert makes his way to Fairy Godcollege, and peeks in one of the windows.\nAt Fairy Godcollege, an old friend tells Hubert, Violet is back, and is trying to force students to become evil witches.\n\nHit 1 if you wish to go to Gnome Kingdom.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Gnome_Kingdom",
+            "choice": "1",
+            "destination": "021_Gnome_Kingdom"
+        }
+    ]
+}
+{
+    "id": "021_Gnome_Kingdom",
+    "parent": "020_Fairy_Godcollege",
+    "label": "Gnome Kingdom",
+    "description": "In the Gnome Kingdom, Roland notices all kinds of people and creatures working the mines.\nHe spots a giant chained to one of the machines that he can't identify, and starts walking towards him.\nRoland asks the giant if he's his Dad, and the giant confirms it.\nHe tells Roland to find Hubert Halfway, the wizard, and to tell Hubert that Max seems to need a lot of quicksilver.\n\nHit 1 if you wish to go to Scarborough Faire Chicken.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Scarborough_Faire_Chicken",
+            "choice": "1",
+            "destination": "022_Scarborough_Faire_Chicken"
+        }
+    ]
+}
+{
+    "id": "022_Scarborough_Faire_Chicken",
+    "parent": "021_Gnome_Kingdom",
+    "label": "Scarborough Faire Chicken",
+    "description": "John and Hubert rendezvous at Scarborough Faire Chicken at the Renaissance Faire.\nSince the Princess was kidnapped for a reason, they decide to find her and rescue her if possible.\nHubert contacts his old friend, The Count, and tells him to turn into a bat, and see if he can find the Princess.\n\nHit 1 if you wish to go to Lapsewood Edge 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Lapsewood_Edge_1",
+            "choice": "1",
+            "destination": "010_Lapsewood_Edge_1"
+        }
+    ]
+}
+{
+    "id": "010_Lapsewood_Edge_1",
+    "parent": "022_Scarborough_Faire_Chicken",
+    "label": "Lapsewood Edge 1",
+    "description": "As the Unicorn leaves Wizard U, he spots the Black Knight, and starts running.\nThe Black Knight chases the Unicorn into a forest without leaves on the trees.\nAfter a few hours, the Unicorn starts losing his memory until he no longer cares to go on.\n\nHit 1 if you wish to go to Grand Enchanted Landian Wine Cellar.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Grand_Enchanted_Landian_Wine_Cellar",
+            "choice": "1",
+            "destination": "023_Grand_Enchanted_Landian_Wine_Cellar"
+        }
+    ]
+}
+{
+    "id": "023_Grand_Enchanted_Landian_Wine_Cellar",
+    "parent": "010_Lapsewood_Edge_1",
+    "label": "Grand Enchanted Landian Wine Cellar",
+    "description": "In the wine cellar of the Grand Enchanted Landian, the Princess is struggling with the ropes tying her to a wine cask.\nWith the help of some mice, she manages to get free of the ropes binding her.\nThe Princess then tries to escape by getting into the dumbwaiter, only to be sent upstairs.\n\nHit 1 if you wish to go to Grand Enchanted Landian.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Grand_Enchanted_Landian",
+            "choice": "1",
+            "destination": "024_Grand_Enchanted_Landian"
+        }
+    ]
+}
+{
+    "id": "024_Grand_Enchanted_Landian",
+    "parent": "023_Grand_Enchanted_Landian_Wine_Cellar",
+    "label": "Grand Enchanted Landian",
+    "description": "After getting out of the hotel's dumbwaiter, The Princess searches for a way out by checking out various doors.\nShe stumbles upon a room with some maps and other documents, which she grabs, but is recaptured.\n\nHit 1 if you wish to go to Scarborough Faire Chicken 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Scarborough_Faire_Chicken_1",
+            "choice": "1",
+            "destination": "022_Scarborough_Faire_Chicken_1"
+        }
+    ]
+}
+{
+    "id": "022_Scarborough_Faire_Chicken_1",
+    "parent": "024_Grand_Enchanted_Landian",
+    "label": "Scarborough Faire Chicken 1",
+    "description": "The Count comes back to SFC and tells John and Hubert what he's found.\nThe Princess is chained to a wine cask in the cellar of the Grand Enchanted Landian.\nHubert and John take an empty wagon, and head toward the hotel.\n\nHit 1 if you wish to go to Gnome Kingdom 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Gnome_Kingdom_1",
+            "choice": "1",
+            "destination": "021_Gnome_Kingdom_1"
+        }
+    ]
+}
+{
+    "id": "021_Gnome_Kingdom_1",
+    "parent": "022_Scarborough_Faire_Chicken_1",
+    "label": "Gnome Kingdom 1",
+    "description": "Within the boundaries of the Gnome Kingdom, Max finds Scarlet \"Red\" Clover, and pulls her out of hiding.\nMax asks Red to go and conscript the werewolves from their village into his service, due to her history with them.\n\nHit 1 if you wish to go to Werewolf Village.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Werewolf_Village",
+            "choice": "1",
+            "destination": "025_Werewolf_Village"
+        }
+    ]
+}
+{
+    "id": "025_Werewolf_Village",
+    "parent": "021_Gnome_Kingdom_1",
+    "label": "Werewolf Village",
+    "description": "Red goes to the werewolf village.\nRed tells the werewolves led by Rottweiler, they might be rid of their curse if they join Max's army.\n\nHit 1 if you wish to go to Fairy Godcollege 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Fairy_Godcollege_1",
+            "choice": "1",
+            "destination": "020_Fairy_Godcollege_1"
+        }
+    ]
+}
+{
+    "id": "020_Fairy_Godcollege_1",
+    "parent": "025_Werewolf_Village",
+    "label": "Fairy Godcollege 1",
+    "description": "Kurt, Rottweiler's second in command, leaves the werewolf village, after remembering Red and Violet's rivalry.\nKurt then travels to Fairy Godcollege to meet with Violet.\nViolet agrees to help Kurt become the leader of the pack, if Kurt eliminates Red.\n\nHit 1 if you wish to go to Random Villages 4.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Random_Villages_4",
+            "choice": "1",
+            "destination": "009_Random_Villages_4"
+        }
+    ]
+}
+{
+    "id": "009_Random_Villages_4",
+    "parent": "020_Fairy_Godcollege_1",
+    "label": "Random Villages 4",
+    "description": "Zanzibar travels to a few villages and collects some tax money.\nThen he puts some of the money he's collected, into his own pocket.\n\nHit 1 if you wish to go to Max Mines.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Max_Mines",
+            "choice": "1",
+            "destination": "026_Max_Mines"
+        }
+    ]
+}
+{
+    "id": "026_Max_Mines",
+    "parent": "009_Random_Villages_4",
+    "label": "Max Mines",
+    "description": "Max is in the mines overseeing the quicksilver extraction, when a messenger comes up and speaks quietly to him.\nMax finds out that Zanzibar is stealing from the taxes but doesn't know where Zanzibar hides it yet.\n\nHit 1 if you wish to go to Grand Enchanted Landian Side Door.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Grand_Enchanted_Landian_Side_Door",
+            "choice": "1",
+            "destination": "027_Grand_Enchanted_Landian_Side_Door"
+        }
+    ]
+}
+{
+    "id": "027_Grand_Enchanted_Landian_Side_Door",
+    "parent": "026_Max_Mines",
+    "label": "Grand Enchanted Landian Side Door",
+    "description": "Hubert and John go to the Grand Enchanted Landian Hotel and arrive at the side door with some guards in front.\nHubert tries to conjure up a wagon with food, but only succeeds in giving the guards the illusion of the wagon.\n\nHit 1 if you wish to go to Grand Enchanted Landian Kitchen.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Grand_Enchanted_Landian_Kitchen",
+            "choice": "1",
+            "destination": "028_Grand_Enchanted_Landian_Kitchen"
+        }
+    ]
+}
+{
+    "id": "028_Grand_Enchanted_Landian_Kitchen",
+    "parent": "027_Grand_Enchanted_Landian_Side_Door",
+    "label": "Grand Enchanted Landian Kitchen",
+    "description": "As they go in to the kitchen of the Grand Enchanted Landian, they find a secret passage into the wine cellar.\n\nHit 1 if you wish to go to Grand Enchanted Landian Wine Cellar 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Grand_Enchanted_Landian_Wine_Cellar_1",
+            "choice": "1",
+            "destination": "023_Grand_Enchanted_Landian_Wine_Cellar_1"
+        }
+    ]
+}
+{
+    "id": "023_Grand_Enchanted_Landian_Wine_Cellar_1",
+    "parent": "028_Grand_Enchanted_Landian_Kitchen",
+    "label": "Grand Enchanted Landian Wine Cellar 1",
+    "description": "Inside the wine cellar, John hits the guard who's watching the Princess with a heavy wine bottle.\nThey go back upstairs to the kitchen.\n\nHit 1 if you wish to go to Grand Enchanted Landian Kitchen 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Grand_Enchanted_Landian_Kitchen_1",
+            "choice": "1",
+            "destination": "028_Grand_Enchanted_Landian_Kitchen_1"
+        }
+    ]
+}
+{
+    "id": "028_Grand_Enchanted_Landian_Kitchen_1",
+    "parent": "023_Grand_Enchanted_Landian_Wine_Cellar_1",
+    "label": "Grand Enchanted Landian Kitchen 1",
+    "description": "They try to walk out of the side doors of the kitchen, calmly and slowly.\n\nHit 1 if you wish to go to Grand Enchanted Landian Hotel Room.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Grand_Enchanted_Landian_Hotel_Room",
+            "choice": "1",
+            "destination": "029_Grand_Enchanted_Landian_Hotel_Room"
+        }
+    ]
+}
+{
+    "id": "029_Grand_Enchanted_Landian_Hotel_Room",
+    "parent": "028_Grand_Enchanted_Landian_Kitchen_1",
+    "label": "Grand Enchanted Landian Hotel Room",
+    "description": "Unbeknownst to Zanzibar, Max had his guards searching everywhere for Zanzibar's money.\nThey finally found his stash in his hotel room in the Grand Enchanted Landian and take it.\n\nHit 1 if you wish to go to Random Villages 5.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Random_Villages_5",
+            "choice": "1",
+            "destination": "009_Random_Villages_5"
+        }
+    ]
+}
+{
+    "id": "009_Random_Villages_5",
+    "parent": "029_Grand_Enchanted_Landian_Hotel_Room",
+    "label": "Random Villages 5",
+    "description": "Max uses Zanzibar's shows to abduct more citizens and tourists for his mines, as he goes from village to village.\nMax proposes one final big show in the hotel, since Max has enough people for his mines.\nZanzibar agrees to Max's proposal because he feels he has enough money to live like a King.\n\nHit 1 if you wish to go to Grand Enchanted Landian 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Grand_Enchanted_Landian_1",
+            "choice": "1",
+            "destination": "024_Grand_Enchanted_Landian_1"
+        }
+    ]
+}
+{
+    "id": "024_Grand_Enchanted_Landian_1",
+    "parent": "009_Random_Villages_5",
+    "label": "Grand Enchanted Landian 1",
+    "description": "The Black Knight rides up to the Grand Enchanted Landian on his black charger.\nHubert and company calmly out of the kitchen doors.\nThe guard that was guarding the Princess in the cellar stumbles out, and yells \"She's Escaped!\"\nThey then run to the wagon and they take off, as the Black Knight begins to chase them.\n\nHit 1 if you wish to go to Lapsewood Edge 2.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Lapsewood_Edge_2",
+            "choice": "1",
+            "destination": "010_Lapsewood_Edge_2"
+        }
+    ]
+}
+{
+    "id": "010_Lapsewood_Edge_2",
+    "parent": "024_Grand_Enchanted_Landian_1",
+    "label": "Lapsewood Edge 2",
+    "description": "The Black Knight chases Hubert and company in their wagon across the open land.\nThey come upon the edge of Lapsewood, the bare forest, still pursued by the Black Knight.\nThey go into the forest, and before they know it, they're lost among the leafless trees.\n\nHit 1 if you wish to go to Lapsewood 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Lapsewood_1",
+            "choice": "1",
+            "destination": "008_Lapsewood_1"
+        }
+    ]
+}
+{
+    "id": "008_Lapsewood_1",
+    "parent": "010_Lapsewood_Edge_2",
+    "label": "Lapsewood 1",
+    "description": "Somewhere in the middle of the bare forest, they spot a Unicorn.\nThe Unicorn stands around but doesn't run away as they approach.\nThe Princess hops out and starts petting him and talking to him.\nJohn then mentions he read a book on \"Unicorn sign language once.\"\nJohn gestures to the Unicorn, and they proceed to \"talk\".\nWhen John and the Unicorn are finished, John translates and says he's forgotten where he was going, and is lost.\nHubert then says, he must be losing his memory because they're in Lapsewood.\n\nHit 1 if you wish to go to Grand Enchanted Landian 2.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Grand_Enchanted_Landian_2",
+            "choice": "1",
+            "destination": "024_Grand_Enchanted_Landian_2"
+        }
+    ]
+}
+{
+    "id": "024_Grand_Enchanted_Landian_2",
+    "parent": "008_Lapsewood_1",
+    "label": "Grand Enchanted Landian 2",
+    "description": "At the Grand Enchanted Landian Max tells Zanzibar that he knows he's been stealing and that this is his last show.\nZanzibar performs his whole show, and then Corvus (his pet crow) steals money from the audience as usual.\nJust then, Max yells that he took all his money.\nThe crowd looks angrily toward Zanzibar and starts chasing him.\nMax gets word that the Omni-Gate is ready for testing, so he leaves for the Castle.\nZanzibar distracts the crowd with a few cheap tricks and escapes out the back with his loot.\n\nHit 1 if you wish to go to Lapsewood 2.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Lapsewood_2",
+            "choice": "1",
+            "destination": "008_Lapsewood_2"
+        }
+    ]
+}
+{
+    "id": "008_Lapsewood_2",
+    "parent": "024_Grand_Enchanted_Landian_2",
+    "label": "Lapsewood 2",
+    "description": "Back in Lapsewood, Hubert realizes this may be Sir William, and then casts a spell to change him back.\nThe spell doesn't work correctly, but allows the Unicorn to talk to them in human speech.\nThe Unicorn is unable to remember his name, and they all start walking together.\nSoon nobody remembers what they were doing.\nThey all stop walking, and stand and stare at each other.\n\nHit 1 if you wish to go to Scarborough Faire Chicken 2.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Scarborough_Faire_Chicken_2",
+            "choice": "1",
+            "destination": "022_Scarborough_Faire_Chicken_2"
+        }
+    ]
+}
+{
+    "id": "022_Scarborough_Faire_Chicken_2",
+    "parent": "008_Lapsewood_2",
+    "label": "Scarborough Faire Chicken 2",
+    "description": "Roland walks to the only open restaurant in town, Scarborough Faire Chicken.\nRoland looks around and starts asking about Hubert until finally getting to The Count sitting down at a table.\nRoland asks the count if he has any idea of where Hubert is.\nThe Count says he'll try to go find him, and turns into a bat, as Roland sits down.\n\nHit 1 if you wish to go to Lapsewood 3.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Lapsewood_3",
+            "choice": "1",
+            "destination": "008_Lapsewood_3"
+        }
+    ]
+}
+{
+    "id": "008_Lapsewood_3",
+    "parent": "022_Scarborough_Faire_Chicken_2",
+    "label": "Lapsewood 3",
+    "description": "Standing in the middle of Lapsewood, John notices Hubert wearing Wizard garb and suggests he cast a spell or something.\nHubert reaches into a bag and pulls out some hats and puts them on then wiggles his fingers.\nWhen he does this they're instantly teleported elsewhere.\nHubert and company wake up on the road, and confirm it was definitely Lapsewood, because splitting headaches.\nHubert recognizes the road, and they travel without event to The Bats in the Belfry Hotel.\n\nHit 1 if you wish to go to Werewolf Village 2.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Werewolf_Village_2",
+            "choice": "1",
+            "destination": "025_Werewolf_Village_2"
+        }
+    ]
+}
+{
+    "id": "025_Werewolf_Village_2",
+    "parent": "008_Lapsewood_3",
+    "label": "Werewolf Village 2",
+    "description": "In the werewolf village, they tell Red they want proof of the curse being lifted.\nShe leaves and brings Max back to the village, who promptly gets rid of the curse for a few of them.\nThe Werewolves led by Rottweiler, throw Red into a hut, and discuss, and then Kurt comes back to the village.\nThe Werewolves debate joining Max's army and eventually agree, and then bring Red back out.\nRed goes back to Max's mines and tells him the news, as Kurt and a lot of the other werewolves start grumbling.\n\nHit 1 if you wish to go to Bats In The Belfry.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Bats_In_The_Belfry",
+            "choice": "1",
+            "destination": "030_Bats_In_The_Belfry"
+        }
+    ]
+}
+{
+    "id": "030_Bats_In_The_Belfry",
+    "parent": "025_Werewolf_Village_2",
+    "label": "Bats In The Belfry",
+    "description": "At the Bats-in-the-Belfry, Hubert dings the bell loudly a few times.\nThe Count as a bat, flies in and rematerializes in front of them.\nThe Count tells Hubert, Roland is waiting for him at SFC, but Hubert tells him to bring him back here.\nAfter the Count comes back, Roland tells them that Max's quicksilver mines are in the Gnome Kingdom.\nIn the papers the Princess grabbed, are plans to some huge machine called the \"Omni-Gate\".\n\nHit 1 if you wish to go to Bats In The Belfry 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Bats_In_The_Belfry_1",
+            "choice": "1",
+            "destination": "030_Bats_In_The_Belfry_1"
+        }
+    ]
+}
+{
+    "id": "030_Bats_In_The_Belfry_1",
+    "parent": "030_Bats_In_The_Belfry",
+    "label": "Bats In The Belfry 1",
+    "description": "Hubert sends Roland and John into the mines, to free the slaves.\nHubert tells Sir William that they're going to have to head to the castle.\nHubert then proceeds to cast a spell on Sir William, when Sir William sprouts some wings.\nSir William tells Hubert to hop on, and that they'll fly to the Castle.\n\nHit 1 if you wish to go to Nestor Cave 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Nestor_Cave_1",
+            "choice": "1",
+            "destination": "017_Nestor_Cave_1"
+        }
+    ]
+}
+{
+    "id": "017_Nestor_Cave_1",
+    "parent": "030_Bats_In_The_Belfry_1",
+    "label": "Nestor Cave 1",
+    "description": "Back at Nestor's cave, Chester presents him with a shiny polished stone, and they both talk about the past.\nAfter finding out they're long lost twin brothers, Chester and Nestor go on a search for Crooktooth.\n\nHit 1 if you wish to go to Lapsewood Road.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Lapsewood_Road",
+            "choice": "1",
+            "destination": "031_Lapsewood_Road"
+        }
+    ]
+}
+{
+    "id": "031_Lapsewood_Road",
+    "parent": "017_Nestor_Cave_1",
+    "label": "Lapsewood Road",
+    "description": "The Black Knight, while hunting for Sir William, circumscribes Lapsewood, and comes to the road leaving the forest.\nThe Black Knight looks in the direction of the Bats-in-the-Belfry Hotel and sees a flying unicorn with a wizard atop.\n\nHit 1 if you wish to go to Dwarf Mines 2.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Dwarf_Mines_2",
+            "choice": "1",
+            "destination": "011_Dwarf_Mines_2"
+        }
+    ]
+}
+{
+    "id": "011_Dwarf_Mines_2",
+    "parent": "031_Lapsewood_Road",
+    "label": "Dwarf Mines 2",
+    "description": "Roland and John go back into the dwarf mines.\nThey use the secret door to gain entrance into the Gnome Kingdom.\n\nHit 1 if you wish to go to Castle North Terrace.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Castle_North_Terrace",
+            "choice": "1",
+            "destination": "032_Castle_North_Terrace"
+        }
+    ]
+}
+{
+    "id": "032_Castle_North_Terrace",
+    "parent": "011_Dwarf_Mines_2",
+    "label": "Castle North Terrace",
+    "description": "Max arrives at the administration castle aboard a transport train.\nMax has his techs activate the machine for the first time.\nFirst at half power, he has them open a few gates, then a few more.\nThousands of gates are opened simultaneously, and then shut off.\n\nHit 1 if you wish to go to Castle West Terrace.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Castle_West_Terrace",
+            "choice": "1",
+            "destination": "033_Castle_West_Terrace"
+        }
+    ]
+}
+{
+    "id": "033_Castle_West_Terrace",
+    "parent": "032_Castle_North_Terrace",
+    "label": "Castle West Terrace",
+    "description": "Sir William lands on the west side terrace of the Castle, and lets Hubert off.\nHubert starts systematically searching the grounds for Violet, taking care not to be seen.\nSir William flies off and heads back toward the Bats-in-the-Belfry.\n\nHit 1 if you wish to go to Max Mines Office.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Max_Mines_Office",
+            "choice": "1",
+            "destination": "034_Max_Mines_Office"
+        }
+    ]
+}
+{
+    "id": "034_Max_Mines_Office",
+    "parent": "033_Castle_West_Terrace",
+    "label": "Max Mines Office",
+    "description": "Roland and John locate the office in Max's mines.\nRoland and John then spot the dwarves tied and gagged on the floor.\nSneaking in Roland easily snaps the bonds holding them.\nRoland and John are then surprised and captured by the Gnomes.\n\nHit 1 if you wish to go to Castle East Gate.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Castle_East_Gate",
+            "choice": "1",
+            "destination": "035_Castle_East_Gate"
+        }
+    ]
+}
+{
+    "id": "035_Castle_East_Gate",
+    "parent": "034_Max_Mines_Office",
+    "label": "Castle East Gate",
+    "description": "Violet comes out of the east gate of the castle toward the east side train depot.\nHubert confronts Violet and before she can do anything, casts the spell that returns the magic.\nViolet yells to alert the guards and Hubert starts running.\n\nHit 1 if you wish to go to East Depot.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_East_Depot",
+            "choice": "1",
+            "destination": "036_East_Depot"
+        }
+    ]
+}
+{
+    "id": "036_East_Depot",
+    "parent": "035_Castle_East_Gate",
+    "label": "East Depot",
+    "description": "The guards chase Hubert to the east depot.\n\nHit 1 if you wish to go to Sky 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Sky_1",
+            "choice": "1",
+            "destination": "005_Sky_1"
+        }
+    ]
+}
+{
+    "id": "005_Sky_1",
+    "parent": "036_East_Depot",
+    "label": "Sky 1",
+    "description": "While Sir William is flying, a huge black dragon swoops out from the sky and hits him full on.\nThe Black Knight sitting atop Crooktooth circles around and starts flying toward Sir William again.\nAfter falling a bit Sir William regains his balance and starts flying towards Crooktooth.\nSir William gets a few hits, but doesn't do much damage to Crooktooth as he knocks Sir William out of the sky again.\n\nHit 1 if you wish to go to Sky 2.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Sky_2",
+            "choice": "1",
+            "destination": "005_Sky_2"
+        }
+    ]
+}
+{
+    "id": "005_Sky_2",
+    "parent": "005_Sky_1",
+    "label": "Sky 2",
+    "description": "Crooktooth starts heading toward Sir William again, when two other dragons swoop in behind him.\nThese two dragons, Chester, and Nestor, fly toward Sir William and turn around to confront Crooktooth.\nAll three start flying towards the Black Knight.\n\nHit 1 if you wish to go to Max Mines 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Max_Mines_1",
+            "choice": "1",
+            "destination": "026_Max_Mines_1"
+        }
+    ]
+}
+{
+    "id": "026_Max_Mines_1",
+    "parent": "005_Sky_2",
+    "label": "Max Mines 1",
+    "description": "In the mines, the gnomes promptly put John, Roland, and the rest to work.\nAfter a bit, John signals the dwarves to overpower the guards.\n\nHit 1 if you wish to go to Max Mines 2.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Max_Mines_2",
+            "choice": "1",
+            "destination": "026_Max_Mines_2"
+        }
+    ]
+}
+{
+    "id": "026_Max_Mines_2",
+    "parent": "026_Max_Mines_1",
+    "label": "Max Mines 2",
+    "description": "There's an explosion that seems to come from one of the mine walls.\nWhen the smoke clears, a train appears to have crashed into the mine.\nHubert pops out of the train.\n\nHit 1 if you wish to go to Sky 3.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Sky_3",
+            "choice": "1",
+            "destination": "005_Sky_3"
+        }
+    ]
+}
+{
+    "id": "005_Sky_3",
+    "parent": "026_Max_Mines_2",
+    "label": "Sky 3",
+    "description": "Sir William and the twins manage to batter Crooktooth and his rider, the Black Knight.\nThe battle ends quickly, when the Black Knight and Crooktooth separate and fall to their deaths.\n\nHit 1 if you wish to go to Werewolf Village Road.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Werewolf_Village_Road",
+            "choice": "1",
+            "destination": "037_Werewolf_Village_Road"
+        }
+    ]
+}
+{
+    "id": "037_Werewolf_Village_Road",
+    "parent": "005_Sky_3",
+    "label": "Werewolf Village Road",
+    "description": "Red heads back to the Werewolf village when Kurt jumps out of the bushes, and they tumble back into the forest.\n\nHit 1 if you wish to go to Fairy Godcollege 2.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Fairy_Godcollege_2",
+            "choice": "1",
+            "destination": "020_Fairy_Godcollege_2"
+        }
+    ]
+}
+{
+    "id": "020_Fairy_Godcollege_2",
+    "parent": "037_Werewolf_Village_Road",
+    "label": "Fairy Godcollege 2",
+    "description": "Kurt then takes Red's \"riding hood\" back to Violet at Fairy Godcollege.\nKurt reveals Red was promising to remove their curses, and that he didn't want that.\nHe asks Violet to enhance the effects.\nViolet agrees if he steals the \"Totem of Leadership\" and brings it to her, because she claims it will bind the pack to him.\n\nHit 1 if you wish to go to Max Mines 3.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Max_Mines_3",
+            "choice": "1",
+            "destination": "026_Max_Mines_3"
+        }
+    ]
+}
+{
+    "id": "026_Max_Mines_3",
+    "parent": "020_Fairy_Godcollege_2",
+    "label": "Max Mines 3",
+    "description": "Back in the mines, gnome guards are easily overpowered after they hear what sounds like an explosion.\nThe slaves get released and start to run out of the mines.\nHubert shouts for everyone to head to the Bats-in-the-Belfry Hotel.\n\nHit 1 if you wish to go to Bats In The Belfry 2.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Bats_In_The_Belfry_2",
+            "choice": "1",
+            "destination": "030_Bats_In_The_Belfry_2"
+        }
+    ]
+}
+{
+    "id": "030_Bats_In_The_Belfry_2",
+    "parent": "026_Max_Mines_3",
+    "label": "Bats In The Belfry 2",
+    "description": "Back at the Bats-in-the-Belfry, Hubert changes Sir William back into a man.\nHubert then sends John and Sir William to Knight School, to inform them and enlist their help.\n\nHit 1 if you wish to go to Werewolf Village Hut.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Werewolf_Village_Hut",
+            "choice": "1",
+            "destination": "025_Werewolf_Village_Hut"
+        }
+    ]
+}
+{
+    "id": "025_Werewolf_Village_Hut",
+    "parent": "030_Bats_In_The_Belfry_2",
+    "label": "Werewolf Village Hut",
+    "description": "When Kurt gets back to the werewolf village he goes into Rottweiler's hut and starts to grab the totem.\nThorne, Rottweiler's third in command, stops Kurt from getting the totem, they fight, and Kurt takes the totem.\n\nHit 1 if you wish to go to Fairy Godcollege 3.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Fairy_Godcollege_3",
+            "choice": "1",
+            "destination": "020_Fairy_Godcollege_3"
+        }
+    ]
+}
+{
+    "id": "020_Fairy_Godcollege_3",
+    "parent": "025_Werewolf_Village_Hut",
+    "label": "Fairy Godcollege 3",
+    "description": "Kurt returns to Violet at Fairy Godcollege.\nShe casts a spell, which visibly alters Kurt, and then he goes back to the Village.\n\nHit 1 if you wish to go to Werewolf Village 3.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Werewolf_Village_3",
+            "choice": "1",
+            "destination": "025_Werewolf_Village_3"
+        }
+    ]
+}
+{
+    "id": "025_Werewolf_Village_3",
+    "parent": "020_Fairy_Godcollege_3",
+    "label": "Werewolf Village 3",
+    "description": "At the village Kurt disposes of Rottweiler and most of his followers.\nWhen Violet casts the spell to alter Kurt, Thorne in the village sees Kurt's own followers change as well.\nThorne goes and hides just out of town, and waits.\n\nHit 1 if you wish to go to Bats In The Belfry Lobby.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Bats_In_The_Belfry_Lobby",
+            "choice": "1",
+            "destination": "038_Bats_In_The_Belfry_Lobby"
+        }
+    ]
+}
+{
+    "id": "038_Bats_In_The_Belfry_Lobby",
+    "parent": "025_Werewolf_Village_3",
+    "label": "Bats In The Belfry Lobby",
+    "description": "The Princess, the Count, and Hubert, all sit in the Lobby of the Bats-in-the-Belfry.\nThey decide to rescue the vacation Fairy Godmothers and vacation princesses, and start making plans.\nThe Count makes a deal with the Princess to help him find a mate, if he helps her with finding the princesses.\nThe Count then hides in her handbag in his bat form.\n\nHit 1 if you wish to go to Knight School 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Knight_School_1",
+            "choice": "1",
+            "destination": "013_Knight_School_1"
+        }
+    ]
+}
+{
+    "id": "013_Knight_School_1",
+    "parent": "038_Bats_In_The_Belfry_Lobby",
+    "label": "Knight School 1",
+    "description": "John and Sir William arrive at Knight School.\nThey convince most of the Knights and Knights-in-Training, to join them in fighting Max and his armies.\nThey, then, leave to go back to the Bats in the Belfry.\n\nHit 1 if you wish to go to Princess Prep Door.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Princess_Prep_Door",
+            "choice": "1",
+            "destination": "039_Princess_Prep_Door"
+        }
+    ]
+}
+{
+    "id": "039_Princess_Prep_Door",
+    "parent": "013_Knight_School_1",
+    "label": "Princess Prep Door",
+    "description": "The Princess goes back to Princess Prep and sees a note on the door.\nThe Note says to go to Fairy GodCollege with a password.\nThe Princess with The Count, still a bat in her handbag, start towards Fairy Godcollege.\n\nHit 1 if you wish to go to Fairy Godcollege 4.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Fairy_Godcollege_4",
+            "choice": "1",
+            "destination": "020_Fairy_Godcollege_4"
+        }
+    ]
+}
+{
+    "id": "020_Fairy_Godcollege_4",
+    "parent": "039_Princess_Prep_Door",
+    "label": "Fairy Godcollege 4",
+    "description": "The Princess gets into Fairy GodCollege with the password, when she has to throw her bag into a box.\n\nHit 1 if you wish to go to Fairy Godcollege Library.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Fairy_Godcollege_Library",
+            "choice": "1",
+            "destination": "040_Fairy_Godcollege_Library"
+        }
+    ]
+}
+{
+    "id": "040_Fairy_Godcollege_Library",
+    "parent": "020_Fairy_Godcollege_4",
+    "label": "Fairy Godcollege Library",
+    "description": "The Princess is taken to the Library as the box with her handbag goes into another room.\nShe's asked to grab some books, and opens one and then is immediately sucked inside.\n\nHit 1 if you wish to go to Fairy Godcollege Incinerator.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Fairy_Godcollege_Incinerator",
+            "choice": "1",
+            "destination": "041_Fairy_Godcollege_Incinerator"
+        }
+    ]
+}
+{
+    "id": "041_Fairy_Godcollege_Incinerator",
+    "parent": "040_Fairy_Godcollege_Library",
+    "label": "Fairy Godcollege Incinerator",
+    "description": "The box travels into a room with an incinerator which the Count is barely able to make out from within the handbag.\nBefore being thrown in, The Count causes the attendant to trip, and then the Count escapes.\nThe count then leaves the incinerator room back into the hallway and hides in the shadows.\nThe Count then spots a girl going into the library, and follows her.\n\nHit 1 if you wish to go to Fairy Godcollege 5.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Fairy_Godcollege_5",
+            "choice": "1",
+            "destination": "020_Fairy_Godcollege_5"
+        }
+    ]
+}
+{
+    "id": "020_Fairy_Godcollege_5",
+    "parent": "041_Fairy_Godcollege_Incinerator",
+    "label": "Fairy Godcollege 5",
+    "description": "The count stops at the door to the library as it closes, and then peeks into the windows of the door.\nThe Count then sees the girl being sucked into a book, and figures this must be what happened to the Princess.\nThe Count makes it back to Hubert and John.\n\nHit 1 if you wish to go to Fairy Godcollege 6.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Fairy_Godcollege_6",
+            "choice": "1",
+            "destination": "020_Fairy_Godcollege_6"
+        }
+    ]
+}
+{
+    "id": "020_Fairy_Godcollege_6",
+    "parent": "020_Fairy_Godcollege_5",
+    "label": "Fairy Godcollege 6",
+    "description": "Hubert, John, and the Count, all go back to Fairy Godcollege.\nWith Hubert's full magic, they force their way in.\nAs soon as they release the vacation Fairy Godmothers, and go and get the books.\nThey then leave to go back to the Count's hotel.\n\nHit 1 if you wish to go to Bats In The Belfry 3.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Bats_In_The_Belfry_3",
+            "choice": "1",
+            "destination": "030_Bats_In_The_Belfry_3"
+        }
+    ]
+}
+{
+    "id": "030_Bats_In_The_Belfry_3",
+    "parent": "020_Fairy_Godcollege_6",
+    "label": "Bats In The Belfry 3",
+    "description": "Back at the Bats in the Belfry, John goes into the books to bring Karin out.\nThey instruct Sir William and his men to go into the rest of the books and retrieve the rest vacation princesses.\n\nHit 1 if you wish to go to Bats In The Belfry 4.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Bats_In_The_Belfry_4",
+            "choice": "1",
+            "destination": "030_Bats_In_The_Belfry_4"
+        }
+    ]
+}
+{
+    "id": "030_Bats_In_The_Belfry_4",
+    "parent": "030_Bats_In_The_Belfry_3",
+    "label": "Bats In The Belfry 4",
+    "description": "They all meet back at the \"Bats\" lobby.\nThe Count, then, comes to Karin and asks if she can help him now, and she just points.\nThe Count looking at where she's pointing meets a beautiful woman who happens to also be a vampire and a real princess.\nIn the library Roland Jr. tells Hubert, him and his Dad are going get the help of his people.\nRoland leaves the Hotel.\n\nHit 1 if you wish to go to Castle Throne Room.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Castle_Throne_Room",
+            "choice": "1",
+            "destination": "042_Castle_Throne_Room"
+        }
+    ]
+}
+{
+    "id": "042_Castle_Throne_Room",
+    "parent": "030_Bats_In_The_Belfry_4",
+    "label": "Castle Throne Room",
+    "description": "Back at the castle in the throne room, Max gets a \"magic mirror\" call.\nBarty sitting on his squat throne inside the Gnome Kingdom, tells Max what has been going on.\nMax finds out that John and Roland and most of the slaves were rescued by Hubert.\nMax gets suspicious of Red's long absence, and so gets a servant to go and find out what happened.\nThe servant returns later with Red's hood, and tells Max it was in the possession of Violet.\n\nHit 1 if you wish to go to Werewolf Village 4.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Werewolf_Village_4",
+            "choice": "1",
+            "destination": "025_Werewolf_Village_4"
+        }
+    ]
+}
+{
+    "id": "025_Werewolf_Village_4",
+    "parent": "042_Castle_Throne_Room",
+    "label": "Werewolf Village 4",
+    "description": "After going to the werewolf village with Violet, and confronting her and Kurt, about Red, he kills Kurt with a fireball.\nViolet runs into the forest, and Max says he'll make anyone the leader who disposes of her.\nThorne comes back, but before giving him the totem, he says he'll only give it back if they agree to join his army.\nThe Werewolves under Thorne agree to join the army and Max gives him the Totem before returning to the Castle.\n\nHit 1 if you wish to go to Bats In The Belfry 5.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Bats_In_The_Belfry_5",
+            "choice": "1",
+            "destination": "030_Bats_In_The_Belfry_5"
+        }
+    ]
+}
+{
+    "id": "030_Bats_In_The_Belfry_5",
+    "parent": "025_Werewolf_Village_4",
+    "label": "Bats In The Belfry 5",
+    "description": "Everyone meets at the Bats in the Belfry Hotel.\nEveryone gathers around, even spilling into the streets.\nHubert speaks to the castle and they all make their battle plans.\n\nHit 1 if you wish to go to Castle North Terrace 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Castle_North_Terrace_1",
+            "choice": "1",
+            "destination": "032_Castle_North_Terrace_1"
+        }
+    ]
+}
+{
+    "id": "032_Castle_North_Terrace_1",
+    "parent": "030_Bats_In_The_Belfry_5",
+    "label": "Castle North Terrace 1",
+    "description": "On the castle grounds, on the north terrace near the Omni-Gate, Max and his armies assemble.\nMax orders his technicians to put the machine at full power, and open all the portals.\nAs soon as all armies are assembled, he starts seeing a large amount of trains flying in.\nRealizing who they are, he commands his armies to attack them.\nA large battle ensues.\nThe battle starts waning in favor of the Enchanted Landians.\n\nHit 1 if you wish to go to Castle North Terrace 2.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Castle_North_Terrace_2",
+            "choice": "1",
+            "destination": "032_Castle_North_Terrace_2"
+        }
+    ]
+}
+{
+    "id": "032_Castle_North_Terrace_2",
+    "parent": "032_Castle_North_Terrace_1",
+    "label": "Castle North Terrace 2",
+    "description": "John spots Max trying to escape via one of the portals and chases him.\nJohn tackles Max but Max throws him off, and starts running for a stair well.\nJohn chases Max up the stairs, and onto a catwalk, and they begin to fight.\n\nHit 1 if you wish to go to Castle North Terrace Catwalk.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Castle_North_Terrace_Catwalk",
+            "choice": "1",
+            "destination": "043_Castle_North_Terrace_Catwalk"
+        }
+    ]
+}
+{
+    "id": "043_Castle_North_Terrace_Catwalk",
+    "parent": "032_Castle_North_Terrace_2",
+    "label": "Castle North Terrace Catwalk",
+    "description": "John still has his silver ticket, and Max manages to grab it out of his coat.\nWhile grabbing for the ticket, he pulls John down with him as he goes over the edge.\nJohn holds on to the catwalk with his feet, as Max dangles below.\nMax starts slipping and with the ticket in hand eventually falls.\nJohn turns away as Max falls, and when he turns back, Max is gone.\n\nHit 1 if you wish to go to Castle North Terrace 3.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Castle_North_Terrace_3",
+            "choice": "1",
+            "destination": "032_Castle_North_Terrace_3"
+        }
+    ]
+}
+{
+    "id": "032_Castle_North_Terrace_3",
+    "parent": "043_Castle_North_Terrace_Catwalk",
+    "label": "Castle North Terrace 3",
+    "description": "Coming back down, out of breath and full of bruises and scratches, he notices the battle is almost over.\nAs it comes to a close, the Princess and Hubert manage to make their way over to John.\nJohn points to the machines controls, and Hubert runs over to the control panel to shut the machine down.\n\nHit 1 if you wish to go to Castle North Terrace Battlefield.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Castle_North_Terrace_Battlefield",
+            "choice": "1",
+            "destination": "044_Castle_North_Terrace_Battlefield"
+        }
+    ]
+}
+{
+    "id": "044_Castle_North_Terrace_Battlefield",
+    "parent": "032_Castle_North_Terrace_3",
+    "label": "Castle North Terrace Battlefield",
+    "description": "After the battle is over, bodies are thrown into piles, and burned.\nEnemies are rounded up.\n\nHit 1 if you wish to go to Castle Throne Room 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Castle_Throne_Room_1",
+            "choice": "1",
+            "destination": "042_Castle_Throne_Room_1"
+        }
+    ]
+}
+{
+    "id": "042_Castle_Throne_Room_1",
+    "parent": "044_Castle_North_Terrace_Battlefield",
+    "label": "Castle Throne Room 1",
+    "description": "Some time later in the throne room, Hubert talks privately to John and Princess Karin.\nHubert states that John is probably going to become King.\nHubert mentions the King is still missing.\nHe also mentions that Max is still alive somewhere.\nJohn mentions he wants to have a date with Princess Karin.\nHubert finally sets it up, and gives it some \"magical\" touches.\nHe then leaves them in peace to eat dinner and to talk.\n\nHit 0 to quit.",
+    "doors": []
+}

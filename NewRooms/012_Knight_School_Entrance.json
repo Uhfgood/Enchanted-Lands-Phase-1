@@ -1,0 +1,13 @@
+{
+    "id": "012_Knight_School_Entrance",
+    "parent": "011_Dwarf_Mines",
+    "label": "Knight School Entrance",
+    "description": "At the Knight School entrance, John talks to the guards, and then gains entrance to the school.\n\nHit 1 if you wish to go to Knight School.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Knight_School",
+            "choice": "1",
+            "destination": "013_Knight_School"
+        }
+    ]
+}

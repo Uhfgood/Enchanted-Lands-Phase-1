@@ -1,0 +1,13 @@
+{
+    "id": "038_Bats_In_The_Belfry_Lobby",
+    "parent": "025_Werewolf_Village_3",
+    "label": "Bats In The Belfry Lobby",
+    "description": "The Princess, the Count, and Hubert, all sit in the Lobby of the Bats-in-the-Belfry.\nThey decide to rescue the vacation Fairy Godmothers and vacation princesses, and start making plans.\nThe Count makes a deal with the Princess to help him find a mate, if he helps her with finding the princesses.\nThe Count then hides in her handbag in his bat form.\n\nHit 1 if you wish to go to Knight School 1.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Knight_School_1",
+            "choice": "1",
+            "destination": "013_Knight_School_1"
+        }
+    ]
+}
