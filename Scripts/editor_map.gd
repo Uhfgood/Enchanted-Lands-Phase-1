@@ -5,6 +5,8 @@ extends Node
 var has_loaded_rooms: bool = false
 @onready var rooms = $Rooms
 
+const ROOMS_DIR = "res://Rooms/"
+
 func ToKebabCase( pascal_name: String ) -> String:
 	var result = ""
 	for i in range( pascal_name.length() ):
@@ -26,14 +28,19 @@ func ExtractFilenameFromRoom( room ) -> String:
 func _on_save_button_pressed():
 	print("Editor map saving room metadata!")  # Your save code goes here
 	for room in rooms.get_children():
-		var filename = ExtractFilenameFromRoom( room ) + ".meta"
-		if FileAccess.file_exists( filename ):
+		var filename = room.id + ".meta"
+		print( "metadata filename : ", filename )
+		if FileAccess.file_exists( ROOMS_DIR + filename ):
+			print( "save meta" )
 			SaveMetadataForRoom( room, filename )
 		else:
+			print( "create then save" )
 			CreateNewMetaFile( filename )
 			SaveMetadataForRoom( room, filename )
 			
-		print( "Extracted Filename = ", filename )
+		filename = room.id + ".json"
+		print( "save room" )
+		SaveRoomDataForRoom( room, filename )	
 		print( "-----" )
 
 # end func _on_save_button_pressed()
@@ -59,13 +66,11 @@ func AddRoomToEditorMap( room ):
 
 func CreateNewMetaFile( filename ):
 	print( "*Create*" )
-	var metapath = filename
+	var metaname = filename
 	if( filename.ends_with( ".json" ) ): 
-		metapath = filename.replace(".json", ".meta")
-	print( "metapath = ", metapath )
-	metapath = "res://Rooms/" + metapath
-	if not FileAccess.file_exists( metapath ):
-		var meta_file = FileAccess.open( metapath, FileAccess.WRITE )
+		metaname = filename.replace(".json", ".meta")
+	if not FileAccess.file_exists( ROOMS_DIR + metaname ):
+		var meta_file = FileAccess.open( ROOMS_DIR + metaname, FileAccess.WRITE )
 		if FileAccess.get_open_error() == OK:
 			var meta_data = {"x": 0, "y": 0}
 			meta_file.store_string( JSON.stringify( meta_data ) )
@@ -78,8 +83,7 @@ func CreateNewMetaFile( filename ):
 
 func SaveMetadataForRoom( room, filename ):
 	print( "*Save*" )
-	var metapath = filename
-	metapath = "res://Rooms/" + metapath
+	var metapath = ROOMS_DIR + filename
 	if FileAccess.file_exists( metapath ):
 		var file = FileAccess.open( metapath, FileAccess.WRITE )
 		if FileAccess.get_open_error() == OK:
@@ -90,10 +94,49 @@ func SaveMetadataForRoom( room, filename ):
 		else:
 			print( "Couldn't open file for writing." )
 	else:
+		print( "SaveMetadataForRoom()" )
 		CreateNewMetaFile( filename )
 		
 # end func SaveMetadataForRoom()
 	
+func SaveRoomDataForRoom(room, filename: String):
+	print("*Save Room Data*")
+	var jsonpath = ROOMS_DIR + filename
+	print("Saving room data to: ", jsonpath)
+	var file = FileAccess.open(jsonpath, FileAccess.WRITE)
+	if FileAccess.get_open_error() == OK:
+		# Manually construct the JSON string with the desired order
+		var json_str = "{\n"
+		json_str += '    "id": ' + JSON.stringify(room.id) + ",\n"
+		json_str += '    "parent": ' + JSON.stringify(room.origin) + ",\n"
+		json_str += '    "label": ' + JSON.stringify(room.label) + ",\n"
+		json_str += '    "description": ' + JSON.stringify(room.description) + ",\n"
+		json_str += '    "doors": [\n'
+		var door_strings = []
+		for door in room.doors:
+			var door_data = '        {\n'  # Fixed: Removed erroneous "\ LandingPage"
+			door_data += '            "id": ' + JSON.stringify(door.id) + ',\n'
+			door_data += '            "choice": ' + JSON.stringify(door.choice) + ',\n'
+			door_data += '            "destination": ' + JSON.stringify(door.destination) + '\n'
+			door_data += '        }'
+			door_strings.append(door_data)
+		#json_str += door_strings.join(",\n")
+		
+		for i in range(door_strings.size()):
+			json_str += door_strings[i]
+			if i < door_strings.size() - 1:
+				json_str += ",\n"		
+			
+		if door_strings.size() > 0:
+			json_str += "\n"
+		json_str += "    ]\n"
+		json_str += "}"
+		file.store_string(json_str)
+		file.close()
+		print("Room data saved for: ", filename)
+	else:
+		print("Couldn't open file for writing: ", jsonpath)
+		
 func LoadMetadataForRoom( room, filename ):
 	print( "Checking for metadata for ", filename )
 	var metapath = filename.replace(".json", ".meta")
@@ -108,8 +151,6 @@ func LoadMetadataForRoom( room, filename ):
 			print( "Room position x: " + str( room.position.x ) + ", y: " + str( room.position.y ) )
 		else:
 			print( "No meta data read." )
-	else:
-		CreateNewMetaFile( filename )
 		
 # end func LoadMetadataForRoom()
 

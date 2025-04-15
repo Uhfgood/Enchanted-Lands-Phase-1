@@ -6,8 +6,8 @@ var button: Button
 func _enter_tree():
 	print("Plugin enabled!")
 	button = Button.new()
-	button.text = "Save Room Metadata"
-	button.size = Vector2(150, 30)
+	button.text = "Save Room Data"
+	button.size = Vector2(130, 30)
 	button.visible = true
 	print("Button created: ", button.text, " at size: ", button.size)
 	add_control_to_container(CONTAINER_CANVAS_EDITOR_MENU, button)

@@ -22,7 +22,7 @@ window/size/viewport_height=1080
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/custom_save/plugin.cfg", "res://addons/customsave/plugin.cfg")
+enabled=PackedStringArray("res://addons/custom_save/plugin.cfg")
 
 [input]
 

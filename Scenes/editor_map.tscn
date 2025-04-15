@@ -8,11 +8,13 @@
 script = ExtResource("1_k3d1g")
 
 [node name="Rooms" type="Node2D" parent="."]
+position = Vector2(-17, -455)
 
 [node name="001_Enchanted_Lands" type="Node2D" parent="Rooms"]
+position = Vector2(-242, -107)
 script = ExtResource("2_ihfh8")
 id = "001_Enchanted_Lands"
-origin = "000_Main_Menu"
+origin = "000"
 label = "Enchanted Lands"
 description = "Welcome to Enchanted Lands!
 Take a magical vacation, slay a dragon, rescue a princess, become a great and powerful wizard, or stay at one of our many fine hotels. Anything is possible... At least that's what the brochure says. Enchanted Lands, the magical resort kingdom is not doing so well. The King seems to be acting strangely. Enchanted Enterprises has been bought out by Enchanted Holdings, Inc. Administration has closed the various magical training schools, and a dark presence has returned from banished realms.
@@ -32,6 +34,7 @@ destination = "001_Enchanted_Lands_1"
 id = "Door_To_Enchanted_Lands_1"
 
 [node name="001_Enchanted_Lands_1" type="Node2D" parent="Rooms"]
+position = Vector2(579, 251)
 script = ExtResource("2_ihfh8")
 id = "001_Enchanted_Lands_1"
 origin = "001_Enchanted_Lands"
@@ -53,6 +56,7 @@ destination = "002_Hubert_Home"
 id = "Door_To_Hubert_Home"
 
 [node name="002_Hubert_Home" type="Node2D" parent="Rooms"]
+position = Vector2(670, -251)
 script = ExtResource("2_ihfh8")
 id = "002_Hubert_Home"
 origin = "001_Enchanted_Lands_1"
@@ -73,6 +77,7 @@ destination = "003_Cerulea"
 id = "Door_To_Cerulea"
 
 [node name="003_Cerulea" type="Node2D" parent="Rooms"]
+position = Vector2(-485, 210)
 script = ExtResource("2_ihfh8")
 id = "003_Cerulea"
 origin = "002_Hubert_Home"
@@ -93,6 +98,7 @@ destination = "004_Caves_Of_Dragonmount"
 id = "Door_To_Caves_Of_Dragonmount"
 
 [node name="003_Cerulea_1" type="Node2D" parent="Rooms"]
+position = Vector2(45, 492)
 script = ExtResource("2_ihfh8")
 id = "003_Cerulea_1"
 origin = "008_Lapsewood"

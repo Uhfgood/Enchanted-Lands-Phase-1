@@ -7,10 +7,26 @@ var editor_map: Node = null
 @export var id : String = "XXX"
 @export var origin : String = "XXX"
 @export var label : String = "New Room"
-@export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit."
+@export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
 
 var doors : Array = []
 
+# Setter for description
+func _set_description(new_description: String) -> void:
+	description = new_description
+	if Engine.is_editor_hint():
+		update_description_label()
+
+# Update the DescLabel text
+func update_description_label() -> void:
+	if not Engine.is_editor_hint():
+		return  # Safeguard: Only run in the editor
+
+	var desc_label = get_node_or_null("Panel/VBox/DescLabel")
+	if desc_label:
+		desc_label.text = TruncateText(description, 5, 40)
+		desc_label.queue_redraw()  # Ensure the label redraws
+		
 # Convert snake_case to PascalCase (e.g., "hotel_max_stash" -> "HotelMaxStash")
 func ToPascalCase( snake: String ) -> String:
 	var words = snake.split("-")
