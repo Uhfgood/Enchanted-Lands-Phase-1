@@ -4,9 +4,9 @@ class_name Room extends Node2D
 # Reference to the editor_map node (set by editor_map.gd)
 var editor_map: Node = null
 
-@export var room_id : String = "rmXXX"
-@export var room_parent : String = "lvXXXrmXX"
-@export var room_name : String = "blank_room"
+@export var id : String = "XXX"
+@export var origin : String = "XXX"
+@export var label : String = "New Room"
 @export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit."
 
 var doors : Array = []
@@ -40,10 +40,10 @@ func LoadDataFromJSON( json_name : String )->bool:
 		return false
 		
 	# set room properties
-	self.room_id = json_data[ "id" ]
-	self.room_parent = json_data[ "parent" ]
-	self.room_name = json_data[ "name" ]
-	self.name = self.room_id + "-" + ToPascalCase( self.room_name )
+	self.id = json_data[ "id" ]
+	self.origin = json_data[ "parent" ]
+	self.label = json_data[ "label" ]
+	self.name = self.id
 	self.description = json_data[ "description" ]
 	print( "Creating " + self.name + " from JSON data." )
 	
@@ -53,8 +53,7 @@ func LoadDataFromJSON( json_name : String )->bool:
 			var door_id = door_data[ "id" ]
 			var choice = door_data[ "choice" ] 
 			var dest = door_data[ "destination" ]
-			var dest_substr = dest.substr( 10, dest.length() - 21 )
-			var door_name = "DoorTo" + ToPascalCase( dest_substr )
+			var door_name = "Door_To_" + dest
 			print( "Creating " + door_name + " from JSON data." )
 			var new_door = Door.create( door_id, choice, dest, door_name )
 			if new_door:

@@ -140,7 +140,7 @@ func LoadAllRooms():
 					AddRoomToEditorMap( room )
 					LoadMetadataForRoom( room, filename )
 					
-				if filename.begins_with("lv005"):
+				if filename.begins_with("003_Cerulea_1"):
 					break
 
 	print( "***" )
