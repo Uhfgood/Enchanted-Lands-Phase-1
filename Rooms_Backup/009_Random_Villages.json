@@ -1,0 +1,13 @@
+{
+    "id": "009_Random_Villages",
+    "parent": "003_Cerulea_1",
+    "label": "Random Villages",
+    "description": "Zanzibar then does a few tricks for the first locals he sees, in some random village.\nZanzibar gets his crow, Corvus, to steal from the locals.\n\nHit 1 if you wish to go to Lapsewood Edge.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Lapsewood_Edge",
+            "choice": "1",
+            "destination": "010_Lapsewood_Edge"
+        }
+    ]
+}

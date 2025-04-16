@@ -1,0 +1,13 @@
+{
+    "id": "017_Nestor_Cave_1",
+    "parent": "030_Bats_In_The_Belfry_1",
+    "label": "Nestor Cave 1",
+    "description": "Back at Nestor's cave, Chester presents him with a shiny polished stone, and they both talk about the past.\nAfter finding out they're long lost twin brothers, Chester and Nestor go on a search for Crooktooth.\n\nHit 1 if you wish to go to Lapsewood Road.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Lapsewood_Road",
+            "choice": "1",
+            "destination": "031_Lapsewood_Road"
+        }
+    ]
+}

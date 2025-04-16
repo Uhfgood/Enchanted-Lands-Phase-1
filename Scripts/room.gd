@@ -4,9 +4,9 @@ class_name Room extends Node2D
 # Reference to the editor_map node (set by editor_map.gd)
 var editor_map: Node = null
 
-@export var id : String = "XXX"
+@export var id : String = "XXX" : set = _set_id
 @export var origin : String = "XXX"
-@export var label : String = "New Room"
+@export var label : String = "New Room" #: set = _set_label
 @export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
 
 var doors : Array = []
@@ -27,6 +27,42 @@ func update_description_label() -> void:
 		desc_label.text = TruncateText(description, 5, 40)
 		desc_label.queue_redraw()  # Ensure the label redraws
 		
+func _set_id( new_id: String ) -> void:
+	id = new_id
+	var tokens = new_id.split( "_" )
+	print( tokens )
+	var new_label = ""
+	var size = tokens.size()
+	for i in range( 1, size ):
+		if( i < size - 1 ):
+			new_label += tokens[ i ] + " "
+		else:
+			new_label += tokens[ i ]
+	
+	self.label = new_label
+	print( new_label )
+	
+	if Engine.is_editor_hint():
+		update_name_label()
+
+func _set_label( new_label: String ) -> void:
+	label = new_label
+	
+	if Engine.is_editor_hint():
+		update_name_label()
+
+# Update the DescLabel text
+func update_name_label() -> void:
+	if not Engine.is_editor_hint():
+		return  # Safeguard: Only run in the editor
+
+	var name_label = get_node_or_null("Panel/VBox/NameLabel")
+	if name_label:
+		name_label.name = self.label
+		name_label.text = self.label
+		name_label.queue_redraw()  # Ensure the label redraws
+		
+
 # Convert snake_case to PascalCase (e.g., "hotel_max_stash" -> "HotelMaxStash")
 func ToPascalCase( snake: String ) -> String:
 	var words = snake.split("-")
@@ -59,7 +95,7 @@ func LoadDataFromJSON( json_name : String )->bool:
 	self.id = json_data[ "id" ]
 	self.origin = json_data[ "parent" ]
 	self.label = json_data[ "label" ]
-	self.name = self.id
+	self.name = self.label
 	self.description = json_data[ "description" ]
 	print( "Creating " + self.name + " from JSON data." )
 	

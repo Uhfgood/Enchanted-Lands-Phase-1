@@ -1,0 +1,13 @@
+{
+    "id": "020_Fairy_Godcollege_6",
+    "parent": "020_Fairy_Godcollege_5",
+    "label": "Fairy Godcollege 6",
+    "description": "Hubert, John, and the Count, all go back to Fairy Godcollege.\nWith Hubert's full magic, they force their way in.\nAs soon as they release the vacation Fairy Godmothers, and go and get the books.\nThey then leave to go back to the Count's hotel.\n\nHit 1 if you wish to go to Bats In The Belfry 3.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Bats_In_The_Belfry_3",
+            "choice": "1",
+            "destination": "030_Bats_In_The_Belfry_3"
+        }
+    ]
+}

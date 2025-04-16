@@ -1,0 +1,13 @@
+{
+    "id": "030_Bats_In_The_Belfry_3",
+    "parent": "020_Fairy_Godcollege_6",
+    "label": "Bats In The Belfry 3",
+    "description": "Back at the Bats in the Belfry, John goes into the books to bring Karin out.\nThey instruct Sir William and his men to go into the rest of the books and retrieve the rest vacation princesses.\n\nHit 1 if you wish to go to Bats In The Belfry 4.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Bats_In_The_Belfry_4",
+            "choice": "1",
+            "destination": "030_Bats_In_The_Belfry_4"
+        }
+    ]
+}

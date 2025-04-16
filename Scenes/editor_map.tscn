@@ -10,8 +10,7 @@ script = ExtResource("1_k3d1g")
 [node name="Rooms" type="Node2D" parent="."]
 position = Vector2(-17, -455)
 
-[node name="001_Enchanted_Lands" type="Node2D" parent="Rooms"]
-position = Vector2(-242, -107)
+[node name="Enchanted Lands" type="Node2D" parent="Rooms"]
 script = ExtResource("2_ihfh8")
 id = "001_Enchanted_Lands"
 origin = "000"
@@ -27,14 +26,14 @@ Hit 1 if you wish to go to Enchanted Lands 1.
 
 Hit 0 to quit."
 
-[node name="Door_To_001_Enchanted_Lands_1" type="Node" parent="Rooms/001_Enchanted_Lands"]
+[node name="Door_To_001_Enchanted_Lands_1" type="Node" parent="Rooms/Enchanted Lands"]
 script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "001_Enchanted_Lands_1"
 id = "Door_To_Enchanted_Lands_1"
 
-[node name="001_Enchanted_Lands_1" type="Node2D" parent="Rooms"]
-position = Vector2(579, 251)
+[node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
+position = Vector2(78, 622)
 script = ExtResource("2_ihfh8")
 id = "001_Enchanted_Lands_1"
 origin = "001_Enchanted_Lands"
@@ -49,14 +48,35 @@ Hit 1 if you wish to go to Hubert Home.
 
 Hit 0 to quit."
 
-[node name="Door_To_002_Hubert_Home" type="Node" parent="Rooms/001_Enchanted_Lands_1"]
+[node name="Door_To_002_Hubert_Home" type="Node" parent="Rooms/Enchanted Lands 1"]
 script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "002_Hubert_Home"
 id = "Door_To_Hubert_Home"
 
-[node name="002_Hubert_Home" type="Node2D" parent="Rooms"]
-position = Vector2(670, -251)
+[node name="Hub Home" type="Node2D" parent="Rooms"]
+position = Vector2(779, -4)
+script = ExtResource("2_ihfh8")
+id = "002_Hub_Home"
+origin = "001_Enchanted_Lands_1"
+label = "Hub Home"
+description = "Hubert walks around his home, examining spell books, scrolls, and loose papers, to figure out the best course of action.
+Hubert goes to a large crystal ball, which allows him to see into different realms, and he searches for someone to help.
+Hubert then spots John, pulls up info about him, and then sees him enter a convenience store, to grab a Benny Wonky Bar.
+Hubert puts a silver ticket into a 'magic' mailbox on his desk, which magically appears inside the wrapper.
+
+Hit 1 if you wish to go to Cerulea.
+
+Hit 0 to quit."
+
+[node name="Door_To_003_Cerulea" type="Node" parent="Rooms/Hub Home"]
+script = ExtResource("3_lr4b1")
+choice = "1"
+destination = "003_Cerulea"
+id = "Door_To_Cerulea"
+
+[node name="Hubert Ho" type="Node2D" parent="Rooms"]
+position = Vector2(779, -4)
 script = ExtResource("2_ihfh8")
 id = "002_Hubert_Home"
 origin = "001_Enchanted_Lands_1"
@@ -70,14 +90,14 @@ Hit 1 if you wish to go to Cerulea.
 
 Hit 0 to quit."
 
-[node name="Door_To_003_Cerulea" type="Node" parent="Rooms/002_Hubert_Home"]
+[node name="Door_To_003_Cerulea" type="Node" parent="Rooms/Hubert Ho"]
 script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "003_Cerulea"
 id = "Door_To_Cerulea"
 
-[node name="003_Cerulea" type="Node2D" parent="Rooms"]
-position = Vector2(-485, 210)
+[node name="Cerulea" type="Node2D" parent="Rooms"]
+position = Vector2(584, 461)
 script = ExtResource("2_ihfh8")
 id = "003_Cerulea"
 origin = "002_Hubert_Home"
@@ -91,14 +111,14 @@ Hit 1 if you wish to go to Caves Of Dragonmount.
 
 Hit 0 to quit."
 
-[node name="Door_To_004_Caves_Of_Dragonmount" type="Node" parent="Rooms/003_Cerulea"]
+[node name="Door_To_004_Caves_Of_Dragonmount" type="Node" parent="Rooms/Cerulea"]
 script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "004_Caves_Of_Dragonmount"
 id = "Door_To_Caves_Of_Dragonmount"
 
-[node name="003_Cerulea_1" type="Node2D" parent="Rooms"]
-position = Vector2(45, 492)
+[node name="Cerulea 1" type="Node2D" parent="Rooms"]
+position = Vector2(-323, 401)
 script = ExtResource("2_ihfh8")
 id = "003_Cerulea_1"
 origin = "008_Lapsewood"
@@ -109,7 +129,7 @@ Hit 1 if you wish to go to Random Villages.
 
 Hit 0 to quit."
 
-[node name="Door_To_009_Random_Villages" type="Node" parent="Rooms/003_Cerulea_1"]
+[node name="Door_To_009_Random_Villages" type="Node" parent="Rooms/Cerulea 1"]
 script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "009_Random_Villages"
