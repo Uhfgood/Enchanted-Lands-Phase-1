@@ -6,10 +6,12 @@ var editor_map: Node = null
 
 @export var id : String = "XXX" : set = _set_id
 @export var origin : String = "XXX"
-@export var label : String = "New Room" #: set = _set_label
+@export var label : String = "New Room" : set = _set_label
 @export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
 
 var doors : Array = []
+
+var original_id : String = "XXX"
 
 # Setter for description
 func _set_description(new_description: String) -> void:
@@ -27,42 +29,59 @@ func update_description_label() -> void:
 		desc_label.text = TruncateText(description, 5, 40)
 		desc_label.queue_redraw()  # Ensure the label redraws
 		
-func _set_id( new_id: String ) -> void:
+func _set_id(new_id: String) -> void:
 	id = new_id
-	var tokens = new_id.split( "_" )
-	print( tokens )
+	var tokens = new_id.split("_")
+	print("Setting id for room: ", name, ", tokens: ", tokens)
 	var new_label = ""
 	var size = tokens.size()
-	for i in range( 1, size ):
-		if( i < size - 1 ):
-			new_label += tokens[ i ] + " "
+	for i in range(1, size):
+		if i < size - 1:
+			new_label += tokens[i] + " "
 		else:
-			new_label += tokens[ i ]
+			new_label += tokens[i]
 	
 	self.label = new_label
-	print( new_label )
+	print("New label derived from id: ", new_label)
 	
 	if Engine.is_editor_hint():
-		update_name_label()
+		if has_node("Panel"):
+			update_name_label()
+		else:
+			print("Deferring name label update for room: ", name)
+			call_deferred("update_name_label", 0, 5)
 
-func _set_label( new_label: String ) -> void:
+
+func _set_label(new_label: String) -> void:
 	label = new_label
-	
+	print("setting new label for room: ", name, ", Panel exists: ", has_node("Panel"))
 	if Engine.is_editor_hint():
-		update_name_label()
-
-# Update the DescLabel text
-func update_name_label() -> void:
+		if has_node("Panel"):
+			update_name_label()
+		else:
+			print("Deferring name label update for room: ", name)
+			call_deferred("update_name_label", 0, 5)
+			
+# Update the NameLabel text
+func update_name_label(retry_count: int = 0, max_retries: int = 5) -> void:
 	if not Engine.is_editor_hint():
-		return  # Safeguard: Only run in the editor
+		return
 
+	print("Updating name label for room: ", name, ", retry: ", retry_count)
 	var name_label = get_node_or_null("Panel/VBox/NameLabel")
+	print("Attempting to get node at path: Panel/VBox/NameLabel, Result: ", name_label)
 	if name_label:
-		name_label.name = self.label
+		print("Got name_label node, setting text to: ", self.label)
 		name_label.text = self.label
-		name_label.queue_redraw()  # Ensure the label redraws
+		name_label.queue_redraw()
+	elif retry_count < max_retries:
+		print("NameLabel not found for room: ", name, ", retrying...", retry_count + 1)
+		await get_tree().create_timer(0.1).timeout
+		update_name_label(retry_count + 1, max_retries)
+	else:
+		print("Max retries reached, NameLabel still not found for room: ", name)
 		
-
+		
 # Convert snake_case to PascalCase (e.g., "hotel_max_stash" -> "HotelMaxStash")
 func ToPascalCase( snake: String ) -> String:
 	var words = snake.split("-")
@@ -93,6 +112,7 @@ func LoadDataFromJSON( json_name : String )->bool:
 		
 	# set room properties
 	self.id = json_data[ "id" ]
+	self.original_id = self.id
 	self.origin = json_data[ "parent" ]
 	self.label = json_data[ "label" ]
 	self.name = self.label

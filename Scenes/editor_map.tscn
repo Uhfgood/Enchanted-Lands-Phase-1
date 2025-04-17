@@ -11,6 +11,7 @@ script = ExtResource("1_k3d1g")
 position = Vector2(-17, -455)
 
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
+position = Vector2(-356, -100)
 script = ExtResource("2_ihfh8")
 id = "001_Enchanted_Lands"
 origin = "000"
@@ -33,7 +34,7 @@ destination = "001_Enchanted_Lands_1"
 id = "Door_To_Enchanted_Lands_1"
 
 [node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
-position = Vector2(78, 622)
+position = Vector2(535, 289)
 script = ExtResource("2_ihfh8")
 id = "001_Enchanted_Lands_1"
 origin = "001_Enchanted_Lands"
@@ -54,29 +55,8 @@ choice = "1"
 destination = "002_Hubert_Home"
 id = "Door_To_Hubert_Home"
 
-[node name="Hub Home" type="Node2D" parent="Rooms"]
-position = Vector2(779, -4)
-script = ExtResource("2_ihfh8")
-id = "002_Hub_Home"
-origin = "001_Enchanted_Lands_1"
-label = "Hub Home"
-description = "Hubert walks around his home, examining spell books, scrolls, and loose papers, to figure out the best course of action.
-Hubert goes to a large crystal ball, which allows him to see into different realms, and he searches for someone to help.
-Hubert then spots John, pulls up info about him, and then sees him enter a convenience store, to grab a Benny Wonky Bar.
-Hubert puts a silver ticket into a 'magic' mailbox on his desk, which magically appears inside the wrapper.
-
-Hit 1 if you wish to go to Cerulea.
-
-Hit 0 to quit."
-
-[node name="Door_To_003_Cerulea" type="Node" parent="Rooms/Hub Home"]
-script = ExtResource("3_lr4b1")
-choice = "1"
-destination = "003_Cerulea"
-id = "Door_To_Cerulea"
-
-[node name="Hubert Ho" type="Node2D" parent="Rooms"]
-position = Vector2(779, -4)
+[node name="Hubert Home" type="Node2D" parent="Rooms"]
+position = Vector2(-397, 324)
 script = ExtResource("2_ihfh8")
 id = "002_Hubert_Home"
 origin = "001_Enchanted_Lands_1"
@@ -90,14 +70,14 @@ Hit 1 if you wish to go to Cerulea.
 
 Hit 0 to quit."
 
-[node name="Door_To_003_Cerulea" type="Node" parent="Rooms/Hubert Ho"]
+[node name="Door_To_003_Cerulea" type="Node" parent="Rooms/Hubert Home"]
 script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "003_Cerulea"
 id = "Door_To_Cerulea"
 
 [node name="Cerulea" type="Node2D" parent="Rooms"]
-position = Vector2(584, 461)
+position = Vector2(25, 743)
 script = ExtResource("2_ihfh8")
 id = "003_Cerulea"
 origin = "002_Hubert_Home"
@@ -118,7 +98,7 @@ destination = "004_Caves_Of_Dragonmount"
 id = "Door_To_Caves_Of_Dragonmount"
 
 [node name="Cerulea 1" type="Node2D" parent="Rooms"]
-position = Vector2(-323, 401)
+position = Vector2(871, -157)
 script = ExtResource("2_ihfh8")
 id = "003_Cerulea_1"
 origin = "008_Lapsewood"
@@ -134,3 +114,23 @@ script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "009_Random_Villages"
 id = "Door_To_Random_Villages"
+
+[node name="Caves Of Dragonmount" type="Node2D" parent="Rooms"]
+position = Vector2(805, 593)
+script = ExtResource("2_ihfh8")
+id = "004_Caves_Of_Dragonmount"
+origin = "003_Cerulea"
+label = "Caves Of Dragonmount"
+description = "Somewhere in the kingdom, Chester, a friendly dragon, lands at the entrance to the \"Caves of Dragonmount.\"
+Chester walks around the cave system trying to find his friends.
+Chester then leaves, and flies around while looking some more.
+
+Hit 1 if you wish to go to Sky.
+
+Hit 0 to quit."
+
+[node name="Door_To_005_Sky" type="Node" parent="Rooms/Caves Of Dragonmount"]
+script = ExtResource("3_lr4b1")
+choice = "1"
+destination = "005_Sky"
+id = "Door_To_Sky"

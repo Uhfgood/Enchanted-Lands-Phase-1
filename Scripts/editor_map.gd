@@ -26,24 +26,46 @@ func ExtractFilenameFromRoom( room ) -> String:
 	return prefix + desc_name + suffix
 	
 func _on_save_button_pressed():
+#{
 	print("Editor map saving room metadata!")  # Your save code goes here
 	for room in rooms.get_children():
+	#{
 		var filename = room.id + ".meta"
 		print( "metadata filename : ", filename )
 		if FileAccess.file_exists( ROOMS_DIR + filename ):
+		#{
 			print( "save meta" )
 			SaveMetadataForRoom( room, filename )
+		#}
 		else:
+		#{
 			print( "create then save" )
 			CreateNewMetaFile( filename )
 			SaveMetadataForRoom( room, filename )
-			
+		#}
+						
 		filename = room.id + ".json"
 		print( "save room" )
 		SaveRoomDataForRoom( room, filename )	
-		print( "-----" )
+		
+		print( "Current id = " + room.id + ", Original id = " + room.original_id )
+		if( room.id != room.original_id ):
+			print( "Id's are not the same deleting old files")
+			var old_json_path = ROOMS_DIR + room.original_id + ".json"
+			if( FileAccess.file_exists( old_json_path ) ):
+				DirAccess.open( ROOMS_DIR ).remove( old_json_path )
+			var old_meta_path = ROOMS_DIR + room.original_id + ".meta"
+			if( FileAccess.file_exists( old_meta_path ) ):
+				DirAccess.open( ROOMS_DIR ).remove( old_meta_path )
+			room.original_id = room.id	
+		else:
+			print( "id's are the same, so no need to delete anything.")
 
-# end func _on_save_button_pressed()
+		print( "-----" )
+		
+	#} // end for
+	
+#} // end func _on_save_button_pressed()
 	
 func _ready():
 	print( "***" )
@@ -181,7 +203,7 @@ func LoadAllRooms():
 					AddRoomToEditorMap( room )
 					LoadMetadataForRoom( room, filename )
 					
-				if filename.begins_with("003_Cerulea_1"):
+				if filename.begins_with("004_Caves"):
 					break
 
 	print( "***" )
