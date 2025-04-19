@@ -9,6 +9,12 @@ var editor_map: Node = null
 @export var label : String = "New Room" : set = _set_label
 @export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
 
+@export var door_specs : Array = [ "", "", "", "", "", "", "", "", "" ] : set = _set_door_specs
+func _set_door_specs( doorspecs : Array ):
+	door_specs = doorspecs
+	#if Engine.is_editor_hint():
+	#	emit_signal("property_list_changed")  # Notify the editor to refresh the Inspector
+	
 var doors : Array = []
 
 var original_id : String = "XXX"
@@ -62,9 +68,12 @@ func _set_label(new_label: String) -> void:
 			print("Deferring name label update for room: ", name)
 			call_deferred("update_name_label", 0, 5)
 			
-# Update the NameLabel text
 func update_name_label(retry_count: int = 0, max_retries: int = 5) -> void:
 	if not Engine.is_editor_hint():
+		return
+
+	if not is_inside_tree():  # Safety check: ensure node is in the scene tree
+		print("Room not in scene tree, aborting name label update for: ", name)
 		return
 
 	print("Updating name label for room: ", name, ", retry: ", retry_count)
@@ -76,11 +85,9 @@ func update_name_label(retry_count: int = 0, max_retries: int = 5) -> void:
 		name_label.queue_redraw()
 	elif retry_count < max_retries:
 		print("NameLabel not found for room: ", name, ", retrying...", retry_count + 1)
-		await get_tree().create_timer(0.1).timeout
-		update_name_label(retry_count + 1, max_retries)
+		call_deferred("update_name_label", retry_count + 1, max_retries)  # Retry without timer
 	else:
 		print("Max retries reached, NameLabel still not found for room: ", name)
-		
 		
 # Convert snake_case to PascalCase (e.g., "hotel_max_stash" -> "HotelMaxStash")
 func ToPascalCase( snake: String ) -> String:
@@ -121,22 +128,31 @@ func LoadDataFromJSON( json_name : String )->bool:
 	
 	# create and attach door nodes
 	if "doors" in json_data:
+		var i = 0
 		for door_data in json_data[ "doors" ]:
 			var door_id = door_data[ "id" ]
 			var choice = door_data[ "choice" ] 
 			var dest = door_data[ "destination" ]
-			var door_name = "Door_To_" + dest
+			var door_name = "Door_To_" + dest.substr( 4 )
 			print( "Creating " + door_name + " from JSON data." )
 			var new_door = Door.create( door_id, choice, dest, door_name )
 			if new_door:
 				doors.append( new_door )
 				add_child( new_door )
+
+				if( i < 9 ):
+					var spec_str = "ch: " + choice + ", dest: " + dest + ";"
+					door_specs[ i ] = spec_str
+					i += 1
+				 
 				print( "Successfully created " + new_door.name + "." )
 			else:
 				print( "New door not valid." )
 			
 	return true
-	
+
+# func LoadDataFromJSON()
+
 static func CreateFromJSON( json_name : String )->Room:
 	var new_room = Room.new()
 	

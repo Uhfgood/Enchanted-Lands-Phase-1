@@ -11,7 +11,6 @@ script = ExtResource("1_k3d1g")
 position = Vector2(-17, -455)
 
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
-position = Vector2(-356, -100)
 script = ExtResource("2_ihfh8")
 id = "001_Enchanted_Lands"
 origin = "000"
@@ -26,15 +25,16 @@ Stay tuned.
 Hit 1 if you wish to go to Enchanted Lands 1.
 
 Hit 0 to quit."
+door_specs = ["ch: 1, dest: 001_Enchanted_Lands_1;", "", "", "", "", "", "", "", ""]
 
-[node name="Door_To_001_Enchanted_Lands_1" type="Node" parent="Rooms/Enchanted Lands"]
+[node name="Door_To_Enchanted_Lands_1" type="Node" parent="Rooms/Enchanted Lands"]
 script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "001_Enchanted_Lands_1"
 id = "Door_To_Enchanted_Lands_1"
 
 [node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
-position = Vector2(535, 289)
+position = Vector2(-70, 325)
 script = ExtResource("2_ihfh8")
 id = "001_Enchanted_Lands_1"
 origin = "001_Enchanted_Lands"
@@ -48,15 +48,16 @@ Chief advisor and friend to the King, the Wizard Hubert, after seeing him, goes 
 Hit 1 if you wish to go to Hubert Home.
 
 Hit 0 to quit."
+door_specs = ["ch: 1, dest: 002_Hubert_Home;", "", "", "", "", "", "", "", ""]
 
-[node name="Door_To_002_Hubert_Home" type="Node" parent="Rooms/Enchanted Lands 1"]
+[node name="Door_To_Hubert_Home" type="Node" parent="Rooms/Enchanted Lands 1"]
 script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "002_Hubert_Home"
 id = "Door_To_Hubert_Home"
 
 [node name="Hubert Home" type="Node2D" parent="Rooms"]
-position = Vector2(-397, 324)
+position = Vector2(515, -276)
 script = ExtResource("2_ihfh8")
 id = "002_Hubert_Home"
 origin = "001_Enchanted_Lands_1"
@@ -69,15 +70,16 @@ Hubert puts a silver ticket into a 'magic' mailbox on his desk, which magically 
 Hit 1 if you wish to go to Cerulea.
 
 Hit 0 to quit."
+door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
 
-[node name="Door_To_003_Cerulea" type="Node" parent="Rooms/Hubert Home"]
+[node name="Door_To_Cerulea" type="Node" parent="Rooms/Hubert Home"]
 script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "003_Cerulea"
 id = "Door_To_Cerulea"
 
 [node name="Cerulea" type="Node2D" parent="Rooms"]
-position = Vector2(25, 743)
+position = Vector2(261, 683)
 script = ExtResource("2_ihfh8")
 id = "003_Cerulea"
 origin = "002_Hubert_Home"
@@ -90,15 +92,16 @@ John steps through the portal as it closes behind him.
 Hit 1 if you wish to go to Caves Of Dragonmount.
 
 Hit 0 to quit."
+door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount;", "", "", "", "", "", "", "", ""]
 
-[node name="Door_To_004_Caves_Of_Dragonmount" type="Node" parent="Rooms/Cerulea"]
+[node name="Door_To_Caves_Of_Dragonmount" type="Node" parent="Rooms/Cerulea"]
 script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "004_Caves_Of_Dragonmount"
 id = "Door_To_Caves_Of_Dragonmount"
 
 [node name="Cerulea 1" type="Node2D" parent="Rooms"]
-position = Vector2(871, -157)
+position = Vector2(-719, -57)
 script = ExtResource("2_ihfh8")
 id = "003_Cerulea_1"
 origin = "008_Lapsewood"
@@ -108,15 +111,16 @@ description = "In our realm (Cerulea), Zanzibar the great, magician, con artist,
 Hit 1 if you wish to go to Random Villages.
 
 Hit 0 to quit."
+door_specs = ["ch: 1, dest: 009_Random_Villages;", "", "", "", "", "", "", "", ""]
 
-[node name="Door_To_009_Random_Villages" type="Node" parent="Rooms/Cerulea 1"]
+[node name="Door_To_Random_Villages" type="Node" parent="Rooms/Cerulea 1"]
 script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "009_Random_Villages"
 id = "Door_To_Random_Villages"
 
 [node name="Caves Of Dragonmount" type="Node2D" parent="Rooms"]
-position = Vector2(805, 593)
+position = Vector2(-721, 402)
 script = ExtResource("2_ihfh8")
 id = "004_Caves_Of_Dragonmount"
 origin = "003_Cerulea"
@@ -128,8 +132,9 @@ Chester then leaves, and flies around while looking some more.
 Hit 1 if you wish to go to Sky.
 
 Hit 0 to quit."
+door_specs = ["ch: 1, dest: 005_Sky;", "", "", "", "", "", "", "", ""]
 
-[node name="Door_To_005_Sky" type="Node" parent="Rooms/Caves Of Dragonmount"]
+[node name="Door_To_Sky" type="Node" parent="Rooms/Caves Of Dragonmount"]
 script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "005_Sky"

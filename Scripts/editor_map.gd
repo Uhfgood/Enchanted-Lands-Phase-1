@@ -17,14 +17,6 @@ func ToKebabCase( pascal_name: String ) -> String:
 		result += ch.to_lower()
 	return result
 	
-func ExtractFilenameFromRoom( room ) -> String:
-	print( "Creating filename from room: ", room.name )
-	var tokens = room.name.split( "-", false )
-	var prefix = tokens[ 0 ] + "-"
-	var desc_name = ToKebabCase( tokens[ 1 ] )
-	var suffix = "-p" + room.room_parent
-	return prefix + desc_name + suffix
-	
 func _on_save_button_pressed():
 #{
 	print("Editor map saving room metadata!")  # Your save code goes here
@@ -46,6 +38,7 @@ func _on_save_button_pressed():
 						
 		filename = room.id + ".json"
 		print( "save room" )
+		CreateDoorsFromSpecs( room )
 		SaveRoomDataForRoom( room, filename )	
 		
 		print( "Current id = " + room.id + ", Original id = " + room.original_id )
@@ -120,7 +113,80 @@ func SaveMetadataForRoom( room, filename ):
 		CreateNewMetaFile( filename )
 		
 # end func SaveMetadataForRoom()
+
+func CreateDoorsFromSpecs(room):
+#{
+	var doors = room.doors.duplicate()  # Create a copy to avoid iteration issues
+	room.doors.clear()
+	for door in doors:
+		if door and door.get_parent() == room:  # Ensure door is still a child
+			print("Removing " + door.id + " from room " + room.id)
+			door.owner = null  # Unset owner to help editor recognize removal
+			room.remove_child(door)
+			door.queue_free()
 	
+	var id_str = ""
+	var choice_str = ""
+	var dest_str = ""
+	
+	print("***\n")
+	for doorspec in room.door_specs:
+	#{
+		if !doorspec.ends_with(";"):
+			continue
+			
+		var i = 0
+		var dlen = doorspec.length()
+
+		# Parse "ch: <choice>"
+		if doorspec.begins_with("ch: "):
+			i = 4  # Skip "ch: "
+			choice_str = ""
+			while i < dlen and doorspec[i] != ',':
+				choice_str += doorspec[i]
+				i += 1
+			i += 1  # Skip the comma
+
+			# Parse ", dest: <destination>"
+			if doorspec.substr(i).begins_with(" dest: "):
+				i += 7  # Skip ", dest: "
+				dest_str = ""
+				while i < dlen and doorspec[i] != ';':
+					dest_str += doorspec[i]
+					i += 1
+					
+		id_str = "Door_To_" + dest_str.substr(4)
+		
+		var new_door = Door.create(id_str, choice_str, dest_str, id_str)
+		if new_door:
+			room.doors.append(new_door)
+			room.add_child(new_door)
+			new_door.owner = get_tree().edited_scene_root  # Set owner for editor visibility
+			print("Successfully created door: ", new_door.name)
+		else:
+			print("Failed to create door for spec: ", doorspec)
+
+	#}  // end for doorspec
+
+	var door = null
+	var spec_str = ""
+	for i in range( 9 ):
+		if( i < room.doors.size() ):
+			door = room.doors[ i ]
+			if( door != null ):
+				spec_str = "ch: " + door.choice + ", dest: " + door.destination + ";"
+			else:
+				spec_str = ""
+		else:
+			spec_str = ""
+		room.door_specs[ i ] = spec_str
+	
+	room.emit_signal("property_list_changed")  # Notify the editor to refresh the Inspector
+
+	print("\n***")
+	
+#} // func CreateDoorsFromSpecs()
+
 func SaveRoomDataForRoom(room, filename: String):
 	print("*Save Room Data*")
 	var jsonpath = ROOMS_DIR + filename
@@ -134,15 +200,15 @@ func SaveRoomDataForRoom(room, filename: String):
 		json_str += '    "label": ' + JSON.stringify(room.label) + ",\n"
 		json_str += '    "description": ' + JSON.stringify(room.description) + ",\n"
 		json_str += '    "doors": [\n'
+
 		var door_strings = []
 		for door in room.doors:
-			var door_data = '        {\n'  # Fixed: Removed erroneous "\ LandingPage"
+			var door_data = '        {\n'  # Fixed: Removed erroneous "\ LandingPage"						
 			door_data += '            "id": ' + JSON.stringify(door.id) + ',\n'
 			door_data += '            "choice": ' + JSON.stringify(door.choice) + ',\n'
 			door_data += '            "destination": ' + JSON.stringify(door.destination) + '\n'
 			door_data += '        }'
 			door_strings.append(door_data)
-		#json_str += door_strings.join(",\n")
 		
 		for i in range(door_strings.size()):
 			json_str += door_strings[i]
