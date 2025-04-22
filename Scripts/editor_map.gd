@@ -4,19 +4,102 @@ extends Node
 # Flag to prevent load_all_rooms from running multiple times
 var has_loaded_rooms: bool = false
 @onready var rooms = $Rooms
+var currently_selected_room = null
 
 const ROOMS_DIR = "res://Rooms/"
 
-func ToKebabCase( pascal_name: String ) -> String:
-	var result = ""
-	for i in range( pascal_name.length() ):
-		var ch = pascal_name[ i ]
-		
-		if i > 0 and ( ch >= 'A' and ch <= 'Z' ):
-			result += "-"
-		result += ch.to_lower()
-	return result
+func _on_selection_changed():
+	var editor_selection = EditorInterface.get_selection()
+	var selected_nodes = editor_selection.get_selected_nodes()
 	
+	if not selected_nodes.is_empty():
+		var selected_node = selected_nodes[0]  # Always pick the first node in selection
+		print("Selected Node: ", selected_node.name)
+		
+		if( selected_node is Room ):
+			currently_selected_room = selected_node
+	else:
+		print("No nodes selected")
+
+func get_unique_room_label( base_label : String ) -> String:
+#{
+	# Start with the base label (e.g., "New Location")
+	var label = base_label
+	var suffix_num = 0
+	var unique_label = label
+	
+	# Get all existing room labels under room_map
+	var existing_labels = []
+	for child in rooms.get_children():
+		existing_labels.append( child.label )  # Use label property
+	
+	# Increment suffix until a unique label is found
+	while unique_label in existing_labels:
+	#{
+		suffix_num += 1
+		unique_label = base_label + " " + str( suffix_num )
+	#}
+	
+	return unique_label
+
+#}  // end func get_unique_room_label()
+func _on_add_room_button_pressed():
+#{
+	var unique_label = get_unique_room_label( "New Location" )
+	var new_id = "000_" + unique_label.replace( " ", "_" )#"000_NewLocation"
+	var new_origin = "000_NoOrigin"
+	var new_label = unique_label # "New Location"
+	var new_desc = "There's nothing here yet.  Hit 0 to quit."
+	var new_room = Room.Create( new_id, new_origin, new_label, new_desc )
+	AddRoomToEditorMap( new_room )
+#}
+
+func _on_remove_room_button_pressed():
+#{
+	print( "Removing child from scene tree." )
+	if not currently_selected_room:
+		print( "No room selected to remove." )
+		return
+	
+	# Get the room's ID to locate the files
+	var room_id = currently_selected_room.id  # e.g., "003_New_Location_1"
+	if room_id == "":
+		print( "Room " + currently_selected_room.label + " has no ID; removing from scene only." )
+	else:
+		# Delete the JSON file
+		var json_path = "res://Rooms/" + room_id + ".json"
+		var dir = DirAccess.open( "res://Rooms" )
+		if dir and dir.file_exists( json_path ):
+			var error = dir.remove( json_path )
+			if error == OK:
+				print( "Deleted JSON file: " + json_path + "." )
+			else:
+				print( "Failed to delete JSON file: " + json_path + "." )
+		else:
+			print( "No JSON file found for " + room_id + "." )
+		
+		# Delete the meta file, if it exists meta
+		var meta_path = "res://Rooms/" + room_id + ".meta"
+		if dir and dir.file_exists( meta_path ):
+			var error = dir.remove( meta_path )
+			if error == OK:
+				print( "Deleted meta file: " + meta_path + "." )
+			else:
+				print( "Failed to delete meta file: " + meta_path + "." )
+		else:
+			print( "No meta file found for " + room_id + "." )
+	
+	# Remove the room from the scene tree
+	rooms.remove_child( currently_selected_room )
+	
+	# Free the room node to prevent memory leaks
+	currently_selected_room.queue_free()
+	
+	# Clear the selected room
+	currently_selected_room = null
+
+#}  // end func _on_remove_room_button_pressed()
+
 func _on_save_button_pressed():
 #{
 	print("Editor map saving room metadata!")  # Your save code goes here
@@ -57,6 +140,13 @@ func _on_save_button_pressed():
 		print( "-----" )
 		
 	#} // end for
+
+	# Reselect the node after saving
+	if currently_selected_room:
+		var editor_selection = EditorInterface.get_selection()
+		editor_selection.clear()
+		editor_selection.add_node( currently_selected_room )
+		print( "Reselected room: " + currently_selected_room.label + "." )
 	
 #} // end func _on_save_button_pressed()
 	
@@ -125,15 +215,19 @@ func CreateDoorsFromSpecs(room):
 			room.remove_child(door)
 			door.queue_free()
 	
-	var id_str = ""
-	var choice_str = ""
-	var dest_str = ""
+	var id_str = "***_***"
+	var choice_str = "*"
+	var dest_str = "***_***"
 	
 	print("***\n")
 	for doorspec in room.door_specs:
 	#{
-		if !doorspec.ends_with(";"):
+		if doorspec == "":
 			continue
+		
+		id_str = "***_***"
+		choice_str = "*"
+		dest_str = "***_***"
 			
 		var i = 0
 		var dlen = doorspec.length()
@@ -156,7 +250,7 @@ func CreateDoorsFromSpecs(room):
 					i += 1
 					
 		id_str = "Door_To_" + dest_str.substr(4)
-		
+		print( "*//* id: " + id_str + ", choice: " + choice_str + ", dest: " + dest_str )
 		var new_door = Door.create(id_str, choice_str, dest_str, id_str)
 		if new_door:
 			room.doors.append(new_door)

@@ -98,7 +98,8 @@ func ToPascalCase( snake: String ) -> String:
 			result += word.capitalize()
 	return result
 
-func LoadDataFromJSON( json_name : String )->bool:
+func LoadDataFromJSON( json_name : String ) -> bool:
+#{
 	var filename = "res://Rooms/" + json_name + ".json"
 	
 	if not FileAccess.file_exists( filename ):
@@ -128,8 +129,10 @@ func LoadDataFromJSON( json_name : String )->bool:
 	
 	# create and attach door nodes
 	if "doors" in json_data:
+	#{
 		var i = 0
 		for door_data in json_data[ "doors" ]:
+		#{
 			var door_id = door_data[ "id" ]
 			var choice = door_data[ "choice" ] 
 			var dest = door_data[ "destination" ]
@@ -137,6 +140,7 @@ func LoadDataFromJSON( json_name : String )->bool:
 			print( "Creating " + door_name + " from JSON data." )
 			var new_door = Door.create( door_id, choice, dest, door_name )
 			if new_door:
+			#{
 				doors.append( new_door )
 				add_child( new_door )
 
@@ -146,13 +150,37 @@ func LoadDataFromJSON( json_name : String )->bool:
 					i += 1
 				 
 				print( "Successfully created " + new_door.name + "." )
+				
+			#}  // end if new_door
 			else:
 				print( "New door not valid." )
-			
+		
+		#}  // end for
+				
+	#}  // end if doors()
+	
 	return true
 
-# func LoadDataFromJSON()
+#} // end func LoadDataFromJSON()
 
+static func Create( 
+	n_id : String, n_origin : String, n_label : String, n_desc : String ) -> Room:
+#{
+	var room = Room.new()
+	room.id = n_id
+	room.original_id = n_id
+	room.origin = n_origin
+	room.label = n_label
+	room.name = n_label
+	room.description = n_desc
+	room.doors = []
+	room.door_specs = [ "", "", "", "", "", "", "", "", "" ]
+	
+	print( "Creating ", room.name )
+	return room
+	
+#} // end create()
+	
 static func CreateFromJSON( json_name : String )->Room:
 	var new_room = Room.new()
 	

@@ -11,6 +11,7 @@ script = ExtResource("1_k3d1g")
 position = Vector2(-17, -455)
 
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
+position = Vector2(474, -311)
 script = ExtResource("2_ihfh8")
 id = "001_Enchanted_Lands"
 origin = "000"
@@ -34,7 +35,7 @@ destination = "001_Enchanted_Lands_1"
 id = "Door_To_Enchanted_Lands_1"
 
 [node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
-position = Vector2(-70, 325)
+position = Vector2(476, -11)
 script = ExtResource("2_ihfh8")
 id = "001_Enchanted_Lands_1"
 origin = "001_Enchanted_Lands"
@@ -57,7 +58,7 @@ destination = "002_Hubert_Home"
 id = "Door_To_Hubert_Home"
 
 [node name="Hubert Home" type="Node2D" parent="Rooms"]
-position = Vector2(515, -276)
+position = Vector2(472, 298)
 script = ExtResource("2_ihfh8")
 id = "002_Hubert_Home"
 origin = "001_Enchanted_Lands_1"
@@ -79,7 +80,7 @@ destination = "003_Cerulea"
 id = "Door_To_Cerulea"
 
 [node name="Cerulea" type="Node2D" parent="Rooms"]
-position = Vector2(261, 683)
+position = Vector2(476, 606)
 script = ExtResource("2_ihfh8")
 id = "003_Cerulea"
 origin = "002_Hubert_Home"
@@ -120,7 +121,7 @@ destination = "009_Random_Villages"
 id = "Door_To_Random_Villages"
 
 [node name="Caves Of Dragonmount" type="Node2D" parent="Rooms"]
-position = Vector2(-721, 402)
+position = Vector2(476, 931)
 script = ExtResource("2_ihfh8")
 id = "004_Caves_Of_Dragonmount"
 origin = "003_Cerulea"
