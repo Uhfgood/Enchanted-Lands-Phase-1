@@ -7,8 +7,7 @@
 [node name="EditorMap" type="Node"]
 script = ExtResource("1_k3d1g")
 
-[node name="Rooms" type="Node2D" parent="."]
-position = Vector2(-17, -455)
+[node name="Rooms" type="Node" parent="."]
 
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
 position = Vector2(474, -311)

@@ -78,28 +78,39 @@ func _enter_tree():
 
 #}  // end func _enter_tree()
 
-func _process( delta ):
+func _process(delta):
 #{
 	if Engine.is_editor_hint():
 		var current_editor_map = get_tree().edited_scene_root
-		#print( "Editor map instance: " + str( current_editor_map ) + "." )
 		
-		if current_editor_map and current_editor_map.has_method( "_on_save_button_pressed" ):
-			if not button.is_connected( "pressed", Callable( current_editor_map, "_on_save_button_pressed" ) ):
-				button.connect( "pressed", Callable( current_editor_map, "_on_save_button_pressed" ) )
-				print( "Reconnected Save Room Data button to editor_map." )
+		if current_editor_map and current_editor_map.has_method("_on_save_button_pressed"):
+			if not button.is_connected("pressed", Callable(current_editor_map, "_on_save_button_pressed")):
+				button.connect("pressed", Callable(current_editor_map, "_on_save_button_pressed"))
+				print("Reconnected Save Room Data button to editor_map.")
 		
-		if current_editor_map and current_editor_map.has_method( "_on_add_room_button_pressed" ):
-			if not add_button.is_connected( "pressed", Callable( current_editor_map, "_on_add_room_button_pressed" ) ):
-				add_button.connect( "pressed", Callable( current_editor_map, "_on_add_room_button_pressed" ) )
-				print( "Reconnected Add Room button to editor_map." )
+		if current_editor_map and current_editor_map.has_method("_on_add_room_button_pressed"):
+			if not add_button.is_connected("pressed", Callable(current_editor_map, "_on_add_room_button_pressed")):
+				add_button.connect("pressed", Callable(current_editor_map, "_on_add_room_button_pressed"))
+				print("Reconnected Add Room button to editor_map.")
 		
-		if current_editor_map and current_editor_map.has_method( "_on_remove_room_button_pressed" ):
-			if not remove_button.is_connected( "pressed", Callable( current_editor_map, "_on_remove_room_button_pressed" ) ):
-				remove_button.connect( "pressed", Callable( current_editor_map, "_on_remove_room_button_pressed" ) )
-				print( "Reconnected Remove Room button to editor_map." )
+		if current_editor_map and current_editor_map.has_method("_on_remove_room_button_pressed"):
+			if not remove_button.is_connected("pressed", Callable(current_editor_map, "_on_remove_room_button_pressed")):
+				remove_button.connect("pressed", Callable(current_editor_map, "_on_remove_room_button_pressed"))
+				print("Reconnected Remove Room button to editor_map.")
 
-#}  // end func _process()
+		if current_editor_map and current_editor_map.has_method("_on_selection_changed"):
+			# Check if a removal is in progress before reconnecting
+			if "is_removing_room" in current_editor_map and current_editor_map.is_removing_room:
+				print("Skipping signal reconnection during room removal.")
+				return
+			
+			var editor_interface = get_editor_interface()
+			var editor_selection = editor_interface.get_selection()
+			if not editor_selection.is_connected("selection_changed", Callable(current_editor_map, "_on_selection_changed")):
+				editor_selection.connect("selection_changed", Callable(current_editor_map, "_on_selection_changed"))
+				print("Reconnected editor selector.")
+						
+#}  // end _process()
 
 func _on_button_pressed():
 #{

@@ -1,6 +1,8 @@
 @tool
 extends Node
 
+var is_removing_room: bool = false
+
 # Flag to prevent load_all_rooms from running multiple times
 var has_loaded_rooms: bool = false
 @onready var rooms = $Rooms
@@ -8,16 +10,26 @@ var currently_selected_room = null
 
 const ROOMS_DIR = "res://Rooms/"
 
+var removed_rooms : Array[String] = []
+
 func _on_selection_changed():
+	# Ignore selection changes during removal
+	if is_removing_room:
+		print("Ignoring selection change during room removal.")
+		return
+	
 	var editor_selection = EditorInterface.get_selection()
 	var selected_nodes = editor_selection.get_selected_nodes()
 	
 	if not selected_nodes.is_empty():
-		var selected_node = selected_nodes[0]  # Always pick the first node in selection
-		print("Selected Node: ", selected_node.name)
-		
-		if( selected_node is Room ):
-			currently_selected_room = selected_node
+		var selected_node = selected_nodes[0]
+		# Safety check: Ensure the node is still valid
+		if is_instance_valid(selected_node):
+			print("Selected Node: ", selected_node.name)
+			if(selected_node is Room):
+				currently_selected_room = selected_node
+		else:
+			print("Selected node is invalid (possibly freed).")
 	else:
 		print("No nodes selected")
 
@@ -43,8 +55,10 @@ func get_unique_room_label( base_label : String ) -> String:
 	return unique_label
 
 #}  // end func get_unique_room_label()
+
 func _on_add_room_button_pressed():
 #{
+	print( "---" )
 	var unique_label = get_unique_room_label( "New Location" )
 	var new_id = "000_" + unique_label.replace( " ", "_" )#"000_NewLocation"
 	var new_origin = "000_NoOrigin"
@@ -52,54 +66,76 @@ func _on_add_room_button_pressed():
 	var new_desc = "There's nothing here yet.  Hit 0 to quit."
 	var new_room = Room.Create( new_id, new_origin, new_label, new_desc )
 	AddRoomToEditorMap( new_room )
-#}
 
-func _on_remove_room_button_pressed():
-#{
-	print( "Removing child from scene tree." )
-	if not currently_selected_room:
-		print( "No room selected to remove." )
-		return
-	
+	# Select the new room in the scene tree
+	var editor_selection = EditorInterface.get_selection()
+	editor_selection.clear()
+	editor_selection.add_node( new_room )
+	print( "Selected new room: " + new_room.label + "." )
+	print( "---" )
+
+#}  // end _on_add_room_button_pressed():
+
+func _deferred_remove_room():
 	# Get the room's ID to locate the files
-	var room_id = currently_selected_room.id  # e.g., "003_New_Location_1"
+	var room_id = currently_selected_room.id
 	if room_id == "":
-		print( "Room " + currently_selected_room.label + " has no ID; removing from scene only." )
+		print("Room " + currently_selected_room.label + " has no ID; removing from scene only.")
 	else:
-		# Delete the JSON file
-		var json_path = "res://Rooms/" + room_id + ".json"
-		var dir = DirAccess.open( "res://Rooms" )
-		if dir and dir.file_exists( json_path ):
-			var error = dir.remove( json_path )
-			if error == OK:
-				print( "Deleted JSON file: " + json_path + "." )
-			else:
-				print( "Failed to delete JSON file: " + json_path + "." )
-		else:
-			print( "No JSON file found for " + room_id + "." )
-		
-		# Delete the meta file, if it exists meta
-		var meta_path = "res://Rooms/" + room_id + ".meta"
-		if dir and dir.file_exists( meta_path ):
-			var error = dir.remove( meta_path )
-			if error == OK:
-				print( "Deleted meta file: " + meta_path + "." )
-			else:
-				print( "Failed to delete meta file: " + meta_path + "." )
-		else:
-			print( "No meta file found for " + room_id + "." )
+		print("Attempting to append " + room_id + " to 'removed_rooms'")
+		removed_rooms.append(room_id)
 	
-	# Remove the room from the scene tree
-	rooms.remove_child( currently_selected_room )
+	# Remove the room from the scene tree safely
+	if currently_selected_room.get_parent() == rooms:
+		currently_selected_room.owner = null
+		rooms.remove_child(currently_selected_room)
+		print("Room removed from scene tree: " + room_id)
+	else:
+		print("Warning: Room is not a child of Rooms node: " + room_id)
 	
-	# Free the room node to prevent memory leaks
+	# Free the room node
 	currently_selected_room.queue_free()
+	print("Room queued for freeing: " + room_id)
 	
 	# Clear the selected room
 	currently_selected_room = null
-
-#}  // end func _on_remove_room_button_pressed()
-
+	print("Currently selected room cleared.")
+	
+	# Wait briefly to ensure the editor processes the change
+	await get_tree().create_timer(0.2).timeout  # Increased to 0.2 seconds for safety
+	
+	# Reconnect the selection_changed signal
+	var editor_selection = EditorInterface.get_selection()
+	if not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
+		editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
+		print("Reconnected selection_changed signal after removal.")
+	
+	# Reset the removal flag
+	is_removing_room = false
+	print("Removal process completed.")
+	
+func _on_remove_room_button_pressed():
+	print("Removing child from scene tree.")
+	if not currently_selected_room:
+		print("No room selected to remove.")
+		return
+	
+	# Set the removal flag
+	is_removing_room = true
+	
+	# Disconnect the selection_changed signal to prevent it from firing during removal
+	var editor_selection = EditorInterface.get_selection()
+	if editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
+		editor_selection.disconnect("selection_changed", Callable(self, "_on_selection_changed"))
+		print("Disconnected selection_changed signal during removal.")
+	
+	# Clear the editor's selection
+	editor_selection.clear()
+	print("Editor selection cleared.")
+	
+	# Defer the removal process
+	call_deferred("_deferred_remove_room")
+	
 func _on_save_button_pressed():
 #{
 	print("Editor map saving room metadata!")  # Your save code goes here
@@ -138,29 +174,66 @@ func _on_save_button_pressed():
 			print( "id's are the same, so no need to delete anything.")
 
 		print( "-----" )
-		
+				
 	#} // end for
 
 	# Reselect the node after saving
 	if currently_selected_room:
+	#{
 		var editor_selection = EditorInterface.get_selection()
 		editor_selection.clear()
 		editor_selection.add_node( currently_selected_room )
 		print( "Reselected room: " + currently_selected_room.label + "." )
+	#}
+	
+	for room_id in removed_rooms:
+	#{
+		# Delete the JSON file
+		var json_path = "res://Rooms/" + room_id + ".json"
+		var dir = DirAccess.open( "res://Rooms" )
+		if dir and dir.file_exists( json_path ):
+		#{
+			var error = dir.remove( json_path )
+			if error == OK:
+				print( "Deleted JSON file: " + json_path + "." )
+			else:
+				print( "Failed to delete JSON file: " + json_path + "." )
+		#}
+		else:
+			print( "No JSON file found for " + room_id + "." )
+		
+		# Delete the meta file, if it exists meta
+		var meta_path = "res://Rooms/" + room_id + ".meta"
+		if dir and dir.file_exists( meta_path ):
+		#{
+			var error = dir.remove( meta_path )
+			if error == OK:
+				print( "Deleted meta file: " + meta_path + "." )
+			else:
+				print( "Failed to delete meta file: " + meta_path + "." )
+		#}
+		else:
+			print( "No meta file found for " + room_id + "." )
+	
+	#}  // end for room_id
+	
+	removed_rooms.clear()
 	
 #} // end func _on_save_button_pressed()
 	
 func _ready():
+#{
 	print( "***" )
 	print( "EDITOR MAP READY" )
 	if Engine.is_editor_hint():
 		if not has_loaded_rooms:
 			LoadAllRooms()
 			has_loaded_rooms = true
-
-# end func _ready()
+			
+#} // end func _ready()
 
 func AddRoomToEditorMap( room ):
+#{
 	rooms.add_child( room )
 	room.owner = get_tree().edited_scene_root
 	for door in room.get_children():
@@ -169,7 +242,10 @@ func AddRoomToEditorMap( room ):
 	room.editor_map = self
 	room.SetupVisuals()  
 
+#} // end func AddRoomToEditorMap()
+
 func CreateNewMetaFile( filename ):
+#{
 	print( "*Create*" )
 	var metaname = filename
 	if( filename.ends_with( ".json" ) ): 
@@ -184,9 +260,10 @@ func CreateNewMetaFile( filename ):
 		else:
 			print( "Meta file could not be created." )
 		
-# end func LoadMetadataForRoom()
+#} // end func LoadMetadataForRoom()
 
 func SaveMetadataForRoom( room, filename ):
+#{
 	print( "*Save*" )
 	var metapath = ROOMS_DIR + filename
 	if FileAccess.file_exists( metapath ):
@@ -202,7 +279,7 @@ func SaveMetadataForRoom( room, filename ):
 		print( "SaveMetadataForRoom()" )
 		CreateNewMetaFile( filename )
 		
-# end func SaveMetadataForRoom()
+#} // end func SaveMetadataForRoom()
 
 func CreateDoorsFromSpecs(room):
 #{
@@ -279,9 +356,10 @@ func CreateDoorsFromSpecs(room):
 
 	print("\n***")
 	
-#} // func CreateDoorsFromSpecs()
+#} // end func CreateDoorsFromSpecs()
 
 func SaveRoomDataForRoom(room, filename: String):
+#{
 	print("*Save Room Data*")
 	var jsonpath = ROOMS_DIR + filename
 	print("Saving room data to: ", jsonpath)
@@ -319,7 +397,10 @@ func SaveRoomDataForRoom(room, filename: String):
 	else:
 		print("Couldn't open file for writing: ", jsonpath)
 		
+#} // end func SaveRoomDataForRoom()
+
 func LoadMetadataForRoom( room, filename ):
+#{
 	print( "Checking for metadata for ", filename )
 	var metapath = filename.replace(".json", ".meta")
 	metapath = "res://Rooms/" + metapath
@@ -334,7 +415,7 @@ func LoadMetadataForRoom( room, filename ):
 		else:
 			print( "No meta data read." )
 		
-# end func LoadMetadataForRoom()
+#} // end func LoadMetadataForRoom()
 
 func LoadAllRooms():
 	print("Running load_all_rooms")

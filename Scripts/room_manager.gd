@@ -35,7 +35,6 @@ func LoadRoom( room_name : String ):
 
 	return room
 
-
 func ChangeRoom( room_name : String ):
 	var new_room = LoadRoom( room_name )
 	if( new_room ):

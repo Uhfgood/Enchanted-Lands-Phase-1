@@ -5,6 +5,9 @@
 
 [node name="000_Main_Menu" type="Node2D"]
 script = ExtResource("1_muppc")
+id = "000_Main_Menu"
+origin = "XXX_No_Parent"
+label = "Main Menu"
 description = "Main Menu.
 
 Hit 1 to Start.
