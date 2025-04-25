@@ -134,7 +134,8 @@ func _on_remove_room_button_pressed():
 	print("Editor selection cleared.")
 	
 	# Defer the removal process
-	call_deferred("_deferred_remove_room")
+	#call_deferred("_deferred_remove_room")
+	_deferred_remove_room()
 	
 func _on_save_button_pressed():
 #{
