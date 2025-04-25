@@ -1,7 +1,7 @@
 {
     "id": "000_Manual_Room_Add",
     "parent": "001_Enchanted_Lands_1",
-    "label": "Manual Room Add",
+    "label": "Manual Room Addition",
     "description": "Hubert walks around his home, examining spell books, scrolls, and loose papers, to figure out the best course of action.\nHubert goes to a large crystal ball, which allows him to see into different realms, and he searches for someone to help.\nHubert then spots John, pulls up info about him, and then sees him enter a convenience store, to grab a Benny Wonky Bar.\nHubert puts a silver ticket into a 'magic' mailbox on his desk, which magically appears inside the wrapper.\n\nHit 1 if you wish to go to Cerulea.\n\nHit 0 to quit.",
     "doors": [
         {
