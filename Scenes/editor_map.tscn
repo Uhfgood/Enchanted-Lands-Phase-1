@@ -1,17 +1,38 @@
 [gd_scene load_steps=4 format=3 uid="uid://bl74drpt5u5vp"]
 
 [ext_resource type="Script" path="res://Scripts/editor_map.gd" id="1_k3d1g"]
-[ext_resource type="Script" path="res://Scripts/room.gd" id="2_ihfh8"]
-[ext_resource type="Script" path="res://Scripts/door.gd" id="3_lr4b1"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="2_cjl5f"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="3_tos4x"]
 
 [node name="EditorMap" type="Node"]
 script = ExtResource("1_k3d1g")
 
 [node name="Rooms" type="Node" parent="."]
 
+[node name="Manual Room Add" type="Node2D" parent="Rooms"]
+script = ExtResource("2_cjl5f")
+id = "000_Manual_Room_Add"
+origin = "001_Enchanted_Lands_1"
+label = "Manual Room Add"
+description = "Hubert walks around his home, examining spell books, scrolls, and loose papers, to figure out the best course of action.
+Hubert goes to a large crystal ball, which allows him to see into different realms, and he searches for someone to help.
+Hubert then spots John, pulls up info about him, and then sees him enter a convenience store, to grab a Benny Wonky Bar.
+Hubert puts a silver ticket into a 'magic' mailbox on his desk, which magically appears inside the wrapper.
+
+Hit 1 if you wish to go to Cerulea.
+
+Hit 0 to quit."
+door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
+
+[node name="Door_To_Cerulea" type="Node" parent="Rooms/Manual Room Add"]
+script = ExtResource("3_tos4x")
+choice = "1"
+destination = "003_Cerulea"
+id = "Door_To_Cerulea"
+
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
 position = Vector2(474, -311)
-script = ExtResource("2_ihfh8")
+script = ExtResource("2_cjl5f")
 id = "001_Enchanted_Lands"
 origin = "000"
 label = "Enchanted Lands"
@@ -28,14 +49,14 @@ Hit 0 to quit."
 door_specs = ["ch: 1, dest: 001_Enchanted_Lands_1;", "", "", "", "", "", "", "", ""]
 
 [node name="Door_To_Enchanted_Lands_1" type="Node" parent="Rooms/Enchanted Lands"]
-script = ExtResource("3_lr4b1")
+script = ExtResource("3_tos4x")
 choice = "1"
 destination = "001_Enchanted_Lands_1"
 id = "Door_To_Enchanted_Lands_1"
 
 [node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
 position = Vector2(476, -11)
-script = ExtResource("2_ihfh8")
+script = ExtResource("2_cjl5f")
 id = "001_Enchanted_Lands_1"
 origin = "001_Enchanted_Lands"
 label = "Enchanted Lands 1"
@@ -51,14 +72,14 @@ Hit 0 to quit."
 door_specs = ["ch: 1, dest: 002_Hubert_Home;", "", "", "", "", "", "", "", ""]
 
 [node name="Door_To_Hubert_Home" type="Node" parent="Rooms/Enchanted Lands 1"]
-script = ExtResource("3_lr4b1")
+script = ExtResource("3_tos4x")
 choice = "1"
 destination = "002_Hubert_Home"
 id = "Door_To_Hubert_Home"
 
 [node name="Hubert Home" type="Node2D" parent="Rooms"]
 position = Vector2(472, 298)
-script = ExtResource("2_ihfh8")
+script = ExtResource("2_cjl5f")
 id = "002_Hubert_Home"
 origin = "001_Enchanted_Lands_1"
 label = "Hubert Home"
@@ -73,14 +94,14 @@ Hit 0 to quit."
 door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
 
 [node name="Door_To_Cerulea" type="Node" parent="Rooms/Hubert Home"]
-script = ExtResource("3_lr4b1")
+script = ExtResource("3_tos4x")
 choice = "1"
 destination = "003_Cerulea"
 id = "Door_To_Cerulea"
 
 [node name="Cerulea" type="Node2D" parent="Rooms"]
 position = Vector2(476, 606)
-script = ExtResource("2_ihfh8")
+script = ExtResource("2_cjl5f")
 id = "003_Cerulea"
 origin = "002_Hubert_Home"
 label = "Cerulea"
@@ -95,14 +116,14 @@ Hit 0 to quit."
 door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount;", "", "", "", "", "", "", "", ""]
 
 [node name="Door_To_Caves_Of_Dragonmount" type="Node" parent="Rooms/Cerulea"]
-script = ExtResource("3_lr4b1")
+script = ExtResource("3_tos4x")
 choice = "1"
 destination = "004_Caves_Of_Dragonmount"
 id = "Door_To_Caves_Of_Dragonmount"
 
 [node name="Cerulea 1" type="Node2D" parent="Rooms"]
 position = Vector2(-719, -57)
-script = ExtResource("2_ihfh8")
+script = ExtResource("2_cjl5f")
 id = "003_Cerulea_1"
 origin = "008_Lapsewood"
 label = "Cerulea 1"
@@ -114,14 +135,14 @@ Hit 0 to quit."
 door_specs = ["ch: 1, dest: 009_Random_Villages;", "", "", "", "", "", "", "", ""]
 
 [node name="Door_To_Random_Villages" type="Node" parent="Rooms/Cerulea 1"]
-script = ExtResource("3_lr4b1")
+script = ExtResource("3_tos4x")
 choice = "1"
 destination = "009_Random_Villages"
 id = "Door_To_Random_Villages"
 
 [node name="Caves Of Dragonmount" type="Node2D" parent="Rooms"]
 position = Vector2(476, 931)
-script = ExtResource("2_ihfh8")
+script = ExtResource("2_cjl5f")
 id = "004_Caves_Of_Dragonmount"
 origin = "003_Cerulea"
 label = "Caves Of Dragonmount"
@@ -135,7 +156,7 @@ Hit 0 to quit."
 door_specs = ["ch: 1, dest: 005_Sky;", "", "", "", "", "", "", "", ""]
 
 [node name="Door_To_Sky" type="Node" parent="Rooms/Caves Of Dragonmount"]
-script = ExtResource("3_lr4b1")
+script = ExtResource("3_tos4x")
 choice = "1"
 destination = "005_Sky"
 id = "Door_To_Sky"
