@@ -138,14 +138,6 @@ func _on_remove_room_button_pressed():
 	currently_selected_room = null
 	print("Currently selected room cleared.")
 	
-	# Wait briefly to ensure the editor processes the change
-	await get_tree().create_timer(0.2).timeout
-	
-	# Reconnect the selection_changed signal
-	#if not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
-	#	editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
-	#	print("Reconnected selection_changed signal after removal.")
-	
 	# Reset the removal flag
 	is_removing_room = false
 	print("Removal process completed.")
