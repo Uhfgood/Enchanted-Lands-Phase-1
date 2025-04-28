@@ -149,8 +149,6 @@ func _on_remove_room_button_pressed():
 		print("Warning: Room is not a child of Rooms node: " + room_id)
 	
 	# Free the room node #
-	#currently_selected_room.queue_free()
-	#print("Room queued for freeing: " + room_id)
 	holding_node.add_child(currently_selected_room)
 
 	# Clear the selected room
@@ -286,7 +284,7 @@ func AddRoomToEditorMap( room ):
 			door.owner = get_tree().edited_scene_root
 	room.editor_map = self
 	room.SetupVisuals()  
-
+	
 #} // end func AddRoomToEditorMap()
 
 func CreateNewMetaFile( filename ):
@@ -494,13 +492,9 @@ func LoadAllRooms():
 
 	print( "***" )
 	
-#func _process(delta):
-#	if Engine.is_editor_hint():  # Ensure it only runs in editor
-#		var canvas_offset = get_viewport().canvas_transform.origin
-#		save_button.position = Vector2( 10, 10 ) - canvas_offset
-#		print(canvas_offset)
-#		for room in get_children():
-#			var last_pos = room.get_meta("last_pos", Vector2.ZERO)
-#			if room.position != last_pos:
-#				print(room.name, " moved to: ", room.position)
-#				room.set_meta("last_pos", room.position)
+func _process(delta):
+#{
+	if Engine.is_editor_hint():  # Ensure it only runs in editor
+		pass
+
+#} // end _process()
