@@ -75,44 +75,6 @@ func _on_add_room_button_pressed():
 	print( "---" )
 
 #}  // end _on_add_room_button_pressed():
-
-func _deferred_remove_room():
-	# Get the room's ID to locate the files
-	var room_id = currently_selected_room.id
-	if room_id == "":
-		print("Room " + currently_selected_room.label + " has no ID; removing from scene only.")
-	else:
-		print("Attempting to append " + room_id + " to 'removed_rooms'")
-		removed_rooms.append(room_id)
-	
-	# Remove the room from the scene tree safely
-	if currently_selected_room.get_parent() == rooms:
-		currently_selected_room.owner = null
-		rooms.remove_child(currently_selected_room)
-		print("Room removed from scene tree: " + room_id)
-	else:
-		print("Warning: Room is not a child of Rooms node: " + room_id)
-	
-	# Free the room node
-	currently_selected_room.queue_free()
-	print("Room queued for freeing: " + room_id)
-	
-	# Clear the selected room
-	currently_selected_room = null
-	print("Currently selected room cleared.")
-	
-	# Wait briefly to ensure the editor processes the change
-	await get_tree().create_timer(0.2).timeout  # Increased to 0.2 seconds for safety
-	
-	# Reconnect the selection_changed signal
-	var editor_selection = EditorInterface.get_selection()
-	if not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
-		editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
-		print("Reconnected selection_changed signal after removal.")
-	
-	# Reset the removal flag
-	is_removing_room = false
-	print("Removal process completed.")
 	
 func _on_remove_room_button_pressed():
 	print("Removing child from scene tree.")
@@ -133,9 +95,60 @@ func _on_remove_room_button_pressed():
 	editor_selection.clear()
 	print("Editor selection cleared.")
 	
-	# Defer the removal process
-	#call_deferred("_deferred_remove_room")
-	_deferred_remove_room()
+	# Get the room's ID to locate the files
+	var room_id = currently_selected_room.id
+	if room_id == "":
+		print("Room " + currently_selected_room.label + " has no ID; removing from scene only.")
+	else:
+		print("Attempting to append " + room_id + " to 'removed_rooms'")
+		removed_rooms.append(room_id)
+	
+	# Debug: Log all children before removal
+	print("Children before removal: ", currently_selected_room.get_child_count())
+	for child in currently_selected_room.get_children():
+		print("Child found: ", child.name, " (Type: ", child.get_class(), ")")
+	
+	# Explicitly clear the doors array to ensure consistency
+	if currently_selected_room.doors:
+		print("Clearing doors array: ", currently_selected_room.doors.size(), " doors")
+		currently_selected_room.doors.clear()
+	
+	# Remove and free all child nodes
+	for child in currently_selected_room.get_children():
+		print("Removing child: ", child.name)
+		currently_selected_room.remove_child(child)
+		child.queue_free()
+	
+	# Debug: Confirm no children remain
+	print("Children remaining after removal: ", currently_selected_room.get_child_count())
+	
+	# Remove the room from the scene tree safely
+	if currently_selected_room.get_parent() == rooms:
+		currently_selected_room.owner = null
+		rooms.remove_child(currently_selected_room)
+		print("Room removed from scene tree: " + room_id)
+	else:
+		print("Warning: Room is not a child of Rooms node: " + room_id)
+	
+	# Free the room node
+	currently_selected_room.queue_free()
+	print("Room queued for freeing: " + room_id)
+	
+	# Clear the selected room
+	currently_selected_room = null
+	print("Currently selected room cleared.")
+	
+	# Wait briefly to ensure the editor processes the change
+	await get_tree().create_timer(0.2).timeout
+	
+	# Reconnect the selection_changed signal
+	#if not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
+	#	editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
+	#	print("Reconnected selection_changed signal after removal.")
+	
+	# Reset the removal flag
+	is_removing_room = false
+	print("Removal process completed.")
 	
 func _on_save_button_pressed():
 #{
