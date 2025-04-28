@@ -12,7 +12,11 @@ const ROOMS_DIR = "res://Rooms/"
 
 var removed_rooms : Array[String] = []
 
+# At the top of editor_map.gd, add:
+var holding_node: Node = Node.new()
+
 func _on_selection_changed():
+#{
 	# Ignore selection changes during removal
 	if is_removing_room:
 		print("Ignoring selection change during room removal.")
@@ -20,18 +24,29 @@ func _on_selection_changed():
 	
 	var editor_selection = EditorInterface.get_selection()
 	var selected_nodes = editor_selection.get_selected_nodes()
-	
+
 	if not selected_nodes.is_empty():
+	#{
 		var selected_node = selected_nodes[0]
 		# Safety check: Ensure the node is still valid
 		if is_instance_valid(selected_node):
+		#{
 			print("Selected Node: ", selected_node.name)
 			if(selected_node is Room):
 				currently_selected_room = selected_node
+			else:
+				print( "Currently selected node is not a room." )
+				currently_selected_room = null
+			
+		#} // end if is_instance_valid
 		else:
 			print("Selected node is invalid (possibly freed).")
+			
+	#}  // end if not selected_nodes.is_empty()
 	else:
 		print("No nodes selected")
+
+#}  // end func _on_selection_changed()
 
 func get_unique_room_label( base_label : String ) -> String:
 #{
@@ -77,6 +92,7 @@ func _on_add_room_button_pressed():
 #}  // end _on_add_room_button_pressed():
 	
 func _on_remove_room_button_pressed():
+#{
 	print("Removing child from scene tree.")
 	if not currently_selected_room:
 		print("No room selected to remove.")
@@ -122,18 +138,21 @@ func _on_remove_room_button_pressed():
 	# Debug: Confirm no children remain
 	print("Children remaining after removal: ", currently_selected_room.get_child_count())
 	
-	# Remove the room from the scene tree safely
+	# Remove the room from the scene tree safely #
 	if currently_selected_room.get_parent() == rooms:
+	#{
 		currently_selected_room.owner = null
 		rooms.remove_child(currently_selected_room)
 		print("Room removed from scene tree: " + room_id)
+	#}
 	else:
 		print("Warning: Room is not a child of Rooms node: " + room_id)
 	
-	# Free the room node
-	currently_selected_room.queue_free()
-	print("Room queued for freeing: " + room_id)
-	
+	# Free the room node #
+	#currently_selected_room.queue_free()
+	#print("Room queued for freeing: " + room_id)
+	holding_node.add_child(currently_selected_room)
+
 	# Clear the selected room
 	currently_selected_room = null
 	print("Currently selected room cleared.")
@@ -141,6 +160,8 @@ func _on_remove_room_button_pressed():
 	# Reset the removal flag
 	is_removing_room = false
 	print("Removal process completed.")
+	
+#} // end func _on_remove_room_button_pressed
 	
 func _on_save_button_pressed():
 #{
@@ -168,6 +189,7 @@ func _on_save_button_pressed():
 		
 		print( "Current id = " + room.id + ", Original id = " + room.original_id )
 		if( room.id != room.original_id ):
+		#{
 			print( "Id's are not the same deleting old files")
 			var old_json_path = ROOMS_DIR + room.original_id + ".json"
 			if( FileAccess.file_exists( old_json_path ) ):
@@ -176,6 +198,8 @@ func _on_save_button_pressed():
 			if( FileAccess.file_exists( old_meta_path ) ):
 				DirAccess.open( ROOMS_DIR ).remove( old_meta_path )
 			room.original_id = room.id	
+			
+		#}  // end if( room.id...
 		else:
 			print( "id's are the same, so no need to delete anything.")
 
@@ -229,14 +253,29 @@ func _on_save_button_pressed():
 	
 func _ready():
 #{
-	print( "***" )
-	print( "EDITOR MAP READY" )
+	print("***")
+	print("EDITOR MAP READY")
+	holding_node.name = "HoldingNode"
+	get_tree().root.add_child(holding_node)
+	holding_node.set_owner(null)
 	if Engine.is_editor_hint():
+	#{
 		if not has_loaded_rooms:
 			LoadAllRooms()
 			has_loaded_rooms = true
-			
+	#}
+	
 #} // end func _ready()
+
+# In a new _exit_tree() function, free all held nodes:
+func _exit_tree():
+#{
+	if holding_node:
+		for child in holding_node.get_children():
+			child.queue_free()
+	holding_node.queue_free()
+	holding_node = null
+#}
 
 func AddRoomToEditorMap( room ):
 #{

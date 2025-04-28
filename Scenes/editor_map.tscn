@@ -9,27 +9,6 @@ script = ExtResource("1_k3d1g")
 
 [node name="Rooms" type="Node" parent="."]
 
-[node name="Manual Room Addition" type="Node2D" parent="Rooms"]
-script = ExtResource("2_ihfh8")
-id = "000_Manual_Room_Add"
-origin = "001_Enchanted_Lands_1"
-label = "Manual Room Addition"
-description = "Hubert walks around his home, examining spell books, scrolls, and loose papers, to figure out the best course of action.
-Hubert goes to a large crystal ball, which allows him to see into different realms, and he searches for someone to help.
-Hubert then spots John, pulls up info about him, and then sees him enter a convenience store, to grab a Benny Wonky Bar.
-Hubert puts a silver ticket into a 'magic' mailbox on his desk, which magically appears inside the wrapper.
-
-Hit 1 if you wish to go to Cerulea.
-
-Hit 0 to quit."
-door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
-
-[node name="Door_To_Cerulea" type="Node" parent="Rooms/Manual Room Addition"]
-script = ExtResource("3_lr4b1")
-choice = "1"
-destination = "003_Cerulea"
-id = "Door_To_Cerulea"
-
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
 position = Vector2(474, -311)
 script = ExtResource("2_ihfh8")
