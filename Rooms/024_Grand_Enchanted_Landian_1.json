@@ -1,9 +1,13 @@
 {
     "id": "024_Grand_Enchanted_Landian_1",
-    "parent": "009_Random_Villages_5",
     "label": "Grand Enchanted Landian 1",
     "description": "The Black Knight rides up to the Grand Enchanted Landian on his black charger.\nHubert and company calmly out of the kitchen doors.\nThe guard that was guarding the Princess in the cellar stumbles out, and yells \"She's Escaped!\"\nThey then run to the wagon and they take off, as the Black Knight begins to chase them.\n\nHit 1 if you wish to go to Lapsewood Edge 2.\n\nHit 0 to quit.",
-    "doors": [
+    "inbound":
+    [
+        "009_Random_Villages_5",
+    ],
+    "doors":
+    [
         {
             "id": "Door_To_Lapsewood_Edge_2",
             "choice": "1",

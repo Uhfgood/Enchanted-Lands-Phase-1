@@ -1,9 +1,13 @@
 {
     "id": "005_Sky_1",
-    "parent": "036_East_Depot",
     "label": "Sky 1",
     "description": "While Sir William is flying, a huge black dragon swoops out from the sky and hits him full on.\nThe Black Knight sitting atop Crooktooth circles around and starts flying toward Sir William again.\nAfter falling a bit Sir William regains his balance and starts flying towards Crooktooth.\nSir William gets a few hits, but doesn't do much damage to Crooktooth as he knocks Sir William out of the sky again.\n\nHit 1 if you wish to go to Sky 2.\n\nHit 0 to quit.",
-    "doors": [
+    "inbound":
+    [
+        "036_East_Depot",
+    ],
+    "doors":
+    [
         {
             "id": "Door_To_Sky_2",
             "choice": "1",

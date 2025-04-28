@@ -1,9 +1,13 @@
 {
     "id": "033_Castle_West_Terrace",
-    "parent": "032_Castle_North_Terrace",
     "label": "Castle West Terrace",
     "description": "Sir William lands on the west side terrace of the Castle, and lets Hubert off.\nHubert starts systematically searching the grounds for Violet, taking care not to be seen.\nSir William flies off and heads back toward the Bats-in-the-Belfry.\n\nHit 1 if you wish to go to Max Mines Office.\n\nHit 0 to quit.",
-    "doors": [
+    "inbound":
+    [
+        "032_Castle_North_Terrace",
+    ],
+    "doors":
+    [
         {
             "id": "Door_To_Max_Mines_Office",
             "choice": "1",

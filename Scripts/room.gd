@@ -9,6 +9,7 @@ var editor_map: Node = null
 @export var label : String = "New Room" : set = _set_label
 @export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
 
+@export var inbound_rooms : Array = [ "", "", "", "", "", "", "", "", "" ]
 @export var door_specs : Array = [ "", "", "", "", "", "", "", "", "" ] : set = _set_door_specs
 func _set_door_specs( doorspecs : Array ):
 	door_specs = doorspecs
@@ -121,7 +122,28 @@ func LoadDataFromJSON( json_name : String ) -> bool:
 	# set room properties
 	self.id = json_data[ "id" ]
 	self.original_id = self.id
-	self.origin = json_data[ "parent" ]
+	
+	if( "inbound" in json_data ):
+	#{
+		var i = 0;
+		for inbound_data in json_data[ "inbound" ]:
+		#{
+			if( i < self.inbound_rooms.size() ):
+			#{
+				self.inbound_rooms[ i ] = inbound_data
+				i += 1
+				
+			#}  // end if i < size
+				
+		#}  // end for inbound_data
+		
+	#}  // end if "inbound" in json_data
+	
+	if( "parent" in json_data ):
+	#{	
+		self.origin = json_data[ "parent" ]
+	#}
+	
 	self.label = json_data[ "label" ]
 	self.name = self.label
 	self.description = json_data[ "description" ]

@@ -148,7 +148,7 @@ func _on_remove_room_button_pressed():
 	else:
 		print("Warning: Room is not a child of Rooms node: " + room_id)
 	
-	# Free the room node #
+	# Free the room node
 	holding_node.add_child(currently_selected_room)
 
 	# Clear the selected room
@@ -179,7 +179,7 @@ func _on_save_button_pressed():
 			CreateNewMetaFile( filename )
 			SaveMetadataForRoom( room, filename )
 		#}
-						
+			
 		filename = room.id + ".json"
 		print( "save room" )
 		CreateDoorsFromSpecs( room )
@@ -411,14 +411,41 @@ func SaveRoomDataForRoom(room, filename: String):
 		# Manually construct the JSON string with the desired order
 		var json_str = "{\n"
 		json_str += '    "id": ' + JSON.stringify(room.id) + ",\n"
-		json_str += '    "parent": ' + JSON.stringify(room.origin) + ",\n"
+		#json_str += '    "parent": ' + JSON.stringify(room.origin) + ",\n"
 		json_str += '    "label": ' + JSON.stringify(room.label) + ",\n"
 		json_str += '    "description": ' + JSON.stringify(room.description) + ",\n"
-		json_str += '    "doors": [\n'
+		
+		# inbound data
+		json_str += '    "inbound":\n'
+		json_str += '    [\n'
+
+		# automatically save the origin to the first inbound_rooms entry
+		room.inbound_rooms[ 0 ] = room.origin
+		var in_strings = []
+		var in_count = 0
+		for inbound in room.inbound_rooms:
+			if( inbound != "" ):
+				var in_data = ''
+				in_data += '        ' + JSON.stringify(inbound) + ',\n'
+				in_strings.append( in_data )
+				in_count += 1
+		
+		for i in range( in_count ):
+			json_str += in_strings[ i ]
+			if( in_count > 1 && i < in_strings.size() - 1 ):
+				json_str += ",\n"		
+			
+		if in_strings.size() > 1:
+			json_str += "\n"
+		json_str += "    ],\n"
+		
+		# door data
+		json_str += '    "doors":\n'
+		json_str += '    [\n'
 
 		var door_strings = []
 		for door in room.doors:
-			var door_data = '        {\n'  # Fixed: Removed erroneous "\ LandingPage"						
+			var door_data = '        {\n'  # Fixed: Removed erroneous "\ LandingPage"
 			door_data += '            "id": ' + JSON.stringify(door.id) + ',\n'
 			door_data += '            "choice": ' + JSON.stringify(door.choice) + ',\n'
 			door_data += '            "destination": ' + JSON.stringify(door.destination) + '\n'
@@ -433,6 +460,7 @@ func SaveRoomDataForRoom(room, filename: String):
 		if door_strings.size() > 0:
 			json_str += "\n"
 		json_str += "    ]\n"
+
 		json_str += "}"
 		file.store_string(json_str)
 		file.close()
@@ -487,12 +515,12 @@ func LoadAllRooms():
 					AddRoomToEditorMap( room )
 					LoadMetadataForRoom( room, filename )
 					
-				if filename.begins_with("004_Caves"):
+				if filename.begins_with("002"):
 					break
 
 	print( "***" )
 	
-func _process(delta):
+func _process(_delta):
 #{
 	if Engine.is_editor_hint():  # Ensure it only runs in editor
 		pass

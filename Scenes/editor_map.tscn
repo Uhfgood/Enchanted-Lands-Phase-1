@@ -10,10 +10,8 @@ script = ExtResource("1_k3d1g")
 [node name="Rooms" type="Node" parent="."]
 
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
-position = Vector2(474, -311)
 script = ExtResource("2_ihfh8")
 id = "001_Enchanted_Lands"
-origin = "000"
 label = "Enchanted Lands"
 description = "Welcome to Enchanted Lands!
 Take a magical vacation, slay a dragon, rescue a princess, become a great and powerful wizard, or stay at one of our many fine hotels. Anything is possible... At least that's what the brochure says. Enchanted Lands, the magical resort kingdom is not doing so well. The King seems to be acting strangely. Enchanted Enterprises has been bought out by Enchanted Holdings, Inc. Administration has closed the various magical training schools, and a dark presence has returned from banished realms.
@@ -25,6 +23,7 @@ Stay tuned.
 Hit 1 if you wish to go to Enchanted Lands 1.
 
 Hit 0 to quit."
+inbound_rooms = ["XXX", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 001_Enchanted_Lands_1;", "", "", "", "", "", "", "", ""]
 
 [node name="Door_To_Enchanted_Lands_1" type="Node" parent="Rooms/Enchanted Lands"]
@@ -34,10 +33,9 @@ destination = "001_Enchanted_Lands_1"
 id = "Door_To_Enchanted_Lands_1"
 
 [node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
-position = Vector2(476, -11)
+position = Vector2(-146, 486)
 script = ExtResource("2_ihfh8")
 id = "001_Enchanted_Lands_1"
-origin = "001_Enchanted_Lands"
 label = "Enchanted Lands 1"
 description = "Enchanted Lands Magical Resort was sold to a mysterious figure, by the ruler of the kingdom.
 This figure, named Max, has systematically closed down most of the resort.
@@ -48,6 +46,7 @@ Chief advisor and friend to the King, the Wizard Hubert, after seeing him, goes 
 Hit 1 if you wish to go to Hubert Home.
 
 Hit 0 to quit."
+inbound_rooms = ["XXX", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home;", "", "", "", "", "", "", "", ""]
 
 [node name="Door_To_Hubert_Home" type="Node" parent="Rooms/Enchanted Lands 1"]
@@ -57,10 +56,9 @@ destination = "002_Hubert_Home"
 id = "Door_To_Hubert_Home"
 
 [node name="Hubert Home" type="Node2D" parent="Rooms"]
-position = Vector2(472, 298)
+position = Vector2(1150, 384)
 script = ExtResource("2_ihfh8")
 id = "002_Hubert_Home"
-origin = "001_Enchanted_Lands_1"
 label = "Hubert Home"
 description = "Hubert walks around his home, examining spell books, scrolls, and loose papers, to figure out the best course of action.
 Hubert goes to a large crystal ball, which allows him to see into different realms, and he searches for someone to help.
@@ -70,6 +68,7 @@ Hubert puts a silver ticket into a 'magic' mailbox on his desk, which magically 
 Hit 1 if you wish to go to Cerulea.
 
 Hit 0 to quit."
+inbound_rooms = ["XXX", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
 
 [node name="Door_To_Cerulea" type="Node" parent="Rooms/Hubert Home"]
@@ -77,65 +76,3 @@ script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "003_Cerulea"
 id = "Door_To_Cerulea"
-
-[node name="Cerulea" type="Node2D" parent="Rooms"]
-position = Vector2(476, 606)
-script = ExtResource("2_ihfh8")
-id = "003_Cerulea"
-origin = "002_Hubert_Home"
-label = "Cerulea"
-description = "In our realm, also called Cerulea by Enchanted Landians, John is leaving work and walking home, down the street.
-John stops in at a store nearby, and gets his favorite candy bar with a silver \"ticket\" inside.
-John looks at the silver ticket, and says some words in the fine print, and a portal opens.
-John steps through the portal as it closes behind him.
-
-Hit 1 if you wish to go to Caves Of Dragonmount.
-
-Hit 0 to quit."
-door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount;", "", "", "", "", "", "", "", ""]
-
-[node name="Door_To_Caves_Of_Dragonmount" type="Node" parent="Rooms/Cerulea"]
-script = ExtResource("3_lr4b1")
-choice = "1"
-destination = "004_Caves_Of_Dragonmount"
-id = "Door_To_Caves_Of_Dragonmount"
-
-[node name="Cerulea 1" type="Node2D" parent="Rooms"]
-position = Vector2(-719, -57)
-script = ExtResource("2_ihfh8")
-id = "003_Cerulea_1"
-origin = "008_Lapsewood"
-label = "Cerulea 1"
-description = "In our realm (Cerulea), Zanzibar the great, magician, con artist, and thief, manages to escape the police into the Lands.
-
-Hit 1 if you wish to go to Random Villages.
-
-Hit 0 to quit."
-door_specs = ["ch: 1, dest: 009_Random_Villages;", "", "", "", "", "", "", "", ""]
-
-[node name="Door_To_Random_Villages" type="Node" parent="Rooms/Cerulea 1"]
-script = ExtResource("3_lr4b1")
-choice = "1"
-destination = "009_Random_Villages"
-id = "Door_To_Random_Villages"
-
-[node name="Caves Of Dragonmount" type="Node2D" parent="Rooms"]
-position = Vector2(476, 931)
-script = ExtResource("2_ihfh8")
-id = "004_Caves_Of_Dragonmount"
-origin = "003_Cerulea"
-label = "Caves Of Dragonmount"
-description = "Somewhere in the kingdom, Chester, a friendly dragon, lands at the entrance to the \"Caves of Dragonmount.\"
-Chester walks around the cave system trying to find his friends.
-Chester then leaves, and flies around while looking some more.
-
-Hit 1 if you wish to go to Sky.
-
-Hit 0 to quit."
-door_specs = ["ch: 1, dest: 005_Sky;", "", "", "", "", "", "", "", ""]
-
-[node name="Door_To_Sky" type="Node" parent="Rooms/Caves Of Dragonmount"]
-script = ExtResource("3_lr4b1")
-choice = "1"
-destination = "005_Sky"
-id = "Door_To_Sky"

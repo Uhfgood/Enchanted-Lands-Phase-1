@@ -1,9 +1,13 @@
 {
     "id": "003_Cerulea",
-    "parent": "002_Hubert_Home",
     "label": "Cerulea",
     "description": "In our realm, also called Cerulea by Enchanted Landians, John is leaving work and walking home, down the street.\nJohn stops in at a store nearby, and gets his favorite candy bar with a silver \"ticket\" inside.\nJohn looks at the silver ticket, and says some words in the fine print, and a portal opens.\nJohn steps through the portal as it closes behind him.\n\nHit 1 if you wish to go to Caves Of Dragonmount.\n\nHit 0 to quit.",
-    "doors": [
+    "inbound":
+    [
+        "002_Hubert_Home",
+    ],
+    "doors":
+    [
         {
             "id": "Door_To_Caves_Of_Dragonmount",
             "choice": "1",

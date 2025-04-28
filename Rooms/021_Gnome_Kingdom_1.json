@@ -1,9 +1,13 @@
 {
     "id": "021_Gnome_Kingdom_1",
-    "parent": "022_Scarborough_Faire_Chicken_1",
     "label": "Gnome Kingdom 1",
     "description": "Within the boundaries of the Gnome Kingdom, Max finds Scarlet \"Red\" Clover, and pulls her out of hiding.\nMax asks Red to go and conscript the werewolves from their village into his service, due to her history with them.\n\nHit 1 if you wish to go to Werewolf Village.\n\nHit 0 to quit.",
-    "doors": [
+    "inbound":
+    [
+        "022_Scarborough_Faire_Chicken_1",
+    ],
+    "doors":
+    [
         {
             "id": "Door_To_Werewolf_Village",
             "choice": "1",

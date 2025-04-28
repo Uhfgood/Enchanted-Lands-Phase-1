@@ -1,9 +1,13 @@
 {
     "id": "036_East_Depot",
-    "parent": "035_Castle_East_Gate",
     "label": "East Depot",
     "description": "The guards chase Hubert to the east depot.\n\nHit 1 if you wish to go to Sky 1.\n\nHit 0 to quit.",
-    "doors": [
+    "inbound":
+    [
+        "035_Castle_East_Gate",
+    ],
+    "doors":
+    [
         {
             "id": "Door_To_Sky_1",
             "choice": "1",
