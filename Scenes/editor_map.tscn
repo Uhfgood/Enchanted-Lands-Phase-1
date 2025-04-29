@@ -10,6 +10,7 @@ script = ExtResource("1_k3d1g")
 [node name="Rooms" type="Node" parent="."]
 
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
+position = Vector2(132, -112)
 script = ExtResource("2_ihfh8")
 id = "001_Enchanted_Lands"
 label = "Enchanted Lands"
@@ -23,17 +24,17 @@ Stay tuned.
 Hit 1 if you wish to go to Enchanted Lands 1.
 
 Hit 0 to quit."
-inbound_rooms = ["XXX", "", "", "", "", "", "", "", ""]
+inbound_rooms = ["000", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 001_Enchanted_Lands_1;", "", "", "", "", "", "", "", ""]
 
-[node name="Door_To_Enchanted_Lands_1" type="Node" parent="Rooms/Enchanted Lands"]
+[node name="Door_To_Enchanted_Lands_1" type="Node2D" parent="Rooms/Enchanted Lands"]
 script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "001_Enchanted_Lands_1"
 id = "Door_To_Enchanted_Lands_1"
 
 [node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
-position = Vector2(-146, 486)
+position = Vector2(-208, 270)
 script = ExtResource("2_ihfh8")
 id = "001_Enchanted_Lands_1"
 label = "Enchanted Lands 1"
@@ -46,17 +47,17 @@ Chief advisor and friend to the King, the Wizard Hubert, after seeing him, goes 
 Hit 1 if you wish to go to Hubert Home.
 
 Hit 0 to quit."
-inbound_rooms = ["XXX", "", "", "", "", "", "", "", ""]
+inbound_rooms = ["001_Enchanted_Lands", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home;", "", "", "", "", "", "", "", ""]
 
-[node name="Door_To_Hubert_Home" type="Node" parent="Rooms/Enchanted Lands 1"]
+[node name="Door_To_Hubert_Home" type="Node2D" parent="Rooms/Enchanted Lands 1"]
 script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "002_Hubert_Home"
 id = "Door_To_Hubert_Home"
 
 [node name="Hubert Home" type="Node2D" parent="Rooms"]
-position = Vector2(1150, 384)
+position = Vector2(460, 266)
 script = ExtResource("2_ihfh8")
 id = "002_Hubert_Home"
 label = "Hubert Home"
@@ -68,10 +69,10 @@ Hubert puts a silver ticket into a 'magic' mailbox on his desk, which magically 
 Hit 1 if you wish to go to Cerulea.
 
 Hit 0 to quit."
-inbound_rooms = ["XXX", "", "", "", "", "", "", "", ""]
+inbound_rooms = ["001_Enchanted_Lands_1", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
 
-[node name="Door_To_Cerulea" type="Node" parent="Rooms/Hubert Home"]
+[node name="Door_To_Cerulea" type="Node2D" parent="Rooms/Hubert Home"]
 script = ExtResource("3_lr4b1")
 choice = "1"
 destination = "003_Cerulea"

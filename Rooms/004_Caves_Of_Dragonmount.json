@@ -6,8 +6,7 @@
     [
         "003_Cerulea",
     ],
-    "doors":
-    [
+    "doors": [
         {
             "id": "Door_To_Sky",
             "choice": "1",

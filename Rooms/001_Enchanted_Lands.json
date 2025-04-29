@@ -4,7 +4,7 @@
     "description": "Welcome to Enchanted Lands!\nTake a magical vacation, slay a dragon, rescue a princess, become a great and powerful wizard, or stay at one of our many fine hotels. Anything is possible... At least that's what the brochure says. Enchanted Lands, the magical resort kingdom is not doing so well. The King seems to be acting strangely. Enchanted Enterprises has been bought out by Enchanted Holdings, Inc. Administration has closed the various magical training schools, and a dark presence has returned from banished realms.\nIs there no one that can solve these mysteries?\nWill the schools ever reopen?\nWill there ever be anymore stupendous vacation deals?\nStay tuned.\n\nHit 1 if you wish to go to Enchanted Lands 1.\n\nHit 0 to quit.",
     "inbound":
     [
-        "XXX",
+        "000",
     ],
     "doors":
     [

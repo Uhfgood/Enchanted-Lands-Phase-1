@@ -6,8 +6,7 @@
     [
         "004_Caves_Of_Dragonmount",
     ],
-    "doors":
-    [
+    "doors": [
         {
             "id": "Door_To_Chester_Cave",
             "choice": "1",

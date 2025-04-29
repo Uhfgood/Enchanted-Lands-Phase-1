@@ -1,4 +1,4 @@
-class_name Door extends Node
+class_name Door extends Node2D
 @export var choice : String = "0"
 @export var destination : String = "blank_room"
 

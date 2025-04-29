@@ -6,8 +6,7 @@
     [
         "005_Sky_1",
     ],
-    "doors":
-    [
+    "doors": [
         {
             "id": "Door_To_Max_Mines_1",
             "choice": "1",

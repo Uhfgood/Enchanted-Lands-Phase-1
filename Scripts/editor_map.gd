@@ -76,10 +76,11 @@ func _on_add_room_button_pressed():
 	print( "---" )
 	var unique_label = get_unique_room_label( "New Location" )
 	var new_id = "000_" + unique_label.replace( " ", "_" )#"000_NewLocation"
-	var new_origin = "000_NoOrigin"
+	#var new_origin = "000_NoOrigin"
 	var new_label = unique_label # "New Location"
 	var new_desc = "There's nothing here yet.  Hit 0 to quit."
-	var new_room = Room.Create( new_id, new_origin, new_label, new_desc )
+	#var new_room = Room.Create( new_id, new_origin, new_label, new_desc )
+	var new_room = Room.Create( new_id, new_label, new_desc )
 	AddRoomToEditorMap( new_room )
 
 	# Select the new room in the scene tree
@@ -420,7 +421,7 @@ func SaveRoomDataForRoom(room, filename: String):
 		json_str += '    [\n'
 
 		# automatically save the origin to the first inbound_rooms entry
-		room.inbound_rooms[ 0 ] = room.origin
+		#room.inbound_rooms[ 0 ] = room.origin
 		var in_strings = []
 		var in_count = 0
 		for inbound in room.inbound_rooms:

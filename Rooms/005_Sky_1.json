@@ -6,8 +6,7 @@
     [
         "036_East_Depot",
     ],
-    "doors":
-    [
+    "doors": [
         {
             "id": "Door_To_Sky_2",
             "choice": "1",

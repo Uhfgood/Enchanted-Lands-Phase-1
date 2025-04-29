@@ -6,8 +6,7 @@
     [
         "026_Max_Mines_2",
     ],
-    "doors":
-    [
+    "doors": [
         {
             "id": "Door_To_Werewolf_Village_Road",
             "choice": "1",

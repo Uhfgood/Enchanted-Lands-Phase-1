@@ -5,7 +5,7 @@ class_name Room extends Node2D
 var editor_map: Node = null
 
 @export var id : String = "XXX" : set = _set_id
-@export var origin : String = "XXX"
+#@export var origin : String = "XXX"
 @export var label : String = "New Room" : set = _set_label
 @export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
 
@@ -139,9 +139,9 @@ func LoadDataFromJSON( json_name : String ) -> bool:
 		
 	#}  // end if "inbound" in json_data
 	
-	if( "parent" in json_data ):
+	#if( "parent" in json_data ):
 	#{	
-		self.origin = json_data[ "parent" ]
+	#	self.origin = json_data[ "parent" ]
 	#}
 	
 	self.label = json_data[ "label" ]
@@ -186,16 +186,18 @@ func LoadDataFromJSON( json_name : String ) -> bool:
 #} // end func LoadDataFromJSON()
 
 static func Create( 
-	n_id : String, n_origin : String, n_label : String, n_desc : String ) -> Room:
+	#n_id : String, n_origin : String, n_label : String, n_desc : String ) -> Room:
+	n_id : String, n_label : String, n_desc : String ) -> Room:
 #{
 	var room = Room.new()
 	room.id = n_id
 	room.original_id = n_id
-	room.origin = n_origin
+	#room.origin = n_origin
 	room.label = n_label
 	room.name = n_label
 	room.description = n_desc
 	room.doors = []
+	room.inbound_rooms = [ "", "", "", "", "", "", "", "", "" ]
 	room.door_specs = [ "", "", "", "", "", "", "", "", "" ]
 	
 	print( "Creating ", room.name )

@@ -6,8 +6,7 @@
     [
         "002_Hubert_Home",
     ],
-    "doors":
-    [
+    "doors": [
         {
             "id": "Door_To_Caves_Of_Dragonmount",
             "choice": "1",

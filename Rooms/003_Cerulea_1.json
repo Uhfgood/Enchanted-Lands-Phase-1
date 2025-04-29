@@ -6,8 +6,7 @@
     [
         "008_Lapsewood",
     ],
-    "doors":
-    [
+    "doors": [
         {
             "id": "Door_To_Random_Villages",
             "choice": "1",
