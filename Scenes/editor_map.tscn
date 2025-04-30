@@ -1,8 +1,93 @@
-[gd_scene load_steps=2 format=3 uid="uid://bl74drpt5u5vp"]
+[gd_scene load_steps=4 format=3 uid="uid://bl74drpt5u5vp"]
 
 [ext_resource type="Script" path="res://Scripts/editor_map.gd" id="1_k3d1g"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="2_reou5"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="3_r6sr6"]
 
 [node name="EditorMap" type="Node"]
 script = ExtResource("1_k3d1g")
 
 [node name="Rooms" type="Node" parent="."]
+
+[node name="New Location" type="Node2D" parent="Rooms"]
+position = Vector2(132, 672)
+script = ExtResource("2_reou5")
+id = "000_New_Location"
+label = "New Location"
+description = "There's nothing here yet.  Hit 0 to quit."
+door_specs = ["ch: *, dest: ***_***;", "", "", "", "", "", "", "", ""]
+
+[node name="Door_To_***" type="Node2D" parent="Rooms/New Location"]
+script = ExtResource("3_r6sr6")
+choice = "*"
+destination = "***_***"
+id = "Door_To_***"
+
+[node name="Enchanted Lands" type="Node2D" parent="Rooms"]
+position = Vector2(132, -112)
+script = ExtResource("2_reou5")
+id = "001_Enchanted_Lands"
+label = "Enchanted Lands"
+description = "Welcome to Enchanted Lands!
+Take a magical vacation, slay a dragon, rescue a princess, become a great and powerful wizard, or stay at one of our many fine hotels. Anything is possible... At least that's what the brochure says. Enchanted Lands, the magical resort kingdom is not doing so well. The King seems to be acting strangely. Enchanted Enterprises has been bought out by Enchanted Holdings, Inc. Administration has closed the various magical training schools, and a dark presence has returned from banished realms.
+Is there no one that can solve these mysteries?
+Will the schools ever reopen?
+Will there ever be anymore stupendous vacation deals?
+Stay tuned.
+
+Hit 1 if you wish to go to Enchanted Lands 1.
+
+Hit 0 to quit."
+inbound_rooms = ["000", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 001_Enchanted_Lands_1;", "", "", "", "", "", "", "", ""]
+
+[node name="Door_To_Enchanted_Lands_1" type="Node2D" parent="Rooms/Enchanted Lands"]
+script = ExtResource("3_r6sr6")
+choice = "1"
+destination = "001_Enchanted_Lands_1"
+id = "Door_To_Enchanted_Lands_1"
+
+[node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
+position = Vector2(-208, 270)
+script = ExtResource("2_reou5")
+id = "001_Enchanted_Lands_1"
+label = "Enchanted Lands 1"
+description = "Enchanted Lands Magical Resort was sold to a mysterious figure, by the ruler of the kingdom.
+This figure, named Max, has systematically closed down most of the resort.
+Many people have disappeared including both citizens and tourists.
+Ever since the King closed down the resort, he's been acting strangely.
+Chief advisor and friend to the King, the Wizard Hubert, after seeing him, goes home to prepare to get external help.
+
+Hit 1 if you wish to go to Hubert Home.
+
+Hit 0 to quit."
+inbound_rooms = ["001_Enchanted_Lands", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home;", "", "", "", "", "", "", "", ""]
+
+[node name="Door_To_Hubert_Home" type="Node2D" parent="Rooms/Enchanted Lands 1"]
+script = ExtResource("3_r6sr6")
+choice = "1"
+destination = "002_Hubert_Home"
+id = "Door_To_Hubert_Home"
+
+[node name="Hubert Home" type="Node2D" parent="Rooms"]
+position = Vector2(460, 266)
+script = ExtResource("2_reou5")
+id = "002_Hubert_Home"
+label = "Hubert Home"
+description = "Hubert walks around his home, examining spell books, scrolls, and loose papers, to figure out the best course of action.
+Hubert goes to a large crystal ball, which allows him to see into different realms, and he searches for someone to help.
+Hubert then spots John, pulls up info about him, and then sees him enter a convenience store, to grab a Benny Wonky Bar.
+Hubert puts a silver ticket into a 'magic' mailbox on his desk, which magically appears inside the wrapper.
+
+Hit 1 if you wish to go to Cerulea.
+
+Hit 0 to quit."
+inbound_rooms = ["001_Enchanted_Lands_1", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
+
+[node name="Door_To_Cerulea" type="Node2D" parent="Rooms/Hubert Home"]
+script = ExtResource("3_r6sr6")
+choice = "1"
+destination = "003_Cerulea"
+id = "Door_To_Cerulea"

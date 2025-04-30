@@ -75,11 +75,9 @@ func _on_add_room_button_pressed():
 #{
 	print( "---" )
 	var unique_label = get_unique_room_label( "New Location" )
-	var new_id = "000_" + unique_label.replace( " ", "_" )#"000_NewLocation"
-	#var new_origin = "000_NoOrigin"
-	var new_label = unique_label # "New Location"
+	var new_id = "000_" + unique_label.replace( " ", "_" )
+	var new_label = unique_label
 	var new_desc = "There's nothing here yet.  Hit 0 to quit."
-	#var new_room = Room.Create( new_id, new_origin, new_label, new_desc )
 	var new_room = Room.Create( new_id, new_label, new_desc )
 	AddRoomToEditorMap( new_room )
 
@@ -412,7 +410,6 @@ func SaveRoomDataForRoom(room, filename: String):
 		# Manually construct the JSON string with the desired order
 		var json_str = "{\n"
 		json_str += '    "id": ' + JSON.stringify(room.id) + ",\n"
-		#json_str += '    "parent": ' + JSON.stringify(room.origin) + ",\n"
 		json_str += '    "label": ' + JSON.stringify(room.label) + ",\n"
 		json_str += '    "description": ' + JSON.stringify(room.description) + ",\n"
 		
@@ -420,8 +417,6 @@ func SaveRoomDataForRoom(room, filename: String):
 		json_str += '    "inbound":\n'
 		json_str += '    [\n'
 
-		# automatically save the origin to the first inbound_rooms entry
-		#room.inbound_rooms[ 0 ] = room.origin
 		var in_strings = []
 		var in_count = 0
 		for inbound in room.inbound_rooms:
