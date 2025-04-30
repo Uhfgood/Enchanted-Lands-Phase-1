@@ -12,3 +12,18 @@ static func create( ident : String, ch : String, dest : String, door_name : Stri
 	new_door.name = door_name
 	return new_door
 	
+func _enter_tree():
+	if Engine.is_editor_hint():
+		print("Door._enter_tree: Initializing door: ", name, " (ID: ", id, ", Destination: ", destination, ")")
+		print("  Is inside tree: ", is_inside_tree())
+		print("  Parent: ", get_parent().name if get_parent() else "null")
+		print("  Owner: ", owner.name if owner else "null")
+		print("  Stack: ", get_stack())
+
+func _ready():
+	if Engine.is_editor_hint():
+		print("Door._ready: Initializing door: ", name, " (ID: ", id, ", Destination: ", destination, ")")
+		print("  Is inside tree: ", is_inside_tree())
+		print("  Parent: ", get_parent().name if get_parent() else "null")
+		print("  Owner: ", owner.name if owner else "null")
+		print("  Stack: ", get_stack())

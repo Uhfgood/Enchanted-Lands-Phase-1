@@ -248,7 +248,7 @@ func _on_save_button_pressed():
 	
 #} // end func _on_save_button_pressed()
 	
-func _ready():
+func old_ready():
 #{
 	print("***")
 	print("EDITOR MAP READY")
@@ -264,8 +264,29 @@ func _ready():
 	
 #} // end func _ready()
 
+func _ready():
+	print("EditorMap._ready: Starting")
+	if rooms:
+		print("  Rooms node has ", rooms.get_child_count(), " children")
+		for child in rooms.get_children():
+			print("    Child: ", child.name, " (Type: ", child.get_class(), ")")
+	else:
+		print("  Rooms node is null")
+	holding_node.name = "HoldingNode"
+	get_tree().root.add_child(holding_node)
+	holding_node.set_owner(null)
+	if Engine.is_editor_hint():
+		print("  Editor mode: has_loaded_rooms = ", has_loaded_rooms)
+		if not has_loaded_rooms:
+			print("  Calling LoadAllRooms")
+			LoadAllRooms()
+			has_loaded_rooms = true
+		else:
+			print("  Skipping LoadAllRooms")
+	print("EditorMap._ready: Finished")
+	
 # In a new _exit_tree() function, free all held nodes:
-func _exit_tree():
+func old_exit_tree():
 #{
 	if holding_node:
 		for child in holding_node.get_children():
@@ -274,18 +295,100 @@ func _exit_tree():
 	holding_node = null
 #}
 
-func AddRoomToEditorMap( room ):
-#{
-	rooms.add_child( room )
-	room.owner = get_tree().edited_scene_root
-	for door in room.get_children():
-		if door is Door:
-			door.owner = get_tree().edited_scene_root
-	room.editor_map = self
-	room.SetupVisuals()  
-	
-#} // end func AddRoomToEditorMap()
+func _enter_tree():
+	print("EditorMap._enter_tree: Starting")
+	if rooms:
+		print("  Rooms node has ", rooms.get_child_count(), " children")
+		for child in rooms.get_children():
+			print("    Child: ", child.name, " (Type: ", child.get_class(), ")")
+	else:
+		print("  Rooms node is null")
+	print("EditorMap._enter_tree: Finished")
 
+func AddRoomToEditorMap(room):
+	print("AddRoomToEditorMap: Starting for room: ", room.id if room else "null")
+	print("  Stack: ", get_stack())
+	if not room:
+		print("  Error: Room is null")
+		return
+	print("  Adding room to 'rooms' node")
+	rooms.add_child(room)
+	print("    Room added. Parent: ", room.get_parent().name if room.get_parent() else "null")
+	print("  Setting room owner to edited scene root")
+	room.owner = get_tree().edited_scene_root
+	print("    Room owner set to: ", room.owner.name if room.owner else "null")
+	print("  Processing room children for doors")
+	var door_count = 0
+	for door in room.get_children():
+		print("    Child found: ", door.name, " (Type: ", door.get_class(), ")")
+		if door is Door:
+			door_count += 1
+			print("      Door detected: ", door.name, " (ID: ", door.id, ", Destination: ", door.destination, ")")
+			print("        Is inside tree: ", door.is_inside_tree())
+			print("        Parent: ", door.get_parent().name if door.get_parent() else "null")
+			print("        Owner: ", door.owner.name if door.owner else "null before setting")
+			door.owner = get_tree().edited_scene_root
+			print("        Owner set to: ", door.owner.name if door.owner else "null")
+			if door.is_inside_tree() and door.get_parent() == room:
+				print("        Locking door: ", door.name, " in room: ", room.id)
+				door.set_editable_instance(door, false)
+			else:
+				print("Warning: Door ", door.name, " not in scene tree or wrong parent")
+		else:
+			print("      Not a Door: ", door.name)
+	print("    Total doors processed: ", door_count)
+	print("  Setting editor_map reference")
+	room.editor_map = self
+	print("    editor_map set to: ", room.editor_map.name if room.editor_map else "null")
+	print("  Calling SetupVisuals for room: ", room.id)
+	room.SetupVisuals()
+	print("  SetupVisuals completed for room: ", room.id)
+	print("AddRoomToEditorMap: Finished for room: ", room.id)
+
+func OldAddRoomToEditorMap(room):
+	print( "---***---")
+	print("AddRoomToEditorMap: Starting for room: ", room.id if room else "null")
+	if not room:
+		print("  Error: Room is null")
+		return
+	
+	print("  Adding room to 'rooms' node")
+	rooms.add_child(room)
+	print("    Room added. Parent: ", room.get_parent().name if room.get_parent() else "null")
+	
+	print("  Setting room owner to edited scene root")
+	room.owner = get_tree().edited_scene_root
+	print("    Room owner set to: ", room.owner.name if room.owner else "null")
+	
+	print("  Processing room children for doors")
+	var door_count = 0
+	for door in room.get_children():
+		print("    Child found: ", door.name, " (Type: ", door.get_class(), ")")
+		if door is Door:
+			door_count += 1
+			print("      Door detected: ", door.name, " (ID: ", door.id, ", Destination: ", door.destination, ")")
+			print("        Is inside tree: ", door.is_inside_tree())
+			print("        Parent: ", door.get_parent().name if door.get_parent() else "null")
+			print("        Owner: ", door.owner.name if door.owner else "null before setting")
+			door.owner = get_tree().edited_scene_root
+			print("        Owner set to: ", door.owner.name if door.owner else "null")
+			#door.set_editable_instance(door, false) # Lock door in editor viewport (kept commented out)
+		else:
+			print("      Not a Door: ", door.name)
+	print("    Total doors processed: ", door_count)
+	
+	print("  Setting editor_map reference")
+	room.editor_map = self
+	print("    editor_map set to: ", room.editor_map.name if room.editor_map else "null")
+	
+	print("  Calling SetupVisuals for room: ", room.id)
+	room.SetupVisuals()
+	print("  SetupVisuals completed for room: ", room.id)
+	
+	print("AddRoomToEditorMap: Finished for room: ", room.id)
+	
+	print( "---***---")
+	
 func CreateNewMetaFile( filename ):
 #{
 	print( "*Create*" )
@@ -324,13 +427,13 @@ func SaveMetadataForRoom( room, filename ):
 #} // end func SaveMetadataForRoom()
 
 func CreateDoorsFromSpecs(room):
-#{
-	var doors = room.doors.duplicate()  # Create a copy to avoid iteration issues
+	print( "***///--- Running CreateDoorsFromSpecs()" )
+	var doors = room.doors.duplicate()
 	room.doors.clear()
 	for door in doors:
-		if door and door.get_parent() == room:  # Ensure door is still a child
+		if door and door.get_parent() == room:
 			print("Removing " + door.id + " from room " + room.id)
-			door.owner = null  # Unset owner to help editor recognize removal
+			door.owner = null
 			room.remove_child(door)
 			door.queue_free()
 	
@@ -340,65 +443,56 @@ func CreateDoorsFromSpecs(room):
 	
 	print("***\n")
 	for doorspec in room.door_specs:
-	#{
 		if doorspec == "":
 			continue
 		
 		id_str = "***_***"
 		choice_str = "*"
 		dest_str = "***_***"
-			
+		
 		var i = 0
 		var dlen = doorspec.length()
-
-		# Parse "ch: <choice>"
 		if doorspec.begins_with("ch: "):
-			i = 4  # Skip "ch: "
+			i = 4
 			choice_str = ""
 			while i < dlen and doorspec[i] != ',':
 				choice_str += doorspec[i]
 				i += 1
-			i += 1  # Skip the comma
-
-			# Parse ", dest: <destination>"
+			i += 1
 			if doorspec.substr(i).begins_with(" dest: "):
-				i += 7  # Skip ", dest: "
+				i += 7
 				dest_str = ""
 				while i < dlen and doorspec[i] != ';':
 					dest_str += doorspec[i]
 					i += 1
 					
 		id_str = "Door_To_" + dest_str.substr(4)
-		print( "*//* id: " + id_str + ", choice: " + choice_str + ", dest: " + dest_str )
+		print("*//* id: " + id_str + ", choice: " + choice_str + ", dest: " + dest_str)
 		var new_door = Door.create(id_str, choice_str, dest_str, id_str)
 		if new_door:
 			room.doors.append(new_door)
 			room.add_child(new_door)
-			new_door.owner = get_tree().edited_scene_root  # Set owner for editor visibility
+			new_door.owner = get_tree().edited_scene_root
+			#new_door.set_editable_instance(new_door, false) # Lock door in editor viewport
 			print("Successfully created door: ", new_door.name)
 		else:
 			print("Failed to create door for spec: ", doorspec)
-
-	#}  // end for doorspec
-
+	
 	var door = null
 	var spec_str = ""
-	for i in range( 9 ):
-		if( i < room.doors.size() ):
-			door = room.doors[ i ]
-			if( door != null ):
+	for i in range(9):
+		if i < room.doors.size():
+			door = room.doors[i]
+			if door != null:
 				spec_str = "ch: " + door.choice + ", dest: " + door.destination + ";"
 			else:
 				spec_str = ""
 		else:
 			spec_str = ""
-		room.door_specs[ i ] = spec_str
+		room.door_specs[i] = spec_str
 	
-	room.emit_signal("property_list_changed")  # Notify the editor to refresh the Inspector
-
+	room.emit_signal("property_list_changed")
 	print("\n***")
-	
-#} // end func CreateDoorsFromSpecs()
 
 func SaveRoomDataForRoom(room, filename: String):
 #{
@@ -522,3 +616,41 @@ func _process(_delta):
 		pass
 
 #} // end _process()
+
+func _exit_tree():
+	print("EditorMap._exit_tree: Cleaning up")
+	# Clear Rooms node
+	if rooms:
+		print("  Clearing Rooms node with ", rooms.get_child_count(), " children")
+		for room in rooms.get_children():
+			if room is Room:
+				print("    Processing room: ", room.id, " (Label: ", room.label, ")")
+				# Clear room's children (e.g., Door nodes)
+				var child_count = room.get_child_count()
+				if child_count > 0:
+					print("      Clearing ", child_count, " children of room: ", room.id)
+					for child in room.get_children():
+						print("        Removing child: ", child.name, " (Type: ", child.get_class(), ")")
+						room.remove_child(child)
+						child.queue_free()
+				else:
+					print("      No children in room: ", room.id)
+				# Remove the room
+				print("    Removing room: ", room.id)
+				rooms.remove_child(room)
+				room.queue_free()
+			else:
+				print("    Removing non-room child: ", room.name)
+				rooms.remove_child(room)
+				room.queue_free()
+	else:
+		print("  Rooms node not found")
+	# Existing cleanup for holding_node
+	if holding_node:
+		print("  Clearing holding_node with ", holding_node.get_child_count(), " children")
+		for child in holding_node.get_children():
+			print("        Removing holding_node child: ", child.name)
+			child.queue_free()
+		holding_node.queue_free()
+		holding_node = null
+	print("EditorMap._exit_tree: Finished")
