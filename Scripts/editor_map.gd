@@ -308,6 +308,9 @@ func _enter_tree():
 func AddRoomToEditorMap(room):
 	print("AddRoomToEditorMap: Starting for room: ", room.id if room else "null")
 	print("  Stack: ", get_stack())
+	if not rooms or not rooms.is_inside_tree():
+		print("AddRoomToEditorMap: Aborted - Rooms node is null or not in scene tree")
+		return
 	if not room:
 		print("  Error: Room is null")
 		return
@@ -330,8 +333,8 @@ func AddRoomToEditorMap(room):
 			door.owner = get_tree().edited_scene_root
 			print("        Owner set to: ", door.owner.name if door.owner else "null")
 			if door.is_inside_tree() and door.get_parent() == room:
-				print("        Locking door: ", door.name, " in room: ", room.id)
-				#room.set_editable_instance(door, false)
+				print("        Ensuring door visibility: ", door.name, " in room: ", room.id)
+				door.visible = true # Ensure Door is visible
 			else:
 				print("Warning: Door ", door.name, " not in scene tree or wrong parent")
 		else:
@@ -344,7 +347,7 @@ func AddRoomToEditorMap(room):
 	room.SetupVisuals()
 	print("  SetupVisuals completed for room: ", room.id)
 	print("AddRoomToEditorMap: Finished for room: ", room.id)
-
+	
 func OldAddRoomToEditorMap(room):
 	print( "---***---")
 	print("AddRoomToEditorMap: Starting for room: ", room.id if room else "null")
