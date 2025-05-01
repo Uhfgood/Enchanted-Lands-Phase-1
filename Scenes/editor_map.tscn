@@ -9,20 +9,6 @@ script = ExtResource("1_k3d1g")
 
 [node name="Rooms" type="Node" parent="."]
 
-[node name="New Location" type="Node2D" parent="Rooms"]
-position = Vector2(562, 986)
-script = ExtResource("2_ga40n")
-id = "000_New_Location"
-label = "New Location"
-description = "There's nothing here yet.  Hit 0 to quit."
-door_specs = ["ch: *, dest: ***_***;", "", "", "", "", "", "", "", ""]
-
-[node name="Door_To_***" type="Node2D" parent="Rooms/New Location"]
-script = ExtResource("3_7lemb")
-choice = "*"
-destination = "***_***"
-id = "Door_To_***"
-
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
 position = Vector2(132, -112)
 script = ExtResource("2_ga40n")
