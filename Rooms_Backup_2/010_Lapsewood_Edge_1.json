@@ -1,0 +1,17 @@
+{
+    "id": "010_Lapsewood_Edge_1",
+    "label": "Lapsewood Edge 1",
+    "description": "As the Unicorn leaves Wizard U, he spots the Black Knight, and starts running.\nThe Black Knight chases the Unicorn into a forest without leaves on the trees.\nAfter a few hours, the Unicorn starts losing his memory until he no longer cares to go on.\n\nHit 1 if you wish to go to Grand Enchanted Landian Wine Cellar.\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "022_Scarborough_Faire_Chicken",
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Grand_Enchanted_Landian_Wine_Cellar",
+            "choice": "1",
+            "destination": "023_Grand_Enchanted_Landian_Wine_Cellar"
+        }
+    ]
+}

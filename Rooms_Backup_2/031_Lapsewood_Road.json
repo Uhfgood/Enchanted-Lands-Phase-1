@@ -1,0 +1,17 @@
+{
+    "id": "031_Lapsewood_Road",
+    "label": "Lapsewood Road",
+    "description": "The Black Knight, while hunting for Sir William, circumscribes Lapsewood, and comes to the road leaving the forest.\nThe Black Knight looks in the direction of the Bats-in-the-Belfry Hotel and sees a flying unicorn with a wizard atop.\n\nHit 1 if you wish to go to Dwarf Mines 2.\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "017_Nestor_Cave_1",
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Dwarf_Mines_2",
+            "choice": "1",
+            "destination": "011_Dwarf_Mines_2"
+        }
+    ]
+}

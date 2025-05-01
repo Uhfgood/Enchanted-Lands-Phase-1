@@ -1,0 +1,17 @@
+{
+    "id": "011_Dwarf_Mines_2",
+    "label": "Dwarf Mines 2",
+    "description": "Roland and John go back into the dwarf mines.\nThey use the secret door to gain entrance into the Gnome Kingdom.\n\nHit 1 if you wish to go to Castle North Terrace.\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "031_Lapsewood_Road",
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Castle_North_Terrace",
+            "choice": "1",
+            "destination": "032_Castle_North_Terrace"
+        }
+    ]
+}

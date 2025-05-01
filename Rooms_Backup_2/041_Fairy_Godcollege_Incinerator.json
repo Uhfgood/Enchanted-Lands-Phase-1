@@ -1,0 +1,17 @@
+{
+    "id": "041_Fairy_Godcollege_Incinerator",
+    "label": "Fairy Godcollege Incinerator",
+    "description": "The box travels into a room with an incinerator which the Count is barely able to make out from within the handbag.\nBefore being thrown in, The Count causes the attendant to trip, and then the Count escapes.\nThe count then leaves the incinerator room back into the hallway and hides in the shadows.\nThe Count then spots a girl going into the library, and follows her.\n\nHit 1 if you wish to go to Fairy Godcollege 5.\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "040_Fairy_Godcollege_Library",
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Fairy_Godcollege_5",
+            "choice": "1",
+            "destination": "020_Fairy_Godcollege_5"
+        }
+    ]
+}
