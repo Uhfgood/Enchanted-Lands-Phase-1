@@ -331,7 +331,9 @@ func AddRoomToEditorMap(room):
 			print("        Owner set to: ", door.owner.name if door.owner else "null")
 			if door.is_inside_tree() and door.get_parent() == room:
 				print("        Locking door: ", door.name, " in room: ", room.id)
-				door.set_editable_instance(door, false)
+				#room.set_editable_instance(door, false)
+				#door.set_locked(true)
+				door.visible = false
 			else:
 				print("Warning: Door ", door.name, " not in scene tree or wrong parent")
 		else:
@@ -372,7 +374,8 @@ func OldAddRoomToEditorMap(room):
 			print("        Owner: ", door.owner.name if door.owner else "null before setting")
 			door.owner = get_tree().edited_scene_root
 			print("        Owner set to: ", door.owner.name if door.owner else "null")
-			#door.set_editable_instance(door, false) # Lock door in editor viewport (kept commented out)
+			#room.set_editable_instance(door, false) # Lock door in editor viewport (kept commented out)
+			#door.lock_transform = true
 		else:
 			print("      Not a Door: ", door.name)
 	print("    Total doors processed: ", door_count)
@@ -473,7 +476,8 @@ func CreateDoorsFromSpecs(room):
 			room.doors.append(new_door)
 			room.add_child(new_door)
 			new_door.owner = get_tree().edited_scene_root
-			#new_door.set_editable_instance(new_door, false) # Lock door in editor viewport
+			#room.set_editable_instance(new_door, false) # Lock door in editor viewport
+			#new_door.lock_transform = true
 			print("Successfully created door: ", new_door.name)
 		else:
 			print("Failed to create door for spec: ", doorspec)
