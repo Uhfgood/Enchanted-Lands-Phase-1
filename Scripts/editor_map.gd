@@ -16,26 +16,37 @@ var removed_rooms : Array[String] = []
 var holding_node: Node = Node.new()
 
 func _on_selection_changed():
+#{
+	# Ignore selection changes during removal
 	if is_removing_room:
 		print("Ignoring selection change during room removal.")
 		return
 	
 	var editor_selection = EditorInterface.get_selection()
 	var selected_nodes = editor_selection.get_selected_nodes()
-	
+
 	if not selected_nodes.is_empty():
+	#{
 		var selected_node = selected_nodes[0]
+		# Safety check: Ensure the node is still valid
 		if is_instance_valid(selected_node):
+		#{
 			print("Selected Node: ", selected_node.name)
-			if selected_node is Room:
+			if(selected_node is Room):
 				currently_selected_room = selected_node
 			else:
-				print("Currently selected node is not a room.")
+				print( "Currently selected node is not a room." )
 				currently_selected_room = null
+			
+		#} // end if is_instance_valid
 		else:
 			print("Selected node is invalid (possibly freed).")
+			
+	#}  // end if not selected_nodes.is_empty()
 	else:
 		print("No nodes selected")
+
+#}  // end func _on_selection_changed()
 
 func get_unique_room_label( base_label : String ) -> String:
 #{
@@ -297,9 +308,6 @@ func _enter_tree():
 func AddRoomToEditorMap(room):
 	print("AddRoomToEditorMap: Starting for room: ", room.id if room else "null")
 	print("  Stack: ", get_stack())
-	if not rooms or not rooms.is_inside_tree():
-		print("AddRoomToEditorMap: Aborted - Rooms node is null or not in scene tree")
-		return
 	if not room:
 		print("  Error: Room is null")
 		return
@@ -322,8 +330,8 @@ func AddRoomToEditorMap(room):
 			door.owner = get_tree().edited_scene_root
 			print("        Owner set to: ", door.owner.name if door.owner else "null")
 			if door.is_inside_tree() and door.get_parent() == room:
-				print("        Ensuring door visibility: ", door.name, " in room: ", room.id)
-				door.visible = true # Ensure Door is visible
+				print("        Locking door: ", door.name, " in room: ", room.id)
+				#room.set_editable_instance(door, false)
 			else:
 				print("Warning: Door ", door.name, " not in scene tree or wrong parent")
 		else:
@@ -336,7 +344,7 @@ func AddRoomToEditorMap(room):
 	room.SetupVisuals()
 	print("  SetupVisuals completed for room: ", room.id)
 	print("AddRoomToEditorMap: Finished for room: ", room.id)
-	
+
 func OldAddRoomToEditorMap(room):
 	print( "---***---")
 	print("AddRoomToEditorMap: Starting for room: ", room.id if room else "null")
