@@ -366,6 +366,7 @@ func TruncateText(text: String, max_lines: int = 5, chars_per_line: int = 40) ->
 	return result
 		
 func SetupVisuals():
+#{
 	if not Engine.is_editor_hint():
 		return  # Safeguard: Only run in the editor
 
@@ -445,6 +446,10 @@ func SetupVisuals():
 	else:
 		print("Panel already exists for room: ", name)
 
+	UpdateDoorVisuals()
+	
+#} // end SetupVisuals()
+
 func resize_panel(panel: Panel, vbox: VBoxContainer, name_label: Label, desc_label: Label):
 
 	# Ensure the labels have updated their sizes
@@ -503,3 +508,67 @@ func resize_panel(panel: Panel, vbox: VBoxContainer, name_label: Label, desc_lab
 	# Center the VBoxContainer within the Panel
 	var vbox_x_offset = (total_width - text_width) / 2  # Should be (584 - 560) / 2 = 12
 	vbox.position = Vector2(vbox_x_offset + 1, padding.y / 2)
+
+func UpdateDoorVisuals():
+	# Clear the door_visuals array
+	door_visuals.clear()
+	
+	# Check for an existing HBoxContainer
+	var hbox = get_node_or_null("DoorVisualsContainer")
+	if hbox:
+		# Remove existing door visual children from the HBoxContainer
+		for child in hbox.get_children():
+			hbox.remove_child(child)
+			child.queue_free()
+		
+		# Remove the HBoxContainer if there are no doors
+		if doors.is_empty():
+			hbox.get_parent().remove_child(hbox)
+			hbox.queue_free()
+			hbox = null
+			print("Removed DoorVisualsContainer due to no doors in room: ", name)
+	
+	# Create a new HBoxContainer if needed (either no HBoxContainer or it was removed)
+	if not hbox and not doors.is_empty():
+		hbox = HBoxContainer.new()
+		hbox.name = "DoorVisualsContainer"
+		# Get the Panel's width for the HBoxContainer
+		var panel = get_node_or_null("Panel")
+		var panel_width = panel.size.x if panel else 584 # Fallback to default Panel width
+		hbox.custom_minimum_size = Vector2(panel_width, 20) # Match Panel width, match ColorRect height
+		hbox.alignment = BoxContainer.ALIGNMENT_CENTER
+		add_child(hbox)
+		hbox.owner = get_tree().edited_scene_root
+		# Lock the HBoxContainer in the editor
+		hbox.set_meta("_edit_lock_", true)
+		# Set z-index to render in front of the Panel
+		hbox.z_index = 1
+		# Position the HBoxContainer below the Panel
+		if panel:
+			hbox.position = Vector2(-panel_width / 2, panel.size.y + 10)
+		else:
+			hbox.position = Vector2(-panel_width / 2, 0)
+		# Debug positioning
+		print("Created new DoorVisualsContainer for room: ", name)
+		print("  HBoxContainer position: ", hbox.position, ", size: ", hbox.size)
+	
+	# Create new door visuals if there are doors
+	if hbox:
+		for door in doors:
+			var door_visual = ColorRect.new()
+			door_visual.name = "DoorVisual_" + door.name
+			door_visual.size = Vector2(20, 20)
+			door_visual.custom_minimum_size = Vector2(20, 20) # Ensure minimum size
+			door_visual.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+			door_visual.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+			door_visual.color = Color(1, 0, 0) # Red for visibility
+			door_visual.visible = true
+			hbox.add_child(door_visual)
+			door_visual.owner = get_tree().edited_scene_root
+			door_visual.queue_redraw() # Force redraw
+			door_visuals.append(door_visual)
+			# Debug door visual
+			print("  Added door visual for door: ", door.name, " in room: ", name)
+			print("    DoorVisual position: ", door_visual.position, ", size: ", door_visual.size)
+		# Force the HBoxContainer to update its layout
+		hbox.queue_redraw()

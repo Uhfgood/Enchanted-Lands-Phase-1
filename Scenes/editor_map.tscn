@@ -33,8 +33,24 @@ choice = "1"
 destination = "001_Enchanted_Lands_1"
 id = "Door_To_Enchanted_Lands_1"
 
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Enchanted Lands"]
+z_index = 1
+custom_minimum_size = Vector2(584, 20)
+offset_left = -292.0
+offset_top = 274.0
+offset_right = 292.0
+offset_bottom = 294.0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Enchanted_Lands_1" type="ColorRect" parent="Rooms/Enchanted Lands/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0, 0, 1)
+
 [node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
-position = Vector2(654, 235)
 script = ExtResource("2_ga40n")
 id = "001_Enchanted_Lands_1"
 label = "Enchanted Lands 1"
@@ -57,8 +73,25 @@ choice = "1"
 destination = "002_Hubert_Home"
 id = "Door_To_Hubert_Home"
 
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Enchanted Lands 1"]
+z_index = 1
+custom_minimum_size = Vector2(584, 20)
+offset_left = -292.0
+offset_top = 274.0
+offset_right = 292.0
+offset_bottom = 294.0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Hubert_Home" type="ColorRect" parent="Rooms/Enchanted Lands 1/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0, 0, 1)
+
 [node name="Hubert Home" type="Node2D" parent="Rooms"]
-position = Vector2(-730, -144)
+position = Vector2(-636, -128)
 script = ExtResource("2_ga40n")
 id = "002_Hubert_Home"
 label = "Hubert Home"
@@ -79,3 +112,20 @@ script = ExtResource("3_7lemb")
 choice = "1"
 destination = "003_Cerulea"
 id = "Door_To_Cerulea"
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home"]
+z_index = 1
+custom_minimum_size = Vector2(584, 20)
+offset_left = -292.0
+offset_top = 274.0
+offset_right = 292.0
+offset_bottom = 294.0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Cerulea" type="ColorRect" parent="Rooms/Hubert Home/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0, 0, 1)
