@@ -18,6 +18,8 @@ func _set_door_specs( doorspecs : Array ):
 	
 var doors : Array = []
 
+var door_visuals : Array = []
+
 var original_id : String = "XXX"
 
 
@@ -25,16 +27,20 @@ func _enter_tree():
 	if Engine.is_editor_hint():
 		print("Room._enter_tree: Initializing room: ", id, " (Label: ", label, ")")
 		print("  Is inside tree: ", is_inside_tree())
-		print("  Parent: ", get_parent().name if get_parent() else "null")
-		print("  Owner: ", owner.name if owner else "null")
+		var parent = get_parent()
+		print("  Parent: ", parent.name if parent else "null")
+		var the_owner = get_owner()
+		print("  Owner: ", the_owner.name if the_owner else "null")
 		print("  Stack: ", get_stack())
 
 func _ready():
 	if Engine.is_editor_hint():
 		print("Room._ready: Initializing room: ", id, " (Label: ", label, ")")
 		print("  Is inside tree: ", is_inside_tree())
-		print("  Parent: ", get_parent().name if get_parent() else "null")
-		print("  Owner: ", owner.name if owner else "null")
+		var parent = get_parent()
+		print("  Parent: ", parent.name if parent else "null")
+		var the_owner = get_owner()
+		print("  Owner: ", the_owner.name if the_owner else "null")
 		var door_names = []
 		for door in get_children():
 			if door is Door:

@@ -10,7 +10,6 @@ script = ExtResource("1_k3d1g")
 [node name="Rooms" type="Node" parent="."]
 
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
-position = Vector2(267.857, 118.844)
 script = ExtResource("2_ga40n")
 id = "001_Enchanted_Lands"
 label = "Enchanted Lands"
@@ -28,20 +27,14 @@ inbound_rooms = ["000", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 001_Enchanted_Lands_1;", "", "", "", "", "", "", "", ""]
 
 [node name="Door_To_Enchanted_Lands_1" type="Node2D" parent="Rooms/Enchanted Lands"]
+visible = false
 script = ExtResource("3_7lemb")
 choice = "1"
 destination = "001_Enchanted_Lands_1"
 id = "Door_To_Enchanted_Lands_1"
 
-[node name="DoorVisual" type="ColorRect" parent="Rooms/Enchanted Lands/Door_To_Enchanted_Lands_1"]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-color = Color(1, 0, 0, 1)
-
 [node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
-position = Vector2(-298, 362)
+position = Vector2(654, 235)
 script = ExtResource("2_ga40n")
 id = "001_Enchanted_Lands_1"
 label = "Enchanted Lands 1"
@@ -58,21 +51,14 @@ inbound_rooms = ["001_Enchanted_Lands", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home;", "", "", "", "", "", "", "", ""]
 
 [node name="Door_To_Hubert_Home" type="Node2D" parent="Rooms/Enchanted Lands 1"]
-position = Vector2(-54.2789, -226.957)
+visible = false
 script = ExtResource("3_7lemb")
 choice = "1"
 destination = "002_Hubert_Home"
 id = "Door_To_Hubert_Home"
 
-[node name="DoorVisual" type="ColorRect" parent="Rooms/Enchanted Lands 1/Door_To_Hubert_Home"]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-color = Color(1, 0, 0, 1)
-
 [node name="Hubert Home" type="Node2D" parent="Rooms"]
-position = Vector2(803.092, 352.102)
+position = Vector2(-730, -144)
 script = ExtResource("2_ga40n")
 id = "002_Hubert_Home"
 label = "Hubert Home"
@@ -88,14 +74,8 @@ inbound_rooms = ["001_Enchanted_Lands_1", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
 
 [node name="Door_To_Cerulea" type="Node2D" parent="Rooms/Hubert Home"]
+visible = false
 script = ExtResource("3_7lemb")
 choice = "1"
 destination = "003_Cerulea"
 id = "Door_To_Cerulea"
-
-[node name="DoorVisual" type="ColorRect" parent="Rooms/Hubert Home/Door_To_Cerulea"]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-color = Color(1, 0, 0, 1)

@@ -248,22 +248,6 @@ func _on_save_button_pressed():
 	
 #} // end func _on_save_button_pressed()
 	
-func old_ready():
-#{
-	print("***")
-	print("EDITOR MAP READY")
-	holding_node.name = "HoldingNode"
-	get_tree().root.add_child(holding_node)
-	holding_node.set_owner(null)
-	if Engine.is_editor_hint():
-	#{
-		if not has_loaded_rooms:
-			LoadAllRooms()
-			has_loaded_rooms = true
-	#}
-	
-#} // end func _ready()
-
 func _ready():
 	print("EditorMap._ready: Starting")
 	if rooms:
@@ -285,16 +269,6 @@ func _ready():
 			print("  Skipping LoadAllRooms")
 	print("EditorMap._ready: Finished")
 	
-# In a new _exit_tree() function, free all held nodes:
-func old_exit_tree():
-#{
-	if holding_node:
-		for child in holding_node.get_children():
-			child.queue_free()
-	holding_node.queue_free()
-	holding_node = null
-#}
-
 func _enter_tree():
 	print("EditorMap._enter_tree: Starting")
 	if rooms:
@@ -344,50 +318,6 @@ func AddRoomToEditorMap(room):
 	room.SetupVisuals()
 	print("  SetupVisuals completed for room: ", room.id)
 	print("AddRoomToEditorMap: Finished for room: ", room.id)
-
-func OldAddRoomToEditorMap(room):
-	print( "---***---")
-	print("AddRoomToEditorMap: Starting for room: ", room.id if room else "null")
-	if not room:
-		print("  Error: Room is null")
-		return
-	
-	print("  Adding room to 'rooms' node")
-	rooms.add_child(room)
-	print("    Room added. Parent: ", room.get_parent().name if room.get_parent() else "null")
-	
-	print("  Setting room owner to edited scene root")
-	room.owner = get_tree().edited_scene_root
-	print("    Room owner set to: ", room.owner.name if room.owner else "null")
-	
-	print("  Processing room children for doors")
-	var door_count = 0
-	for door in room.get_children():
-		print("    Child found: ", door.name, " (Type: ", door.get_class(), ")")
-		if door is Door:
-			door_count += 1
-			print("      Door detected: ", door.name, " (ID: ", door.id, ", Destination: ", door.destination, ")")
-			print("        Is inside tree: ", door.is_inside_tree())
-			print("        Parent: ", door.get_parent().name if door.get_parent() else "null")
-			print("        Owner: ", door.owner.name if door.owner else "null before setting")
-			door.owner = get_tree().edited_scene_root
-			print("        Owner set to: ", door.owner.name if door.owner else "null")
-			#room.set_editable_instance(door, false) # Lock door in editor viewport (kept commented out)
-		else:
-			print("      Not a Door: ", door.name)
-	print("    Total doors processed: ", door_count)
-	
-	print("  Setting editor_map reference")
-	room.editor_map = self
-	print("    editor_map set to: ", room.editor_map.name if room.editor_map else "null")
-	
-	print("  Calling SetupVisuals for room: ", room.id)
-	room.SetupVisuals()
-	print("  SetupVisuals completed for room: ", room.id)
-	
-	print("AddRoomToEditorMap: Finished for room: ", room.id)
-	
-	print( "---***---")
 	
 func CreateNewMetaFile( filename ):
 #{
