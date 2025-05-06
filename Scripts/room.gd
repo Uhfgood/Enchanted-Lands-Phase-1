@@ -19,6 +19,7 @@ func _set_door_specs( doorspecs : Array ):
 var doors : Array = []
 var door_visuals : Array = []
 var inbound_visuals : Array = []
+var door_lines : Array = []
 
 var original_id : String = "XXX"
 
@@ -713,3 +714,80 @@ func UpdateInboundVisuals():
 		hbox.queue_redraw()
 		
 #}  // end func UpdateInboundVisuals()
+
+func UpdateDoorLines():
+	
+	# Clear the door_lines array
+	door_lines.clear()
+	
+	#******************************
+	
+	# Check for an existing HBoxContainer
+	var hbox = get_node_or_null("DoorVisualsContainer")
+	if hbox:
+		# Remove existing door visual children from the HBoxContainer
+		for child in hbox.get_children():
+			hbox.remove_child(child)
+			child.queue_free()
+		
+		# Remove the HBoxContainer if there are no doors
+		if doors.is_empty():
+			hbox.get_parent().remove_child(hbox)
+			hbox.queue_free()
+			hbox = null
+			print("Removed DoorVisualsContainer due to no doors in room: ", name)
+	
+	# Create a new HBoxContainer if needed (either no HBoxContainer or it was removed)
+	if not hbox and not doors.is_empty():
+		hbox = HBoxContainer.new()
+		hbox.name = "DoorVisualsContainer"
+		# Get the Panel's width for the HBoxContainer
+		var panel = get_node_or_null("Panel")
+		var panel_width = panel.size.x if panel else 584 # Fallback to default Panel width
+		hbox.custom_minimum_size = Vector2(panel_width, 20) # Match Panel width, match ColorRect height
+		hbox.alignment = BoxContainer.ALIGNMENT_CENTER
+
+		# Set the separation to spread the ColorRect nodes across the Panel's width with margins
+		var margin = 40 # Pixels on each side
+		var total_width = panel_width - 2 * margin # Available width after margins
+		var node_width = doors.size() * 20 # Total width of ColorRect nodes
+		var gaps = doors.size() - 1 # Number of gaps between nodes
+		var separation = (total_width - node_width) / gaps if gaps > 0 else 0
+		hbox.add_theme_constant_override("separation", separation)		
+		
+		add_child(hbox)
+		hbox.owner = get_tree().edited_scene_root
+		# Lock the HBoxContainer in the editor
+		hbox.set_meta("_edit_lock_", true)
+		# Set z-index to render in front of the Panel
+		hbox.z_index = 1
+		# Position the HBoxContainer so the middle of the ColorRect aligns with the Panel's bottom
+		if panel:
+			var separator_y = panel.position.y  # This is -separator_y from SetupVisuals()
+			hbox.position = Vector2(-panel_width / 2, panel.size.y + separator_y - 10) # Align ColorRect center with Panel bottom
+		else:
+			hbox.position = Vector2(-panel_width / 2, 0)
+		# Debug positioning
+		print("Created new DoorVisualsContainer for room: ", name)
+		print("  HBoxContainer position: ", hbox.position, ", size: ", hbox.size)
+	
+	# Create new door visuals if there are doors
+	if hbox:
+		for door in doors:
+			var door_visual = ColorRect.new()
+			door_visual.name = "DoorVisual_" + door.name
+			door_visual.size = Vector2(20, 20)
+			door_visual.custom_minimum_size = Vector2(20, 20) # Ensure minimum size
+			door_visual.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+			door_visual.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+			door_visual.color = door.color #Color(1, 0, 0) # Red for visibility
+			door_visual.visible = true
+			hbox.add_child(door_visual)
+			door_visual.owner = get_tree().edited_scene_root
+			door_visual.queue_redraw() # Force redraw
+			door_visuals.append(door_visual)
+			# Debug door visual
+			print("  Added door visual for door: ", door.name, " in room: ", name)
+			print("    DoorVisual position: ", door_visual.position, ", size: ", door_visual.size)
+		# Force the HBoxContainer to update its layout
+		hbox.queue_redraw()
