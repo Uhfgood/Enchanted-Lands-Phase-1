@@ -9,7 +9,7 @@ var has_loaded_rooms: bool = false
 var currently_selected_room = null
 
 const ROOMS_DIR = "res://Rooms/"
-
+var rooms_dict = {}
 var removed_rooms : Array[String] = []
 
 # At the top of editor_map.gd, add:
@@ -89,6 +89,16 @@ func _on_add_room_button_pressed():
 	print( "---" )
 
 #}  // end _on_add_room_button_pressed():
+
+# create a dictionary so I can rebuild inbound list later
+func BuildRoomsDictionary():
+	
+	print( "[[[ BuildRoomsDictionary ]]]")
+	for room in rooms.get_children():
+		rooms_dict[ room.id ] = room 
+		print( "  " + rooms_dict[ room.id ].id )
+	
+	print( "[[[ Size of rooms_dict: " + str( rooms_dict.size() ) + " ]]]" )
 	
 func _on_remove_room_button_pressed():
 #{
@@ -158,11 +168,27 @@ func _on_remove_room_button_pressed():
 	is_removing_room = false
 	print("Removal process completed.")
 	
+	# Update inbound links and visuals for remaining rooms
+	for room in rooms.get_children():
+		AssignInboundRooms(room)
+		room.UpdateInboundVisuals()
+	
 #} // end func _on_remove_room_button_pressed
 	
 func _on_save_button_pressed():
 #{
 	print("Editor map saving room metadata!")  # Your save code goes here
+
+	BuildRoomsDictionary()
+
+	# wanted to create all the doors before assinging inbounds
+	for room in rooms.get_children():
+		CreateDoorsFromSpecs( room )
+
+	# assign inbounds before saving any rooms
+	for room in rooms.get_children():
+		AssignInboundRooms( room )
+
 	for room in rooms.get_children():
 	#{
 		var filename = room.id + ".meta"
@@ -181,7 +207,6 @@ func _on_save_button_pressed():
 			
 		filename = room.id + ".json"
 		print( "save room" )
-		CreateDoorsFromSpecs( room )
 		SaveRoomDataForRoom( room, filename )	
 		
 		print( "Current id = " + room.id + ", Original id = " + room.original_id )
@@ -201,7 +226,7 @@ func _on_save_button_pressed():
 			print( "id's are the same, so no need to delete anything.")
 
 		print( "-----" )
-				
+		
 	#} // end for
 
 	# Reselect the node after saving
@@ -356,8 +381,8 @@ func SaveMetadataForRoom( room, filename ):
 		
 #} // end func SaveMetadataForRoom()
 
-func CreateDoorsFromSpecs(room):
-	print( "***///--- Running CreateDoorsFromSpecs()" )
+func CreateDoorsFromSpecs( room ):
+	print( "--- Running CreateDoorsFromSpecs()" )
 	var doors = room.doors.duplicate()
 	room.doors.clear()
 	for door in doors:
@@ -372,6 +397,7 @@ func CreateDoorsFromSpecs(room):
 	var dest_str = "***_***"
 	
 	print("***\n")
+	var hue = 0.0
 	for doorspec in room.door_specs:
 		if doorspec == "":
 			continue
@@ -382,6 +408,7 @@ func CreateDoorsFromSpecs(room):
 		
 		var i = 0
 		var dlen = doorspec.length()
+		
 		if doorspec.begins_with("ch: "):
 			i = 4
 			choice_str = ""
@@ -398,7 +425,13 @@ func CreateDoorsFromSpecs(room):
 					
 		id_str = "Door_To_" + dest_str.substr(4)
 		print("*//* id: " + id_str + ", choice: " + choice_str + ", dest: " + dest_str)
-		var new_door = Door.create(id_str, choice_str, dest_str, id_str)
+		
+		print( "ccc" )
+		var color = Color.from_hsv( hue, 0.8, 1.0 )
+		hue += 1.0 / 9
+		print( "Color = ", color )
+		print( "ccc" )
+		var new_door = Door.create( id_str, choice_str, dest_str, id_str, color )
 		if new_door:
 			room.doors.append(new_door)
 			room.add_child(new_door)
@@ -424,9 +457,35 @@ func CreateDoorsFromSpecs(room):
 	room.emit_signal("property_list_changed")
 	print("\n***")
 
+func AssignInboundRooms(room):
+	print("---")
+	print("AssignInboundRooms for ", room.id)
+
+	# Clear the inbound_rooms array to remove stale links
+	for i in range(room.inbound_rooms.size()):
+		room.inbound_rooms[i] = ""
+
+	# Rebuild inbound_rooms by checking all rooms' doors
+	var inbound_index = 0
+	for source_room in rooms_dict.values():
+		if source_room == room:  # Skip the room itself
+			continue
+		for door in source_room.doors:
+			if door.destination == room.id:
+				if inbound_index < room.inbound_rooms.size():
+					print("  Adding inbound link from ", source_room.id)
+					room.inbound_rooms[inbound_index] = source_room.id
+					inbound_index += 1
+				else:
+					print("  Warning: Too many inbound links for ", room.id)
+					break
+
+	if inbound_index == 0:
+		print("  No inbound links found for ", room.id)
+		
 func SaveRoomDataForRoom(room, filename: String):
 #{
-	print("*Save Room Data*")
+	print("*Save Room Data*")	
 	var jsonpath = ROOMS_DIR + filename
 	print("Saving room data to: ", jsonpath)
 	var file = FileAccess.open(jsonpath, FileAccess.WRITE)
@@ -444,6 +503,7 @@ func SaveRoomDataForRoom(room, filename: String):
 		var in_strings = []
 		var in_count = 0
 		for inbound in room.inbound_rooms:
+			print( "  inbound = ", inbound )
 			if( inbound != "" ):
 				var in_data = ''
 				in_data += '        ' + JSON.stringify(inbound) + ',\n'
@@ -484,6 +544,10 @@ func SaveRoomDataForRoom(room, filename: String):
 		json_str += "}"
 		file.store_string(json_str)
 		file.close()
+		
+		room.UpdateDoorVisuals()
+		room.UpdateInboundVisuals()
+		
 		print("Room data saved for: ", filename)
 	else:
 		print("Couldn't open file for writing: ", jsonpath)
@@ -509,7 +573,11 @@ func LoadMetadataForRoom( room, filename ):
 #} // end func LoadMetadataForRoom()
 
 func LoadAllRooms():
+#{
 	print("Running load_all_rooms")
+	
+	rooms_dict.clear()
+	
 	for child in rooms.get_children():
 		rooms.remove_child( child )
 		child.queue_free()
@@ -532,14 +600,22 @@ func LoadAllRooms():
 				var json_name = filename.replace(".json", "")
 				var room = Room.CreateFromJSON(json_name)
 				if room:
+				#{
+					rooms_dict[ room.id ] = room
+					
 					AddRoomToEditorMap( room )
 					LoadMetadataForRoom( room, filename )
+				#}
 					
 				if filename.begins_with("002"):
 					break
-
+					
+		for room in rooms.get_children():
+			room.UpdateInboundVisuals()
+	
 	print( "***" )
 	
+#}  // end LoadAllRooms()	
 func _process(_delta):
 #{
 	if Engine.is_editor_hint():  # Ensure it only runs in editor

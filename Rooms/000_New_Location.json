@@ -1,0 +1,56 @@
+{
+    "id": "000_New_Location",
+    "label": "New Location",
+    "description": "Testing the doors.\n",
+    "inbound":
+    [
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Door1",
+            "choice": "1",
+            "destination": "000_Door1"
+        },
+        {
+            "id": "Door_To_Door2",
+            "choice": "2",
+            "destination": "000_Door2"
+        },
+        {
+            "id": "Door_To_Door3",
+            "choice": "3",
+            "destination": "000_Door3"
+        },
+        {
+            "id": "Door_To_Door4",
+            "choice": "4",
+            "destination": "000_Door4"
+        },
+        {
+            "id": "Door_To_Door5",
+            "choice": "5",
+            "destination": "000_Door5"
+        },
+        {
+            "id": "Door_To_Door6",
+            "choice": "6",
+            "destination": "000_Door6"
+        },
+        {
+            "id": "Door_To_Door7",
+            "choice": "7",
+            "destination": "000_Door7"
+        },
+        {
+            "id": "Door_To_Door8",
+            "choice": "8",
+            "destination": "000_Door8"
+        },
+        {
+            "id": "Door_To_Door9",
+            "choice": "9",
+            "destination": "000_Door9"
+        }
+    ]
+}

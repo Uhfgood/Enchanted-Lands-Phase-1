@@ -1,0 +1,12 @@
+{
+    "id": "000_Door7",
+    "label": "Door7",
+    "description": "There's nothing here yet.  Hit 0 to quit.",
+    "inbound":
+    [
+        "000_New_Location",
+    ],
+    "doors":
+    [
+    ]
+}

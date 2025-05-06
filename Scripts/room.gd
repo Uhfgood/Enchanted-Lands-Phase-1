@@ -17,11 +17,10 @@ func _set_door_specs( doorspecs : Array ):
 	#	emit_signal("property_list_changed")  # Notify the editor to refresh the Inspector
 	
 var doors : Array = []
-
 var door_visuals : Array = []
+var inbound_visuals : Array = []
 
 var original_id : String = "XXX"
-
 
 func _enter_tree():
 	if Engine.is_editor_hint():
@@ -167,15 +166,12 @@ func LoadDataFromJSON( json_name : String ) -> bool:
 		
 	#}  // end if "inbound" in json_data
 	
-	#if( "parent" in json_data ):
-	#{	
-	#	self.origin = json_data[ "parent" ]
-	#}
-	
 	self.label = json_data[ "label" ]
 	self.name = self.label
 	self.description = json_data[ "description" ]
 	print( "Creating " + self.name + " from JSON data." )
+	
+	var hue = 0.0
 	
 	# create and attach door nodes
 	if "doors" in json_data:
@@ -188,7 +184,14 @@ func LoadDataFromJSON( json_name : String ) -> bool:
 			var dest = door_data[ "destination" ]
 			var door_name = "Door_To_" + dest.substr( 4 )
 			print( "Creating " + door_name + " from JSON data." )
-			var new_door = Door.create( door_id, choice, dest, door_name )
+
+			print( "ccc" )
+			var color = Color.from_hsv( hue, 0.8, 1.0 )
+			hue += 1.0 / 9
+			print( "Color = ", color )
+			print( "ccc" )
+			
+			var new_door = Door.create( door_id, choice, dest, door_name, color )
 			if new_door:
 			#{
 				doors.append( new_door )
@@ -537,15 +540,25 @@ func UpdateDoorVisuals():
 		var panel_width = panel.size.x if panel else 584 # Fallback to default Panel width
 		hbox.custom_minimum_size = Vector2(panel_width, 20) # Match Panel width, match ColorRect height
 		hbox.alignment = BoxContainer.ALIGNMENT_CENTER
+
+		# Set the separation to spread the ColorRect nodes across the Panel's width with margins
+		var margin = 40 # Pixels on each side
+		var total_width = panel_width - 2 * margin # Available width after margins
+		var node_width = doors.size() * 20 # Total width of ColorRect nodes
+		var gaps = doors.size() - 1 # Number of gaps between nodes
+		var separation = (total_width - node_width) / gaps if gaps > 0 else 0
+		hbox.add_theme_constant_override("separation", separation)		
+		
 		add_child(hbox)
 		hbox.owner = get_tree().edited_scene_root
 		# Lock the HBoxContainer in the editor
 		hbox.set_meta("_edit_lock_", true)
 		# Set z-index to render in front of the Panel
 		hbox.z_index = 1
-		# Position the HBoxContainer below the Panel
+		# Position the HBoxContainer so the middle of the ColorRect aligns with the Panel's bottom
 		if panel:
-			hbox.position = Vector2(-panel_width / 2, panel.size.y + 10)
+			var separator_y = panel.position.y  # This is -separator_y from SetupVisuals()
+			hbox.position = Vector2(-panel_width / 2, panel.size.y + separator_y - 10) # Align ColorRect center with Panel bottom
 		else:
 			hbox.position = Vector2(-panel_width / 2, 0)
 		# Debug positioning
@@ -561,7 +574,7 @@ func UpdateDoorVisuals():
 			door_visual.custom_minimum_size = Vector2(20, 20) # Ensure minimum size
 			door_visual.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 			door_visual.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-			door_visual.color = Color(1, 0, 0) # Red for visibility
+			door_visual.color = door.color #Color(1, 0, 0) # Red for visibility
 			door_visual.visible = true
 			hbox.add_child(door_visual)
 			door_visual.owner = get_tree().edited_scene_root
@@ -572,3 +585,131 @@ func UpdateDoorVisuals():
 			print("    DoorVisual position: ", door_visual.position, ", size: ", door_visual.size)
 		# Force the HBoxContainer to update its layout
 		hbox.queue_redraw()
+
+func UpdateInboundVisuals():
+#{
+	# Clear the door_visuals array
+	inbound_visuals.clear()
+	
+	# check to see if the array is empty
+	var inbound_is_empty = true;
+	var inbound_count = 0;
+	for i in range( 9 ):
+	#{
+		if( inbound_rooms[ i ] != "" ):
+			inbound_count += 1
+	#}		
+	if( inbound_count > 0 ):
+		inbound_is_empty = false;
+
+	# Check for an existing HBoxContainer
+	var hbox = get_node_or_null("InboundVisualsContainer")
+	if( hbox ):
+	#{
+		# Remove existing door visual children from the HBoxContainer
+		for child in hbox.get_children():
+			hbox.remove_child(child)
+			child.queue_free()
+					
+		# Remove the HBoxContainer if there are no doors
+		if( inbound_is_empty ):
+		#{
+			hbox.get_parent().remove_child(hbox)
+			hbox.queue_free()
+			hbox = null
+			print("Removed InboundVisualsContainer due to no inbound links in room: ", name)
+		
+		#}  // end if inbound_is_empty
+		
+	#}  // end if hbox
+	
+	# Create a new HBoxContainer if needed (either no HBoxContainer or it was removed)
+	if not hbox and not inbound_is_empty:
+	#{
+		hbox = HBoxContainer.new()
+		hbox.name = "InboundVisualsContainer"
+		# Get the Panel's width for the HBoxContainer
+		var panel = get_node_or_null("Panel")
+		var panel_width = panel.size.x if panel else 584 # Fallback to default Panel width
+		hbox.custom_minimum_size = Vector2(panel_width, 20) # Match Panel width, match ColorRect height
+		hbox.alignment = BoxContainer.ALIGNMENT_CENTER
+
+		# Set the separation to spread the ColorRect nodes across the Panel's width with margins
+		var margin = 40 # Pixels on each side
+		var total_width = panel_width - 2 * margin # Available width after margins
+		var node_width = doors.size() * 20 # Total width of ColorRect nodes
+		var gaps = doors.size() - 1 # Number of gaps between nodes
+		var separation = (total_width - node_width) / gaps if gaps > 0 else 0
+		hbox.add_theme_constant_override("separation", separation)		
+		
+		add_child(hbox)
+		hbox.owner = get_tree().edited_scene_root
+		# Lock the HBoxContainer in the editor
+		hbox.set_meta("_edit_lock_", true)
+		# Set z-index to render in front of the Panel
+		hbox.z_index = 1
+		# Position the HBoxContainer so the middle of the ColorRect aligns with the Panel's bottom
+		if panel:
+			var separator_y = panel.position.y  # This is -separator_y from SetupVisuals()
+			hbox.position = Vector2(-panel_width / 2, separator_y - 20) # Align ColorRect center with Panel bottom
+		else:
+			hbox.position = Vector2(-panel_width / 2, 0)
+		
+		# Debug positioning
+		print("Created new InboundVisualsContainer for room: ", name)
+		print("  HBoxContainer position: ", hbox.position, ", size: ", hbox.size)
+		
+	#}  // end if not hbox
+	
+	# Create new inbound visuals if there are inbound links
+	if( hbox ):
+		for inbound in inbound_rooms:
+			if( inbound == "" ):
+				continue
+			
+			var color = Color.GRAY
+			
+			var inbound_room = null
+			
+			# Debug print rooms_dict contents
+			if editor_map:
+				print("***---*** Contents of rooms_dict: ***---***")
+				for room_id in editor_map.rooms_dict:
+					var room = editor_map.rooms_dict[room_id]
+					print("  Key: ", room_id, ", Room: ", room.name if room else "null")
+			else:
+				print("Error: editor_map is null in UpdateInboundVisuals")
+				
+			if( editor_map.rooms_dict.has( inbound ) ):
+			#{
+				print( "Rooms dictionary has " + inbound )
+				inbound_room = editor_map.rooms_dict[ inbound ]
+				for inbound_door in inbound_room.doors:
+				#{
+					if( inbound_door.destination == id ):
+						print( "inbound door found" )
+						color = inbound_door.color
+						print( color )
+				#}
+			#}
+			
+			var inbound_visual = ColorRect.new()
+			inbound_visual.name = "InboundVisual_" + inbound
+			inbound_visual.size = Vector2( 20, 20 )
+			inbound_visual.custom_minimum_size = Vector2( 20, 20 ) # Ensure minimum size
+			inbound_visual.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+			inbound_visual.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+			print( "Setting inbound visual to : ", color )
+			inbound_visual.color = color #Color(1, 0, 0) # Red for visibility
+			inbound_visual.visible = true
+			hbox.add_child( inbound_visual )
+			inbound_visual.owner = get_tree().edited_scene_root
+			inbound_visual.queue_redraw() # Force redraw
+			inbound_visuals.append( inbound_visual )
+			# Debug inbound visual
+			print("  Added inbound visual for inbound room: ", inbound, " in room: ", name)
+			print("    DoorVisual position: ", inbound_visual.position, ", size: ", inbound_visual.size)
+		# Force the HBoxContainer to update its layout
+		hbox.queue_redraw()
+		
+#}  // end func UpdateInboundVisuals()
