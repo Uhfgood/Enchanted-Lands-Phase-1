@@ -172,6 +172,7 @@ func _on_remove_room_button_pressed():
 	for room in rooms.get_children():
 		AssignInboundRooms(room)
 		room.UpdateInboundVisuals()
+		room.UpdateDoorLines()
 	
 #} // end func _on_remove_room_button_pressed
 	
@@ -330,12 +331,17 @@ func AddRoomToEditorMap(room):
 			print("        Owner set to: ", door.owner.name if door.owner else "null")
 			if door.is_inside_tree() and door.get_parent() == room:
 				print("        Locking door: ", door.name, " in room: ", room.id)
-				#room.set_editable_instance(door, false)
 			else:
 				print("Warning: Door ", door.name, " not in scene tree or wrong parent")
 		else:
 			print("      Not a Door: ", door.name)
 	print("    Total doors processed: ", door_count)
+	# Rebuild the doors array from children
+	room.doors.clear()
+	for child in room.get_children():
+		if child is Door:
+			room.doors.append(child)
+	print("    Doors array rebuilt: ", room.doors.size(), " doors")
 	print("  Setting editor_map reference")
 	room.editor_map = self
 	print("    editor_map set to: ", room.editor_map.name if room.editor_map else "null")
@@ -547,6 +553,7 @@ func SaveRoomDataForRoom(room, filename: String):
 		
 		room.UpdateDoorVisuals()
 		room.UpdateInboundVisuals()
+		room.UpdateDoorLines()
 		
 		print("Room data saved for: ", filename)
 	else:
@@ -572,56 +579,125 @@ func LoadMetadataForRoom( room, filename ):
 		
 #} // end func LoadMetadataForRoom()
 
-func LoadAllRooms():
-#{
+func _visit_room(room: Node, sorted_rooms: Array, visited: Dictionary, temp_visited: Dictionary) -> void:
+	if room.id in temp_visited:
+		print("Warning: Cycle detected involving room ", room.id)
+		return
+	if room.id in visited:
+		return
+	temp_visited[room.id] = true
+	print("Visiting room: ", room.id)
+	# Visit all rooms that depend on this room (via inbound_rooms)
+	for inbound_id in room.inbound_rooms:
+		if inbound_id != "" and rooms_dict.has(inbound_id):
+			var source_room = rooms_dict[inbound_id]
+			print("  Source room that depends on this: ", source_room.id)
+			_visit_room(source_room, sorted_rooms, visited, temp_visited)
+	temp_visited.erase(room.id)
+	visited[room.id] = true
+	sorted_rooms.push_front(room)
+	print("Added to sorted list: ", room.id)
+	
+func topological_sort_rooms() -> Array:
+	var sorted_rooms = []
+	var visited = {}
+	var temp_visited = {}
+
+	for room in rooms.get_children():
+		if not (room.id in visited):
+			_visit_room(room, sorted_rooms, visited, temp_visited)
+	print("Sorted rooms order: ", sorted_rooms.map(func(r): return r.id))
+	return sorted_rooms
+	
+func OldLoadAllRooms():
 	print("Running load_all_rooms")
 	
 	rooms_dict.clear()
 	
 	for child in rooms.get_children():
-		rooms.remove_child( child )
+		rooms.remove_child(child)
 		child.queue_free()
 
 	# Step 1: Load all rooms into a dictionary
 	var filelist = []
 	var filename = ""
-
-	# Load .json files
-	filelist = []
-	filename = ""
 	var json_dir = DirAccess.open("res://Rooms/")
 	if json_dir:
 		filelist = json_dir.get_files()
 		for item in filelist:
 			filename = item
-			if filename.ends_with( ".json" ):
+			if filename.ends_with(".json"):
 				print("---")
-				print( "Next json in file list: ", item )
+				print("Next json in file list: ", item)
 				var json_name = filename.replace(".json", "")
 				var room = Room.CreateFromJSON(json_name)
 				if room:
-				#{
-					rooms_dict[ room.id ] = room
-					
-					AddRoomToEditorMap( room )
-					LoadMetadataForRoom( room, filename )
-				#}
-					
+					rooms_dict[room.id] = room
+					AddRoomToEditorMap(room)
+					LoadMetadataForRoom(room, filename)
 				if filename.begins_with("002"):
 					break
-					
-		for room in rooms.get_children():
-			room.UpdateInboundVisuals()
-	
-	print( "***" )
-	
-#}  // end LoadAllRooms()	
-func _process(_delta):
-#{
-	if Engine.is_editor_hint():  # Ensure it only runs in editor
-		pass
 
-#} // end _process()
+	# Step 2: Assign inbound rooms for all rooms
+	for room in rooms.get_children():
+		AssignInboundRooms(room)
+
+	# Step 3: Update visuals for all rooms in dependency order
+	var sorted_rooms = topological_sort_rooms()
+	for room in sorted_rooms:
+		room.UpdateDoorVisuals()
+		room.UpdateInboundVisuals()
+		room.UpdateDoorLines()
+	
+	print("***")
+
+func LoadAllRooms():
+	print("Running load_all_rooms")
+	
+	rooms_dict.clear()
+	
+	for child in rooms.get_children():
+		rooms.remove_child(child)
+		child.queue_free()
+
+	# Step 1: Load all rooms into a dictionary
+	var filelist = []
+	var filename = ""
+	var json_dir = DirAccess.open("res://Rooms/")
+	if json_dir:
+		filelist = json_dir.get_files()
+		for item in filelist:
+			filename = item
+			if filename.ends_with(".json"):
+				print("---")
+				print("Next json in file list: ", item)
+				var json_name = filename.replace(".json", "")
+				var room = Room.CreateFromJSON(json_name)
+				if room:
+					rooms_dict[room.id] = room
+					AddRoomToEditorMap(room)
+					LoadMetadataForRoom(room, filename)
+				if filename.begins_with("002"):
+					break
+
+	# Step 2: Assign inbound rooms for all rooms
+	for room in rooms.get_children():
+		AssignInboundRooms(room)
+
+	# Step 3: Update visuals for all rooms in dependency order
+	var sorted_rooms = topological_sort_rooms()
+	for room in sorted_rooms:
+		room.UpdateDoorVisuals()
+		room.UpdateInboundVisuals()
+		room.UpdateDoorLines()
+
+	# Step 4: Initialize previous positions
+	previous_positions.clear()
+	for room in rooms.get_children():
+		if room is Room:
+			previous_positions[room.id] = room.position
+	
+	print("***")
 
 func _exit_tree():
 	print("EditorMap._exit_tree: Cleaning up")
@@ -660,3 +736,31 @@ func _exit_tree():
 		holding_node.queue_free()
 		holding_node = null
 	print("EditorMap._exit_tree: Finished")
+	
+	# Dictionary to store previous positions of rooms
+var previous_positions: Dictionary = {}
+
+func update_lines_for_room_and_dependents(room: Node) -> void:
+	# Update lines for this room (outbound lines)
+	room.UpdateDoorLines()
+	
+	# Update lines for all rooms that have this room as a destination (inbound lines)
+	for other_room in rooms.get_children():
+		if other_room != room and other_room is Room:
+			for door in other_room.doors:
+				if door.destination == room.id:
+					other_room.UpdateDoorLines()
+					break
+					
+func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		for room in rooms.get_children():
+			if room is Room:
+				var current_pos = room.position
+				var room_id = room.id
+				if previous_positions.has(room_id):
+					if previous_positions[room_id] != current_pos:
+						print("Position changed for room: ", room_id, " from ", previous_positions[room_id], " to ", current_pos)
+						# Update lines for this room and all rooms that link to it
+						update_lines_for_room_and_dependents(room)
+				previous_positions[room_id] = current_pos

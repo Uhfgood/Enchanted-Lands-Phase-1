@@ -114,7 +114,7 @@ size_flags_vertical = 4
 color = Color(0.2, 1, 0.2, 1)
 
 [node name="Door5" type="Node2D" parent="Rooms"]
-position = Vector2(-200, 1374)
+position = Vector2(-224, 1743)
 script = ExtResource("2_ga40n")
 id = "000_Door5"
 label = "Door5"
@@ -140,7 +140,7 @@ size_flags_vertical = 4
 color = Color(0.2, 1, 0.733333, 1)
 
 [node name="Door6" type="Node2D" parent="Rooms"]
-position = Vector2(422, 1375)
+position = Vector2(610, 1786)
 script = ExtResource("2_ga40n")
 id = "000_Door6"
 label = "Door6"
@@ -217,8 +217,34 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(0.733334, 0.2, 1, 1)
 
+[node name="Door9" type="Node2D" parent="Rooms"]
+position = Vector2(2289, 1376)
+script = ExtResource("2_ga40n")
+id = "000_Door9"
+label = "Door9"
+description = "There's nothing here yet.  Hit 0 to quit."
+inbound_rooms = ["000_New_Location", "", "", "", "", "", "", "", ""]
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Door9"]
+z_index = 1
+custom_minimum_size = Vector2(584, 20)
+offset_left = -292.0
+offset_top = -64.0
+offset_right = 292.0
+offset_bottom = -44.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_000_New_Location" type="ColorRect" parent="Rooms/Door9/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.733333, 1)
+
 [node name="New Location" type="Node2D" parent="Rooms"]
-position = Vector2(-156, 666)
+position = Vector2(42, 497)
 script = ExtResource("2_ga40n")
 id = "000_New_Location"
 label = "New Location"
@@ -372,8 +398,53 @@ destination = "000_Door9"
 id = "Door_To_Door9"
 color = Color(1, 0.2, 0.733333, 1)
 
+[node name="@Line2D@60339" type="Line2D" parent="Rooms/New Location"]
+points = PackedVector2Array(-242, 230, -2678, 811)
+width = 2.0
+default_color = Color(1, 0.2, 0.2, 1)
+
+[node name="@Line2D@60340" type="Line2D" parent="Rooms/New Location"]
+points = PackedVector2Array(-181.5, 230, -2065, 812)
+width = 2.0
+default_color = Color(1, 0.733333, 0.2, 1)
+
+[node name="@Line2D@60341" type="Line2D" parent="Rooms/New Location"]
+points = PackedVector2Array(-121, 230, -1458, 813)
+width = 2.0
+default_color = Color(0.733333, 1, 0.2, 1)
+
+[node name="@Line2D@60342" type="Line2D" parent="Rooms/New Location"]
+points = PackedVector2Array(-60.5, 230, -851, 813)
+width = 2.0
+default_color = Color(0.2, 1, 0.2, 1)
+
+[node name="@Line2D@60343" type="Line2D" parent="Rooms/New Location"]
+points = PackedVector2Array(0, 230, -266, 1182)
+width = 2.0
+default_color = Color(0.2, 1, 0.733333, 1)
+
+[node name="@Line2D@60344" type="Line2D" parent="Rooms/New Location"]
+points = PackedVector2Array(60.5, 230, 568, 1225)
+width = 2.0
+default_color = Color(0.2, 0.733333, 1, 1)
+
+[node name="@Line2D@60345" type="Line2D" parent="Rooms/New Location"]
+points = PackedVector2Array(121, 230, 1005, 816)
+width = 2.0
+default_color = Color(0.2, 0.2, 1, 1)
+
+[node name="@Line2D@60346" type="Line2D" parent="Rooms/New Location"]
+points = PackedVector2Array(181.5, 230, 1627, 814)
+width = 2.0
+default_color = Color(0.733334, 0.2, 1, 1)
+
+[node name="@Line2D@60347" type="Line2D" parent="Rooms/New Location"]
+points = PackedVector2Array(242, 230, 2247, 815)
+width = 2.0
+default_color = Color(1, 0.2, 0.733333, 1)
+
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
-position = Vector2(-1116, 453)
+position = Vector2(-748, -1116)
 script = ExtResource("2_ga40n")
 id = "001_Enchanted_Lands"
 label = "Enchanted Lands"
@@ -415,8 +486,13 @@ destination = "001_Enchanted_Lands_1"
 id = "Door_To_Enchanted_Lands_1"
 color = Color(1, 0.2, 0.2, 1)
 
+[node name="@Line2D@60348" type="Line2D" parent="Rooms/Enchanted Lands"]
+points = PackedVector2Array(0, 230, -35, 632)
+width = 2.0
+default_color = Color(1, 0.2, 0.2, 1)
+
 [node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
-position = Vector2(-819, -474)
+position = Vector2(-783, -420)
 script = ExtResource("2_ga40n")
 id = "001_Enchanted_Lands_1"
 label = "Enchanted Lands 1"
@@ -476,8 +552,13 @@ destination = "002_Hubert_Home"
 id = "Door_To_Hubert_Home"
 color = Color(1, 0.2, 0.2, 1)
 
+[node name="@Line2D@60349" type="Line2D" parent="Rooms/Enchanted Lands 1"]
+points = PackedVector2Array(0, 230, -297, 552)
+width = 2.0
+default_color = Color(1, 0.2, 0.2, 1)
+
 [node name="Hubert Home" type="Node2D" parent="Rooms"]
-position = Vector2(-796, -144)
+position = Vector2(-1080, 196)
 script = ExtResource("2_ga40n")
 id = "002_Hubert_Home"
 label = "Hubert Home"
@@ -535,29 +616,3 @@ choice = "1"
 destination = "003_Cerulea"
 id = "Door_To_Cerulea"
 color = Color(1, 0.2, 0.2, 1)
-
-[node name="New Location 1" type="Node2D" parent="Rooms"]
-position = Vector2(2289, 1376)
-script = ExtResource("2_ga40n")
-id = "000_Door9"
-label = "Door9"
-description = "There's nothing here yet.  Hit 0 to quit."
-inbound_rooms = ["000_New_Location", "", "", "", "", "", "", "", ""]
-
-[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/New Location 1"]
-z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
-offset_top = -64.0
-offset_right = 292.0
-offset_bottom = -44.0
-theme_override_constants/separation = 0
-alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="InboundVisual_000_New_Location" type="ColorRect" parent="Rooms/New Location 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.733333, 1)
