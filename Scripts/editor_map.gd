@@ -102,9 +102,9 @@ func BuildRoomsDictionary():
 	
 func _on_remove_room_button_pressed():
 #{
-	print("Removing child from scene tree.")
+	#print("Removing child from scene tree.")
 	if not currently_selected_room:
-		print("No room selected to remove.")
+		#print("No room selected to remove.")
 		return
 	
 	# Set the removal flag
@@ -114,45 +114,45 @@ func _on_remove_room_button_pressed():
 	var editor_selection = EditorInterface.get_selection()
 	if editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
 		editor_selection.disconnect("selection_changed", Callable(self, "_on_selection_changed"))
-		print("Disconnected selection_changed signal during removal.")
+		#print("Disconnected selection_changed signal during removal.")
 	
 	# Clear the editor's selection
 	editor_selection.clear()
-	print("Editor selection cleared.")
+	#print("Editor selection cleared.")
 	
 	# Get the room's ID to locate the files
 	var room_id = currently_selected_room.id
 	if room_id == "":
 		print("Room " + currently_selected_room.label + " has no ID; removing from scene only.")
 	else:
-		print("Attempting to append " + room_id + " to 'removed_rooms'")
+		#print("Attempting to append " + room_id + " to 'removed_rooms'")
 		removed_rooms.append(room_id)
 	
 	# Debug: Log all children before removal
-	print("Children before removal: ", currently_selected_room.get_child_count())
-	for child in currently_selected_room.get_children():
-		print("Child found: ", child.name, " (Type: ", child.get_class(), ")")
+	#print("Children before removal: ", currently_selected_room.get_child_count())
+	#for child in currently_selected_room.get_children():
+	#	print("Child found: ", child.name, " (Type: ", child.get_class(), ")")
 	
 	# Explicitly clear the doors array to ensure consistency
 	if currently_selected_room.doors:
-		print("Clearing doors array: ", currently_selected_room.doors.size(), " doors")
+		#print("Clearing doors array: ", currently_selected_room.doors.size(), " doors")
 		currently_selected_room.doors.clear()
 	
 	# Remove and free all child nodes
 	for child in currently_selected_room.get_children():
-		print("Removing child: ", child.name)
+		#print("Removing child: ", child.name)
 		currently_selected_room.remove_child(child)
 		child.queue_free()
 	
 	# Debug: Confirm no children remain
-	print("Children remaining after removal: ", currently_selected_room.get_child_count())
+	#print("Children remaining after removal: ", currently_selected_room.get_child_count())
 	
 	# Remove the room from the scene tree safely #
 	if currently_selected_room.get_parent() == rooms:
 	#{
 		currently_selected_room.owner = null
 		rooms.remove_child(currently_selected_room)
-		print("Room removed from scene tree: " + room_id)
+		#print("Room removed from scene tree: " + room_id)
 	#}
 	else:
 		print("Warning: Room is not a child of Rooms node: " + room_id)
@@ -162,11 +162,11 @@ func _on_remove_room_button_pressed():
 
 	# Clear the selected room
 	currently_selected_room = null
-	print("Currently selected room cleared.")
+	#print("Currently selected room cleared.")
 	
 	# Reset the removal flag
 	is_removing_room = false
-	print("Removal process completed.")
+	#print("Removal process completed.")
 	
 	# Update inbound links and visuals for remaining rooms
 	for room in rooms.get_children():

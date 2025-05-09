@@ -10,69 +10,6 @@ script = ExtResource("1_k3d1g")
 
 [node name="Rooms" type="Node" parent="."]
 
-[node name="Door1" type="Node2D" parent="Rooms"]
-position = Vector2(-2636, 1372)
-script = ExtResource("2_ga40n")
-id = "000_Door1"
-label = "Door1"
-description = "There's nothing here yet.  Hit 0 to quit."
-
-[node name="Door2" type="Node2D" parent="Rooms"]
-position = Vector2(-2023, 1373)
-script = ExtResource("2_ga40n")
-id = "000_Door2"
-label = "Door2"
-description = "There's nothing here yet.  Hit 0 to quit."
-
-[node name="Door3" type="Node2D" parent="Rooms"]
-position = Vector2(-1416, 1374)
-script = ExtResource("2_ga40n")
-id = "000_Door3"
-label = "Door3"
-description = "There's nothing here yet.  Hit 0 to quit."
-
-[node name="Door4" type="Node2D" parent="Rooms"]
-position = Vector2(-809, 1374)
-script = ExtResource("2_ga40n")
-id = "000_Door4"
-label = "Door4"
-description = "There's nothing here yet.  Hit 0 to quit."
-
-[node name="Door5" type="Node2D" parent="Rooms"]
-position = Vector2(-207, 1372)
-script = ExtResource("2_ga40n")
-id = "000_Door5"
-label = "Door5"
-description = "There's nothing here yet.  Hit 0 to quit."
-
-[node name="Door6" type="Node2D" parent="Rooms"]
-position = Vector2(472, 1433)
-script = ExtResource("2_ga40n")
-id = "000_Door6"
-label = "Door6"
-description = "There's nothing here yet.  Hit 0 to quit."
-
-[node name="Door7" type="Node2D" parent="Rooms"]
-position = Vector2(1047, 1377)
-script = ExtResource("2_ga40n")
-id = "000_Door7"
-label = "Door7"
-description = "There's nothing here yet.  Hit 0 to quit."
-
-[node name="Door8" type="Node2D" parent="Rooms"]
-position = Vector2(1669, 1375)
-script = ExtResource("2_ga40n")
-id = "000_Door8"
-label = "Door8"
-description = "There's nothing here yet.  Hit 0 to quit."
-
-[node name="Door9" type="Node2D" parent="Rooms"]
-position = Vector2(2289, 1376)
-script = ExtResource("2_ga40n")
-id = "000_Door9"
-label = "Door9"
-description = "There's nothing here yet.  Hit 0 to quit."
-
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
 position = Vector2(-748, -1116)
 script = ExtResource("2_ga40n")
@@ -89,6 +26,14 @@ Hit 1 if you wish to go to Enchanted Lands 1.
 
 Hit 0 to quit."
 door_specs = ["ch: 1, dest: 001_Enchanted_Lands_1;", "", "", "", "", "", "", "", ""]
+
+[node name="Door_To_Enchanted_Lands_1" type="Node2D" parent="Rooms/Enchanted Lands"]
+visible = false
+script = ExtResource("3_7lemb")
+choice = "1"
+destination = "001_Enchanted_Lands_1"
+id = "Door_To_Enchanted_Lands_1"
+color = Color(1, 0.2, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Enchanted Lands"]
 z_index = 1
@@ -108,28 +53,20 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
 
-[node name="Door_To_Enchanted_Lands_1" type="Node2D" parent="Rooms/Enchanted Lands"]
-visible = false
-script = ExtResource("3_7lemb")
-choice = "1"
-destination = "001_Enchanted_Lands_1"
-id = "Door_To_Enchanted_Lands_1"
-color = Color(1, 0.2, 0.2, 1)
-
 [node name="LinesContainer" type="Node2D" parent="Rooms/Enchanted Lands"]
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@51314" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
+[node name="@Node2D@58177" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-35, 732)
+end_pos = Vector2(-237, 695)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
-position = Vector2(-783, -420)
+position = Vector2(-985, -457)
 script = ExtResource("2_ga40n")
 id = "001_Enchanted_Lands_1"
 label = "Enchanted Lands 1"
@@ -144,6 +81,14 @@ Hit 1 if you wish to go to Hubert Home.
 Hit 0 to quit."
 inbound_rooms = ["001_Enchanted_Lands", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home;", "", "", "", "", "", "", "", ""]
+
+[node name="Door_To_Hubert_Home" type="Node2D" parent="Rooms/Enchanted Lands 1"]
+visible = false
+script = ExtResource("3_7lemb")
+choice = "1"
+destination = "002_Hubert_Home"
+id = "Door_To_Hubert_Home"
+color = Color(1, 0.2, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Enchanted Lands 1"]
 z_index = 1
@@ -181,22 +126,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
 
-[node name="Door_To_Hubert_Home" type="Node2D" parent="Rooms/Enchanted Lands 1"]
-visible = false
-script = ExtResource("3_7lemb")
-choice = "1"
-destination = "002_Hubert_Home"
-id = "Door_To_Hubert_Home"
-color = Color(1, 0.2, 0.2, 1)
-
 [node name="LinesContainer" type="Node2D" parent="Rooms/Enchanted Lands 1"]
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@51315" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
+[node name="@Node2D@58176" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-297, 652)
+end_pos = Vector2(-95, 689)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -216,6 +153,14 @@ Hit 1 if you wish to go to Cerulea.
 Hit 0 to quit."
 inbound_rooms = ["001_Enchanted_Lands_1", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
+
+[node name="Door_To_Cerulea" type="Node2D" parent="Rooms/Hubert Home"]
+visible = false
+script = ExtResource("3_7lemb")
+choice = "1"
+destination = "003_Cerulea"
+id = "Door_To_Cerulea"
+color = Color(1, 0.2, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home"]
 z_index = 1
@@ -251,14 +196,6 @@ custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="Door_To_Cerulea" type="Node2D" parent="Rooms/Hubert Home"]
-visible = false
-script = ExtResource("3_7lemb")
-choice = "1"
-destination = "003_Cerulea"
-id = "Door_To_Cerulea"
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home"]
