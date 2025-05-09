@@ -589,7 +589,7 @@ func UpdateDoorVisuals():
 
 func UpdateInboundVisuals():
 #{
-	# Clear the door_visuals array
+	# Clear the inbound_visuals array
 	inbound_visuals.clear()
 	
 	# check to see if the array is empty
@@ -715,7 +715,766 @@ func UpdateInboundVisuals():
 		
 #}  // end func UpdateInboundVisuals()
 
-func UpdateDoorLines():
+func UpdateDoorLines(): # func Old4UpdateDoorLines():
+	print("UpdateDoorLines called for room: ", name, " with doors.size(): ", doors.size(), ", door_visuals.size(): ", door_visuals.size(), ", is_inside_tree(): ", is_inside_tree())
+	
+	if not Engine.is_editor_hint() or not is_inside_tree():
+		print("Skipping UpdateDoorLines for room: ", name, " during cleanup or non-editor context")
+		return
+
+# Clear the door_visuals array
+	door_lines.clear()
+	
+	# Step 1: Delete existing LinesContainer if it exists
+	var lines_container = get_node_or_null("LinesContainer")
+	if lines_container:
+		# Remove existing door visual children from the HBoxContainer
+		for child in lines_container.get_children():
+			lines_container.remove_child(child)
+			child.queue_free()
+			
+		remove_child(lines_container)
+		lines_container.queue_free()
+	
+	if doors.is_empty():
+		print( "No doors in room: ", self.id )
+		return
+	
+	# Step 2: Create a new LinesContainer as a Node2D
+	lines_container = Node2D.new()
+	lines_container.name = "LinesContainer"
+	lines_container.position = Vector2(0, 0)  # Ensure no offset
+	add_child(lines_container)
+	lines_container.owner = get_tree().edited_scene_root
+	# Lock only the container in the editor
+	lines_container.set_meta("_edit_lock_", true)
+	
+	# Clear the door_lines array
+	door_lines.clear()
+
+	# Check for DoorVisualsContainer
+	var hbox = get_node_or_null("DoorVisualsContainer")
+	if not hbox:
+		print("DoorVisualsContainer not found for room: ", name)
+		return
+	hbox.queue_redraw()
+	
+	# Ensure doors and door_visuals are aligned
+	if doors.size() != door_visuals.size():
+		print("Mismatch between doors and door_visuals for room: ", name, " (doors: ", doors.size(), ", visuals: ", door_visuals.size(), ")")
+		return
+
+	if door_visuals.is_empty():
+		print("No door visuals available for room: ", name)
+		return
+
+	var panel = get_node_or_null("Panel")
+	if not panel:
+		print("Panel not found for room: ", name)
+		return
+	var start_pos = Vector2(0, panel.position.y + panel.size.y + 10)
+
+	# Iterate over doors and door visuals
+	for i in range(doors.size()):
+		var door = doors[i]
+		var visual = door_visuals[i]
+		var panel_width = panel.size.x
+		var margin = 40
+		var total_width = panel_width - 2 * margin
+		var node_width = doors.size() * 20
+		var gaps = doors.size() - 1
+		var separation = (total_width - node_width) / gaps if gaps > 0 else 0
+		var total_content_width = node_width + separation * gaps
+		var start_x = -total_content_width / 2  # Center the content
+		var visual_x = start_x + i * (20 + separation) + 10  # i is the index, +10 to center on ColorRect
+		var adjusted_start_pos = start_pos
+		adjusted_start_pos.x = visual_x
+		
+		if not editor_map or not editor_map.rooms_dict.has(door.destination):
+			print("Skipping line for door ", door.name, ": destination ", door.destination, " not found")
+			continue
+
+		var dest_room = editor_map.rooms_dict[door.destination]
+		if not dest_room:
+			print("Skipping line for door ", door.name, ": destination room is null")
+			continue
+
+		# Find the matching InboundVisual
+		var inbound_visual = null
+		var inbound_index = dest_room.inbound_rooms.find(self.id)
+		if inbound_index != -1 and inbound_index < dest_room.inbound_visuals.size():
+			inbound_visual = dest_room.inbound_visuals[inbound_index]
+	
+		if not inbound_visual:
+			print("Skipping line for door ", door.name, ": no matching InboundVisual found in ", dest_room.name)
+			continue
+
+		var inbox = dest_room.get_node_or_null("InboundVisualsContainer")
+		if not inbox:
+			print("InboundVisualsContainer not found for room: ", dest_room.name)
+			continue
+
+		var dest_panel = dest_room.get_node_or_null("Panel")
+		if not dest_panel:
+			print("Panel not found for destination room: ", dest_room.name)
+			continue
+		var end_pos = Vector2(0, dest_panel.position.y - 20)  # Top center of dest panel in dest_room space
+		var inbound_count = 0
+		for room_id in dest_room.inbound_rooms:
+			if room_id != "":
+				inbound_count += 1
+		node_width = inbound_count * 20
+		gaps = inbound_count - 1
+		separation = (total_width - node_width) / gaps if gaps > 0 else 0
+		total_content_width = node_width + separation * gaps
+		start_x = -total_content_width / 2
+		visual_x = start_x + inbound_index * (20 + separation) + 10
+		end_pos.x = visual_x
+		# Transform end_pos to current Room's local space
+		end_pos += dest_room.position - self.position
+		
+		var line = CustomLine2D.new()
+		line.set_line(adjusted_start_pos, end_pos, door.color, 2.0)
+
+		# Lock the CustomLine2D node to prevent viewport movement
+		line.set_meta("_edit_lock_", true)
+
+		# Add the line to the LinesContainer instead of the Room
+		lines_container.add_child(line)
+		door_lines.append(line)
+		line.owner = get_tree().edited_scene_root
+		print("Drew line for door ", door.name, " from ", adjusted_start_pos, " to ", end_pos)
+
+func Old6UpdateDoorLines():
+	print("UpdateDoorLines called for room: ", name, " with doors.size(): ", doors.size(), ", door_visuals.size(): ", door_visuals.size(), ", is_inside_tree(): ", is_inside_tree())
+	
+	if not Engine.is_editor_hint() or not is_inside_tree():
+		print("Skipping UpdateDoorLines for room: ", name, " during cleanup or non-editor context")
+		return
+
+	# Step 1: Delete existing LinesContainer if it exists
+	var lines_container = get_node_or_null("LinesContainer")
+	if lines_container:
+		remove_child(lines_container)
+		lines_container.queue_free()
+	
+	# Step 2: Create a new LinesContainer as a Node2D
+	lines_container = Node2D.new()
+	lines_container.name = "LinesContainer"
+	lines_container.position = Vector2(0, 0)  # Ensure no offset
+	add_child(lines_container)
+	lines_container.owner = get_tree().edited_scene_root
+	# Lock the container in the editor
+	lines_container.set_meta("_edit_lock_", true)
+	
+	# Clear the door_lines array
+	door_lines.clear()
+
+	# Check for DoorVisualsContainer
+	var hbox = get_node_or_null("DoorVisualsContainer")
+	if not hbox:
+		print("DoorVisualsContainer not found for room: ", name)
+		return
+	hbox.queue_redraw()
+	
+	# Ensure doors and door_visuals are aligned
+	if doors.size() != door_visuals.size():
+		print("Mismatch between doors and door_visuals for room: ", name, " (doors: ", doors.size(), ", visuals: ", door_visuals.size(), ")")
+		return
+
+	if door_visuals.is_empty():
+		print("No door visuals available for room: ", name)
+		return
+
+	var panel = get_node_or_null("Panel")
+	if not panel:
+		print("Panel not found for room: ", name)
+		return
+	var start_pos = Vector2(0, panel.position.y + panel.size.y + 10)
+
+	# Iterate over doors and door visuals
+	for i in range(doors.size()):
+		var door = doors[i]
+		var visual = door_visuals[i]
+		var panel_width = panel.size.x
+		var margin = 40
+		var total_width = panel_width - 2 * margin
+		var node_width = doors.size() * 20
+		var gaps = doors.size() - 1
+		var separation = (total_width - node_width) / gaps if gaps > 0 else 0
+		var total_content_width = node_width + separation * gaps
+		var start_x = -total_content_width / 2  # Center the content
+		var visual_x = start_x + i * (20 + separation) + 10  # i is the index, +10 to center on ColorRect
+		var adjusted_start_pos = start_pos
+		adjusted_start_pos.x = visual_x
+		
+		if not editor_map or not editor_map.rooms_dict.has(door.destination):
+			print("Skipping line for door ", door.name, ": destination ", door.destination, " not found")
+			continue
+
+		var dest_room = editor_map.rooms_dict[door.destination]
+		if not dest_room:
+			print("Skipping line for door ", door.name, ": destination room is null")
+			continue
+
+		# Find the matching InboundVisual
+		var inbound_visual = null
+		var inbound_index = dest_room.inbound_rooms.find(self.id)
+		if inbound_index != -1 and inbound_index < dest_room.inbound_visuals.size():
+			inbound_visual = dest_room.inbound_visuals[inbound_index]
+	
+		if not inbound_visual:
+			print("Skipping line for door ", door.name, ": no matching InboundVisual found in ", dest_room.name)
+			continue
+
+		var inbox = dest_room.get_node_or_null("InboundVisualsContainer")
+		if not inbox:
+			print("InboundVisualsContainer not found for room: ", dest_room.name)
+			continue
+
+		var dest_panel = dest_room.get_node_or_null("Panel")
+		if not dest_panel:
+			print("Panel not found for destination room: ", dest_room.name)
+			continue
+		var end_pos = Vector2(0, dest_panel.position.y - 20)  # Top center of dest panel in dest_room space
+		var inbound_count = 0
+		for room_id in dest_room.inbound_rooms:
+			if room_id != "":
+				inbound_count += 1
+		node_width = inbound_count * 20
+		gaps = inbound_count - 1
+		separation = (total_width - node_width) / gaps if gaps > 0 else 0
+		total_content_width = node_width + separation * gaps
+		start_x = -total_content_width / 2
+		visual_x = start_x + inbound_index * (20 + separation) + 10
+		end_pos.x = visual_x
+		# Transform end_pos to current Room's local space
+		end_pos += dest_room.position - self.position
+		
+		var line = Line2D.new()
+		line.points = [adjusted_start_pos, end_pos]
+		line.default_color = door.color
+		line.width = 2
+		
+		# Wrap the Line2D in a Control to disable mouse interaction in the editor
+		var line_wrapper = Control.new()
+		line_wrapper.name = "LineWrapper_" + door.name
+		line_wrapper.position = Vector2(0, 0)  # Ensure no offset
+		line_wrapper.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Prevent mouse interaction
+		# Lock the Control wrapper in the editor
+		line_wrapper.set_meta("_edit_lock_", true)
+		line_wrapper.add_child(line)
+		# Lock the Line2D node in the editor
+		line.set_meta("_edit_lock_", true)
+		# Add the wrapper to the LinesContainer first
+		lines_container.add_child(line_wrapper)
+		door_lines.append(line)
+		# Set owners only if the Room is in the scene tree
+		if is_inside_tree():
+			line.owner = get_tree().edited_scene_root
+			line_wrapper.owner = get_tree().edited_scene_root
+		else:
+			print("Skipping owner assignment for ", door.name, " in room: ", name, " as Room is not in the scene tree")
+		print("Drew line for door ", door.name, " from ", adjusted_start_pos, " to ", end_pos)
+		
+	# Remove LinesContainer if no lines were added
+	if door_lines.is_empty():
+		print("No lines were added for room: ", name, ", removing LinesContainer")
+		remove_child(lines_container)
+		lines_container.queue_free()
+		
+func Old5UpdateDoorLines():
+	print("UpdateDoorLines called for room: ", name, " with doors.size(): ", doors.size(), ", door_visuals.size(): ", door_visuals.size(), ", is_inside_tree(): ", is_inside_tree())
+	
+	if not Engine.is_editor_hint() or not is_inside_tree():
+		print("Skipping UpdateDoorLines for room: ", name, " during cleanup or non-editor context")
+		return
+
+	# Clear the door_visuals array
+	door_lines.clear()
+	
+	# Step 1: Delete existing LinesContainer if it exists
+	var lines_container = get_node_or_null("LinesContainer")
+	if lines_container:
+		# Remove existing door visual children from the HBoxContainer
+		for child in lines_container.get_children():
+			lines_container.remove_child(child)
+			child.queue_free()
+			
+		remove_child(lines_container)
+		lines_container.queue_free()
+	
+	if doors.is_empty():
+		print( "No doors in room: ", self.id )
+		return
+		
+	# Step 2: Create a new LinesContainer as a Node2D
+	lines_container = Node2D.new()
+	lines_container.name = "LinesContainer"
+	lines_container.position = Vector2(0, 0)  # Ensure no offset
+	add_child(lines_container)
+	lines_container.owner = get_tree().edited_scene_root
+	# Lock only the container in the editor
+	lines_container.set_meta("_edit_lock_", true)
+	# Mark the container as non-editable in the editor
+	#self.set_editable_instance( lines_container, false )
+
+	# Clear the door_lines array
+	door_lines.clear()
+
+	# Check for DoorVisualsContainer
+	var hbox = get_node_or_null("DoorVisualsContainer")
+	if not hbox:
+		print("DoorVisualsContainer not found for room: ", name)
+		return
+	hbox.queue_redraw()
+	
+	# Ensure doors and door_visuals are aligned
+	if doors.size() != door_visuals.size():
+		print("Mismatch between doors and door_visuals for room: ", name, " (doors: ", doors.size(), ", visuals: ", door_visuals.size(), ")")
+		return
+
+	if door_visuals.is_empty():
+		print("No door visuals available for room: ", name)
+		return
+
+	var panel = get_node_or_null("Panel")
+	if not panel:
+		print("Panel not found for room: ", name)
+		return
+	var start_pos = Vector2(0, panel.position.y + panel.size.y + 10)
+
+	# Iterate over doors and door visuals
+	for i in range(doors.size()):
+		var door = doors[i]
+		var visual = door_visuals[i]
+		var panel_width = panel.size.x
+		var margin = 40
+		var total_width = panel_width - 2 * margin
+		var node_width = doors.size() * 20
+		var gaps = doors.size() - 1
+		var separation = (total_width - node_width) / gaps if gaps > 0 else 0
+		var total_content_width = node_width + separation * gaps
+		var start_x = -total_content_width / 2  # Center the content
+		var visual_x = start_x + i * (20 + separation) + 10  # i is the index, +10 to center on ColorRect
+		var adjusted_start_pos = start_pos
+		adjusted_start_pos.x = visual_x
+		
+		if not editor_map or not editor_map.rooms_dict.has(door.destination):
+			print("Skipping line for door ", door.name, ": destination ", door.destination, " not found")
+			continue
+
+		var dest_room = editor_map.rooms_dict[door.destination]
+		if not dest_room:
+			print("Skipping line for door ", door.name, ": destination room is null")
+			continue
+
+		# Find the matching InboundVisual
+		var inbound_visual = null
+		var inbound_index = dest_room.inbound_rooms.find(self.id)
+		if inbound_index != -1 and inbound_index < dest_room.inbound_visuals.size():
+			inbound_visual = dest_room.inbound_visuals[inbound_index]
+	
+		if not inbound_visual:
+			print("Skipping line for door ", door.name, ": no matching InboundVisual found in ", dest_room.name)
+			continue
+
+		var inbox = dest_room.get_node_or_null("InboundVisualsContainer")
+		if not inbox:
+			print("InboundVisualsContainer not found for room: ", dest_room.name)
+			continue
+
+		var dest_panel = dest_room.get_node_or_null("Panel")
+		if not dest_panel:
+			print("Panel not found for destination room: ", dest_room.name)
+			continue
+		var end_pos = Vector2(0, dest_panel.position.y - 20)  # Top center of dest panel in dest_room space
+		var inbound_count = 0
+		for room_id in dest_room.inbound_rooms:
+			if room_id != "":
+				inbound_count += 1
+		node_width = inbound_count * 20
+		gaps = inbound_count - 1
+		separation = (total_width - node_width) / gaps if gaps > 0 else 0
+		total_content_width = node_width + separation * gaps
+		start_x = -total_content_width / 2
+		visual_x = start_x + inbound_index * (20 + separation) + 10
+		end_pos.x = visual_x
+		# Transform end_pos to current Room's local space
+		end_pos += dest_room.position - self.position
+		
+		var line = Line2D.new()
+		line.points = [adjusted_start_pos, end_pos]
+		line.default_color = door.color
+		line.width = 2
+		
+		# Lock the individual Line2D node in the editor
+		line.set_meta("_edit_lock_", true)
+		# Mark the line as non-editable in the editor
+		#lines_container.set_editable_instance(line, false)
+		
+		# Add the line to the LinesContainer instead of the Room
+		lines_container.add_child(line)
+		door_lines.append(line)
+		line.owner = get_tree().edited_scene_root
+		print("Drew line for door ", door.name, " from ", adjusted_start_pos, " to ", end_pos)
+
+func Old4UpdateDoorLines():
+	print("UpdateDoorLines called for room: ", name, " with doors.size(): ", doors.size(), ", door_visuals.size(): ", door_visuals.size(), ", is_inside_tree(): ", is_inside_tree())
+	
+	if not Engine.is_editor_hint() or not is_inside_tree():
+		print("Skipping UpdateDoorLines for room: ", name, " during cleanup or non-editor context")
+		return
+
+	# Step 1: Delete existing LinesContainer if it exists
+	var lines_container = get_node_or_null("LinesContainer")
+	if lines_container:
+		remove_child(lines_container)
+		lines_container.queue_free()
+	
+	# Step 2: Create a new LinesContainer as a Node2D
+	lines_container = Node2D.new()
+	lines_container.name = "LinesContainer"
+	lines_container.position = Vector2(0, 0)  # Ensure no offset
+	add_child(lines_container)
+	lines_container.owner = get_tree().edited_scene_root
+	# Lock only the container in the editor
+	lines_container.set_meta("_edit_lock_", true)
+	
+	# Clear the door_lines array
+	door_lines.clear()
+
+	# Check for DoorVisualsContainer
+	var hbox = get_node_or_null("DoorVisualsContainer")
+	if not hbox:
+		print("DoorVisualsContainer not found for room: ", name)
+		return
+	hbox.queue_redraw()
+	
+	# Ensure doors and door_visuals are aligned
+	if doors.size() != door_visuals.size():
+		print("Mismatch between doors and door_visuals for room: ", name, " (doors: ", doors.size(), ", visuals: ", door_visuals.size(), ")")
+		return
+
+	if door_visuals.is_empty():
+		print("No door visuals available for room: ", name)
+		return
+
+	var panel = get_node_or_null("Panel")
+	if not panel:
+		print("Panel not found for room: ", name)
+		return
+	var start_pos = Vector2(0, panel.position.y + panel.size.y + 10)
+
+	# Iterate over doors and door visuals
+	for i in range(doors.size()):
+		var door = doors[i]
+		var visual = door_visuals[i]
+		var panel_width = panel.size.x
+		var margin = 40
+		var total_width = panel_width - 2 * margin
+		var node_width = doors.size() * 20
+		var gaps = doors.size() - 1
+		var separation = (total_width - node_width) / gaps if gaps > 0 else 0
+		var total_content_width = node_width + separation * gaps
+		var start_x = -total_content_width / 2  # Center the content
+		var visual_x = start_x + i * (20 + separation) + 10  # i is the index, +10 to center on ColorRect
+		var adjusted_start_pos = start_pos
+		adjusted_start_pos.x = visual_x
+		
+		if not editor_map or not editor_map.rooms_dict.has(door.destination):
+			print("Skipping line for door ", door.name, ": destination ", door.destination, " not found")
+			continue
+
+		var dest_room = editor_map.rooms_dict[door.destination]
+		if not dest_room:
+			print("Skipping line for door ", door.name, ": destination room is null")
+			continue
+
+		# Find the matching InboundVisual
+		var inbound_visual = null
+		var inbound_index = dest_room.inbound_rooms.find(self.id)
+		if inbound_index != -1 and inbound_index < dest_room.inbound_visuals.size():
+			inbound_visual = dest_room.inbound_visuals[inbound_index]
+	
+		if not inbound_visual:
+			print("Skipping line for door ", door.name, ": no matching InboundVisual found in ", dest_room.name)
+			continue
+
+		var inbox = dest_room.get_node_or_null("InboundVisualsContainer")
+		if not inbox:
+			print("InboundVisualsContainer not found for room: ", dest_room.name)
+			continue
+
+		var dest_panel = dest_room.get_node_or_null("Panel")
+		if not dest_panel:
+			print("Panel not found for destination room: ", dest_room.name)
+			continue
+		var end_pos = Vector2(0, dest_panel.position.y - 20)  # Top center of dest panel in dest_room space
+		var inbound_count = 0
+		for room_id in dest_room.inbound_rooms:
+			if room_id != "":
+				inbound_count += 1
+		node_width = inbound_count * 20
+		gaps = inbound_count - 1
+		separation = (total_width - node_width) / gaps if gaps > 0 else 0
+		total_content_width = node_width + separation * gaps
+		start_x = -total_content_width / 2
+		visual_x = start_x + inbound_index * (20 + separation) + 10
+		end_pos.x = visual_x
+		# Transform end_pos to current Room's local space
+		end_pos += dest_room.position - self.position
+		
+		var line = Line2D.new()
+		line.points = [adjusted_start_pos, end_pos]
+		line.default_color = door.color
+		line.width = 2
+		
+		# Lock the individual Line2D node in the editor
+		line.set_meta("_edit_lock_", true)
+		
+		# Add the line to the LinesContainer instead of the Room
+		lines_container.add_child(line)
+		door_lines.append(line)
+		line.owner = get_tree().edited_scene_root
+		print("Drew line for door ", door.name, " from ", adjusted_start_pos, " to ", end_pos)
+		
+func Old3UpdateDoorLines():
+	print("UpdateDoorLines called for room: ", name, " with doors.size(): ", doors.size(), ", door_visuals.size(): ", door_visuals.size(), ", is_inside_tree(): ", is_inside_tree())
+	
+	if not Engine.is_editor_hint() or not is_inside_tree():
+		print("Skipping UpdateDoorLines for room: ", name, " during cleanup or non-editor context")
+		return
+
+	# Step 1: Delete existing LinesContainer if it exists
+	var lines_container = get_node_or_null("LinesContainer")
+	if lines_container:
+		remove_child(lines_container)
+		lines_container.queue_free()
+	
+	# Step 2: Create a new LinesContainer as a Panel
+	lines_container = Panel.new()
+	lines_container.name = "LinesContainer"
+	lines_container.position = Vector2(0, 0)  # Ensure no offset
+	# Remove the background to make the Panel "blank"
+	var blank_style = StyleBoxEmpty.new()
+	lines_container.add_theme_stylebox_override("panel", blank_style)
+	add_child(lines_container)
+	lines_container.owner = get_tree().edited_scene_root
+	# Lock only the container in the editor
+	lines_container.set_meta("_edit_lock_", true)
+	
+	# Clear the door_lines array
+	door_lines.clear()
+
+	# Check for DoorVisualsContainer
+	var hbox = get_node_or_null("DoorVisualsContainer")
+	if not hbox:
+		print("DoorVisualsContainer not found for room: ", name)
+		return
+	hbox.queue_redraw()
+	
+	# Ensure doors and door_visuals are aligned
+	if doors.size() != door_visuals.size():
+		print("Mismatch between doors and door_visuals for room: ", name, " (doors: ", doors.size(), ", visuals: ", door_visuals.size(), ")")
+		return
+
+	if door_visuals.is_empty():
+		print("No door visuals available for room: ", name)
+		return
+
+	var panel = get_node_or_null("Panel")
+	if not panel:
+		print("Panel not found for room: ", name)
+		return
+	var start_pos = Vector2(0, panel.position.y + panel.size.y + 10)
+
+	# Iterate over doors and door visuals
+	for i in range(doors.size()):
+		var door = doors[i]
+		var visual = door_visuals[i]
+		var panel_width = panel.size.x
+		var margin = 40
+		var total_width = panel_width - 2 * margin
+		var node_width = doors.size() * 20
+		var gaps = doors.size() - 1
+		var separation = (total_width - node_width) / gaps if gaps > 0 else 0
+		var total_content_width = node_width + separation * gaps
+		var start_x = -total_content_width / 2  # Center the content
+		var visual_x = start_x + i * (20 + separation) + 10  # i is the index, +10 to center on ColorRect
+		var adjusted_start_pos = start_pos
+		adjusted_start_pos.x = visual_x
+		
+		if not editor_map or not editor_map.rooms_dict.has(door.destination):
+			print("Skipping line for door ", door.name, ": destination ", door.destination, " not found")
+			continue
+
+		var dest_room = editor_map.rooms_dict[door.destination]
+		if not dest_room:
+			print("Skipping line for door ", door.name, ": destination room is null")
+			continue
+
+		# Find the matching InboundVisual
+		var inbound_visual = null
+		var inbound_index = dest_room.inbound_rooms.find(self.id)
+		if inbound_index != -1 and inbound_index < dest_room.inbound_visuals.size():
+			inbound_visual = dest_room.inbound_visuals[inbound_index]
+	
+		if not inbound_visual:
+			print("Skipping line for door ", door.name, ": no matching InboundVisual found in ", dest_room.name)
+			continue
+
+		var inbox = dest_room.get_node_or_null("InboundVisualsContainer")
+		if not inbox:
+			print("InboundVisualsContainer not found for room: ", dest_room.name)
+			continue
+
+		var dest_panel = dest_room.get_node_or_null("Panel")
+		if not dest_panel:
+			print("Panel not found for destination room: ", dest_room.name)
+			continue
+		var end_pos = Vector2(0, dest_panel.position.y - 20)  # Top center of dest panel in dest_room space
+		var inbound_count = 0
+		for room_id in dest_room.inbound_rooms:
+			if room_id != "":
+				inbound_count += 1
+		node_width = inbound_count * 20
+		gaps = inbound_count - 1
+		separation = (total_width - node_width) / gaps if gaps > 0 else 0
+		total_content_width = node_width + separation * gaps
+		start_x = -total_content_width / 2
+		visual_x = start_x + inbound_index * (20 + separation) + 10
+		end_pos.x = visual_x
+		# Transform end_pos to current Room's local space
+		end_pos += dest_room.position - self.position
+		
+		var line = Line2D.new()
+		line.points = [adjusted_start_pos, end_pos]
+		line.default_color = door.color
+		line.width = 2
+		# Add the line to the LinesContainer instead of the Room
+		lines_container.add_child(line)
+		door_lines.append(line)
+		line.owner = get_tree().edited_scene_root
+		print("Drew line for door ", door.name, " from ", adjusted_start_pos, " to ", end_pos)
+		
+func Old2UpdateDoorLines():
+	print("UpdateDoorLines called for room: ", name, " with doors.size(): ", doors.size(), ", door_visuals.size(): ", door_visuals.size(), ", is_inside_tree(): ", is_inside_tree())
+	
+	if not Engine.is_editor_hint() or not is_inside_tree():
+		print("Skipping UpdateDoorLines for room: ", name, " during cleanup or non-editor context")
+		return
+
+	# Step 1: Delete existing LinesContainer if it exists
+	var lines_container = get_node_or_null("LinesContainer")
+	if lines_container:
+		remove_child(lines_container)
+		lines_container.queue_free()
+	
+	# Step 2: Create a new LinesContainer as a Control
+	lines_container = Control.new()
+	lines_container.name = "LinesContainer"
+	lines_container.position = Vector2(0, 0)  # Ensure no offset
+	add_child(lines_container)
+	lines_container.owner = get_tree().edited_scene_root
+	# Lock only the container in the editor
+	lines_container.set_meta("_edit_lock_", true)
+	
+	# Clear the door_lines array
+	door_lines.clear()
+
+	# Check for DoorVisualsContainer
+	var hbox = get_node_or_null("DoorVisualsContainer")
+	if not hbox:
+		print("DoorVisualsContainer not found for room: ", name)
+		return
+	hbox.queue_redraw()
+	
+	# Ensure doors and door_visuals are aligned
+	if doors.size() != door_visuals.size():
+		print("Mismatch between doors and door_visuals for room: ", name, " (doors: ", doors.size(), ", visuals: ", door_visuals.size(), ")")
+		return
+
+	if door_visuals.is_empty():
+		print("No door visuals available for room: ", name)
+		return
+
+	var panel = get_node_or_null("Panel")
+	if not panel:
+		print("Panel not found for room: ", name)
+		return
+	var start_pos = Vector2(0, panel.position.y + panel.size.y + 10)
+
+	# Iterate over doors and door visuals
+	for i in range(doors.size()):
+		var door = doors[i]
+		var visual = door_visuals[i]
+		var panel_width = panel.size.x
+		var margin = 40
+		var total_width = panel_width - 2 * margin
+		var node_width = doors.size() * 20
+		var gaps = doors.size() - 1
+		var separation = (total_width - node_width) / gaps if gaps > 0 else 0
+		var total_content_width = node_width + separation * gaps
+		var start_x = -total_content_width / 2  # Center the content
+		var visual_x = start_x + i * (20 + separation) + 10  # i is the index, +10 to center on ColorRect
+		var adjusted_start_pos = start_pos
+		adjusted_start_pos.x = visual_x
+		
+		if not editor_map or not editor_map.rooms_dict.has(door.destination):
+			print("Skipping line for door ", door.name, ": destination ", door.destination, " not found")
+			continue
+
+		var dest_room = editor_map.rooms_dict[door.destination]
+		if not dest_room:
+			print("Skipping line for door ", door.name, ": destination room is null")
+			continue
+
+		# Find the matching InboundVisual
+		var inbound_visual = null
+		var inbound_index = dest_room.inbound_rooms.find(self.id)
+		if inbound_index != -1 and inbound_index < dest_room.inbound_visuals.size():
+			inbound_visual = dest_room.inbound_visuals[inbound_index]
+	
+		if not inbound_visual:
+			print("Skipping line for door ", door.name, ": no matching InboundVisual found in ", dest_room.name)
+			continue
+
+		var inbox = dest_room.get_node_or_null("InboundVisualsContainer")
+		if not inbox:
+			print("InboundVisualsContainer not found for room: ", dest_room.name)
+			continue
+
+		var dest_panel = dest_room.get_node_or_null("Panel")
+		if not dest_panel:
+			print("Panel not found for destination room: ", dest_room.name)
+			continue
+		var end_pos = Vector2(0, dest_panel.position.y - 20)  # Top center of dest panel in dest_room space
+		var inbound_count = 0
+		for room_id in dest_room.inbound_rooms:
+			if room_id != "":
+				inbound_count += 1
+		node_width = inbound_count * 20
+		gaps = inbound_count - 1
+		separation = (total_width - node_width) / gaps if gaps > 0 else 0
+		total_content_width = node_width + separation * gaps
+		start_x = -total_content_width / 2
+		visual_x = start_x + inbound_index * (20 + separation) + 10
+		end_pos.x = visual_x
+		# Transform end_pos to current Room's local space
+		end_pos += dest_room.position - self.position
+		
+		var line = Line2D.new()
+		line.points = [adjusted_start_pos, end_pos]
+		line.default_color = door.color
+		line.width = 2
+		# Add the line to the LinesContainer instead of the Room
+		lines_container.add_child(line)
+		door_lines.append(line)
+		line.owner = get_tree().edited_scene_root
+		print("Drew line for door ", door.name, " from ", adjusted_start_pos, " to ", end_pos)
+		
+func OldUpdateDoorLines():
 	print("UpdateDoorLines called for room: ", name, " with doors.size(): ", doors.size(), ", door_visuals.size(): ", door_visuals.size(), ", is_inside_tree(): ", is_inside_tree())
 	
 	if not Engine.is_editor_hint() or not is_inside_tree():
