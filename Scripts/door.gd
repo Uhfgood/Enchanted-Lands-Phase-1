@@ -11,20 +11,20 @@ static func create( ident : String, ch : String, dest : String, door_name : Stri
 	new_door.destination = dest
 	new_door.name = door_name
 	new_door.color = col
-	print( "*Created new door." )
+	#print( "*Created new door." )
 	return new_door
 	
 func _enter_tree():
 #{
 	if Engine.is_editor_hint():
 	#{
-		print("Door._enter_tree: Initializing door: ", name, " (ID: ", id, ", Destination: ", destination, ")")
-		print("  Is inside tree: ", is_inside_tree())
-		var parent = get_parent()
-		print("  Parent: ", parent.name if parent else "null")
-		var owner_value = owner
-		print("  Owner: ", owner_value.name if owner_value else "null")
-		print("  Stack: ", get_stack())
+		#print("Door._enter_tree: Initializing door: ", name, " (ID: ", id, ", Destination: ", destination, ")")
+		#print("  Is inside tree: ", is_inside_tree())
+		#var parent = get_parent()
+		#print("  Parent: ", parent.name if parent else "null")
+		#var owner_value = owner
+		#print("  Owner: ", owner_value.name if owner_value else "null")
+		#print("  Stack: ", get_stack())
 
 		visible = false;
 		
@@ -32,17 +32,17 @@ func _enter_tree():
 	
 #}  // end _enter_tree()
 
-func _ready():
+#func _ready():
 #{
-	if Engine.is_editor_hint():
+#	if Engine.is_editor_hint():
 	#{
-		print("Door._ready: Initializing door: ", name, " (ID: ", id, ", Destination: ", destination, ")")
-		print("  Is inside tree: ", is_inside_tree())
-		var parent = get_parent()
-		print("  Parent: ", parent.name if parent else "null")
-		var owner_value = owner
-		print("  Owner: ", owner_value.name if owner_value else "null")
-		print("  Stack: ", get_stack())
+		#print("Door._ready: Initializing door: ", name, " (ID: ", id, ", Destination: ", destination, ")")
+		#print("  Is inside tree: ", is_inside_tree())
+#		var parent = get_parent()
+		#print("  Parent: ", parent.name if parent else "null")
+#		var owner_value = owner
+		#print("  Owner: ", owner_value.name if owner_value else "null")
+		#print("  Stack: ", get_stack())
 
 	#}  // end if
 	

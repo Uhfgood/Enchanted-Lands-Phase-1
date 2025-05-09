@@ -93,12 +93,12 @@ func _on_add_room_button_pressed():
 # create a dictionary so I can rebuild inbound list later
 func BuildRoomsDictionary():
 	
-	print( "[[[ BuildRoomsDictionary ]]]")
+	#print( "[[[ BuildRoomsDictionary ]]]")
 	for room in rooms.get_children():
 		rooms_dict[ room.id ] = room 
-		print( "  " + rooms_dict[ room.id ].id )
+		#print( "  " + rooms_dict[ room.id ].id )
 	
-	print( "[[[ Size of rooms_dict: " + str( rooms_dict.size() ) + " ]]]" )
+	#print( "[[[ Size of rooms_dict: " + str( rooms_dict.size() ) + " ]]]" )
 	
 func _on_remove_room_button_pressed():
 #{
@@ -178,7 +178,7 @@ func _on_remove_room_button_pressed():
 	
 func _on_save_button_pressed():
 #{
-	print("Editor map saving room metadata!")  # Your save code goes here
+	#print("Editor map saving room metadata!")  # Your save code goes here
 
 	BuildRoomsDictionary()
 
@@ -193,27 +193,26 @@ func _on_save_button_pressed():
 	for room in rooms.get_children():
 	#{
 		var filename = room.id + ".meta"
-		print( "metadata filename : ", filename )
+		#print( "metadata filename : ", filename )
 		if FileAccess.file_exists( ROOMS_DIR + filename ):
 		#{
-			print( "save meta" )
+			#print( "save meta" )
 			SaveMetadataForRoom( room, filename )
 		#}
 		else:
 		#{
-			print( "create then save" )
+			#print( "create then save" )
 			CreateNewMetaFile( filename )
 			SaveMetadataForRoom( room, filename )
 		#}
 			
 		filename = room.id + ".json"
-		print( "save room" )
 		SaveRoomDataForRoom( room, filename )	
 		
-		print( "Current id = " + room.id + ", Original id = " + room.original_id )
+		#print( "Current id = " + room.id + ", Original id = " + room.original_id )
 		if( room.id != room.original_id ):
 		#{
-			print( "Id's are not the same deleting old files")
+			#print( "Id's are not the same deleting old files")
 			var old_json_path = ROOMS_DIR + room.original_id + ".json"
 			if( FileAccess.file_exists( old_json_path ) ):
 				DirAccess.open( ROOMS_DIR ).remove( old_json_path )
@@ -223,10 +222,10 @@ func _on_save_button_pressed():
 			room.original_id = room.id	
 			
 		#}  // end if( room.id...
-		else:
-			print( "id's are the same, so no need to delete anything.")
+		#else:
+			#print( "id's are the same, so no need to delete anything.")
 
-		print( "-----" )
+		#print( "-----" )
 		
 	#} // end for
 
@@ -236,7 +235,7 @@ func _on_save_button_pressed():
 		var editor_selection = EditorInterface.get_selection()
 		editor_selection.clear()
 		editor_selection.add_node( currently_selected_room )
-		print( "Reselected room: " + currently_selected_room.label + "." )
+		#print( "Reselected room: " + currently_selected_room.label + "." )
 	#}
 	
 	for room_id in removed_rooms:
@@ -275,84 +274,83 @@ func _on_save_button_pressed():
 #} // end func _on_save_button_pressed()
 	
 func _ready():
-	print("EditorMap._ready: Starting")
-	if rooms:
-		print("  Rooms node has ", rooms.get_child_count(), " children")
-		for child in rooms.get_children():
-			print("    Child: ", child.name, " (Type: ", child.get_class(), ")")
-	else:
-		print("  Rooms node is null")
+	#print("EditorMap._ready: Starting")
+	#if rooms:
+		#print("  Rooms node has ", rooms.get_child_count(), " children")
+	#	for child in rooms.get_children():
+			#print("    Child: ", child.name, " (Type: ", child.get_class(), ")")
+	#else:
+		#print("  Rooms node is null")
 	holding_node.name = "HoldingNode"
 	get_tree().root.add_child(holding_node)
 	holding_node.set_owner(null)
 	if Engine.is_editor_hint():
-		print("  Editor mode: has_loaded_rooms = ", has_loaded_rooms)
+		#print("  Editor mode: has_loaded_rooms = ", has_loaded_rooms)
 		if not has_loaded_rooms:
-			print("  Calling LoadAllRooms")
+			#print("  Calling LoadAllRooms")
 			LoadAllRooms()
 			has_loaded_rooms = true
-		else:
-			print("  Skipping LoadAllRooms")
-	print("EditorMap._ready: Finished")
+		#else:
+			#print("  Skipping LoadAllRooms")
+	#print("EditorMap._ready: Finished")
 	
-func _enter_tree():
-	print("EditorMap._enter_tree: Starting")
-	if rooms:
-		print("  Rooms node has ", rooms.get_child_count(), " children")
-		for child in rooms.get_children():
-			print("    Child: ", child.name, " (Type: ", child.get_class(), ")")
-	else:
-		print("  Rooms node is null")
-	print("EditorMap._enter_tree: Finished")
+#func _enter_tree():
+	#print("EditorMap._enter_tree: Starting")
+	#if rooms:
+		#print("  Rooms node has ", rooms.get_child_count(), " children")
+	#	for child in rooms.get_children():
+			#print("    Child: ", child.name, " (Type: ", child.get_class(), ")")
+	#else:
+		#print("  Rooms node is null")
+	#print("EditorMap._enter_tree: Finished")
 
 func AddRoomToEditorMap(room):
-	print("AddRoomToEditorMap: Starting for room: ", room.id if room else "null")
-	print("  Stack: ", get_stack())
+	#print("AddRoomToEditorMap: Starting for room: ", room.id if room else "null")
+	#print("  Stack: ", get_stack())
 	if not room:
 		print("  Error: Room is null")
 		return
-	print("  Adding room to 'rooms' node")
+	#print("  Adding room to 'rooms' node")
 	rooms.add_child(room)
-	print("    Room added. Parent: ", room.get_parent().name if room.get_parent() else "null")
-	print("  Setting room owner to edited scene root")
+	#print("    Room added. Parent: ", room.get_parent().name if room.get_parent() else "null")
+	#print("  Setting room owner to edited scene root")
 	room.owner = get_tree().edited_scene_root
-	print("    Room owner set to: ", room.owner.name if room.owner else "null")
-	print("  Processing room children for doors")
-	var door_count = 0
+	#print("    Room owner set to: ", room.owner.name if room.owner else "null")
+	#print("  Processing room children for doors")
+	#var door_count = 0
 	for door in room.get_children():
-		print("    Child found: ", door.name, " (Type: ", door.get_class(), ")")
+		#print("    Child found: ", door.name, " (Type: ", door.get_class(), ")")
 		if door is Door:
-			door_count += 1
-			print("      Door detected: ", door.name, " (ID: ", door.id, ", Destination: ", door.destination, ")")
-			print("        Is inside tree: ", door.is_inside_tree())
-			print("        Parent: ", door.get_parent().name if door.get_parent() else "null")
-			print("        Owner: ", door.owner.name if door.owner else "null before setting")
+			#door_count += 1
+			#print("      Door detected: ", door.name, " (ID: ", door.id, ", Destination: ", door.destination, ")")
+			#print("        Is inside tree: ", door.is_inside_tree())
+			#print("        Parent: ", door.get_parent().name if door.get_parent() else "null")
+			#print("        Owner: ", door.owner.name if door.owner else "null before setting")
 			door.owner = get_tree().edited_scene_root
-			print("        Owner set to: ", door.owner.name if door.owner else "null")
-			if door.is_inside_tree() and door.get_parent() == room:
-				print("        Locking door: ", door.name, " in room: ", room.id)
-			else:
-				print("Warning: Door ", door.name, " not in scene tree or wrong parent")
-		else:
-			print("      Not a Door: ", door.name)
-	print("    Total doors processed: ", door_count)
+			#print("        Owner set to: ", door.owner.name if door.owner else "null")
+			#if door.is_inside_tree() and door.get_parent() == room:
+			#	print("        Locking door: ", door.name, " in room: ", room.id)
+			#else:
+			#	print("Warning: Door ", door.name, " not in scene tree or wrong parent")
+		#else:
+		#	print("      Not a Door: ", door.name)
+	#print("    Total doors processed: ", door_count)
 	# Rebuild the doors array from children
 	room.doors.clear()
 	for child in room.get_children():
 		if child is Door:
 			room.doors.append(child)
-	print("    Doors array rebuilt: ", room.doors.size(), " doors")
-	print("  Setting editor_map reference")
+	#print("    Doors array rebuilt: ", room.doors.size(), " doors")
+	#print("  Setting editor_map reference")
 	room.editor_map = self
-	print("    editor_map set to: ", room.editor_map.name if room.editor_map else "null")
-	print("  Calling SetupVisuals for room: ", room.id)
+	#print("    editor_map set to: ", room.editor_map.name if room.editor_map else "null")
+	#print("  Calling SetupVisuals for room: ", room.id)
 	room.SetupVisuals()
-	print("  SetupVisuals completed for room: ", room.id)
-	print("AddRoomToEditorMap: Finished for room: ", room.id)
+	#print("  SetupVisuals completed for room: ", room.id)
+	#print("AddRoomToEditorMap: Finished for room: ", room.id)
 	
 func CreateNewMetaFile( filename ):
 #{
-	print( "*Create*" )
 	var metaname = filename
 	if( filename.ends_with( ".json" ) ): 
 		metaname = filename.replace(".json", ".meta")
@@ -362,15 +360,14 @@ func CreateNewMetaFile( filename ):
 			var meta_data = {"x": 0, "y": 0}
 			meta_file.store_string( JSON.stringify( meta_data ) )
 			meta_file.close()
-			print( "Meta file created successfully." )
-		else:
-			print( "Meta file could not be created." )
+			#print( "Meta file created successfully." )
+		#else:
+			#print( "Meta file could not be created." )
 		
 #} // end func LoadMetadataForRoom()
 
 func SaveMetadataForRoom( room, filename ):
 #{
-	print( "*Save*" )
 	var metapath = ROOMS_DIR + filename
 	if FileAccess.file_exists( metapath ):
 		var file = FileAccess.open( metapath, FileAccess.WRITE )
@@ -378,22 +375,21 @@ func SaveMetadataForRoom( room, filename ):
 			var meta_data = {"x": room.position.x, "y": room.position.y}
 			file.store_string( JSON.stringify( meta_data ) )
 			file.close()
-			print( "Room position x: " + str( room.position.x ) + ", y: " + str( room.position.y ) + " ...saved." )
+			#print( "Room position x: " + str( room.position.x ) + ", y: " + str( room.position.y ) + " ...saved." )
 		else:
 			print( "Couldn't open file for writing." )
 	else:
-		print( "SaveMetadataForRoom()" )
 		CreateNewMetaFile( filename )
 		
 #} // end func SaveMetadataForRoom()
 
 func CreateDoorsFromSpecs( room ):
-	print( "--- Running CreateDoorsFromSpecs()" )
+	#print( "--- Running CreateDoorsFromSpecs()" )
 	var doors = room.doors.duplicate()
 	room.doors.clear()
 	for door in doors:
 		if door and door.get_parent() == room:
-			print("Removing " + door.id + " from room " + room.id)
+			#print("Removing " + door.id + " from room " + room.id)
 			door.owner = null
 			room.remove_child(door)
 			door.queue_free()
@@ -402,7 +398,7 @@ func CreateDoorsFromSpecs( room ):
 	var choice_str = "*"
 	var dest_str = "***_***"
 	
-	print("***\n")
+	#print("***\n")
 	var hue = 0.0
 	for doorspec in room.door_specs:
 		if doorspec == "":
@@ -430,22 +426,22 @@ func CreateDoorsFromSpecs( room ):
 					i += 1
 					
 		id_str = "Door_To_" + dest_str.substr(4)
-		print("*//* id: " + id_str + ", choice: " + choice_str + ", dest: " + dest_str)
+		#print("*//* id: " + id_str + ", choice: " + choice_str + ", dest: " + dest_str)
 		
-		print( "ccc" )
+		#print( "ccc" )
 		var color = Color.from_hsv( hue, 0.8, 1.0 )
 		hue += 1.0 / 9
-		print( "Color = ", color )
-		print( "ccc" )
+		#print( "Color = ", color )
+		#print( "ccc" )
 		var new_door = Door.create( id_str, choice_str, dest_str, id_str, color )
 		if new_door:
 			room.doors.append(new_door)
 			room.add_child(new_door)
 			new_door.owner = get_tree().edited_scene_root
 			#room.set_editable_instance(new_door, false) # Lock door in editor viewport
-			print("Successfully created door: ", new_door.name)
-		else:
-			print("Failed to create door for spec: ", doorspec)
+			#print("Successfully created door: ", new_door.name)
+		#else:
+		#	print("Failed to create door for spec: ", doorspec)
 	
 	var door = null
 	var spec_str = ""
@@ -461,11 +457,11 @@ func CreateDoorsFromSpecs( room ):
 		room.door_specs[i] = spec_str
 	
 	room.emit_signal("property_list_changed")
-	print("\n***")
+	#print("\n***")
 
 func AssignInboundRooms(room):
-	print("---")
-	print("AssignInboundRooms for ", room.id)
+	#print("---")
+	#print("AssignInboundRooms for ", room.id)
 
 	# Clear the inbound_rooms array to remove stale links
 	for i in range(room.inbound_rooms.size()):
@@ -479,21 +475,21 @@ func AssignInboundRooms(room):
 		for door in source_room.doors:
 			if door.destination == room.id:
 				if inbound_index < room.inbound_rooms.size():
-					print("  Adding inbound link from ", source_room.id)
+					#print("  Adding inbound link from ", source_room.id)
 					room.inbound_rooms[inbound_index] = source_room.id
 					inbound_index += 1
 				else:
-					print("  Warning: Too many inbound links for ", room.id)
+					#print("  Warning: Too many inbound links for ", room.id)
 					break
 
-	if inbound_index == 0:
-		print("  No inbound links found for ", room.id)
+	#if inbound_index == 0:
+	#	print("  No inbound links found for ", room.id)
 		
 func SaveRoomDataForRoom(room, filename: String):
 #{
-	print("*Save Room Data*")	
+	#print("*Save Room Data*")	
 	var jsonpath = ROOMS_DIR + filename
-	print("Saving room data to: ", jsonpath)
+	#print("Saving room data to: ", jsonpath)
 	var file = FileAccess.open(jsonpath, FileAccess.WRITE)
 	if FileAccess.get_open_error() == OK:
 		# Manually construct the JSON string with the desired order
@@ -509,7 +505,7 @@ func SaveRoomDataForRoom(room, filename: String):
 		var in_strings = []
 		var in_count = 0
 		for inbound in room.inbound_rooms:
-			print( "  inbound = ", inbound )
+			#print( "  inbound = ", inbound )
 			if( inbound != "" ):
 				var in_data = ''
 				in_data += '        ' + JSON.stringify(inbound) + ',\n'
@@ -563,7 +559,7 @@ func SaveRoomDataForRoom(room, filename: String):
 
 func LoadMetadataForRoom( room, filename ):
 #{
-	print( "Checking for metadata for ", filename )
+	#print( "Checking for metadata for ", filename )
 	var metapath = filename.replace(".json", ".meta")
 	metapath = "res://Rooms/" + metapath
 	if FileAccess.file_exists( metapath ):
@@ -573,7 +569,7 @@ func LoadMetadataForRoom( room, filename ):
 		if meta_data:
 			room.position.x = meta_data[ "x" ]
 			room.position.y = meta_data[ "y" ]
-			print( "Room position x: " + str( room.position.x ) + ", y: " + str( room.position.y ) )
+			#print( "Room position x: " + str( room.position.x ) + ", y: " + str( room.position.y ) )
 		else:
 			print( "No meta data read." )
 		
@@ -586,17 +582,17 @@ func _visit_room(room: Node, sorted_rooms: Array, visited: Dictionary, temp_visi
 	if room.id in visited:
 		return
 	temp_visited[room.id] = true
-	print("Visiting room: ", room.id)
+	#print("Visiting room: ", room.id)
 	# Visit all rooms that depend on this room (via inbound_rooms)
 	for inbound_id in room.inbound_rooms:
 		if inbound_id != "" and rooms_dict.has(inbound_id):
 			var source_room = rooms_dict[inbound_id]
-			print("  Source room that depends on this: ", source_room.id)
+			#print("  Source room that depends on this: ", source_room.id)
 			_visit_room(source_room, sorted_rooms, visited, temp_visited)
 	temp_visited.erase(room.id)
 	visited[room.id] = true
 	sorted_rooms.push_front(room)
-	print("Added to sorted list: ", room.id)
+	#print("Added to sorted list: ", room.id)
 	
 func topological_sort_rooms() -> Array:
 	var sorted_rooms = []
@@ -606,7 +602,7 @@ func topological_sort_rooms() -> Array:
 	for room in rooms.get_children():
 		if not (room.id in visited):
 			_visit_room(room, sorted_rooms, visited, temp_visited)
-	print("Sorted rooms order: ", sorted_rooms.map(func(r): return r.id))
+	#print("Sorted rooms order: ", sorted_rooms.map(func(r): return r.id))
 	return sorted_rooms
 	
 func OldLoadAllRooms():
@@ -627,8 +623,8 @@ func OldLoadAllRooms():
 		for item in filelist:
 			filename = item
 			if filename.ends_with(".json"):
-				print("---")
-				print("Next json in file list: ", item)
+				#print("---")
+				#print("Next json in file list: ", item)
 				var json_name = filename.replace(".json", "")
 				var room = Room.CreateFromJSON(json_name)
 				if room:
@@ -648,8 +644,6 @@ func OldLoadAllRooms():
 		room.UpdateDoorVisuals()
 		room.UpdateInboundVisuals()
 		room.UpdateDoorLines()
-	
-	print("***")
 
 func LoadAllRooms():
 	print("Running load_all_rooms")
@@ -669,8 +663,8 @@ func LoadAllRooms():
 		for item in filelist:
 			filename = item
 			if filename.ends_with(".json"):
-				print("---")
-				print("Next json in file list: ", item)
+				#print("---")
+				#print("Next json in file list: ", item)
 				var json_name = filename.replace(".json", "")
 				var room = Room.CreateFromJSON(json_name)
 				if room:
@@ -697,45 +691,46 @@ func LoadAllRooms():
 		if room is Room:
 			previous_positions[room.id] = room.position
 	
-	print("***")
+	#print("***")
 
 func _exit_tree():
-	print("EditorMap._exit_tree: Cleaning up")
+	#print("EditorMap._exit_tree: Cleaning up")
 	# Clear Rooms node
 	if rooms:
-		print("  Clearing Rooms node with ", rooms.get_child_count(), " children")
+		#print("  Clearing Rooms node with ", rooms.get_child_count(), " children")
 		for room in rooms.get_children():
 			if room is Room:
-				print("    Processing room: ", room.id, " (Label: ", room.label, ")")
+				#rint("    Processing room: ", room.id, " (Label: ", room.label, ")")
 				# Clear room's children (e.g., Door nodes)
 				var child_count = room.get_child_count()
 				if child_count > 0:
-					print("      Clearing ", child_count, " children of room: ", room.id)
+					#print("      Clearing ", child_count, " children of room: ", room.id)
 					for child in room.get_children():
-						print("        Removing child: ", child.name, " (Type: ", child.get_class(), ")")
+						#print("        Removing child: ", child.name, " (Type: ", child.get_class(), ")")
 						room.remove_child(child)
 						child.queue_free()
-				else:
-					print("      No children in room: ", room.id)
+				#else:
+					#print("      No children in room: ", room.id)
 				# Remove the room
-				print("    Removing room: ", room.id)
+				#print("    Removing room: ", room.id)
 				rooms.remove_child(room)
 				room.queue_free()
 			else:
-				print("    Removing non-room child: ", room.name)
+				#print("    Removing non-room child: ", room.name)
 				rooms.remove_child(room)
 				room.queue_free()
 	else:
 		print("  Rooms node not found")
+		
 	# Existing cleanup for holding_node
 	if holding_node:
-		print("  Clearing holding_node with ", holding_node.get_child_count(), " children")
+		#print("  Clearing holding_node with ", holding_node.get_child_count(), " children")
 		for child in holding_node.get_children():
-			print("        Removing holding_node child: ", child.name)
+			#print("        Removing holding_node child: ", child.name)
 			child.queue_free()
 		holding_node.queue_free()
 		holding_node = null
-	print("EditorMap._exit_tree: Finished")
+	#print("EditorMap._exit_tree: Finished")
 	
 	# Dictionary to store previous positions of rooms
 var previous_positions: Dictionary = {}
@@ -760,7 +755,7 @@ func _process(_delta: float) -> void:
 				var room_id = room.id
 				if previous_positions.has(room_id):
 					if previous_positions[room_id] != current_pos:
-						print("Position changed for room: ", room_id, " from ", previous_positions[room_id], " to ", current_pos)
-						# Update lines for this room and all rooms that link to it
+						#print("Position changed for room: ", room_id, " from ", previous_positions[room_id], " to ", current_pos)
+						# Update lines for this room and all rooms that link to itScreenshot from 2025-05-09 13-00-33
 						update_lines_for_room_and_dependents(room)
 				previous_positions[room_id] = current_pos

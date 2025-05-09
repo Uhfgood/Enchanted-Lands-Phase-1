@@ -16,25 +16,6 @@ script = ExtResource("2_ga40n")
 id = "000_Door1"
 label = "Door1"
 description = "There's nothing here yet.  Hit 0 to quit."
-inbound_rooms = ["000_New_Location", "", "", "", "", "", "", "", ""]
-
-[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Door1"]
-z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
-offset_top = -64.0
-offset_right = 292.0
-offset_bottom = -44.0
-theme_override_constants/separation = 0
-alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="InboundVisual_000_New_Location" type="ColorRect" parent="Rooms/Door1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
 
 [node name="Door2" type="Node2D" parent="Rooms"]
 position = Vector2(-2023, 1373)
@@ -42,25 +23,6 @@ script = ExtResource("2_ga40n")
 id = "000_Door2"
 label = "Door2"
 description = "There's nothing here yet.  Hit 0 to quit."
-inbound_rooms = ["000_New_Location", "", "", "", "", "", "", "", ""]
-
-[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Door2"]
-z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
-offset_top = -64.0
-offset_right = 292.0
-offset_bottom = -44.0
-theme_override_constants/separation = 0
-alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="InboundVisual_000_New_Location" type="ColorRect" parent="Rooms/Door2/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
 
 [node name="Door3" type="Node2D" parent="Rooms"]
 position = Vector2(-1416, 1374)
@@ -68,25 +30,6 @@ script = ExtResource("2_ga40n")
 id = "000_Door3"
 label = "Door3"
 description = "There's nothing here yet.  Hit 0 to quit."
-inbound_rooms = ["000_New_Location", "", "", "", "", "", "", "", ""]
-
-[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Door3"]
-z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
-offset_top = -64.0
-offset_right = 292.0
-offset_bottom = -44.0
-theme_override_constants/separation = 0
-alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="InboundVisual_000_New_Location" type="ColorRect" parent="Rooms/Door3/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.733333, 1, 0.2, 1)
 
 [node name="Door4" type="Node2D" parent="Rooms"]
 position = Vector2(-809, 1374)
@@ -94,25 +37,6 @@ script = ExtResource("2_ga40n")
 id = "000_Door4"
 label = "Door4"
 description = "There's nothing here yet.  Hit 0 to quit."
-inbound_rooms = ["000_New_Location", "", "", "", "", "", "", "", ""]
-
-[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Door4"]
-z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
-offset_top = -64.0
-offset_right = 292.0
-offset_bottom = -44.0
-theme_override_constants/separation = 0
-alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="InboundVisual_000_New_Location" type="ColorRect" parent="Rooms/Door4/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.2, 1, 0.2, 1)
 
 [node name="Door5" type="Node2D" parent="Rooms"]
 position = Vector2(-207, 1372)
@@ -120,51 +44,13 @@ script = ExtResource("2_ga40n")
 id = "000_Door5"
 label = "Door5"
 description = "There's nothing here yet.  Hit 0 to quit."
-inbound_rooms = ["000_New_Location", "", "", "", "", "", "", "", ""]
-
-[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Door5"]
-z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
-offset_top = -64.0
-offset_right = 292.0
-offset_bottom = -44.0
-theme_override_constants/separation = 0
-alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="InboundVisual_000_New_Location" type="ColorRect" parent="Rooms/Door5/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.2, 1, 0.733333, 1)
 
 [node name="Door6" type="Node2D" parent="Rooms"]
-position = Vector2(415, 1370)
+position = Vector2(472, 1433)
 script = ExtResource("2_ga40n")
 id = "000_Door6"
 label = "Door6"
 description = "There's nothing here yet.  Hit 0 to quit."
-inbound_rooms = ["000_New_Location", "", "", "", "", "", "", "", ""]
-
-[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Door6"]
-z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
-offset_top = -64.0
-offset_right = 292.0
-offset_bottom = -44.0
-theme_override_constants/separation = 0
-alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="InboundVisual_000_New_Location" type="ColorRect" parent="Rooms/Door6/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.2, 0.733333, 1, 1)
 
 [node name="Door7" type="Node2D" parent="Rooms"]
 position = Vector2(1047, 1377)
@@ -172,25 +58,6 @@ script = ExtResource("2_ga40n")
 id = "000_Door7"
 label = "Door7"
 description = "There's nothing here yet.  Hit 0 to quit."
-inbound_rooms = ["000_New_Location", "", "", "", "", "", "", "", ""]
-
-[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Door7"]
-z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
-offset_top = -64.0
-offset_right = 292.0
-offset_bottom = -44.0
-theme_override_constants/separation = 0
-alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="InboundVisual_000_New_Location" type="ColorRect" parent="Rooms/Door7/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.2, 0.2, 1, 1)
 
 [node name="Door8" type="Node2D" parent="Rooms"]
 position = Vector2(1669, 1375)
@@ -198,25 +65,6 @@ script = ExtResource("2_ga40n")
 id = "000_Door8"
 label = "Door8"
 description = "There's nothing here yet.  Hit 0 to quit."
-inbound_rooms = ["000_New_Location", "", "", "", "", "", "", "", ""]
-
-[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Door8"]
-z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
-offset_top = -64.0
-offset_right = 292.0
-offset_bottom = -44.0
-theme_override_constants/separation = 0
-alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="InboundVisual_000_New_Location" type="ColorRect" parent="Rooms/Door8/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.733334, 0.2, 1, 1)
 
 [node name="Door9" type="Node2D" parent="Rooms"]
 position = Vector2(2289, 1376)
@@ -224,258 +72,9 @@ script = ExtResource("2_ga40n")
 id = "000_Door9"
 label = "Door9"
 description = "There's nothing here yet.  Hit 0 to quit."
-inbound_rooms = ["000_New_Location", "", "", "", "", "", "", "", ""]
-
-[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Door9"]
-z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
-offset_top = -64.0
-offset_right = 292.0
-offset_bottom = -44.0
-theme_override_constants/separation = 0
-alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="InboundVisual_000_New_Location" type="ColorRect" parent="Rooms/Door9/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.733333, 1)
-
-[node name="New Location" type="Node2D" parent="Rooms"]
-position = Vector2(-88, 221)
-script = ExtResource("2_ga40n")
-id = "000_New_Location"
-label = "New Location"
-description = "Testing the doors.
-"
-door_specs = ["ch: 1, dest: 000_Door1;", "ch: 2, dest: 000_Door2;", "ch: 3, dest: 000_Door3;", "ch: 4, dest: 000_Door4;", "ch: 5, dest: 000_Door5;", "ch: 6, dest: 000_Door6;", "ch: 7, dest: 000_Door7;", "ch: 8, dest: 000_Door8;", "ch: 9, dest: 000_Door9;"]
-
-[node name="Door_To_Door1" type="Node2D" parent="Rooms/New Location"]
-visible = false
-script = ExtResource("3_7lemb")
-choice = "1"
-destination = "000_Door1"
-id = "Door_To_Door1"
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="Door_To_Door2" type="Node2D" parent="Rooms/New Location"]
-visible = false
-script = ExtResource("3_7lemb")
-choice = "2"
-destination = "000_Door2"
-id = "Door_To_Door2"
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="Door_To_Door3" type="Node2D" parent="Rooms/New Location"]
-visible = false
-script = ExtResource("3_7lemb")
-choice = "3"
-destination = "000_Door3"
-id = "Door_To_Door3"
-color = Color(0.733333, 1, 0.2, 1)
-
-[node name="Door_To_Door4" type="Node2D" parent="Rooms/New Location"]
-visible = false
-script = ExtResource("3_7lemb")
-choice = "4"
-destination = "000_Door4"
-id = "Door_To_Door4"
-color = Color(0.2, 1, 0.2, 1)
-
-[node name="Door_To_Door5" type="Node2D" parent="Rooms/New Location"]
-visible = false
-script = ExtResource("3_7lemb")
-choice = "5"
-destination = "000_Door5"
-id = "Door_To_Door5"
-color = Color(0.2, 1, 0.733333, 1)
-
-[node name="Door_To_Door6" type="Node2D" parent="Rooms/New Location"]
-visible = false
-script = ExtResource("3_7lemb")
-choice = "6"
-destination = "000_Door6"
-id = "Door_To_Door6"
-color = Color(0.2, 0.733333, 1, 1)
-
-[node name="Door_To_Door7" type="Node2D" parent="Rooms/New Location"]
-visible = false
-script = ExtResource("3_7lemb")
-choice = "7"
-destination = "000_Door7"
-id = "Door_To_Door7"
-color = Color(0.2, 0.2, 1, 1)
-
-[node name="Door_To_Door8" type="Node2D" parent="Rooms/New Location"]
-visible = false
-script = ExtResource("3_7lemb")
-choice = "8"
-destination = "000_Door8"
-id = "Door_To_Door8"
-color = Color(0.733334, 0.2, 1, 1)
-
-[node name="Door_To_Door9" type="Node2D" parent="Rooms/New Location"]
-visible = false
-script = ExtResource("3_7lemb")
-choice = "9"
-destination = "000_Door9"
-id = "Door_To_Door9"
-color = Color(1, 0.2, 0.733333, 1)
-
-[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/New Location"]
-z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
-offset_top = 210.0
-offset_right = 292.0
-offset_bottom = 230.0
-theme_override_constants/separation = 40
-alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="DoorVisual_Door_To_Door1" type="ColorRect" parent="Rooms/New Location/DoorVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="DoorVisual_Door_To_Door2" type="ColorRect" parent="Rooms/New Location/DoorVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="DoorVisual_Door_To_Door3" type="ColorRect" parent="Rooms/New Location/DoorVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.733333, 1, 0.2, 1)
-
-[node name="DoorVisual_Door_To_Door4" type="ColorRect" parent="Rooms/New Location/DoorVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.2, 1, 0.2, 1)
-
-[node name="DoorVisual_Door_To_Door5" type="ColorRect" parent="Rooms/New Location/DoorVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.2, 1, 0.733333, 1)
-
-[node name="DoorVisual_Door_To_Door6" type="ColorRect" parent="Rooms/New Location/DoorVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.2, 0.733333, 1, 1)
-
-[node name="DoorVisual_Door_To_Door7" type="ColorRect" parent="Rooms/New Location/DoorVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.2, 0.2, 1, 1)
-
-[node name="DoorVisual_Door_To_Door8" type="ColorRect" parent="Rooms/New Location/DoorVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.733334, 0.2, 1, 1)
-
-[node name="DoorVisual_Door_To_Door9" type="ColorRect" parent="Rooms/New Location/DoorVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.733333, 1)
-
-[node name="LinesContainer" type="Node2D" parent="Rooms/New Location"]
-metadata/_edit_lock_ = true
-
-[node name="@Node2D@131886" type="Node2D" parent="Rooms/New Location/LinesContainer"]
-script = ExtResource("4_ot700")
-start_pos = Vector2(-242, 230)
-end_pos = Vector2(-2548, 1087)
-default_color = Color(1, 0.2, 0.2, 1)
-width = 2.0
-metadata/_edit_lock_ = true
-
-[node name="@Node2D@131887" type="Node2D" parent="Rooms/New Location/LinesContainer"]
-script = ExtResource("4_ot700")
-start_pos = Vector2(-181.5, 230)
-end_pos = Vector2(-1935, 1088)
-default_color = Color(1, 0.733333, 0.2, 1)
-width = 2.0
-metadata/_edit_lock_ = true
-
-[node name="@Node2D@131888" type="Node2D" parent="Rooms/New Location/LinesContainer"]
-script = ExtResource("4_ot700")
-start_pos = Vector2(-121, 230)
-end_pos = Vector2(-1328, 1089)
-default_color = Color(0.733333, 1, 0.2, 1)
-width = 2.0
-metadata/_edit_lock_ = true
-
-[node name="@Node2D@131889" type="Node2D" parent="Rooms/New Location/LinesContainer"]
-script = ExtResource("4_ot700")
-start_pos = Vector2(-60.5, 230)
-end_pos = Vector2(-721, 1089)
-default_color = Color(0.2, 1, 0.2, 1)
-width = 2.0
-metadata/_edit_lock_ = true
-
-[node name="@Node2D@131890" type="Node2D" parent="Rooms/New Location/LinesContainer"]
-script = ExtResource("4_ot700")
-start_pos = Vector2(0, 230)
-end_pos = Vector2(-119, 1087)
-default_color = Color(0.2, 1, 0.733333, 1)
-width = 2.0
-metadata/_edit_lock_ = true
-
-[node name="@Node2D@131891" type="Node2D" parent="Rooms/New Location/LinesContainer"]
-script = ExtResource("4_ot700")
-start_pos = Vector2(60.5, 230)
-end_pos = Vector2(503, 1085)
-default_color = Color(0.2, 0.733333, 1, 1)
-width = 2.0
-metadata/_edit_lock_ = true
-
-[node name="@Node2D@131892" type="Node2D" parent="Rooms/New Location/LinesContainer"]
-script = ExtResource("4_ot700")
-start_pos = Vector2(121, 230)
-end_pos = Vector2(1135, 1092)
-default_color = Color(0.2, 0.2, 1, 1)
-width = 2.0
-metadata/_edit_lock_ = true
-
-[node name="@Node2D@131893" type="Node2D" parent="Rooms/New Location/LinesContainer"]
-script = ExtResource("4_ot700")
-start_pos = Vector2(181.5, 230)
-end_pos = Vector2(1757, 1090)
-default_color = Color(0.733334, 0.2, 1, 1)
-width = 2.0
-metadata/_edit_lock_ = true
-
-[node name="@Node2D@131894" type="Node2D" parent="Rooms/New Location/LinesContainer"]
-script = ExtResource("4_ot700")
-start_pos = Vector2(242, 230)
-end_pos = Vector2(2377, 1091)
-default_color = Color(1, 0.2, 0.733333, 1)
-width = 2.0
-metadata/_edit_lock_ = true
 
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
-position = Vector2(-775, -1274)
+position = Vector2(-748, -1116)
 script = ExtResource("2_ga40n")
 id = "001_Enchanted_Lands"
 label = "Enchanted Lands"
@@ -491,20 +90,12 @@ Hit 1 if you wish to go to Enchanted Lands 1.
 Hit 0 to quit."
 door_specs = ["ch: 1, dest: 001_Enchanted_Lands_1;", "", "", "", "", "", "", "", ""]
 
-[node name="Door_To_Enchanted_Lands_1" type="Node2D" parent="Rooms/Enchanted Lands"]
-visible = false
-script = ExtResource("3_7lemb")
-choice = "1"
-destination = "001_Enchanted_Lands_1"
-id = "Door_To_Enchanted_Lands_1"
-color = Color(1, 0.2, 0.2, 1)
-
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Enchanted Lands"]
 z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
 offset_top = 210.0
-offset_right = 292.0
+offset_right = 342.0
 offset_bottom = 230.0
 theme_override_constants/separation = 0
 alignment = 1
@@ -517,19 +108,28 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
 
+[node name="Door_To_Enchanted_Lands_1" type="Node2D" parent="Rooms/Enchanted Lands"]
+visible = false
+script = ExtResource("3_7lemb")
+choice = "1"
+destination = "001_Enchanted_Lands_1"
+id = "Door_To_Enchanted_Lands_1"
+color = Color(1, 0.2, 0.2, 1)
+
 [node name="LinesContainer" type="Node2D" parent="Rooms/Enchanted Lands"]
+position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@130938" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
+[node name="@Node2D@51314" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
 script = ExtResource("4_ot700")
-start_pos = Vector2(0, 230)
-end_pos = Vector2(-85, 777)
+start_pos = Vector2(0, 330)
+end_pos = Vector2(-35, 732)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 2.0
+width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
-position = Vector2(-860, -433)
+position = Vector2(-783, -420)
 script = ExtResource("2_ga40n")
 id = "001_Enchanted_Lands_1"
 label = "Enchanted Lands 1"
@@ -545,20 +145,12 @@ Hit 0 to quit."
 inbound_rooms = ["001_Enchanted_Lands", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home;", "", "", "", "", "", "", "", ""]
 
-[node name="Door_To_Hubert_Home" type="Node2D" parent="Rooms/Enchanted Lands 1"]
-visible = false
-script = ExtResource("3_7lemb")
-choice = "1"
-destination = "002_Hubert_Home"
-id = "Door_To_Hubert_Home"
-color = Color(1, 0.2, 0.2, 1)
-
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Enchanted Lands 1"]
 z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
 offset_top = 210.0
-offset_right = 292.0
+offset_right = 342.0
 offset_bottom = 230.0
 theme_override_constants/separation = 0
 alignment = 1
@@ -573,10 +165,10 @@ color = Color(1, 0.2, 0.2, 1)
 
 [node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Enchanted Lands 1"]
 z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
 offset_top = -64.0
-offset_right = 292.0
+offset_right = 342.0
 offset_bottom = -44.0
 theme_override_constants/separation = 0
 alignment = 1
@@ -589,19 +181,28 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
 
+[node name="Door_To_Hubert_Home" type="Node2D" parent="Rooms/Enchanted Lands 1"]
+visible = false
+script = ExtResource("3_7lemb")
+choice = "1"
+destination = "002_Hubert_Home"
+id = "Door_To_Hubert_Home"
+color = Color(1, 0.2, 0.2, 1)
+
 [node name="LinesContainer" type="Node2D" parent="Rooms/Enchanted Lands 1"]
+position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@129547" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
+[node name="@Node2D@51315" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
 script = ExtResource("4_ot700")
-start_pos = Vector2(0, 230)
-end_pos = Vector2(-153, 483)
+start_pos = Vector2(0, 330)
+end_pos = Vector2(-297, 652)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 2.0
+width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home" type="Node2D" parent="Rooms"]
-position = Vector2(-1013, 114)
+position = Vector2(-1080, 196)
 script = ExtResource("2_ga40n")
 id = "002_Hubert_Home"
 label = "Hubert Home"
@@ -616,20 +217,12 @@ Hit 0 to quit."
 inbound_rooms = ["001_Enchanted_Lands_1", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
 
-[node name="Door_To_Cerulea" type="Node2D" parent="Rooms/Hubert Home"]
-visible = false
-script = ExtResource("3_7lemb")
-choice = "1"
-destination = "003_Cerulea"
-id = "Door_To_Cerulea"
-color = Color(1, 0.2, 0.2, 1)
-
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home"]
 z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
 offset_top = 210.0
-offset_right = 292.0
+offset_right = 342.0
 offset_bottom = 230.0
 theme_override_constants/separation = 0
 alignment = 1
@@ -644,10 +237,10 @@ color = Color(1, 0.2, 0.2, 1)
 
 [node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home"]
 z_index = 1
-custom_minimum_size = Vector2(584, 20)
-offset_left = -292.0
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
 offset_top = -64.0
-offset_right = 292.0
+offset_right = 342.0
 offset_bottom = -44.0
 theme_override_constants/separation = 0
 alignment = 1
@@ -660,5 +253,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
 
+[node name="Door_To_Cerulea" type="Node2D" parent="Rooms/Hubert Home"]
+visible = false
+script = ExtResource("3_7lemb")
+choice = "1"
+destination = "003_Cerulea"
+id = "Door_To_Cerulea"
+color = Color(1, 0.2, 0.2, 1)
+
 [node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home"]
+position = Vector2(0, -100)
 metadata/_edit_lock_ = true
