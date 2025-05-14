@@ -505,19 +505,19 @@ func SaveRoomDataForRoom(room, filename: String):
 		var in_strings = []
 		var in_count = 0
 		for inbound in room.inbound_rooms:
-			#print( "  inbound = ", inbound )
+			print( "  inbound = ", inbound )
 			if( inbound != "" ):
 				var in_data = ''
-				in_data += '        ' + JSON.stringify(inbound) + ',\n'
+				in_data += '        ' + JSON.stringify( inbound )
 				in_strings.append( in_data )
 				in_count += 1
 		
 		for i in range( in_count ):
 			json_str += in_strings[ i ]
-			if( in_count > 1 && i < in_strings.size() - 1 ):
+			if( i < in_strings.size() - 1 ):
 				json_str += ",\n"		
 			
-		if in_strings.size() > 1:
+		if in_strings.size() > 0:
 			json_str += "\n"
 		json_str += "    ],\n"
 		
@@ -671,7 +671,7 @@ func LoadAllRooms():
 					rooms_dict[room.id] = room
 					AddRoomToEditorMap(room)
 					LoadMetadataForRoom(room, filename)
-				if filename.begins_with("002"):
+				if filename.begins_with("003"):
 					break
 
 	# Step 2: Assign inbound rooms for all rooms

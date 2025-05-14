@@ -1,9 +1,13 @@
 {
     "id": "009_Random_Villages_4",
-    "parent": "020_Fairy_Godcollege_1",
     "label": "Random Villages 4",
     "description": "Zanzibar travels to a few villages and collects some tax money.\nThen he puts some of the money he's collected, into his own pocket.\n\nHit 1 if you wish to go to Max Mines.\n\nHit 0 to quit.",
-    "doors": [
+    "inbound":
+    [
+        "020_Fairy_Godcollege_1",
+    ],
+    "doors":
+    [
         {
             "id": "Door_To_Max_Mines",
             "choice": "1",

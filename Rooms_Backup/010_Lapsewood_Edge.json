@@ -1,9 +1,13 @@
 {
     "id": "010_Lapsewood_Edge",
-    "parent": "009_Random_Villages",
     "label": "Lapsewood Edge",
     "description": "Once they're out of the confines of Lapsewood, Hubert stops to give instructions.\nHubert sends John to Knight School and Princess Prep to figure out what's happening.\nHubert himself goes to examine Wizard U and Fairy Godcollege.\n\nHit 1 if you wish to go to Dwarf Mines.\n\nHit 0 to quit.",
-    "doors": [
+    "inbound":
+    [
+        "009_Random_Villages",
+    ],
+    "doors":
+    [
         {
             "id": "Door_To_Dwarf_Mines",
             "choice": "1",

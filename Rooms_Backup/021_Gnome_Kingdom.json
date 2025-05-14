@@ -1,9 +1,13 @@
 {
     "id": "021_Gnome_Kingdom",
-    "parent": "020_Fairy_Godcollege",
     "label": "Gnome Kingdom",
     "description": "In the Gnome Kingdom, Roland notices all kinds of people and creatures working the mines.\nHe spots a giant chained to one of the machines that he can't identify, and starts walking towards him.\nRoland asks the giant if he's his Dad, and the giant confirms it.\nHe tells Roland to find Hubert Halfway, the wizard, and to tell Hubert that Max seems to need a lot of quicksilver.\n\nHit 1 if you wish to go to Scarborough Faire Chicken.\n\nHit 0 to quit.",
-    "doors": [
+    "inbound":
+    [
+        "020_Fairy_Godcollege",
+    ],
+    "doors":
+    [
         {
             "id": "Door_To_Scarborough_Faire_Chicken",
             "choice": "1",

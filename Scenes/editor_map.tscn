@@ -11,7 +11,7 @@ script = ExtResource("1_k3d1g")
 [node name="Rooms" type="Node" parent="."]
 
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
-position = Vector2(-748, -1116)
+position = Vector2(-983, -1173)
 script = ExtResource("2_ga40n")
 id = "001_Enchanted_Lands"
 label = "Enchanted Lands"
@@ -22,7 +22,7 @@ Will the schools ever reopen?
 Will there ever be anymore stupendous vacation deals?
 Stay tuned.
 
-Hit 1 if you wish to go to Enchanted Lands 1.
+Hit 1 if you wish to continue.
 
 Hit 0 to quit."
 door_specs = ["ch: 1, dest: 001_Enchanted_Lands_1;", "", "", "", "", "", "", "", ""]
@@ -57,16 +57,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@58177" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
+[node name="@Node2D@17321" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-237, 695)
+end_pos = Vector2(1, 398)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
-position = Vector2(-985, -457)
+position = Vector2(-982, -811)
 script = ExtResource("2_ga40n")
 id = "001_Enchanted_Lands_1"
 label = "Enchanted Lands 1"
@@ -76,7 +76,7 @@ Many people have disappeared including both citizens and tourists.
 Ever since the King closed down the resort, he's been acting strangely.
 Chief advisor and friend to the King, the Wizard Hubert, after seeing him, goes home to prepare to get external help.
 
-Hit 1 if you wish to go to Hubert Home.
+Hit 1 if you wish to go to Hubert's Home.
 
 Hit 0 to quit."
 inbound_rooms = ["001_Enchanted_Lands", "", "", "", "", "", "", "", ""]
@@ -130,16 +130,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@58176" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
+[node name="@Node2D@17320" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-95, 689)
+end_pos = Vector2(-622, 376)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home" type="Node2D" parent="Rooms"]
-position = Vector2(-1080, 196)
+position = Vector2(-1604, -471)
 script = ExtResource("2_ga40n")
 id = "002_Hubert_Home"
 label = "Hubert Home"
@@ -148,19 +148,30 @@ Hubert goes to a large crystal ball, which allows him to see into different real
 Hubert then spots John, pulls up info about him, and then sees him enter a convenience store, to grab a Benny Wonky Bar.
 Hubert puts a silver ticket into a 'magic' mailbox on his desk, which magically appears inside the wrapper.
 
-Hit 1 if you wish to go to Cerulea.
+Hubert goes to his home and then goes directly to the study, where he sees many books, scrolls, and loose papers.  There's also a large crystal ball in it's own cradle in the center of the room.
+
+Hit 1 if you wish to examine the books, scrolls, and papers.
+Hit 2 if you wish to look into the crystal ball.
 
 Hit 0 to quit."
 inbound_rooms = ["001_Enchanted_Lands_1", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home_1;", "ch: 2, dest: 002_Hubert_Home_2;", "", "", "", "", "", "", ""]
 
-[node name="Door_To_Cerulea" type="Node2D" parent="Rooms/Hubert Home"]
+[node name="Door_To_Hubert_Home_1" type="Node2D" parent="Rooms/Hubert Home"]
 visible = false
 script = ExtResource("3_7lemb")
 choice = "1"
-destination = "003_Cerulea"
-id = "Door_To_Cerulea"
+destination = "002_Hubert_Home_1"
+id = "Door_To_Hubert_Home_1"
 color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Hubert_Home_2" type="Node2D" parent="Rooms/Hubert Home"]
+visible = false
+script = ExtResource("3_7lemb")
+choice = "2"
+destination = "002_Hubert_Home_2"
+id = "Door_To_Hubert_Home_2"
+color = Color(1, 0.733333, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home"]
 z_index = 1
@@ -169,16 +180,23 @@ offset_left = -342.0
 offset_top = 210.0
 offset_right = 342.0
 offset_bottom = 230.0
-theme_override_constants/separation = 0
+theme_override_constants/separation = 484
 alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="DoorVisual_Door_To_Cerulea" type="ColorRect" parent="Rooms/Hubert Home/DoorVisualsContainer"]
+[node name="DoorVisual_Door_To_Hubert_Home_1" type="ColorRect" parent="Rooms/Hubert Home/DoorVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
+
+[node name="DoorVisual_Door_To_Hubert_Home_2" type="ColorRect" parent="Rooms/Hubert Home/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
 
 [node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home"]
 z_index = 1
@@ -199,5 +217,239 @@ size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@17318" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+script = ExtResource("4_ot700")
+start_pos = Vector2(-252, 330)
+end_pos = Vector2(-381, 653)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@17319" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+script = ExtResource("4_ot700")
+start_pos = Vector2(252, 330)
+end_pos = Vector2(199, 628)
+default_color = Color(1, 0.733333, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 1" type="Node2D" parent="Rooms"]
+position = Vector2(-1985, 146)
+script = ExtResource("2_ga40n")
+id = "002_Hubert_Home_1"
+label = "Hubert Home 1"
+description = "Hubert walks around his home, examining spell books, scrolls, and loose papers, to figure out the best course of action.
+Hubert goes to a large crystal ball, which allows him to see into different realms, and he searches for someone to help.
+Hubert then spots John, pulls up info about him, and then sees him enter a convenience store, to grab a Benny Wonky Bar.
+Hubert puts a silver ticket into a 'magic' mailbox on his desk, which magically appears inside the wrapper.
+
+One of the loose papers he examines has a handwritten list of requirements for an assistant, which read:
+Loner, possibly shy, not much interaction with the opposite sex, into fantasy.
+
+Hit 1 to go over to the crystal ball.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home_2;", "", "", "", "", "", "", "", ""]
+
+[node name="Door_To_Hubert_Home_2" type="Node2D" parent="Rooms/Hubert Home 1"]
+visible = false
+script = ExtResource("3_7lemb")
+choice = "1"
+destination = "002_Hubert_Home_2"
+id = "Door_To_Hubert_Home_2"
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 1"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Hubert_Home_2" type="ColorRect" parent="Rooms/Hubert Home 1/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 1"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -64.0
+offset_right = 342.0
+offset_bottom = -44.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home" type="ColorRect" parent="Rooms/Hubert Home 1/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 1"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@17317" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
+script = ExtResource("4_ot700")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(1084, 11)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 2" type="Node2D" parent="Rooms"]
+position = Vector2(-1153, 121)
+script = ExtResource("2_ga40n")
+id = "002_Hubert_Home_2"
+label = "Hubert Home 2"
+description = "Hubert walks around his home, examining spell books, scrolls, and loose papers, to figure out the best course of action.
+Hubert goes to a large crystal ball, which allows him to see into different realms, and he searches for someone to help.
+Hubert then spots John, pulls up info about him, and then sees him enter a convenience store, to grab a Benny Wonky Bar.
+Hubert puts a silver ticket into a 'magic' mailbox on his desk, which magically appears inside the wrapper.
+
+Hit 1 if you wish to go to Cerulea.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home", "002_Hubert_Home_1", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
+
+[node name="Door_To_Cerulea" type="Node2D" parent="Rooms/Hubert Home 2"]
+visible = false
+script = ExtResource("3_7lemb")
+choice = "1"
+destination = "003_Cerulea"
+id = "Door_To_Cerulea"
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 2"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Cerulea" type="ColorRect" parent="Rooms/Hubert Home 2/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 2"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -64.0
+offset_right = 342.0
+offset_bottom = -44.0
+theme_override_constants/separation = 484
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home" type="ColorRect" parent="Rooms/Hubert Home 2/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="InboundVisual_002_Hubert_Home_1" type="ColorRect" parent="Rooms/Hubert Home 2/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 2"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@17316" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+script = ExtResource("4_ot700")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(-403, 611)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Cerulea" type="Node2D" parent="Rooms"]
+position = Vector2(-1556, 696)
+script = ExtResource("2_ga40n")
+id = "003_Cerulea"
+label = "Cerulea"
+description = "In our realm, also called Cerulea by Enchanted Landians, John is leaving work and walking home, down the street.
+John stops in at a store nearby, and gets his favorite candy bar with a silver \"ticket\" inside.
+John looks at the silver ticket, and says some words in the fine print, and a portal opens.
+John steps through the portal as it closes behind him.
+
+Hit 1 if you wish to go to Caves Of Dragonmount.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_2", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount;", "", "", "", "", "", "", "", ""]
+
+[node name="Door_To_Caves_Of_Dragonmount" type="Node2D" parent="Rooms/Cerulea"]
+visible = false
+script = ExtResource("3_7lemb")
+choice = "1"
+destination = "004_Caves_Of_Dragonmount"
+id = "Door_To_Caves_Of_Dragonmount"
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Caves_Of_Dragonmount" type="ColorRect" parent="Rooms/Cerulea/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -64.0
+offset_right = 342.0
+offset_bottom = -44.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_2" type="ColorRect" parent="Rooms/Cerulea/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Cerulea"]
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true

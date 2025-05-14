@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1jmtqppaiuyu"]
+
+[ext_resource type="Script" path="res://Scripts/room.gd" id="1_muppc"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_55kkp"]
+
+[node name="000_Main_Menu" type="Node2D"]
+script = ExtResource("1_muppc")
+room_id = "001_Enchanted_Lands"
+room_parent = "000"
+room_name = "Main Menu"
+description = "Main Menu.
+
+Hit 0 to Exit."
+
+[node name="Door_To_Enchanted_Lands" type="Node" parent="."]
+script = ExtResource("2_55kkp")
+choice = "1"
+destination = "001_Enchanted_Lands"

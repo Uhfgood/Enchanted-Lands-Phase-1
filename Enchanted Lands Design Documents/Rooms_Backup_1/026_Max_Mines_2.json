@@ -1,0 +1,13 @@
+{
+    "id": "026_Max_Mines_2",
+    "parent": "026_Max_Mines_1",
+    "label": "Max Mines 2",
+    "description": "There's an explosion that seems to come from one of the mine walls.\nWhen the smoke clears, a train appears to have crashed into the mine.\nHubert pops out of the train.\n\nHit 1 if you wish to go to Sky 3.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Sky_3",
+            "choice": "1",
+            "destination": "005_Sky_3"
+        }
+    ]
+}

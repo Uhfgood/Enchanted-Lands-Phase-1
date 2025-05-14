@@ -1,9 +1,13 @@
 {
     "id": "040_Fairy_Godcollege_Library",
-    "parent": "020_Fairy_Godcollege_4",
     "label": "Fairy Godcollege Library",
     "description": "The Princess is taken to the Library as the box with her handbag goes into another room.\nShe's asked to grab some books, and opens one and then is immediately sucked inside.\n\nHit 1 if you wish to go to Fairy Godcollege Incinerator.\n\nHit 0 to quit.",
-    "doors": [
+    "inbound":
+    [
+        "020_Fairy_Godcollege_4",
+    ],
+    "doors":
+    [
         {
             "id": "Door_To_Fairy_Godcollege_Incinerator",
             "choice": "1",

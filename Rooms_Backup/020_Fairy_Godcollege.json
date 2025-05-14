@@ -1,9 +1,13 @@
 {
     "id": "020_Fairy_Godcollege",
-    "parent": "011_Dwarf_Mines_1",
     "label": "Fairy Godcollege",
     "description": "Hubert makes his way to Fairy Godcollege, and peeks in one of the windows.\nAt Fairy Godcollege, an old friend tells Hubert, Violet is back, and is trying to force students to become evil witches.\n\nHit 1 if you wish to go to Gnome Kingdom.\n\nHit 0 to quit.",
-    "doors": [
+    "inbound":
+    [
+        "011_Dwarf_Mines_1",
+    ],
+    "doors":
+    [
         {
             "id": "Door_To_Gnome_Kingdom",
             "choice": "1",

@@ -1,0 +1,13 @@
+{
+    "id": "013_Knight_School",
+    "parent": "012_Knight_School_Entrance",
+    "label": "Knight School",
+    "description": "While inside Knight School, John learns a Princess was going to speak at Princess Prep but never made it.\nSomeone tells him the Knights are using real weapons, and dragons are terrorizing small villages.\n\nHit 1 if you wish to go to Wizard U Hall.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Wizard_U_Hall",
+            "choice": "1",
+            "destination": "014_Wizard_U_Hall"
+        }
+    ]
+}

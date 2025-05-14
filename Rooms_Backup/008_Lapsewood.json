@@ -1,9 +1,13 @@
 {
     "id": "008_Lapsewood",
-    "parent": "007_Train_Cabin",
     "label": "Lapsewood",
     "description": "John awakens in a forest without leaves as Hubert walks over and introduces himself.\nHubert tells John that he brought him here, to help find out why Enchanted Lands has closed.\nHubert mentions that it's a good thing that he fell near the edge of Lapsewood, since it makes you forget things.\nHubert and John start walking out of the leafless forest.\n\nHit 1 if you wish to go to Cerulea 1.\n\nHit 0 to quit.",
-    "doors": [
+    "inbound":
+    [
+        "007_Train_Cabin",
+    ],
+    "doors":
+    [
         {
             "id": "Door_To_Cerulea_1",
             "choice": "1",

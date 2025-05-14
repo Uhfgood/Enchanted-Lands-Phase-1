@@ -1,9 +1,13 @@
 {
     "id": "032_Castle_North_Terrace_1",
-    "parent": "030_Bats_In_The_Belfry_5",
     "label": "Castle North Terrace 1",
     "description": "On the castle grounds, on the north terrace near the Omni-Gate, Max and his armies assemble.\nMax orders his technicians to put the machine at full power, and open all the portals.\nAs soon as all armies are assembled, he starts seeing a large amount of trains flying in.\nRealizing who they are, he commands his armies to attack them.\nA large battle ensues.\nThe battle starts waning in favor of the Enchanted Landians.\n\nHit 1 if you wish to go to Castle North Terrace 2.\n\nHit 0 to quit.",
-    "doors": [
+    "inbound":
+    [
+        "030_Bats_In_The_Belfry_5",
+    ],
+    "doors":
+    [
         {
             "id": "Door_To_Castle_North_Terrace_2",
             "choice": "1",

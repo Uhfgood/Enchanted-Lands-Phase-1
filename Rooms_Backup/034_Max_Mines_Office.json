@@ -1,9 +1,13 @@
 {
     "id": "034_Max_Mines_Office",
-    "parent": "033_Castle_West_Terrace",
     "label": "Max Mines Office",
     "description": "Roland and John locate the office in Max's mines.\nRoland and John then spot the dwarves tied and gagged on the floor.\nSneaking in Roland easily snaps the bonds holding them.\nRoland and John are then surprised and captured by the Gnomes.\n\nHit 1 if you wish to go to Castle East Gate.\n\nHit 0 to quit.",
-    "doors": [
+    "inbound":
+    [
+        "033_Castle_West_Terrace",
+    ],
+    "doors":
+    [
         {
             "id": "Door_To_Castle_East_Gate",
             "choice": "1",

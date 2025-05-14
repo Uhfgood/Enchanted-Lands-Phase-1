@@ -619,8 +619,8 @@ func UpdateInboundVisuals():
 		# Set the separation to spread the ColorRect nodes across the Panel's width with margins
 		var margin = 80 # Pixels on each side
 		var total_width = panel_width - 2 * margin # Available width after margins
-		var node_width = doors.size() * 20 # Total width of ColorRect nodes
-		var gaps = doors.size() - 1 # Number of gaps between nodes
+		var node_width = inbound_count * 20 # var node_width = doors.size() * 20 # Total width of ColorRect nodes
+		var gaps = inbound_count - 1 # var gaps = doors.size() - 1 # Number of gaps between nodes
 		var separation = (total_width - node_width) / gaps if gaps > 0 else 0
 		hbox.add_theme_constant_override("separation", separation)		
 		

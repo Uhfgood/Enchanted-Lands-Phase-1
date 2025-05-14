@@ -1,0 +1,13 @@
+{
+    "id": "022_Scarborough_Faire_Chicken_2",
+    "parent": "008_Lapsewood_2",
+    "label": "Scarborough Faire Chicken 2",
+    "description": "Roland walks to the only open restaurant in town, Scarborough Faire Chicken.\nRoland looks around and starts asking about Hubert until finally getting to The Count sitting down at a table.\nRoland asks the count if he has any idea of where Hubert is.\nThe Count says he'll try to go find him, and turns into a bat, as Roland sits down.\n\nHit 1 if you wish to go to Lapsewood 3.\n\nHit 0 to quit.",
+    "doors": [
+        {
+            "id": "Door_To_Lapsewood_3",
+            "choice": "1",
+            "destination": "008_Lapsewood_3"
+        }
+    ]
+}

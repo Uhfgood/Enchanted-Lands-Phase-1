@@ -1,9 +1,13 @@
 {
     "id": "030_Bats_In_The_Belfry_4",
-    "parent": "030_Bats_In_The_Belfry_3",
     "label": "Bats In The Belfry 4",
     "description": "They all meet back at the \"Bats\" lobby.\nThe Count, then, comes to Karin and asks if she can help him now, and she just points.\nThe Count looking at where she's pointing meets a beautiful woman who happens to also be a vampire and a real princess.\nIn the library Roland Jr. tells Hubert, him and his Dad are going get the help of his people.\nRoland leaves the Hotel.\n\nHit 1 if you wish to go to Castle Throne Room.\n\nHit 0 to quit.",
-    "doors": [
+    "inbound":
+    [
+        "030_Bats_In_The_Belfry_3",
+    ],
+    "doors":
+    [
         {
             "id": "Door_To_Castle_Throne_Room",
             "choice": "1",
