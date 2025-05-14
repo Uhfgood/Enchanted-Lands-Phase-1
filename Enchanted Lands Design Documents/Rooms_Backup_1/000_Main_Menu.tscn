@@ -10,6 +10,8 @@ room_parent = "000"
 room_name = "Main Menu"
 description = "Main Menu.
 
+Hit 1 to Start.
+
 Hit 0 to Exit."
 
 [node name="Door_To_Enchanted_Lands" type="Node" parent="."]
