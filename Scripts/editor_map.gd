@@ -133,24 +133,6 @@ func AssignInboundRooms():
 
 #}  // end func AssignInboundRooms.
 
-func AssignInboundRoom(room):
-	# Clear the inbound_rooms array to remove stale links
-	for i in range(room.inbound_rooms.size()):
-		room.inbound_rooms[i] = ""
-
-	# Rebuild inbound_rooms by checking all rooms' doors
-	var inbound_index = 0
-	for source_room in rooms_dict.values():
-		if source_room == room:  # Skip the room itself
-			continue
-		for door in source_room.doors:
-			if door.destination == room.id:
-				if inbound_index < room.inbound_rooms.size():
-					room.inbound_rooms[inbound_index] = source_room.id
-					inbound_index += 1
-				else:
-					break
-	
 func _on_remove_room_button_pressed():
 #{
 	#print("Removing child from scene tree.")
@@ -220,8 +202,6 @@ func _on_remove_room_button_pressed():
 	#print("Removal process completed.")
 	
 	AssignInboundRooms()
-	#for room in rooms.get_children():
-	#	AssignInboundRoom(room)
 
 	# Update inbound links and visuals for remaining rooms
 	for room in rooms.get_children():
@@ -242,8 +222,6 @@ func _on_save_button_pressed():
 
 	# assign inbounds before saving any rooms
 	AssignInboundRooms()
-	#for room in rooms.get_children():
-	#	AssignInboundRoom( room )
 
 	for room in rooms.get_children():
 	#{
@@ -664,8 +642,6 @@ func LoadAllRooms():
 
 	# Step 2: Assign inbound rooms for all rooms
 	AssignInboundRooms()
-	#for room in rooms.get_children():
-	#	AssignInboundRoom(room)
 
 	# Step 3: Update visuals for all rooms in dependency order
 	var sorted_rooms = topological_sort_rooms()

@@ -57,7 +57,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@52410" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
+[node name="@Node2D@52898" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(1, 398)
@@ -130,7 +130,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@52409" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
+[node name="@Node2D@52897" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-622, 376)
@@ -220,7 +220,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@52407" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+[node name="@Node2D@52895" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-381, 653)
@@ -228,7 +228,7 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@52408" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+[node name="@Node2D@52896" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(-356, 1071)
@@ -303,7 +303,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@52406" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
+[node name="@Node2D@52894" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(529, 454)
@@ -382,7 +382,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@52405" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@52893" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(77, 400)
