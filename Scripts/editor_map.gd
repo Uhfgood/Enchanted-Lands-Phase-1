@@ -91,7 +91,7 @@ func _on_add_room_button_pressed():
 #}  // end _on_add_room_button_pressed():
 
 # create a dictionary so I can rebuild inbound list later
-func BuildRoomsDictionary():
+func RebuildRoomsDictionary():
 	
 	#print( "[[[ BuildRoomsDictionary ]]]")
 	for room in rooms.get_children():
@@ -99,6 +99,57 @@ func BuildRoomsDictionary():
 		#print( "  " + rooms_dict[ room.id ].id )
 	
 	#print( "[[[ Size of rooms_dict: " + str( rooms_dict.size() ) + " ]]]" )
+	
+func AssignInboundRooms():
+#{
+	# clear out all the inbound_rooms arrays
+	for key in rooms_dict.keys():
+		var inbound_array = rooms_dict[ key ].inbound_rooms
+		for i in range( inbound_array.size() ):
+			inbound_array[ i ] = ""
+	
+	for key in rooms_dict.keys():
+	#{
+		var room = rooms_dict[ key ]
+		for door in room.doors:
+		#{
+			if( rooms_dict.has( door.destination ) ):
+			#{
+				var dest_room = rooms_dict[ door.destination ]
+				
+				for i in range( dest_room.inbound_rooms.size() ):
+					if( dest_room.inbound_rooms[ i ] == "" ):
+						dest_room.inbound_rooms[ i ] = room.id;
+						break;
+						
+			#}  // end if rooms_dict.has...
+			else:
+				# Just warning when there's a door but the destination is missing.
+				print( "Room: " + room.id + ", Door dest. " + door.destination + " does not exist in rooms_dict." )
+			
+		#} // end for door
+
+	#}  // end for key
+
+#}  // end func AssignInboundRooms.
+
+func AssignInboundRoom(room):
+	# Clear the inbound_rooms array to remove stale links
+	for i in range(room.inbound_rooms.size()):
+		room.inbound_rooms[i] = ""
+
+	# Rebuild inbound_rooms by checking all rooms' doors
+	var inbound_index = 0
+	for source_room in rooms_dict.values():
+		if source_room == room:  # Skip the room itself
+			continue
+		for door in source_room.doors:
+			if door.destination == room.id:
+				if inbound_index < room.inbound_rooms.size():
+					room.inbound_rooms[inbound_index] = source_room.id
+					inbound_index += 1
+				else:
+					break
 	
 func _on_remove_room_button_pressed():
 #{
@@ -168,9 +219,12 @@ func _on_remove_room_button_pressed():
 	is_removing_room = false
 	#print("Removal process completed.")
 	
+	AssignInboundRooms()
+	#for room in rooms.get_children():
+	#	AssignInboundRoom(room)
+
 	# Update inbound links and visuals for remaining rooms
 	for room in rooms.get_children():
-		AssignInboundRooms(room)
 		room.UpdateInboundVisuals()
 		room.UpdateDoorLines()
 	
@@ -180,15 +234,16 @@ func _on_save_button_pressed():
 #{
 	#print("Editor map saving room metadata!")  # Your save code goes here
 
-	BuildRoomsDictionary()
+	RebuildRoomsDictionary()
 
 	# wanted to create all the doors before assinging inbounds
 	for room in rooms.get_children():
 		CreateDoorsFromSpecs( room )
 
 	# assign inbounds before saving any rooms
-	for room in rooms.get_children():
-		AssignInboundRooms( room )
+	AssignInboundRooms()
+	#for room in rooms.get_children():
+	#	AssignInboundRoom( room )
 
 	for room in rooms.get_children():
 	#{
@@ -459,32 +514,6 @@ func CreateDoorsFromSpecs( room ):
 	room.emit_signal("property_list_changed")
 	#print("\n***")
 
-func AssignInboundRooms(room):
-	#print("---")
-	#print("AssignInboundRooms for ", room.id)
-
-	# Clear the inbound_rooms array to remove stale links
-	for i in range(room.inbound_rooms.size()):
-		room.inbound_rooms[i] = ""
-
-	# Rebuild inbound_rooms by checking all rooms' doors
-	var inbound_index = 0
-	for source_room in rooms_dict.values():
-		if source_room == room:  # Skip the room itself
-			continue
-		for door in source_room.doors:
-			if door.destination == room.id:
-				if inbound_index < room.inbound_rooms.size():
-					#print("  Adding inbound link from ", source_room.id)
-					room.inbound_rooms[inbound_index] = source_room.id
-					inbound_index += 1
-				else:
-					#print("  Warning: Too many inbound links for ", room.id)
-					break
-
-	#if inbound_index == 0:
-	#	print("  No inbound links found for ", room.id)
-		
 func SaveRoomDataForRoom(room, filename: String):
 #{
 	#print("*Save Room Data*")	
@@ -505,7 +534,6 @@ func SaveRoomDataForRoom(room, filename: String):
 		var in_strings = []
 		var in_count = 0
 		for inbound in room.inbound_rooms:
-			print( "  inbound = ", inbound )
 			if( inbound != "" ):
 				var in_data = ''
 				in_data += '        ' + JSON.stringify( inbound )
@@ -605,46 +633,6 @@ func topological_sort_rooms() -> Array:
 	#print("Sorted rooms order: ", sorted_rooms.map(func(r): return r.id))
 	return sorted_rooms
 	
-func OldLoadAllRooms():
-	print("Running load_all_rooms")
-	
-	rooms_dict.clear()
-	
-	for child in rooms.get_children():
-		rooms.remove_child(child)
-		child.queue_free()
-
-	# Step 1: Load all rooms into a dictionary
-	var filelist = []
-	var filename = ""
-	var json_dir = DirAccess.open("res://Rooms/")
-	if json_dir:
-		filelist = json_dir.get_files()
-		for item in filelist:
-			filename = item
-			if filename.ends_with(".json"):
-				#print("---")
-				#print("Next json in file list: ", item)
-				var json_name = filename.replace(".json", "")
-				var room = Room.CreateFromJSON(json_name)
-				if room:
-					rooms_dict[room.id] = room
-					AddRoomToEditorMap(room)
-					LoadMetadataForRoom(room, filename)
-				if filename.begins_with("002"):
-					break
-
-	# Step 2: Assign inbound rooms for all rooms
-	for room in rooms.get_children():
-		AssignInboundRooms(room)
-
-	# Step 3: Update visuals for all rooms in dependency order
-	var sorted_rooms = topological_sort_rooms()
-	for room in sorted_rooms:
-		room.UpdateDoorVisuals()
-		room.UpdateInboundVisuals()
-		room.UpdateDoorLines()
-
 func LoadAllRooms():
 	print("Running load_all_rooms")
 	
@@ -668,15 +656,16 @@ func LoadAllRooms():
 				var json_name = filename.replace(".json", "")
 				var room = Room.CreateFromJSON(json_name)
 				if room:
-					rooms_dict[room.id] = room
+					rooms_dict[ room.id ] = room
 					AddRoomToEditorMap(room)
 					LoadMetadataForRoom(room, filename)
 				if filename.begins_with("003"):
 					break
 
 	# Step 2: Assign inbound rooms for all rooms
-	for room in rooms.get_children():
-		AssignInboundRooms(room)
+	AssignInboundRooms()
+	#for room in rooms.get_children():
+	#	AssignInboundRoom(room)
 
 	# Step 3: Update visuals for all rooms in dependency order
 	var sorted_rooms = topological_sort_rooms()
