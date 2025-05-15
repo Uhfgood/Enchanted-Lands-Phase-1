@@ -102,6 +102,10 @@ func RebuildRoomsDictionary():
 	
 func AssignInboundRooms():
 #{
+	# Step 1:  Rebuild the inbound_rooms arrays for each room.
+	
+	var inbound_data = []
+	
 	# clear out all the inbound_rooms arrays
 	for key in rooms_dict.keys():
 		var inbound_array = rooms_dict[ key ].inbound_rooms
@@ -131,6 +135,8 @@ func AssignInboundRooms():
 
 	#}  // end for key
 
+	# Step 2: Reorder inbound links to favor parent's x coordinate.
+	
 #}  // end func AssignInboundRooms.
 
 func _on_remove_room_button_pressed():
