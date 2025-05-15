@@ -101,20 +101,16 @@ func RebuildRoomsDictionary():
 	#print( "[[[ Size of rooms_dict: " + str( rooms_dict.size() ) + " ]]]" )
 	
 func AssignInboundRooms():
-#{
-	# Step 1:  Rebuild the inbound_rooms arrays for each room.
-	
-	var inbound_data = []
-	
-	# clear out all the inbound_rooms arrays
-	for key in rooms_dict.keys():
-		var inbound_array = rooms_dict[ key ].inbound_rooms
+#{	
+	# Pre-step: clear out all the inbound_rooms arrays
+	for room in rooms_dict.values():
+		var inbound_array = room.inbound_rooms
 		for i in range( inbound_array.size() ):
 			inbound_array[ i ] = ""
-	
-	for key in rooms_dict.keys():
+
+	# Step 1:  Rebuild the inbound_rooms arrays for each room.
+	for room in rooms_dict.values():
 	#{
-		var room = rooms_dict[ key ]
 		for door in room.doors:
 		#{
 			if( rooms_dict.has( door.destination ) ):
@@ -133,9 +129,64 @@ func AssignInboundRooms():
 			
 		#} // end for door
 
-	#}  // end for key
+	#}  // end for room
 
 	# Step 2: Reorder inbound links to favor parent's x coordinate.
+	var inbound_data = []
+	for room in rooms_dict.values():
+	#{
+		inbound_data.clear()
+		
+		# let's populate the inbound_data array
+		for inbound in room.inbound_rooms:
+		#{
+			if( inbound != "" and rooms_dict.has( inbound ) ):
+				var inbound_room = rooms_dict[ inbound ]
+				var pair = [ inbound_room.id, inbound_room.position.x ]
+				inbound_data.append( pair )
+				
+		#}  // end for i
+		
+		inbound_data.sort_custom( func( a, b ): return a[ 1 ] < b[ 1 ] )
+
+		# repopulate rooms
+		for i in range( inbound_data.size() ):
+			room.inbound_rooms[ i ] = inbound_data[ i ][ 0 ]
+			
+		#print( "Room: " + room.id + ", inbound: " + str( inbound_data ) )
+		
+	#}  // end for room
+
+	# Step 3: Re-sort the doors
+	var door_data = []
+	for room in rooms_dict.values():
+	#{
+		door_data.clear()
+		for door in room.doors:
+		#{
+			if( rooms_dict.has( door.destination ) ):
+				var dest_x = rooms_dict[ door.destination ].position.x
+				var pair = [ door, dest_x ]
+				door_data.append( pair )
+			else:
+				door_data.append( [ door, INF ] )
+				
+		#} // end for door
+		
+		door_data.sort_custom( func( a, b ): return a[ 1 ] < b[ 1 ] )
+		
+		# repopulate the doors array
+		room.doors.clear()
+		for i in range( door_data.size() ):
+			room.doors.append( door_data[ i ][ 0 ] )
+	
+		room.UpdateDoorVisuals()
+		room.UpdateDoorLines()
+		
+		#print("Room: " + room.id + ", doors: " + str(door_data))
+		
+	#}  // for room
+	
 	
 #}  // end func AssignInboundRooms.
 
