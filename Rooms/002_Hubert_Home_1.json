@@ -1,7 +1,7 @@
 {
     "id": "002_Hubert_Home_1",
     "label": "Hubert Home 1",
-    "description": "Hubert walks around his home, examining spell books, scrolls, and loose papers, to figure out the best course of action.\nHubert goes to a large crystal ball, which allows him to see into different realms, and he searches for someone to help.\nHubert then spots John, pulls up info about him, and then sees him enter a convenience store, to grab a Benny Wonky Bar.\nHubert puts a silver ticket into a 'magic' mailbox on his desk, which magically appears inside the wrapper.\n\nOne of the loose papers he examines has a handwritten list of requirements for an assistant, which read:\nLoner, possibly shy, not much interaction with the opposite sex, into fantasy.\n\nHit 1 to go over to the crystal ball.\n\nHit 0 to quit.",
+    "description": "Hubert walks around his home, examining spell books, scrolls, and loose papers, to figure out the best course of action.\nHubert goes to a large crystal ball, which allows him to see into different realms, and he searches for someone to help.\nHubert then spots John, pulls up info about him, and then sees him enter a convenience store, to grab a Benny Wonky Bar.\nHubert puts a silver ticket into a 'magic' mailbox on his desk, which magically appears inside the wrapper.\n\nOne of the loose papers he examines has a handwritten list of requirements for an assistant, which reads:\nLoner, possibly shy, not much interaction with the opposite sex, into fantasy, terribly honest, loyal to a fault, puts others needs before his own.\n\nHit 1 to go over to the crystal ball.\n\nHit 0 to quit.",
     "inbound":
     [
         "002_Hubert_Home"

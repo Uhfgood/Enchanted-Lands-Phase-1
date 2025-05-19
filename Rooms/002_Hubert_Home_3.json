@@ -1,0 +1,17 @@
+{
+    "id": "002_Hubert_Home_3",
+    "label": "Hubert Home 3",
+    "description": "Hit 1 to go back to the crystal ball.\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "002_Hubert_Home_2"
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Hubert_Home_2",
+            "choice": "2",
+            "destination": "002_Hubert_Home_2"
+        }
+    ]
+}
