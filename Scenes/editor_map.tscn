@@ -11,7 +11,7 @@ script = ExtResource("1_k3d1g")
 [node name="Rooms" type="Node2D" parent="."]
 
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
-position = Vector2(-1805, -1324)
+position = Vector2(0, 169)
 script = ExtResource("2_ga40n")
 id = "001_Enchanted_Lands"
 label = "Enchanted Lands"
@@ -57,7 +57,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@52873" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
+[node name="@Node2D@27256" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-2, 508)
@@ -66,7 +66,7 @@ width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
-position = Vector2(-1807, -852)
+position = Vector2(-2, 641)
 script = ExtResource("2_ga40n")
 id = "001_Enchanted_Lands_1"
 label = "Enchanted Lands 1"
@@ -130,7 +130,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@52872" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
+[node name="@Node2D@27259" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-5, 473)
@@ -139,7 +139,7 @@ width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home" type="Node2D" parent="Rooms"]
-position = Vector2(-1812, -415)
+position = Vector2(-7, 1078)
 script = ExtResource("2_ga40n")
 id = "002_Hubert_Home"
 label = "Hubert Home"
@@ -220,7 +220,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@52870" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+[node name="@Node2D@27265" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-471, 530)
@@ -228,7 +228,7 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@52871" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+[node name="@Node2D@27266" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(173, 909)
@@ -237,7 +237,7 @@ width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 1" type="Node2D" parent="Rooms"]
-position = Vector2(-2283, 79)
+position = Vector2(-478, 1572)
 script = ExtResource("2_ga40n")
 id = "002_Hubert_Home_1"
 label = "Hubert Home 1"
@@ -303,7 +303,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@52869" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
+[node name="@Node2D@27267" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(392, 415)
@@ -312,7 +312,7 @@ width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 2" type="Node2D" parent="Rooms"]
-position = Vector2(-1891, 458)
+position = Vector2(-86, 1951)
 script = ExtResource("2_ga40n")
 id = "002_Hubert_Home_2"
 label = "Hubert Home 2"
@@ -408,7 +408,15 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@52867" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@27273" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+script = ExtResource("4_ot700")
+start_pos = Vector2(-252, 330)
+end_pos = Vector2(-1032, 299)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@27274" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(66, 443)
@@ -417,7 +425,7 @@ width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 3" type="Node2D" parent="Rooms"]
-position = Vector2(-2923, 721)
+position = Vector2(-1118, 2214)
 script = ExtResource("2_ga40n")
 id = "002_Hubert_Home_3"
 label = "Hubert Home 3"
@@ -475,7 +483,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@52868" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
+[node name="@Node2D@27269" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(780, -227)
@@ -484,7 +492,7 @@ width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 4" type="Node2D" parent="Rooms"]
-position = Vector2(-1825, 865)
+position = Vector2(-20, 2358)
 script = ExtResource("2_ga40n")
 id = "002_Hubert_Home_4"
 label = "Hubert Home 4"
@@ -548,7 +556,7 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@52866" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
+[node name="@Node2D@27275" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
 script = ExtResource("4_ot700")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-41, 418)
@@ -557,7 +565,7 @@ width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Cerulea" type="Node2D" parent="Rooms"]
-position = Vector2(-1866, 1247)
+position = Vector2(-61, 2740)
 script = ExtResource("2_ga40n")
 id = "003_Cerulea"
 label = "Cerulea"
