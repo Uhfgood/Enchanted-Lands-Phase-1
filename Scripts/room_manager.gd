@@ -2,12 +2,23 @@ extends Node
 
 @onready var room_viewer: Node = $RoomViewer
 @onready var viewer_text: Node = $RoomViewer/Description/DescText
-
+@onready var line_edit: Control = $RoomViewer/LineEdit
+ 
 var curr_room = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+#{
+	if not Engine.is_editor_hint():
+		#room_viewer.get_child(0).visible = true
+		viewer_text.visible = true
+
+	line_edit.text_submitted.connect(_on_line_edit_text_submitted)
+	
 	ChangeRoom( "000_Main_Menu" )
+	
+	
+#} // end func _ready()
 
 func LoadRoom( room_name : String ):
 	var room = null
@@ -53,7 +64,33 @@ func ChangeRoom( room_name : String ):
 	else:
 		print( room_name + " creation unsuccessful." )		
 
+func _on_line_edit_text_submitted(new_text: String):
+	print("Command entered: ", new_text)  # Extracted text
+	if new_text.begins_with("switch_room "):
+		var room_id = new_text.trim_prefix("switch_room ").strip_edges()
+		ChangeRoom( room_id )  # Call your room-switching function
+	line_edit.clear()  # Clear after submission
+	line_edit.release_focus()
+	get_viewport().set_input_as_handled()
+	line_edit.visible = !line_edit.visible
+	
 func _input( event : InputEvent ) -> void:
+	
+	if event.is_action_pressed("console_toggle"):
+		line_edit.visible = !line_edit.visible
+		if line_edit.visible:
+			line_edit.clear()
+			line_edit.grab_focus.call_deferred()
+		else:
+			line_edit.release_focus()
+		get_viewport().set_input_as_handled()
+		return
+	if line_edit.visible and event is InputEventKey and event.pressed and event.keycode == KEY_QUOTELEFT:
+		get_viewport().set_input_as_handled()
+		return
+	if line_edit.visible:
+		return
+	
 	var choice_number = 1
 	
 	if not curr_room:

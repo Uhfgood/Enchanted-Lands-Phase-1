@@ -1,0 +1,17 @@
+{
+    "id": "002_Hubert_Home_5",
+    "label": "Hubert Home 5",
+    "description": "Looking over Harry's life, Hubert notices, he's already a wizard, and that he makes friends rather quickly, so Harry is probably not the right fit.  So only John is left.\n\nHit 1 to pick John.\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "002_Hubert_Home_3"
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Hubert_Home_7",
+            "choice": "1",
+            "destination": "002_Hubert_Home_7"
+        }
+    ]
+}

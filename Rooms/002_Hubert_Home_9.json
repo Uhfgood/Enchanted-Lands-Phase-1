@@ -1,0 +1,17 @@
+{
+    "id": "002_Hubert_Home_9",
+    "label": "Hubert Home 9",
+    "description": "Hubert takes a quicksilver ticket and a few hats off of his desk and puts them on then says some magic words. \nThe ticket then disappears, as Hubert peers into the crystal ball, he sees John buy his favorite chocolate bar and open it.\nSeeing there was no ticket inside, then sends another, when it seems to appear in the partially open wrapper.\nFurther observance shows John reading the \"fine print\" on the ticket, and realize that he doesn't have the full phrase to open the portal.\nHubert then rearranges the hats, and then clone-conjures up a new ticket, as an identical ticket materializes in the wrapper.,\nAs John reads the wrapper, nothing seems to happen, and he realizes the cloned ticket may not have quicksilver in it. \n\nHit 1 to continue to Cerulea.\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "002_Hubert_Home_7"
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Cerulea_1",
+            "choice": "1",
+            "destination": "003_Cerulea_1"
+        }
+    ]
+}

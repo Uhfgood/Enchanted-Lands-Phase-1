@@ -32,7 +32,7 @@ func _on_selection_changed():
 		if is_instance_valid(selected_node):
 		#{
 			print("Selected Node: ", selected_node.name)
-			if(selected_node is Room):
+			if(selected_node is VisualRoom):
 				currently_selected_room = selected_node
 			else:
 				print( "Currently selected node is not a room." )
@@ -78,7 +78,7 @@ func _on_add_room_button_pressed():
 	var new_id = "000_" + unique_label.replace( " ", "_" )
 	var new_label = unique_label
 	var new_desc = "There's nothing here yet.  Hit 0 to quit."
-	var new_room = Room.Create( new_id, new_label, new_desc )
+	var new_room = VisualRoom.Create( new_id, new_label, new_desc )
 	AddRoomToEditorMap( new_room )
 
 	# Select the new room in the scene tree
@@ -372,14 +372,15 @@ func _ready():
 	#else:
 		#print("  Rooms node is null")
 	holding_node.name = "HoldingNode"
-	get_tree().root.add_child(holding_node)
+	get_tree().root.add_child.call_deferred(holding_node)
 	holding_node.set_owner(null)
-	if Engine.is_editor_hint():
+	#if Engine.is_editor_hint():
 		#print("  Editor mode: has_loaded_rooms = ", has_loaded_rooms)
-		if not has_loaded_rooms:
-			#print("  Calling LoadAllRooms")
-			LoadAllRooms()
-			has_loaded_rooms = true
+	if not has_loaded_rooms:
+		#print("  Calling LoadAllRooms")
+		LoadAllRooms()
+		has_loaded_rooms = true
+		rooms.set_meta("_edit_lock_", true)
 		#else:
 			#print("  Skipping LoadAllRooms")
 	#print("EditorMap._ready: Finished")
@@ -410,9 +411,9 @@ func AddRoomToEditorMap(room):
 	#var door_count = 0
 	for door in room.get_children():
 		#print("    Child found: ", door.name, " (Type: ", door.get_class(), ")")
-		if door is Door:
+		if door is VisualDoor:
 			#door_count += 1
-			#print("      Door detected: ", door.name, " (ID: ", door.id, ", Destination: ", door.destination, ")")
+			#print("      VisualDoor detected: ", door.name, " (ID: ", door.id, ", Destination: ", door.destination, ")")
 			#print("        Is inside tree: ", door.is_inside_tree())
 			#print("        Parent: ", door.get_parent().name if door.get_parent() else "null")
 			#print("        Owner: ", door.owner.name if door.owner else "null before setting")
@@ -421,14 +422,14 @@ func AddRoomToEditorMap(room):
 			#if door.is_inside_tree() and door.get_parent() == room:
 			#	print("        Locking door: ", door.name, " in room: ", room.id)
 			#else:
-			#	print("Warning: Door ", door.name, " not in scene tree or wrong parent")
+			#	print("Warning: VisualDoor ", door.name, " not in scene tree or wrong parent")
 		#else:
-		#	print("      Not a Door: ", door.name)
+		#	print("      Not a VisualDoor: ", door.name)
 	#print("    Total doors processed: ", door_count)
 	# Rebuild the doors array from children
 	room.doors.clear()
 	for child in room.get_children():
-		if child is Door:
+		if child is VisualDoor:
 			room.doors.append(child)
 	#print("    Doors array rebuilt: ", room.doors.size(), " doors")
 	#print("  Setting editor_map reference")
@@ -523,7 +524,7 @@ func CreateDoorsFromSpecs( room ):
 		hue += 1.0 / 9
 		#print( "Color = ", color )
 		#print( "ccc" )
-		var new_door = Door.create( id_str, choice_str, dest_str, id_str, color )
+		var new_door = VisualDoor.create( id_str, choice_str, dest_str, id_str, color )
 		if new_door:
 			room.doors.append(new_door)
 			room.add_child(new_door)
@@ -689,12 +690,12 @@ func LoadAllRooms():
 				#print("---")
 				#print("Next json in file list: ", item)
 				var json_name = filename.replace(".json", "")
-				var room = Room.CreateFromJSON(json_name)
+				var room = VisualRoom.CreateFromJSON(json_name)
 				if room:
 					rooms_dict[ room.id ] = room
 					AddRoomToEditorMap(room)
 					LoadMetadataForRoom(room, filename)
-				if filename.begins_with("003"):
+				if filename.begins_with("003_Cerulea_1"):
 					break
 
 	# Step 2: Assign inbound rooms for all rooms
@@ -710,9 +711,14 @@ func LoadAllRooms():
 	# Step 4: Initialize previous positions
 	previous_positions.clear()
 	for room in rooms.get_children():
-		if room is Room:
+		if room is VisualRoom:
 			previous_positions[room.id] = room.position
 	
+	RebuildRoomsDictionary()
+	for room in rooms_dict.values():
+		room.UpdateDoorVisuals()
+		room.UpdateInboundVisuals()
+		room.UpdateDoorLines()
 	#print("***")
 
 func _exit_tree():
@@ -721,7 +727,7 @@ func _exit_tree():
 	if rooms:
 		#print("  Clearing Rooms node with ", rooms.get_child_count(), " children")
 		for room in rooms.get_children():
-			if room is Room:
+			if room is VisualRoom:
 				#rint("    Processing room: ", room.id, " (Label: ", room.label, ")")
 				# Clear room's children (e.g., Door nodes)
 				var child_count = room.get_child_count()
@@ -763,21 +769,21 @@ func update_lines_for_room_and_dependents(room: Node) -> void:
 	
 	# Update lines for all rooms that have this room as a destination (inbound lines)
 	for other_room in rooms.get_children():
-		if other_room != room and other_room is Room:
+		if other_room != room and other_room is VisualRoom:
 			for door in other_room.doors:
 				if door.destination == room.id:
 					other_room.UpdateDoorLines()
 					break
 					
 func _process(_delta: float) -> void:
-	if Engine.is_editor_hint():
-		for room in rooms.get_children():
-			if room is Room:
-				var current_pos = room.position
-				var room_id = room.id
-				if previous_positions.has(room_id):
-					if previous_positions[room_id] != current_pos:
-						#print("Position changed for room: ", room_id, " from ", previous_positions[room_id], " to ", current_pos)
-						# Update lines for this room and all rooms that link to itScreenshot from 2025-05-09 13-00-33
-						update_lines_for_room_and_dependents(room)
-				previous_positions[room_id] = current_pos
+	#if Engine.is_editor_hint():
+	for room in rooms.get_children():
+		if room is VisualRoom:
+			var current_pos = room.position
+			var room_id = room.id
+			if previous_positions.has(room_id):
+				if previous_positions[room_id] != current_pos:
+					#print("Position changed for room: ", room_id, " from ", previous_positions[room_id], " to ", current_pos)
+					# Update lines for this room and all rooms that link to itScreenshot from 2025-05-09 13-00-33
+					update_lines_for_room_and_dependents(room)
+			previous_positions[room_id] = current_pos
