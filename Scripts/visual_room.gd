@@ -1,78 +1,24 @@
 @tool
-class_name VisualRoom extends Node2D
+class_name VisualRoom extends Room
 
-# Reference to the editor_map node (set by editor_map.gd)
-var editor_map: Node = null
-
-@export var id : String = "XXX" : set = _set_id
-#@export var origin : String = "XXX"
-@export var label : String = "New Room" : set = _set_label
-@export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
-
-@export var inbound_rooms : Array = [ "", "", "", "", "", "", "", "", "" ]
-@export var door_specs : Array = [ "", "", "", "", "", "", "", "", "" ] : set = _set_door_specs
-func _set_door_specs( doorspecs : Array ):
-	door_specs = doorspecs
-	#if Engine.is_editor_hint():
-	#	emit_signal("property_list_changed")  # Notify the editor to refresh the Inspector
-	
-var doors : Array = []
 var door_visuals : Array = []
 var inbound_visuals : Array = []
 var door_lines : Array = []
 
-var original_id : String = "XXX"
-
-#func _enter_tree():
-	#if Engine.is_editor_hint():
-		#print("Room._enter_tree: Initializing room: ", id, " (Label: ", label, ")")
-		#print("  Is inside tree: ", is_inside_tree())
-		#print("  Stack: ", get_stack())
-
-#func _ready():
-	#if Engine.is_editor_hint():
-		#print("Room._ready: Initializing room: ", id, " (Label: ", label, ")")
-		#print("  Is inside tree: ", is_inside_tree())
-		#print("  Owner: ", the_owner.name if the_owner else "null")
-		#var door_names = []
-		#for door in get_children():
-			#if door is Door:
-			#	door_names.append(door.name)
-		#print("  Doors: ", doors.size(), " (", door_names, ")")
-		#print("  Stack: ", get_stack())
-		
 # Setter for description
 func _set_description(new_description: String) -> void:
 	description = new_description
-	#if Engine.is_editor_hint():
 	update_description_label()
 
 # Update the DescLabel text
 func update_description_label() -> void:
-	#if not Engine.is_editor_hint():
-	#	return  # Safeguard: Only run in the editor
-
 	var desc_label = get_node_or_null("Panel/VBox/DescLabel")
 	if desc_label:
 		desc_label.text = TruncateText(description, 5, 40)
 		desc_label.queue_redraw()  # Ensure the label redraws
 		
 func _set_id(new_id: String) -> void:
-	id = new_id
-	var tokens = new_id.split("_")
-	#print("Setting id for room: ", name, ", tokens: ", tokens)
-	var new_label = ""
-	var size = tokens.size()
-	for i in range(1, size):
-		if i < size - 1:
-			new_label += tokens[i] + " "
-		else:
-			new_label += tokens[i]
-	
-	self.label = new_label
-	#print("New label derived from id: ", new_label)
-	
-	#if Engine.is_editor_hint():
+	super._set_id( new_id )
 	if has_node("Panel"):
 		update_name_label()
 	else:
@@ -82,8 +28,6 @@ func _set_id(new_id: String) -> void:
 
 func _set_label(new_label: String) -> void:
 	label = new_label
-	#print("setting new label for room: ", name, ", Panel exists: ", has_node("Panel"))
-	#if Engine.is_editor_hint():
 	if has_node("Panel"):
 		update_name_label()
 	else:

@@ -32,10 +32,10 @@ door_specs = ["ch: 1, dest: 001_Enchanted_Lands_1;", "", "", "", "", "", "", "",
 [node name="Door_To_Enchanted_Lands_1" type="Node2D" parent="Rooms/Enchanted Lands"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.2, 0.2, 1)
 choice = "1"
 destination = "001_Enchanted_Lands_1"
 id = "Door_To_Enchanted_Lands_1"
-color = Color(1, 0.2, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Enchanted Lands"]
 z_index = 1
@@ -59,7 +59,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18471" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
+[node name="@Node2D@20080" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-2, 508)
@@ -87,10 +87,10 @@ door_specs = ["ch: 1, dest: 002_Hubert_Home;", "", "", "", "", "", "", "", ""]
 [node name="Door_To_Hubert_Home" type="Node2D" parent="Rooms/Enchanted Lands 1"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.2, 0.2, 1)
 choice = "1"
 destination = "002_Hubert_Home"
 id = "Door_To_Hubert_Home"
-color = Color(1, 0.2, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Enchanted Lands 1"]
 z_index = 1
@@ -132,7 +132,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18472" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
+[node name="@Node2D@20081" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-5, 473)
@@ -157,18 +157,18 @@ door_specs = ["ch: 1, dest: 002_Hubert_Home_1;", "ch: 2, dest: 002_Hubert_Home_2
 [node name="Door_To_Hubert_Home_1" type="Node2D" parent="Rooms/Hubert Home"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.2, 0.2, 1)
 choice = "1"
 destination = "002_Hubert_Home_1"
 id = "Door_To_Hubert_Home_1"
-color = Color(1, 0.2, 0.2, 1)
 
 [node name="Door_To_Hubert_Home_2" type="Node2D" parent="Rooms/Hubert Home"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.733333, 0.2, 1)
 choice = "2"
 destination = "002_Hubert_Home_2"
 id = "Door_To_Hubert_Home_2"
-color = Color(1, 0.733333, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home"]
 z_index = 1
@@ -217,7 +217,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18473" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+[node name="@Node2D@20082" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-251, 568)
@@ -225,7 +225,7 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18474" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+[node name="@Node2D@20083" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(252, 1071)
@@ -250,10 +250,10 @@ door_specs = ["ch: 1, dest: 002_Hubert_Home_2;", "", "", "", "", "", "", "", ""]
 [node name="Door_To_Hubert_Home_2" type="Node2D" parent="Rooms/Hubert Home 1"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.2, 0.2, 1)
 choice = "1"
 destination = "002_Hubert_Home_2"
 id = "Door_To_Hubert_Home_2"
-color = Color(1, 0.2, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 1"]
 z_index = 1
@@ -295,7 +295,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18475" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
+[node name="@Node2D@20084" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-1, 539)
@@ -321,26 +321,26 @@ door_specs = ["ch: 1, dest: 002_Hubert_Home_3;", "ch: 2, dest: 002_Hubert_Home_7
 [node name="Door_To_Hubert_Home_3" type="Node2D" parent="Rooms/Hubert Home 2"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.2, 0.2, 1)
 choice = "1"
 destination = "002_Hubert_Home_3"
 id = "Door_To_Hubert_Home_3"
-color = Color(1, 0.2, 0.2, 1)
 
 [node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/Hubert Home 2"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.733333, 0.2, 1)
 choice = "2"
 destination = "002_Hubert_Home_7"
 id = "Door_To_Hubert_Home_7"
-color = Color(1, 0.733333, 0.2, 1)
 
 [node name="Door_To_Hubert_Home_4" type="Node2D" parent="Rooms/Hubert Home 2"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(0.733333, 1, 0.2, 1)
 choice = "3"
 destination = "002_Hubert_Home_4"
 id = "Door_To_Hubert_Home_4"
-color = Color(0.733333, 1, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 2"]
 z_index = 1
@@ -403,7 +403,7 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18476" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@20085" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-618, 580)
@@ -411,7 +411,7 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18477" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@20086" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-61, 1571)
@@ -419,7 +419,7 @@ default_color = Color(1, 0.733333, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18478" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@20087" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(601, 583)
@@ -444,18 +444,18 @@ door_specs = ["ch: 1, dest: 002_Hubert_Home_5;", "ch: 1, dest: 002_Hubert_Home_7
 [node name="Door_To_Hubert_Home_5" type="Node2D" parent="Rooms/Hubert Home 3"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.2, 0.2, 1)
 choice = "1"
 destination = "002_Hubert_Home_5"
 id = "Door_To_Hubert_Home_5"
-color = Color(1, 0.2, 0.2, 1)
 
 [node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/Hubert Home 3"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.733333, 0.2, 1)
 choice = "1"
 destination = "002_Hubert_Home_7"
 id = "Door_To_Hubert_Home_7"
-color = Color(1, 0.733333, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 3"]
 z_index = 1
@@ -504,7 +504,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18479" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
+[node name="@Node2D@20088" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-388, 524)
@@ -512,7 +512,7 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18480" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
+[node name="@Node2D@20089" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(431, 1027)
@@ -537,18 +537,18 @@ door_specs = ["ch: 2, dest: 002_Hubert_Home_7;", "ch: 1, dest: 002_Hubert_Home_6
 [node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/Hubert Home 4"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.2, 0.2, 1)
 choice = "2"
 destination = "002_Hubert_Home_7"
 id = "Door_To_Hubert_Home_7"
-color = Color(1, 0.2, 0.2, 1)
 
 [node name="Door_To_Hubert_Home_6" type="Node2D" parent="Rooms/Hubert Home 4"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.733333, 0.2, 1)
 choice = "1"
 destination = "002_Hubert_Home_6"
 id = "Door_To_Hubert_Home_6"
-color = Color(1, 0.733333, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 4"]
 z_index = 1
@@ -597,7 +597,7 @@ color = Color(0.733333, 1, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18481" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
+[node name="@Node2D@20090" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-536, 1024)
@@ -605,7 +605,7 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18482" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
+[node name="@Node2D@20091" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(420, 538)
@@ -629,10 +629,10 @@ door_specs = ["ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", "", ""]
 [node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/Hubert Home 5"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.2, 0.2, 1)
 choice = "1"
 destination = "002_Hubert_Home_7"
 id = "Door_To_Hubert_Home_7"
-color = Color(1, 0.2, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 5"]
 z_index = 1
@@ -674,7 +674,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18483" type="Node2D" parent="Rooms/Hubert Home 5/LinesContainer"]
+[node name="@Node2D@20092" type="Node2D" parent="Rooms/Hubert Home 5/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(693, 539)
@@ -698,10 +698,10 @@ door_specs = ["ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", "", ""]
 [node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/Hubert Home 6"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.2, 0.2, 1)
 choice = "1"
 destination = "002_Hubert_Home_7"
 id = "Door_To_Hubert_Home_7"
-color = Color(1, 0.2, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 6"]
 z_index = 1
@@ -743,7 +743,7 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18484" type="Node2D" parent="Rooms/Hubert Home 6/LinesContainer"]
+[node name="@Node2D@20093" type="Node2D" parent="Rooms/Hubert Home 6/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-830, 522)
@@ -769,18 +769,18 @@ door_specs = ["ch: 1, dest: 002_Hubert_Home_8;", "ch: 2, dest: 002_Hubert_Home_9
 [node name="Door_To_Hubert_Home_8" type="Node2D" parent="Rooms/Hubert Home 7"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.2, 0.2, 1)
 choice = "1"
 destination = "002_Hubert_Home_8"
 id = "Door_To_Hubert_Home_8"
-color = Color(1, 0.2, 0.2, 1)
 
 [node name="Door_To_Hubert_Home_9" type="Node2D" parent="Rooms/Hubert Home 7"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.733333, 0.2, 1)
 choice = "2"
 destination = "002_Hubert_Home_9"
 id = "Door_To_Hubert_Home_9"
-color = Color(1, 0.733333, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 7"]
 z_index = 1
@@ -857,7 +857,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18485" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
+[node name="@Node2D@20094" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-721, 451)
@@ -865,7 +865,7 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18486" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
+[node name="@Node2D@20095" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(663, 450)
@@ -885,10 +885,10 @@ door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
 [node name="Door_To_Cerulea" type="Node2D" parent="Rooms/Hubert Home 8"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.2, 0.2, 1)
 choice = "1"
 destination = "003_Cerulea"
 id = "Door_To_Cerulea"
-color = Color(1, 0.2, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 8"]
 z_index = 1
@@ -930,7 +930,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18487" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
+[node name="@Node2D@20096" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(456, 869)
@@ -959,10 +959,10 @@ door_specs = ["ch: 1, dest: 003_Cerulea_1;", "", "", "", "", "", "", "", ""]
 [node name="Door_To_Cerulea_1" type="Node2D" parent="Rooms/Hubert Home 9"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.2, 0.2, 1)
 choice = "1"
 destination = "003_Cerulea_1"
 id = "Door_To_Cerulea_1"
-color = Color(1, 0.2, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 9"]
 z_index = 1
@@ -1004,10 +1004,10 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18947" type="Node2D" parent="Rooms/Hubert Home 9/LinesContainer"]
+[node name="@Node2D@20097" type="Node2D" parent="Rooms/Hubert Home 9/LinesContainer"]
 script = ExtResource("4_xog0d")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-276, 871)
+end_pos = Vector2(-51, 864)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -1031,10 +1031,10 @@ door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount;", "", "", "", "", "", "", 
 [node name="Door_To_Caves_Of_Dragonmount" type="Node2D" parent="Rooms/Cerulea"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.2, 0.2, 1)
 choice = "1"
 destination = "004_Caves_Of_Dragonmount"
 id = "Door_To_Caves_Of_Dragonmount"
-color = Color(1, 0.2, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea"]
 z_index = 1
@@ -1077,7 +1077,7 @@ position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
 [node name="Cerulea 1" type="Node2D" parent="Rooms"]
-position = Vector2(319, 4897)
+position = Vector2(544, 4890)
 script = ExtResource("2_aqcr6")
 id = "003_Cerulea_1"
 label = "Cerulea 1"
@@ -1095,10 +1095,10 @@ door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount;", "", "", "", "", "", "", 
 [node name="Door_To_Caves_Of_Dragonmount" type="Node2D" parent="Rooms/Cerulea 1"]
 visible = false
 script = ExtResource("3_vxuit")
+color = Color(1, 0.2, 0.2, 1)
 choice = "1"
 destination = "004_Caves_Of_Dragonmount"
 id = "Door_To_Caves_Of_Dragonmount"
-color = Color(1, 0.2, 0.2, 1)
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea 1"]
 z_index = 1
