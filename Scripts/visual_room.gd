@@ -196,7 +196,7 @@ func LoadDataFromJSON( json_name : String ) -> bool:
 	
 	return true
 
-#} // end func LoadDataFromJSON()
+#Th} // end func LoadDataFromJSON()
 
 static func Create( n_id : String, n_label : String, n_desc : String ) -> VisualRoom:
 #{
