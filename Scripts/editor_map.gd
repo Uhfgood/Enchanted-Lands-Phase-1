@@ -248,7 +248,7 @@ func _on_save_button_pressed():
 
 	# wanted to create all the doors before assinging inbounds
 	for room in rooms.get_children():
-		CreateDoorsFromSpecs( room )
+		room.CreateDoorsFromSpecs()
 
 	# assign inbounds before saving any rooms
 	AssignInboundRooms()
@@ -382,72 +382,6 @@ func SaveMetadataForRoom( room, filename ):
 		CreateNewMetaFile( filename )
 		
 #} // end func SaveMetadataForRoom()
-
-func CreateDoorsFromSpecs( room ):
-	var doors = room.doors.duplicate()
-	room.doors.clear()
-	for door in doors:
-		if door and door.get_parent() == room:
-			door.owner = null
-			room.remove_child(door)
-			door.queue_free()
-	
-	var id_str = "***_***"
-	var choice_str = "*"
-	var dest_str = "***_***"
-	
-	#print("***\n")
-	var hue = 0.0
-	for doorspec in room.door_specs:
-		if doorspec == "":
-			continue
-		
-		id_str = "***_***"
-		choice_str = "*"
-		dest_str = "***_***"
-		
-		var i = 0
-		var dlen = doorspec.length()
-		
-		if doorspec.begins_with("ch: "):
-			i = 4
-			choice_str = ""
-			while i < dlen and doorspec[i] != ',':
-				choice_str += doorspec[i]
-				i += 1
-			i += 1
-			if doorspec.substr(i).begins_with(" dest: "):
-				i += 7
-				dest_str = ""
-				while i < dlen and doorspec[i] != ';':
-					dest_str += doorspec[i]
-					i += 1
-					
-		id_str = "Door_To_" + dest_str.substr(4)
-		
-		var color = Color.from_hsv( hue, 0.8, 1.0 )
-		hue += 1.0 / 9
-		var new_door = VisualDoor.create( id_str, choice_str, dest_str, id_str, color )
-		if new_door:
-			room.doors.append(new_door)
-			room.add_child(new_door)
-			new_door.owner = get_tree().edited_scene_root
-	
-	var door = null
-	var spec_str = ""
-	for i in range(9):
-		if i < room.doors.size():
-			door = room.doors[i]
-			if door != null:
-				spec_str = "ch: " + door.choice + ", dest: " + door.destination + ";"
-			else:
-				spec_str = ""
-		else:
-			spec_str = ""
-		room.door_specs[i] = spec_str
-	
-	room.emit_signal("property_list_changed")
-	#print("\n***")
 
 func SaveRoomDataForRoom(room, filename: String):
 #{

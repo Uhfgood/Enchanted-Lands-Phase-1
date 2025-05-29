@@ -232,6 +232,78 @@ func GetDoorByChoice( choice : String ):
 	
 	return null
 	
+func CreateDoorsFromSpecs():
+	#var doors = self.doors.duplicate()
+	#self.doors.clear()
+	#for door in doors:
+		#if door and door.get_parent() == room:
+			#door.owner = null
+			#self.remove_child(door)
+			#door.queue_free()
+	
+	for door in self.doors:
+		if door and door.get_parent() == self:
+			door.owner = null
+			self.remove_child(door)
+			door.queue_free()
+
+	self.doors.clear()
+	
+	var id_str = "***_***"
+	var choice_str = "*"
+	var dest_str = "***_***"
+	
+	#print("***\n")
+	var hue = 0.0
+	for doorspec in self.door_specs:
+		if doorspec == "":
+			continue
+		
+		id_str = "***_***"
+		choice_str = "*"
+		dest_str = "***_***"
+		
+		var i = 0
+		var dlen = doorspec.length()
+		
+		if doorspec.begins_with("ch: "):
+			i = 4
+			choice_str = ""
+			while i < dlen and doorspec[i] != ',':
+				choice_str += doorspec[i]
+				i += 1
+			i += 1
+			if doorspec.substr(i).begins_with(" dest: "):
+				i += 7
+				dest_str = ""
+				while i < dlen and doorspec[i] != ';':
+					dest_str += doorspec[i]
+					i += 1
+					
+		id_str = "Door_To_" + dest_str.substr(4)
+		
+		var color = Color.from_hsv( hue, 0.8, 1.0 )
+		hue += 1.0 / 9
+		var new_door = VisualDoor.create( id_str, choice_str, dest_str, id_str, color )
+		if new_door:
+			self.doors.append(new_door)
+			self.add_child(new_door)
+			new_door.owner = get_tree().edited_scene_root
+	
+	var door = null
+	var spec_str = ""
+	for i in range(9):
+		if i < self.doors.size():
+			door = self.doors[i]
+			if door != null:
+				spec_str = "ch: " + door.choice + ", dest: " + door.destination + ";"
+			else:
+				spec_str = ""
+		else:
+			spec_str = ""
+		self.door_specs[i] = spec_str
+	
+	self.emit_signal("property_list_changed")
 
 func TruncateText(text: String, max_lines: int = 5, chars_per_line: int = 40) -> String:
 	var current_lines = 0
