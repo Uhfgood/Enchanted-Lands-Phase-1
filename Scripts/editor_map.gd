@@ -97,22 +97,19 @@ func RebuildRoomsDictionary():
 	for room in rooms.get_children():
 		rooms_dict[ room.id ] = room 
 	
-func AssignInboundRooms():
-#{	
-	# Pre-step: clear out all the inbound_rooms arrays
-	for room in rooms_dict.values():
-		var inbound_array = room.inbound_rooms
-		for i in range( inbound_array.size() ):
-			inbound_array[ i ] = ""
-
-	# Step 1:  Rebuild the inbound_rooms arrays for each room.
-	for room in rooms_dict.values():
+func ClearInboundRooms( roomlist ):
+	for room in roomlist.values():
+		for i in range( room.inbound_rooms.size() ):
+			room.inbound_rooms[ i ] = ""
+	
+func RebuildInboundRooms( roomlist ):
+	for room in roomlist.values():
 	#{
 		for door in room.doors:
 		#{
-			if( rooms_dict.has( door.destination ) ):
+			if( roomlist.has( door.destination ) ):
 			#{
-				var dest_room = rooms_dict[ door.destination ]
+				var dest_room = roomlist[ door.destination ]
 				
 				for i in range( dest_room.inbound_rooms.size() ):
 					if( dest_room.inbound_rooms[ i ] == "" ):
@@ -128,17 +125,17 @@ func AssignInboundRooms():
 
 	#}  // end for room
 
-	# Step 2: Reorder inbound links to favor parent's x coordinate.
+func ReorderInboundRooms( roomlist ):
 	var inbound_data = []
-	for room in rooms_dict.values():
+	for room in roomlist.values():
 	#{
 		inbound_data.clear()
 		
 		# let's populate the inbound_data array
 		for inbound in room.inbound_rooms:
 		#{
-			if( inbound != "" and rooms_dict.has( inbound ) ):
-				var inbound_room = rooms_dict[ inbound ]
+			if( inbound != "" and roomlist.has( inbound ) ):
+				var inbound_room = roomlist[ inbound ]
 				var pair = [ inbound_room.id, inbound_room.position.x ]
 				inbound_data.append( pair )
 				
@@ -152,15 +149,15 @@ func AssignInboundRooms():
 			
 	#}  // end for room
 
-	# Step 3: Re-sort the doors
+func ReSortDoors( roomlist ):
 	var door_data = []
-	for room in rooms_dict.values():
+	for room in roomlist.values():
 	#{
 		door_data.clear()
 		for door in room.doors:
 		#{
-			if( rooms_dict.has( door.destination ) ):
-				var dest_x = rooms_dict[ door.destination ].position.x
+			if( roomlist.has( door.destination ) ):
+				var dest_x = roomlist[ door.destination ].position.x
 				var pair = [ door, dest_x ]
 				door_data.append( pair )
 			else:
@@ -179,7 +176,20 @@ func AssignInboundRooms():
 		room.UpdateDoorLines()
 		
 	#}  // for room
-	
+
+func AssignInboundRooms():
+#{	
+	# Pre-step: clear out all the inbound_rooms arrays
+	ClearInboundRooms( rooms_dict )
+
+	# Step 1:  Rebuild the inbound_rooms arrays for each room.
+	RebuildInboundRooms( rooms_dict )
+
+	# Step 2: Reorder inbound links to favor parent's x coordinate.
+	ReorderInboundRooms( rooms_dict )
+
+	# Step 3: Re-sort the doors
+	ReSortDoors( rooms_dict )
 	
 #}  // end func AssignInboundRooms.
 
@@ -335,23 +345,21 @@ func _ready():
 		has_loaded_rooms = true
 		rooms.set_meta("_edit_lock_", true)
 
-func AddRoomToEditorMap(room):
-	if not room:
-		print("  Error: Room is null")
-		return
-	rooms.add_child(room)
-	room.owner = get_tree().edited_scene_root
-	for door in room.get_children():
-		if door is VisualDoor:
-			door.owner = get_tree().edited_scene_root
 
+func AddRoomToEditorMap( room : VisualRoom ):
+#{
+	if not room:
+		print( "  Error: Room is null" )
+		return
+	rooms.add_child( room) 
+	room.SetOwner( self )
+	
 	# Rebuild the doors array from children
-	room.doors.clear()
-	for child in room.get_children():
-		if child is VisualDoor:
-			room.doors.append(child)
+	room.RebuildDoors()
 	room.editor_map = self
 	room.SetupVisuals()
+	
+#}  // end func AddRoomToEditorMap
 	
 func CreateNewMetaFile( filename ):
 #{
@@ -519,7 +527,7 @@ func LoadAllRooms():
 					rooms_dict[ room.id ] = room
 					AddRoomToEditorMap(room)
 					LoadMetadataForRoom(room, filename)
-				if filename.begins_with("003_Cerulea_1"):
+				if filename.begins_with("004"):
 					break
 
 	# Step 2: Assign inbound rooms for all rooms

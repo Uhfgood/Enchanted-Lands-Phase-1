@@ -4,7 +4,7 @@
     "description": "In our realm (Cerulea), Zanzibar the great, magician, con artist, and thief, manages to escape the police into the Lands.\n\nHit 1 if you wish to go to Random Villages.\n\nHit 0 to quit.",
     "inbound":
     [
-        "008_Lapsewood",
+        "008_Lapsewood"
     ],
     "doors": [
         {

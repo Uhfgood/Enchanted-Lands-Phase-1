@@ -1,7 +1,7 @@
 {
     "id": "002_Hubert_Home_8",
     "label": "Hubert Home 8",
-    "description": "There's nothing here yet.  Hit 0 to quit.",
+    "description": "Hubert pulls open the door on the box, and puts a single silver ticket into it.  And then says the destination out loud: \"John Thomas, Cerulea.  Benny Wonky Chocolate Bar. -- Oh inside the wrapper!\"  Hubert then just waits.\n\nHit 1 to continue.\nHit 0 to quit.",
     "inbound":
     [
         "002_Hubert_Home_7"

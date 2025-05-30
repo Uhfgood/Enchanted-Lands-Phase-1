@@ -305,6 +305,18 @@ func CreateDoorsFromSpecs():
 	
 	self.emit_signal("property_list_changed")
 
+func SetOwner( owner ):
+	self.owner = owner
+	for door in self.get_children():
+		if door is VisualDoor:
+			door.owner = owner
+	
+func RebuildDoors():
+	self.doors.clear()
+	for child in self.get_children():
+		if child is VisualDoor:
+			self.doors.append( child )
+	
 func TruncateText(text: String, max_lines: int = 5, chars_per_line: int = 40) -> String:
 	var current_lines = 0
 	var result = ""
