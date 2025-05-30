@@ -305,17 +305,87 @@ func CreateDoorsFromSpecs():
 	
 	self.emit_signal("property_list_changed")
 
-func SetOwner( owner ):
-	self.owner = owner
+func SetOwner( new_owner ):
+	self.owner = new_owner
 	for door in self.get_children():
 		if door is VisualDoor:
-			door.owner = owner
+			door.owner = new_owner
 	
 func RebuildDoors():
 	self.doors.clear()
 	for child in self.get_children():
 		if child is VisualDoor:
 			self.doors.append( child )
+			
+	
+func ClearInboundRooms( roomlist ):
+	for i in range( self.inbound_rooms.size() ):
+		self.inbound_rooms[ i ] = ""
+	
+func RebuildInboundRooms( roomlist ):
+	for door in self.doors:
+	#{
+		if( roomlist.has( door.destination ) ):
+		#{
+			var dest_room = roomlist[ door.destination ]
+			
+			for i in range( dest_room.inbound_rooms.size() ):
+				if( dest_room.inbound_rooms[ i ] == "" ):
+					dest_room.inbound_rooms[ i ] = self.id;
+					break;
+					
+		#}  // end if rooms_dict.has...
+		else:
+			# Just warning when there's a door but the destination is missing.
+			print( "Room: " + self.id + ", Door dest. " + door.destination + " does not exist in rooms_dict." )
+		
+	#} // end for door
+
+func ReorderInboundRooms( roomlist ):
+	var inbound_data = []
+	inbound_data.clear()
+	
+	# let's populate the inbound_data array
+	for inbound in self.inbound_rooms:
+	#{
+		if( inbound != "" and roomlist.has( inbound ) ):
+			var inbound_room = roomlist[ inbound ]
+			var pair = [ inbound_room.id, inbound_room.position.x ]
+			inbound_data.append( pair )
+			
+	#}  // end for i
+	
+	inbound_data.sort_custom( func( a, b ): return a[ 1 ] < b[ 1 ] )
+
+	# repopulate rooms
+	for i in range( inbound_data.size() ):
+		self.inbound_rooms[ i ] = inbound_data[ i ][ 0 ]
+			
+
+func ReSortDoors( roomlist ):
+	var door_data = []
+	door_data.clear()
+	for door in self.doors:
+	#{
+		if( roomlist.has( door.destination ) ):
+			var dest_x = roomlist[ door.destination ].position.x
+			var pair = [ door, dest_x ]
+			door_data.append( pair )
+		else:
+			door_data.append( [ door, INF ] )
+			
+	#} // end for door
+	
+	door_data.sort_custom( func( a, b ): return a[ 1 ] < b[ 1 ] )
+	
+	# repopulate the doors array
+	self.doors.clear()
+	for i in range( door_data.size() ):
+		self.doors.append( door_data[ i ][ 0 ] )
+
+	self.UpdateDoorVisuals()
+	self.UpdateDoorLines()		
+
 	
 func TruncateText(text: String, max_lines: int = 5, chars_per_line: int = 40) -> String:
 	var current_lines = 0

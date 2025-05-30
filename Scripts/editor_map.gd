@@ -91,9 +91,7 @@ func _on_add_room_button_pressed():
 #}  // end _on_add_room_button_pressed():
 
 # create a dictionary so I can rebuild inbound list later
-func RebuildRoomsDictionary():
-	
-	#print( "[[[ BuildRoomsDictionary ]]]")
+func RebuildRoomsDictionary():	
 	for room in rooms.get_children():
 		rooms_dict[ room.id ] = room 
 	
@@ -126,9 +124,9 @@ func RebuildInboundRooms( roomlist ):
 	#}  // end for room
 
 func ReorderInboundRooms( roomlist ):
-	var inbound_data = []
 	for room in roomlist.values():
 	#{
+		var inbound_data = []
 		inbound_data.clear()
 		
 		# let's populate the inbound_data array
@@ -150,9 +148,9 @@ func ReorderInboundRooms( roomlist ):
 	#}  // end for room
 
 func ReSortDoors( roomlist ):
-	var door_data = []
 	for room in roomlist.values():
 	#{
+		var door_data = []
 		door_data.clear()
 		for door in room.doors:
 		#{
@@ -179,16 +177,25 @@ func ReSortDoors( roomlist ):
 
 func AssignInboundRooms():
 #{	
-	# Pre-step: clear out all the inbound_rooms arrays
+	## Pre-step: clear out all the inbound_rooms arrays
+	#for room in rooms_dict.values():
+		#room.ClearInboundRooms( rooms_dict )
+#
+	## Step 1:  Rebuild the inbound_rooms arrays for each room.
+	#for room in rooms_dict.values():
+		#room.RebuildInboundRooms( rooms_dict )
+#
+	## Step 2: Reorder inbound links to favor parent's x coordinate.
+	#for room in rooms_dict.values():
+		#room.ReorderInboundRooms( rooms_dict )
+#
+	## Step 3: Re-sort the doors
+	#for room in rooms_dict.values():
+		#room.ReSortDoors( rooms_dict )
+
 	ClearInboundRooms( rooms_dict )
-
-	# Step 1:  Rebuild the inbound_rooms arrays for each room.
 	RebuildInboundRooms( rooms_dict )
-
-	# Step 2: Reorder inbound links to favor parent's x coordinate.
 	ReorderInboundRooms( rooms_dict )
-
-	# Step 3: Re-sort the doors
 	ReSortDoors( rooms_dict )
 	
 #}  // end func AssignInboundRooms.
