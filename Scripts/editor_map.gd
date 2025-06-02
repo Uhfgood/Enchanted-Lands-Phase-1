@@ -178,25 +178,25 @@ func ReSortDoors( roomlist ):
 func AssignInboundRooms():
 #{	
 	## Pre-step: clear out all the inbound_rooms arrays
-	#for room in rooms_dict.values():
-		#room.ClearInboundRooms( rooms_dict )
+	for room in rooms_dict.values():
+		room.ClearInboundRooms( rooms_dict )
 #
 	## Step 1:  Rebuild the inbound_rooms arrays for each room.
-	#for room in rooms_dict.values():
-		#room.RebuildInboundRooms( rooms_dict )
+	for room in rooms_dict.values():
+		room.RebuildInboundRooms( rooms_dict )
 #
 	## Step 2: Reorder inbound links to favor parent's x coordinate.
-	#for room in rooms_dict.values():
-		#room.ReorderInboundRooms( rooms_dict )
+	for room in rooms_dict.values():
+		room.ReorderInboundRooms( rooms_dict )
 #
 	## Step 3: Re-sort the doors
-	#for room in rooms_dict.values():
-		#room.ReSortDoors( rooms_dict )
+	for room in rooms_dict.values():
+		room.ReSortDoors( rooms_dict )
 
-	ClearInboundRooms( rooms_dict )
-	RebuildInboundRooms( rooms_dict )
-	ReorderInboundRooms( rooms_dict )
-	ReSortDoors( rooms_dict )
+	#ClearInboundRooms( rooms_dict )
+	#RebuildInboundRooms( rooms_dict )
+	#ReorderInboundRooms( rooms_dict )
+	#ReSortDoors( rooms_dict )
 	
 #}  // end func AssignInboundRooms.
 

@@ -59,10 +59,10 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49770" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
+[node name="@Node2D@34460" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-251, 508)
+end_pos = Vector2(1, 508)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -81,7 +81,7 @@ Chief advisor and friend to the King, the Wizard Hubert, after seeing him, goes 
 Hit 1 if you wish to go to Hubert's Home.
 
 Hit 0 to quit."
-inbound_rooms = ["001_Enchanted_Lands", "001_Enchanted_Lands", "001_Enchanted_Lands", "001_Enchanted_Lands", "001_Enchanted_Lands", "001_Enchanted_Lands", "001_Enchanted_Lands", "001_Enchanted_Lands", "001_Enchanted_Lands"]
+inbound_rooms = ["001_Enchanted_Lands", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home;", "", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Enchanted Lands 1"]
@@ -109,67 +109,11 @@ offset_left = -342.0
 offset_top = -64.0
 offset_right = 342.0
 offset_bottom = -44.0
-theme_override_constants/separation = 43
+theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="InboundVisual_001_Enchanted_Lands" type="ColorRect" parent="Rooms/Enchanted Lands 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49771" type="ColorRect" parent="Rooms/Enchanted Lands 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49772" type="ColorRect" parent="Rooms/Enchanted Lands 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49773" type="ColorRect" parent="Rooms/Enchanted Lands 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49774" type="ColorRect" parent="Rooms/Enchanted Lands 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49775" type="ColorRect" parent="Rooms/Enchanted Lands 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49776" type="ColorRect" parent="Rooms/Enchanted Lands 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49777" type="ColorRect" parent="Rooms/Enchanted Lands 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49778" type="ColorRect" parent="Rooms/Enchanted Lands 1/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -188,10 +132,10 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49779" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
+[node name="@Node2D@34461" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-257, 473)
+end_pos = Vector2(-5, 473)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -207,7 +151,7 @@ Hit 1 if you wish to examine the books, scrolls, and papers.
 Hit 2 if you wish to look into the crystal ball.
 
 Hit 0 to quit."
-inbound_rooms = ["001_Enchanted_Lands_1", "001_Enchanted_Lands_1", "001_Enchanted_Lands_1", "001_Enchanted_Lands_1", "001_Enchanted_Lands_1", "001_Enchanted_Lands_1", "001_Enchanted_Lands_1", "001_Enchanted_Lands_1", "001_Enchanted_Lands_1"]
+inbound_rooms = ["001_Enchanted_Lands_1", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_1;", "ch: 2, dest: 002_Hubert_Home_2;", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home"]
@@ -242,67 +186,11 @@ offset_left = -342.0
 offset_top = -64.0
 offset_right = 342.0
 offset_bottom = -44.0
-theme_override_constants/separation = 43
+theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="InboundVisual_001_Enchanted_Lands_1" type="ColorRect" parent="Rooms/Hubert Home/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49780" type="ColorRect" parent="Rooms/Hubert Home/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49781" type="ColorRect" parent="Rooms/Hubert Home/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49782" type="ColorRect" parent="Rooms/Hubert Home/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49783" type="ColorRect" parent="Rooms/Hubert Home/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49784" type="ColorRect" parent="Rooms/Hubert Home/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49785" type="ColorRect" parent="Rooms/Hubert Home/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49786" type="ColorRect" parent="Rooms/Hubert Home/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49787" type="ColorRect" parent="Rooms/Hubert Home/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -329,18 +217,18 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49788" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+[node name="@Node2D@34462" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(-252, 330)
-end_pos = Vector2(-503, 568)
+end_pos = Vector2(-251, 568)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49789" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+[node name="@Node2D@34463" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(252, 330)
-end_pos = Vector2(0, 1071)
+end_pos = Vector2(252, 1071)
 default_color = Color(1, 0.733333, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -356,7 +244,7 @@ Loner, possibly shy, not much interaction with the opposite sex, into fantasy, t
 Hit 1 to go over to the crystal ball.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home", "002_Hubert_Home", "002_Hubert_Home", "002_Hubert_Home", "002_Hubert_Home", "002_Hubert_Home", "002_Hubert_Home", "002_Hubert_Home", "002_Hubert_Home"]
+inbound_rooms = ["002_Hubert_Home", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_2;", "", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 1"]
@@ -384,67 +272,11 @@ offset_left = -342.0
 offset_top = -64.0
 offset_right = 342.0
 offset_bottom = -44.0
-theme_override_constants/separation = 43
+theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="InboundVisual_002_Hubert_Home" type="ColorRect" parent="Rooms/Hubert Home 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49790" type="ColorRect" parent="Rooms/Hubert Home 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49791" type="ColorRect" parent="Rooms/Hubert Home 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49792" type="ColorRect" parent="Rooms/Hubert Home 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49793" type="ColorRect" parent="Rooms/Hubert Home 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49794" type="ColorRect" parent="Rooms/Hubert Home 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49795" type="ColorRect" parent="Rooms/Hubert Home 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49796" type="ColorRect" parent="Rooms/Hubert Home 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49797" type="ColorRect" parent="Rooms/Hubert Home 1/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -463,7 +295,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49798" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
+[node name="@Node2D@34464" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-1, 539)
@@ -483,7 +315,7 @@ Hit 2 if you wish to pick John.
 Hit 3 if you wish to pick Harry.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_1", "002_Hubert_Home_1", "002_Hubert_Home_1", "002_Hubert_Home_1", "002_Hubert_Home", "002_Hubert_Home", "002_Hubert_Home", "002_Hubert_Home", "002_Hubert_Home"]
+inbound_rooms = ["002_Hubert_Home_1", "002_Hubert_Home", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_3;", "ch: 2, dest: 002_Hubert_Home_7;", "ch: 3, dest: 002_Hubert_Home_4;", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 2"]
@@ -525,7 +357,7 @@ offset_left = -342.0
 offset_top = -64.0
 offset_right = 342.0
 offset_bottom = -44.0
-theme_override_constants/separation = 43
+theme_override_constants/separation = 484
 alignment = 1
 metadata/_edit_lock_ = true
 
@@ -536,56 +368,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
 
-[node name="@ColorRect@49799" type="ColorRect" parent="Rooms/Hubert Home 2/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49800" type="ColorRect" parent="Rooms/Hubert Home 2/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49801" type="ColorRect" parent="Rooms/Hubert Home 2/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
 [node name="InboundVisual_002_Hubert_Home" type="ColorRect" parent="Rooms/Hubert Home 2/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49802" type="ColorRect" parent="Rooms/Hubert Home 2/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49803" type="ColorRect" parent="Rooms/Hubert Home 2/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49804" type="ColorRect" parent="Rooms/Hubert Home 2/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49805" type="ColorRect" parent="Rooms/Hubert Home 2/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -620,15 +403,15 @@ color = Color(0.733333, 1, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49806" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@34465" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(-252, 330)
-end_pos = Vector2(-870, 580)
+end_pos = Vector2(-618, 580)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49807" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@34466" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-61, 1571)
@@ -636,10 +419,10 @@ default_color = Color(1, 0.733333, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49808" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@34467" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(252, 330)
-end_pos = Vector2(349, 583)
+end_pos = Vector2(601, 583)
 default_color = Color(0.733333, 1, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -655,7 +438,7 @@ Hit 1 to pick Harry.
 Hit 2 to pick John.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_2", "002_Hubert_Home_2", "002_Hubert_Home_2", "002_Hubert_Home_2", "002_Hubert_Home_2", "002_Hubert_Home_2", "002_Hubert_Home_2", "002_Hubert_Home_2", "002_Hubert_Home_2"]
+inbound_rooms = ["002_Hubert_Home_2", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_5;", "ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 3"]
@@ -690,67 +473,11 @@ offset_left = -342.0
 offset_top = -64.0
 offset_right = 342.0
 offset_bottom = -44.0
-theme_override_constants/separation = 43
+theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="InboundVisual_002_Hubert_Home_2" type="ColorRect" parent="Rooms/Hubert Home 3/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49809" type="ColorRect" parent="Rooms/Hubert Home 3/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49810" type="ColorRect" parent="Rooms/Hubert Home 3/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49811" type="ColorRect" parent="Rooms/Hubert Home 3/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49812" type="ColorRect" parent="Rooms/Hubert Home 3/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49813" type="ColorRect" parent="Rooms/Hubert Home 3/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49814" type="ColorRect" parent="Rooms/Hubert Home 3/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49815" type="ColorRect" parent="Rooms/Hubert Home 3/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49816" type="ColorRect" parent="Rooms/Hubert Home 3/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -777,15 +504,15 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49817" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
+[node name="@Node2D@34468" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(-252, 330)
-end_pos = Vector2(-640, 524)
+end_pos = Vector2(-388, 524)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49818" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
+[node name="@Node2D@34469" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(431, 1027)
@@ -804,7 +531,7 @@ Hit 1 to pick Daniel.
 Hit 2 to pick John.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_2", "002_Hubert_Home_2", "002_Hubert_Home_2", "002_Hubert_Home_2", "002_Hubert_Home_2", "002_Hubert_Home_2", "002_Hubert_Home_2", "002_Hubert_Home_2", "002_Hubert_Home_2"]
+inbound_rooms = ["002_Hubert_Home_2", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 2, dest: 002_Hubert_Home_7;", "ch: 1, dest: 002_Hubert_Home_6;", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 4"]
@@ -839,67 +566,11 @@ offset_left = -342.0
 offset_top = -64.0
 offset_right = 342.0
 offset_bottom = -44.0
-theme_override_constants/separation = 43
+theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="InboundVisual_002_Hubert_Home_2" type="ColorRect" parent="Rooms/Hubert Home 4/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.733333, 1, 0.2, 1)
-
-[node name="@ColorRect@49819" type="ColorRect" parent="Rooms/Hubert Home 4/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.733333, 1, 0.2, 1)
-
-[node name="@ColorRect@49820" type="ColorRect" parent="Rooms/Hubert Home 4/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.733333, 1, 0.2, 1)
-
-[node name="@ColorRect@49821" type="ColorRect" parent="Rooms/Hubert Home 4/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.733333, 1, 0.2, 1)
-
-[node name="@ColorRect@49822" type="ColorRect" parent="Rooms/Hubert Home 4/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.733333, 1, 0.2, 1)
-
-[node name="@ColorRect@49823" type="ColorRect" parent="Rooms/Hubert Home 4/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.733333, 1, 0.2, 1)
-
-[node name="@ColorRect@49824" type="ColorRect" parent="Rooms/Hubert Home 4/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.733333, 1, 0.2, 1)
-
-[node name="@ColorRect@49825" type="ColorRect" parent="Rooms/Hubert Home 4/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.733333, 1, 0.2, 1)
-
-[node name="@ColorRect@49826" type="ColorRect" parent="Rooms/Hubert Home 4/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -926,7 +597,7 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49827" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
+[node name="@Node2D@34470" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-536, 1024)
@@ -934,10 +605,10 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49828" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
+[node name="@Node2D@34471" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(252, 330)
-end_pos = Vector2(168, 538)
+end_pos = Vector2(251, 559)
 default_color = Color(1, 0.733333, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -952,7 +623,7 @@ description = "Looking over Harry's life, Hubert notices, he's already a wizard,
 Hit 1 to pick John.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_3", "002_Hubert_Home_3", "002_Hubert_Home_3", "002_Hubert_Home_3", "002_Hubert_Home_3", "002_Hubert_Home_3", "002_Hubert_Home_3", "002_Hubert_Home_3", "002_Hubert_Home_3"]
+inbound_rooms = ["002_Hubert_Home_3", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 5"]
@@ -980,67 +651,11 @@ offset_left = -342.0
 offset_top = -64.0
 offset_right = 342.0
 offset_bottom = -44.0
-theme_override_constants/separation = 43
+theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="InboundVisual_002_Hubert_Home_3" type="ColorRect" parent="Rooms/Hubert Home 5/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49829" type="ColorRect" parent="Rooms/Hubert Home 5/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49830" type="ColorRect" parent="Rooms/Hubert Home 5/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49831" type="ColorRect" parent="Rooms/Hubert Home 5/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49832" type="ColorRect" parent="Rooms/Hubert Home 5/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49833" type="ColorRect" parent="Rooms/Hubert Home 5/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49834" type="ColorRect" parent="Rooms/Hubert Home 5/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49835" type="ColorRect" parent="Rooms/Hubert Home 5/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49836" type="ColorRect" parent="Rooms/Hubert Home 5/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1059,7 +674,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49837" type="Node2D" parent="Rooms/Hubert Home 5/LinesContainer"]
+[node name="@Node2D@34472" type="Node2D" parent="Rooms/Hubert Home 5/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(693, 539)
@@ -1068,7 +683,7 @@ width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 6" type="Node2D" parent="Rooms"]
-position = Vector2(114, 2638)
+position = Vector2(-55, 2659)
 script = ExtResource("2_aqcr6")
 id = "002_Hubert_Home_6"
 label = "Hubert Home 6"
@@ -1077,7 +692,7 @@ description = "Looking over Daniel, Hubert sees him getting bullied, but then th
 Hit 1 to pick John.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_4", "002_Hubert_Home_4", "002_Hubert_Home_4", "002_Hubert_Home_4", "002_Hubert_Home_4", "002_Hubert_Home_4", "002_Hubert_Home_4", "002_Hubert_Home_4", "002_Hubert_Home_4"]
+inbound_rooms = ["002_Hubert_Home_4", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 6"]
@@ -1105,67 +720,11 @@ offset_left = -342.0
 offset_top = -64.0
 offset_right = 342.0
 offset_bottom = -44.0
-theme_override_constants/separation = 43
+theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="InboundVisual_002_Hubert_Home_4" type="ColorRect" parent="Rooms/Hubert Home 6/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49838" type="ColorRect" parent="Rooms/Hubert Home 6/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49839" type="ColorRect" parent="Rooms/Hubert Home 6/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49840" type="ColorRect" parent="Rooms/Hubert Home 6/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49841" type="ColorRect" parent="Rooms/Hubert Home 6/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49842" type="ColorRect" parent="Rooms/Hubert Home 6/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49843" type="ColorRect" parent="Rooms/Hubert Home 6/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49844" type="ColorRect" parent="Rooms/Hubert Home 6/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49845" type="ColorRect" parent="Rooms/Hubert Home 6/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1184,10 +743,10 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49846" type="Node2D" parent="Rooms/Hubert Home 6/LinesContainer"]
+[node name="@Node2D@34473" type="Node2D" parent="Rooms/Hubert Home 6/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-830, 522)
+end_pos = Vector2(-661, 501)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -1205,7 +764,7 @@ Hit 1 if you wish to use the 'magic' mailbox.
 Hit 2 if you wish to use a spell or two to send John his silver ticket.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_5", "002_Hubert_Home_5", "002_Hubert_Home_3", "002_Hubert_Home_3", "002_Hubert_Home_2", "002_Hubert_Home_2", "002_Hubert_Home_4", "002_Hubert_Home_4", "002_Hubert_Home_6"]
+inbound_rooms = ["002_Hubert_Home_5", "002_Hubert_Home_3", "002_Hubert_Home_2", "002_Hubert_Home_4", "002_Hubert_Home_6", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_8;", "ch: 2, dest: 002_Hubert_Home_9;", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 7"]
@@ -1240,18 +799,11 @@ offset_left = -342.0
 offset_top = -64.0
 offset_right = 342.0
 offset_bottom = -44.0
-theme_override_constants/separation = 43
+theme_override_constants/separation = 106
 alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="InboundVisual_002_Hubert_Home_5" type="ColorRect" parent="Rooms/Hubert Home 7/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49847" type="ColorRect" parent="Rooms/Hubert Home 7/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1265,13 +817,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.733333, 0.2, 1)
 
-[node name="@ColorRect@49848" type="ColorRect" parent="Rooms/Hubert Home 7/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
 [node name="InboundVisual_002_Hubert_Home_2" type="ColorRect" parent="Rooms/Hubert Home 7/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
@@ -1279,21 +824,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.733333, 0.2, 1)
 
-[node name="@ColorRect@49849" type="ColorRect" parent="Rooms/Hubert Home 7/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
 [node name="InboundVisual_002_Hubert_Home_4" type="ColorRect" parent="Rooms/Hubert Home 7/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49850" type="ColorRect" parent="Rooms/Hubert Home 7/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1327,18 +858,18 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49851" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
+[node name="@Node2D@34474" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(-252, 330)
-end_pos = Vector2(-973, 451)
+end_pos = Vector2(-721, 451)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49852" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
+[node name="@Node2D@34475" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(252, 330)
-end_pos = Vector2(411, 450)
+end_pos = Vector2(663, 450)
 default_color = Color(1, 0.733333, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -1352,7 +883,7 @@ description = "Hubert pulls open the door on the box, and puts a single silver t
 
 Hit 1 to continue.
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_7", "002_Hubert_Home_7", "002_Hubert_Home_7", "002_Hubert_Home_7", "002_Hubert_Home_7", "002_Hubert_Home_7", "002_Hubert_Home_7", "002_Hubert_Home_7", "002_Hubert_Home_7"]
+inbound_rooms = ["002_Hubert_Home_7", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 8"]
@@ -1380,67 +911,11 @@ offset_left = -342.0
 offset_top = -64.0
 offset_right = 342.0
 offset_bottom = -44.0
-theme_override_constants/separation = 43
+theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="InboundVisual_002_Hubert_Home_7" type="ColorRect" parent="Rooms/Hubert Home 8/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49853" type="ColorRect" parent="Rooms/Hubert Home 8/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49854" type="ColorRect" parent="Rooms/Hubert Home 8/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49855" type="ColorRect" parent="Rooms/Hubert Home 8/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49856" type="ColorRect" parent="Rooms/Hubert Home 8/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49857" type="ColorRect" parent="Rooms/Hubert Home 8/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49858" type="ColorRect" parent="Rooms/Hubert Home 8/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49859" type="ColorRect" parent="Rooms/Hubert Home 8/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49860" type="ColorRect" parent="Rooms/Hubert Home 8/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1459,10 +934,10 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49861" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
+[node name="@Node2D@34476" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(64, 746)
+end_pos = Vector2(316, 746)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -1482,7 +957,7 @@ As John reads the wrapper, nothing seems to happen, and he realizes the cloned t
 Hit 1 to continue.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_7", "002_Hubert_Home_7", "002_Hubert_Home_7", "002_Hubert_Home_7", "002_Hubert_Home_7", "002_Hubert_Home_7", "002_Hubert_Home_7", "002_Hubert_Home_7", "002_Hubert_Home_7"]
+inbound_rooms = ["002_Hubert_Home_7", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_1;", "", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 9"]
@@ -1510,67 +985,11 @@ offset_left = -342.0
 offset_top = -64.0
 offset_right = 342.0
 offset_bottom = -44.0
-theme_override_constants/separation = 43
+theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="InboundVisual_002_Hubert_Home_7" type="ColorRect" parent="Rooms/Hubert Home 9/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49862" type="ColorRect" parent="Rooms/Hubert Home 9/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49863" type="ColorRect" parent="Rooms/Hubert Home 9/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49864" type="ColorRect" parent="Rooms/Hubert Home 9/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49865" type="ColorRect" parent="Rooms/Hubert Home 9/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49866" type="ColorRect" parent="Rooms/Hubert Home 9/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49867" type="ColorRect" parent="Rooms/Hubert Home 9/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49868" type="ColorRect" parent="Rooms/Hubert Home 9/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
-
-[node name="@ColorRect@49869" type="ColorRect" parent="Rooms/Hubert Home 9/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1589,10 +1008,10 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49870" type="Node2D" parent="Rooms/Hubert Home 9/LinesContainer"]
+[node name="@Node2D@34477" type="Node2D" parent="Rooms/Hubert Home 9/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-303, 864)
+end_pos = Vector2(-51, 864)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -1607,7 +1026,7 @@ description = "John is busily working at the library, trying to make sure there 
 Hit 1 to continue.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_8", "002_Hubert_Home_8", "002_Hubert_Home_8", "002_Hubert_Home_8", "002_Hubert_Home_8", "002_Hubert_Home_8", "002_Hubert_Home_8", "002_Hubert_Home_8", "002_Hubert_Home_8"]
+inbound_rooms = ["002_Hubert_Home_8", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_2;", "", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea"]
@@ -1635,67 +1054,11 @@ offset_left = -342.0
 offset_top = -64.0
 offset_right = 342.0
 offset_bottom = -44.0
-theme_override_constants/separation = 43
+theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="InboundVisual_002_Hubert_Home_8" type="ColorRect" parent="Rooms/Cerulea/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49871" type="ColorRect" parent="Rooms/Cerulea/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49872" type="ColorRect" parent="Rooms/Cerulea/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49873" type="ColorRect" parent="Rooms/Cerulea/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49874" type="ColorRect" parent="Rooms/Cerulea/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49875" type="ColorRect" parent="Rooms/Cerulea/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49876" type="ColorRect" parent="Rooms/Cerulea/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49877" type="ColorRect" parent="Rooms/Cerulea/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49878" type="ColorRect" parent="Rooms/Cerulea/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1714,7 +1077,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49879" type="Node2D" parent="Rooms/Cerulea/LinesContainer"]
+[node name="@Node2D@34478" type="Node2D" parent="Rooms/Cerulea/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(310, 645)
@@ -1735,7 +1098,7 @@ John steps through the portal as it closes behind him.
 Hit 1 if you wish to go to Caves Of Dragonmount.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_9", "002_Hubert_Home_9", "002_Hubert_Home_9", "002_Hubert_Home_9", "002_Hubert_Home_9", "002_Hubert_Home_9", "002_Hubert_Home_9", "002_Hubert_Home_9", "002_Hubert_Home_9"]
+inbound_rooms = ["002_Hubert_Home_9", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_2;", "", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea 1"]
@@ -1763,67 +1126,11 @@ offset_left = -342.0
 offset_top = -64.0
 offset_right = 342.0
 offset_bottom = -44.0
-theme_override_constants/separation = 43
+theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="InboundVisual_002_Hubert_Home_9" type="ColorRect" parent="Rooms/Cerulea 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49880" type="ColorRect" parent="Rooms/Cerulea 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49881" type="ColorRect" parent="Rooms/Cerulea 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49882" type="ColorRect" parent="Rooms/Cerulea 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49883" type="ColorRect" parent="Rooms/Cerulea 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49884" type="ColorRect" parent="Rooms/Cerulea 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49885" type="ColorRect" parent="Rooms/Cerulea 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49886" type="ColorRect" parent="Rooms/Cerulea 1/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49887" type="ColorRect" parent="Rooms/Cerulea 1/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1842,10 +1149,10 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49888" type="Node2D" parent="Rooms/Cerulea 1/LinesContainer"]
+[node name="@Node2D@34479" type="Node2D" parent="Rooms/Cerulea 1/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-392, 528)
+end_pos = Vector2(-203, 528)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -1863,7 +1170,7 @@ John steps through the portal as it closes behind him.
 Hit 1 if you wish to go to Caves Of Dragonmount.
 
 Hit 0 to quit."
-inbound_rooms = ["003_Cerulea", "003_Cerulea", "003_Cerulea", "003_Cerulea", "003_Cerulea", "003_Cerulea_1", "003_Cerulea_1", "003_Cerulea_1", "003_Cerulea_1"]
+inbound_rooms = ["003_Cerulea", "003_Cerulea_1", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount;", "", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea 2"]
@@ -1891,7 +1198,7 @@ offset_left = -342.0
 offset_top = -64.0
 offset_right = 342.0
 offset_bottom = -44.0
-theme_override_constants/separation = 43
+theme_override_constants/separation = 484
 alignment = 1
 metadata/_edit_lock_ = true
 
@@ -1902,56 +1209,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
 
-[node name="@ColorRect@49889" type="ColorRect" parent="Rooms/Cerulea 2/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49890" type="ColorRect" parent="Rooms/Cerulea 2/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49891" type="ColorRect" parent="Rooms/Cerulea 2/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49892" type="ColorRect" parent="Rooms/Cerulea 2/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
 [node name="InboundVisual_003_Cerulea_1" type="ColorRect" parent="Rooms/Cerulea 2/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49893" type="ColorRect" parent="Rooms/Cerulea 2/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49894" type="ColorRect" parent="Rooms/Cerulea 2/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49895" type="ColorRect" parent="Rooms/Cerulea 2/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1970,10 +1228,10 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@49896" type="Node2D" parent="Rooms/Cerulea 2/LinesContainer"]
+[node name="@Node2D@34480" type="Node2D" parent="Rooms/Cerulea 2/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-258, 679)
+end_pos = Vector2(-6, 679)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -2032,7 +1290,7 @@ Chester then leaves, and flies around while looking some more.
 Hit 1 if you wish to go to Sky.
 
 Hit 0 to quit."
-inbound_rooms = ["003_Cerulea_2", "003_Cerulea_2", "003_Cerulea_2", "003_Cerulea_2", "003_Cerulea_2", "003_Cerulea_2", "003_Cerulea_2", "003_Cerulea_2", "003_Cerulea_2"]
+inbound_rooms = ["003_Cerulea_2", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 005_Sky;", "", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Caves Of Dragonmount"]
@@ -2060,67 +1318,11 @@ offset_left = -342.0
 offset_top = -64.0
 offset_right = 342.0
 offset_bottom = -44.0
-theme_override_constants/separation = 43
+theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="InboundVisual_003_Cerulea_2" type="ColorRect" parent="Rooms/Caves Of Dragonmount/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49897" type="ColorRect" parent="Rooms/Caves Of Dragonmount/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49898" type="ColorRect" parent="Rooms/Caves Of Dragonmount/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49899" type="ColorRect" parent="Rooms/Caves Of Dragonmount/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49900" type="ColorRect" parent="Rooms/Caves Of Dragonmount/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49901" type="ColorRect" parent="Rooms/Caves Of Dragonmount/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49902" type="ColorRect" parent="Rooms/Caves Of Dragonmount/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49903" type="ColorRect" parent="Rooms/Caves Of Dragonmount/InboundVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="@ColorRect@49904" type="ColorRect" parent="Rooms/Caves Of Dragonmount/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
