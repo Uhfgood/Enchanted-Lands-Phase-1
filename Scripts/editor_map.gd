@@ -476,12 +476,7 @@ func _exit_tree():
 	if rooms:
 		for room in rooms.get_children():
 			if room is VisualRoom:
-				# Clear room's children (e.g., Door nodes)
-				var child_count = room.get_child_count()
-				if child_count > 0:
-					for child in room.get_children():
-						room.remove_child(child)
-						child.queue_free()
+				room.RemoveChildren()
 				rooms.remove_child(room)
 				room.queue_free()
 			else:
