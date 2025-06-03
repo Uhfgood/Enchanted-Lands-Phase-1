@@ -95,85 +95,85 @@ func RebuildRoomsDictionary():
 	for room in rooms.get_children():
 		rooms_dict[ room.id ] = room 
 	
-func ClearInboundRooms( roomlist ):
-	for room in roomlist.values():
-		for i in range( room.inbound_rooms.size() ):
-			room.inbound_rooms[ i ] = ""
-	
-func RebuildInboundRooms( roomlist ):
-	for room in roomlist.values():
-	#{
-		for door in room.doors:
-		#{
-			if( roomlist.has( door.destination ) ):
-			#{
-				var dest_room = roomlist[ door.destination ]
-				
-				for i in range( dest_room.inbound_rooms.size() ):
-					if( dest_room.inbound_rooms[ i ] == "" ):
-						dest_room.inbound_rooms[ i ] = room.id;
-						break;
-						
-			#}  // end if rooms_dict.has...
-			else:
-				# Just warning when there's a door but the destination is missing.
-				print( "Room: " + room.id + ", Door dest. " + door.destination + " does not exist in rooms_dict." )
-			
-		#} // end for door
-
-	#}  // end for room
-
-func ReorderInboundRooms( roomlist ):
-	for room in roomlist.values():
-	#{
-		var inbound_data = []
-		inbound_data.clear()
-		
-		# let's populate the inbound_data array
-		for inbound in room.inbound_rooms:
-		#{
-			if( inbound != "" and roomlist.has( inbound ) ):
-				var inbound_room = roomlist[ inbound ]
-				var pair = [ inbound_room.id, inbound_room.position.x ]
-				inbound_data.append( pair )
-				
-		#}  // end for i
-		
-		inbound_data.sort_custom( func( a, b ): return a[ 1 ] < b[ 1 ] )
-
-		# repopulate rooms
-		for i in range( inbound_data.size() ):
-			room.inbound_rooms[ i ] = inbound_data[ i ][ 0 ]
-			
-	#}  // end for room
-
-func ReSortDoors( roomlist ):
-	for room in roomlist.values():
-	#{
-		var door_data = []
-		door_data.clear()
-		for door in room.doors:
-		#{
-			if( roomlist.has( door.destination ) ):
-				var dest_x = roomlist[ door.destination ].position.x
-				var pair = [ door, dest_x ]
-				door_data.append( pair )
-			else:
-				door_data.append( [ door, INF ] )
-				
-		#} // end for door
-		
-		door_data.sort_custom( func( a, b ): return a[ 1 ] < b[ 1 ] )
-		
-		# repopulate the doors array
-		room.doors.clear()
-		for i in range( door_data.size() ):
-			room.doors.append( door_data[ i ][ 0 ] )
-	
-		room.UpdateDoorVisuals()
-		room.UpdateDoorLines()
-		
-	#}  // for room
+#func ClearInboundRooms( roomlist ):
+	#for room in roomlist.values():
+		#for i in range( room.inbound_rooms.size() ):
+			#room.inbound_rooms[ i ] = ""
+	#
+#func RebuildInboundRooms( roomlist ):
+	#for room in roomlist.values():
+	##{
+		#for door in room.doors:
+		##{
+			#if( roomlist.has( door.destination ) ):
+			##{
+				#var dest_room = roomlist[ door.destination ]
+				#
+				#for i in range( dest_room.inbound_rooms.size() ):
+					#if( dest_room.inbound_rooms[ i ] == "" ):
+						#dest_room.inbound_rooms[ i ] = room.id;
+						#break;
+						#
+			##}  // end if rooms_dict.has...
+			#else:
+				## Just warning when there's a door but the destination is missing.
+				#print( "Room: " + room.id + ", Door dest. " + door.destination + " does not exist in rooms_dict." )
+			#
+		##} // end for door
+#
+	##}  // end for room
+#
+#func ReorderInboundRooms( roomlist ):
+	#for room in roomlist.values():
+	##{
+		#var inbound_data = []
+		#inbound_data.clear()
+		#
+		## let's populate the inbound_data array
+		#for inbound in room.inbound_rooms:
+		##{
+			#if( inbound != "" and roomlist.has( inbound ) ):
+				#var inbound_room = roomlist[ inbound ]
+				#var pair = [ inbound_room.id, inbound_room.position.x ]
+				#inbound_data.append( pair )
+				#
+		##}  // end for i
+		#
+		#inbound_data.sort_custom( func( a, b ): return a[ 1 ] < b[ 1 ] )
+#
+		## repopulate rooms
+		#for i in range( inbound_data.size() ):
+			#room.inbound_rooms[ i ] = inbound_data[ i ][ 0 ]
+			#
+	##}  // end for room
+#
+#func ReSortDoors( roomlist ):
+	#for room in roomlist.values():
+	##{
+		#var door_data = []
+		#door_data.clear()
+		#for door in room.doors:
+		##{
+			#if( roomlist.has( door.destination ) ):
+				#var dest_x = roomlist[ door.destination ].position.x
+				#var pair = [ door, dest_x ]
+				#door_data.append( pair )
+			#else:
+				#door_data.append( [ door, INF ] )
+				#
+		##} // end for door
+		#
+		#door_data.sort_custom( func( a, b ): return a[ 1 ] < b[ 1 ] )
+		#
+		## repopulate the doors array
+		#room.doors.clear()
+		#for i in range( door_data.size() ):
+			#room.doors.append( door_data[ i ][ 0 ] )
+	#
+		#room.UpdateDoorVisuals()
+		#room.UpdateDoorLines()
+		#
+	##}  // for room
 
 func AssignInboundRooms():
 #{	
@@ -269,6 +269,11 @@ func _on_save_button_pressed():
 
 	# assign inbounds before saving any rooms
 	AssignInboundRooms()
+
+	for room in rooms_dict.values():
+		room.UpdateDoorVisuals()
+		room.UpdateInboundVisuals()
+		room.UpdateDoorLines()
 
 	for room in rooms.get_children():
 	#{

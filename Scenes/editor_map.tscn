@@ -59,7 +59,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34460" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
+[node name="@Node2D@49865" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(1, 508)
@@ -132,7 +132,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34461" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
+[node name="@Node2D@49866" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-5, 473)
@@ -217,7 +217,7 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34462" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+[node name="@Node2D@49867" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-251, 568)
@@ -225,7 +225,7 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34463" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+[node name="@Node2D@49868" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(252, 1071)
@@ -295,10 +295,84 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34464" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
+[node name="@Node2D@49869" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-1, 539)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 10" type="Node2D" parent="Rooms"]
+position = Vector2(-287, 3966)
+script = ExtResource("2_aqcr6")
+id = "002_Hubert_Home_10"
+label = "Hubert Home 10"
+description = "Hubert takes a quicksilver ticket and a few hats off of his desk and puts them on then says some magic words. 
+The ticket then disappears, as Hubert peers into the crystal ball, he sees John buy his favorite chocolate bar and open it.
+Seeing there was no ticket inside, then sends another, when it seems to appear in the partially open wrapper.
+Further observance shows John reading the \"fine print\" on the ticket, and realize that he doesn't have the full phrase to open the portal.
+Hubert then rearranges the hats, and then clone-conjures up a new ticket, as an identical ticket materializes in the wrapper.,
+As John reads the wrapper, nothing seems to happen, and he realizes the cloned ticket may not have quicksilver in it. 
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_8", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 003_Cerulea_1;", "", "", "", "", "", "", "", ""]
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 10"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Cerulea_1" type="ColorRect" parent="Rooms/Hubert Home 10/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 10"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -64.0
+offset_right = 342.0
+offset_bottom = -44.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_8" type="ColorRect" parent="Rooms/Hubert Home 10/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="Door_To_Cerulea_1" type="Node2D" parent="Rooms/Hubert Home 10"]
+visible = false
+script = ExtResource("3_vxuit")
+choice = "1"
+destination = "003_Cerulea_1"
+id = "Door_To_Cerulea_1"
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 10"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@51775" type="Node2D" parent="Rooms/Hubert Home 10/LinesContainer"]
+script = ExtResource("4_ujc8x")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(-6, 500)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -403,7 +477,7 @@ color = Color(0.733333, 1, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34465" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@49871" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-618, 580)
@@ -411,7 +485,7 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34466" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@49872" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-61, 1571)
@@ -419,7 +493,7 @@ default_color = Color(1, 0.733333, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34467" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@49873" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(601, 583)
@@ -504,7 +578,7 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34468" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
+[node name="@Node2D@49874" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-388, 524)
@@ -512,7 +586,7 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34469" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
+[node name="@Node2D@49875" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(431, 1027)
@@ -597,7 +671,7 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34470" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
+[node name="@Node2D@49876" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-536, 1024)
@@ -605,7 +679,7 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34471" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
+[node name="@Node2D@49877" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(251, 559)
@@ -674,7 +748,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34472" type="Node2D" parent="Rooms/Hubert Home 5/LinesContainer"]
+[node name="@Node2D@49878" type="Node2D" parent="Rooms/Hubert Home 5/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(693, 539)
@@ -743,7 +817,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34473" type="Node2D" parent="Rooms/Hubert Home 6/LinesContainer"]
+[node name="@Node2D@49879" type="Node2D" parent="Rooms/Hubert Home 6/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-661, 501)
@@ -758,14 +832,11 @@ id = "002_Hubert_Home_7"
 label = "Hubert Home 7"
 description = "Hubert picks John, and finds out he works at a library with his Mom, and every day goes and buys his favorite candy bar, A Wonky-bar.  He figures to send the ticket via the candy bar.
 
-On his desk, Hubert has 3 hats of various styles from which to cast magic spells with.  There's also a large box which almost looks like a safe with a little door.  On the front of the box there is a small label which reads \"Magic Mailbox #001 of 100.  Property of Halfway Hubert.\"
-
-Hit 1 if you wish to use the 'magic' mailbox.
-Hit 2 if you wish to use a spell or two to send John his silver ticket.
+Hit 1 to prepare to send a quicksilver ticket to John.
 
 Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_5", "002_Hubert_Home_3", "002_Hubert_Home_2", "002_Hubert_Home_4", "002_Hubert_Home_6", "", "", "", ""]
-door_specs = ["ch: 1, dest: 002_Hubert_Home_8;", "ch: 2, dest: 002_Hubert_Home_9;", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home_8;", "", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 7"]
 z_index = 1
@@ -774,7 +845,7 @@ offset_left = -342.0
 offset_top = 210.0
 offset_right = 342.0
 offset_bottom = 230.0
-theme_override_constants/separation = 484
+theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
@@ -784,13 +855,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
-
-[node name="DoorVisual_Door_To_Hubert_Home_9" type="ColorRect" parent="Rooms/Hubert Home 7/DoorVisualsContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
 
 [node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 7"]
 z_index = 1
@@ -846,45 +910,33 @@ destination = "002_Hubert_Home_8"
 id = "Door_To_Hubert_Home_8"
 color = Color(1, 0.2, 0.2, 1)
 
-[node name="Door_To_Hubert_Home_9" type="Node2D" parent="Rooms/Hubert Home 7"]
-visible = false
-script = ExtResource("3_vxuit")
-choice = "2"
-destination = "002_Hubert_Home_9"
-id = "Door_To_Hubert_Home_9"
-color = Color(1, 0.733333, 0.2, 1)
-
 [node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 7"]
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34474" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
+[node name="@Node2D@49880" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
 script = ExtResource("4_ujc8x")
-start_pos = Vector2(-252, 330)
-end_pos = Vector2(-721, 451)
+start_pos = Vector2(0, 330)
+end_pos = Vector2(4, 430)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34475" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
-script = ExtResource("4_ujc8x")
-start_pos = Vector2(252, 330)
-end_pos = Vector2(663, 450)
-default_color = Color(1, 0.733333, 0.2, 1)
-width = 5.0
-metadata/_edit_lock_ = true
-
 [node name="Hubert Home 8" type="Node2D" parent="Rooms"]
-position = Vector2(-1689, 3539)
+position = Vector2(-964, 3518)
 script = ExtResource("2_aqcr6")
 id = "002_Hubert_Home_8"
 label = "Hubert Home 8"
-description = "Hubert pulls open the door on the box, and puts a single silver ticket into it.  And then says the destination out loud: \"John Thomas, Cerulea.  Benny Wonky Chocolate Bar. -- Oh inside the wrapper!\"  Hubert then just waits.
+description = "Hubert picks John, and finds out he works at a library with his Mom, and every day goes and buys his favorite candy bar, A Wonky-bar.  He figures to send the ticket via the candy bar.
 
-Hit 1 to continue.
+On his desk, Hubert has 3 hats of various styles from which to cast magic spells with.  There's also a large box which almost looks like a safe with a little door.  On the front of the box there is a small label which reads \"Magic Mailbox #001 of 100.  Property of Halfway Hubert.\"
+
+Hit 1 if you wish to use the 'magic' mailbox.
+Hit 2 if you wish to use a spell or two to send John his silver ticket.
+
 Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_7", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home_9;", "ch: 2, dest: 002_Hubert_Home_10;", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 8"]
 z_index = 1
@@ -893,16 +945,23 @@ offset_left = -342.0
 offset_top = 210.0
 offset_right = 342.0
 offset_bottom = 230.0
-theme_override_constants/separation = 0
+theme_override_constants/separation = 484
 alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="DoorVisual_Door_To_Cerulea" type="ColorRect" parent="Rooms/Hubert Home 8/DoorVisualsContainer"]
+[node name="DoorVisual_Door_To_Hubert_Home_9" type="ColorRect" parent="Rooms/Hubert Home 8/DoorVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
+
+[node name="DoorVisual_Door_To_Hubert_Home_10" type="ColorRect" parent="Rooms/Hubert Home 8/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
 
 [node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 8"]
 z_index = 1
@@ -922,43 +981,53 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
 
-[node name="Door_To_Cerulea" type="Node2D" parent="Rooms/Hubert Home 8"]
+[node name="Door_To_Hubert_Home_9" type="Node2D" parent="Rooms/Hubert Home 8"]
 visible = false
 script = ExtResource("3_vxuit")
 choice = "1"
-destination = "003_Cerulea"
-id = "Door_To_Cerulea"
+destination = "002_Hubert_Home_9"
+id = "Door_To_Hubert_Home_9"
 color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Hubert_Home_10" type="Node2D" parent="Rooms/Hubert Home 8"]
+visible = false
+script = ExtResource("3_vxuit")
+choice = "2"
+destination = "002_Hubert_Home_10"
+id = "Door_To_Hubert_Home_10"
+color = Color(1, 0.733333, 0.2, 1)
 
 [node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 8"]
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34476" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
+[node name="@Node2D@51337" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
 script = ExtResource("4_ujc8x")
-start_pos = Vector2(0, 330)
-end_pos = Vector2(316, 746)
+start_pos = Vector2(-252, 330)
+end_pos = Vector2(-689, 497)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
+[node name="@Node2D@51338" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
+script = ExtResource("4_ujc8x")
+start_pos = Vector2(252, 330)
+end_pos = Vector2(677, 484)
+default_color = Color(1, 0.733333, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
 [node name="Hubert Home 9" type="Node2D" parent="Rooms"]
-position = Vector2(-305, 3538)
+position = Vector2(-1653, 3979)
 script = ExtResource("2_aqcr6")
 id = "002_Hubert_Home_9"
 label = "Hubert Home 9"
-description = "Hubert takes a quicksilver ticket and a few hats off of his desk and puts them on then says some magic words. 
-The ticket then disappears, as Hubert peers into the crystal ball, he sees John buy his favorite chocolate bar and open it.
-Seeing there was no ticket inside, then sends another, when it seems to appear in the partially open wrapper.
-Further observance shows John reading the \"fine print\" on the ticket, and realize that he doesn't have the full phrase to open the portal.
-Hubert then rearranges the hats, and then clone-conjures up a new ticket, as an identical ticket materializes in the wrapper.,
-As John reads the wrapper, nothing seems to happen, and he realizes the cloned ticket may not have quicksilver in it. 
+description = "Hubert pulls open the door on the box, and puts a single silver ticket into it.  And then says the destination out loud: \"John Thomas, Cerulea.  Benny Wonky Chocolate Bar. -- Oh inside the wrapper!\"  Hubert then just waits.
 
 Hit 1 to continue.
-
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_7", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 003_Cerulea_1;", "", "", "", "", "", "", "", ""]
+inbound_rooms = ["002_Hubert_Home_8", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 9"]
 z_index = 1
@@ -971,7 +1040,7 @@ theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="DoorVisual_Door_To_Cerulea_1" type="ColorRect" parent="Rooms/Hubert Home 9/DoorVisualsContainer"]
+[node name="DoorVisual_Door_To_Cerulea" type="ColorRect" parent="Rooms/Hubert Home 9/DoorVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -989,35 +1058,35 @@ theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="InboundVisual_002_Hubert_Home_7" type="ColorRect" parent="Rooms/Hubert Home 9/InboundVisualsContainer"]
+[node name="InboundVisual_002_Hubert_Home_8" type="ColorRect" parent="Rooms/Hubert Home 9/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-color = Color(1, 0.733333, 0.2, 1)
+color = Color(1, 0.2, 0.2, 1)
 
-[node name="Door_To_Cerulea_1" type="Node2D" parent="Rooms/Hubert Home 9"]
+[node name="Door_To_Cerulea" type="Node2D" parent="Rooms/Hubert Home 9"]
 visible = false
 script = ExtResource("3_vxuit")
 choice = "1"
-destination = "003_Cerulea_1"
-id = "Door_To_Cerulea_1"
+destination = "003_Cerulea"
+id = "Door_To_Cerulea"
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 9"]
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34477" type="Node2D" parent="Rooms/Hubert Home 9/LinesContainer"]
+[node name="@Node2D@50734" type="Node2D" parent="Rooms/Hubert Home 9/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-51, 864)
+end_pos = Vector2(-3, 546)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Cerulea" type="Node2D" parent="Rooms"]
-position = Vector2(-1373, 4249)
+position = Vector2(-1656, 4489)
 script = ExtResource("2_aqcr6")
 id = "003_Cerulea"
 label = "Cerulea"
@@ -1026,7 +1095,7 @@ description = "John is busily working at the library, trying to make sure there 
 Hit 1 to continue.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_8", "", "", "", "", "", "", "", ""]
+inbound_rooms = ["002_Hubert_Home_9", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_2;", "", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea"]
@@ -1058,7 +1127,7 @@ theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="InboundVisual_002_Hubert_Home_8" type="ColorRect" parent="Rooms/Cerulea/InboundVisualsContainer"]
+[node name="InboundVisual_002_Hubert_Home_9" type="ColorRect" parent="Rooms/Cerulea/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1077,16 +1146,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34478" type="Node2D" parent="Rooms/Cerulea/LinesContainer"]
+[node name="@Node2D@52247" type="Node2D" parent="Rooms/Cerulea/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(310, 645)
+end_pos = Vector2(465, 400)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Cerulea 1" type="Node2D" parent="Rooms"]
-position = Vector2(-356, 4366)
+position = Vector2(-293, 4430)
 script = ExtResource("2_aqcr6")
 id = "003_Cerulea_1"
 label = "Cerulea 1"
@@ -1098,7 +1167,7 @@ John steps through the portal as it closes behind him.
 Hit 1 if you wish to go to Caves Of Dragonmount.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_9", "", "", "", "", "", "", "", ""]
+inbound_rooms = ["002_Hubert_Home_10", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_2;", "", "", "", "", "", "", "", ""]
 
 [node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea 1"]
@@ -1130,7 +1199,7 @@ theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="InboundVisual_002_Hubert_Home_9" type="ColorRect" parent="Rooms/Cerulea 1/InboundVisualsContainer"]
+[node name="InboundVisual_002_Hubert_Home_10" type="ColorRect" parent="Rooms/Cerulea 1/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1149,16 +1218,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34479" type="Node2D" parent="Rooms/Cerulea 1/LinesContainer"]
+[node name="@Node2D@52248" type="Node2D" parent="Rooms/Cerulea 1/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-203, 528)
+end_pos = Vector2(-394, 459)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Cerulea 2" type="Node2D" parent="Rooms"]
-position = Vector2(-811, 4858)
+position = Vector2(-939, 4853)
 script = ExtResource("2_aqcr6")
 id = "003_Cerulea_2"
 label = "Cerulea 2"
@@ -1228,10 +1297,10 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@34480" type="Node2D" parent="Rooms/Cerulea 2/LinesContainer"]
+[node name="@Node2D@52685" type="Node2D" parent="Rooms/Cerulea 2/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-6, 679)
+end_pos = Vector2(-22, 671)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -1279,7 +1348,7 @@ position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount" type="Node2D" parent="Rooms"]
-position = Vector2(-817, 5501)
+position = Vector2(-961, 5488)
 script = ExtResource("2_aqcr6")
 id = "004_Caves_Of_Dragonmount"
 label = "Caves Of Dragonmount"
