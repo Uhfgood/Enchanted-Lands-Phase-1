@@ -138,14 +138,7 @@ func _on_remove_room_button_pressed():
 	else:
 		removed_rooms.append(room_id)
 	
-	# Explicitly clear the doors array to ensure consistency
-	if currently_selected_room.doors:
-		currently_selected_room.doors.clear()
-	
-	# Remove and free all child nodes
-	for child in currently_selected_room.get_children():
-		currently_selected_room.remove_child(child)
-		child.queue_free()
+	currently_selected_room.RemoveChildren()
 	
 	# Remove the room from the scene tree safely #
 	if currently_selected_room.get_parent() == rooms:

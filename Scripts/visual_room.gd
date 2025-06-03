@@ -384,9 +384,21 @@ func ReSortDoors( roomlist ):
 		self.doors.append( door_data[ i ][ 0 ] )
 
 	self.UpdateDoorVisuals()
-	self.UpdateDoorLines()		
-
+	self.UpdateDoorLines()
 	
+func RemoveChildren() -> void:
+#{
+	# Explicitly clear the doors array to ensure consistency
+	if self.doors:
+		self.doors.clear()
+	
+	# Remove and free all child nodes
+	for child in self.get_children():
+		self.remove_child(child)
+		child.queue_free()
+	
+#} // end RemoveChildren()
+
 func TruncateText(text: String, max_lines: int = 5, chars_per_line: int = 40) -> String:
 	var current_lines = 0
 	var result = ""
