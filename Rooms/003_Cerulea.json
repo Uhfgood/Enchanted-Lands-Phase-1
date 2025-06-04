@@ -1,7 +1,7 @@
 {
     "id": "003_Cerulea",
     "label": "Cerulea",
-    "description": "John is busily working at the library, trying to make sure there are no books in the wrong section, when he comes across a book entitled \"Unicorn Sign Language For The Bewildered, Befuddled, Beginner\".  The book has no barcode, or dewey decimal number, or any kind of external label.  He looks around the library to decide what section it belongs in.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "description": "While working at his library John spots \"Unicorn Sign Language for the Beginner\" in the fairy tale section.\n\nHit 1 to continue.\n\nHit 0 to quit.",
     "inbound":
     [
         "002_Hubert_Home_9"

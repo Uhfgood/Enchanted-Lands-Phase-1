@@ -1,7 +1,7 @@
 {
     "id": "002_Hubert_Home_10",
     "label": "Hubert Home 10",
-    "description": "Hubert takes a quicksilver ticket and a few hats off of his desk and puts them on then says some magic words. \nThe ticket then disappears, as Hubert peers into the crystal ball, he sees John buy his favorite chocolate bar and open it.\nSeeing there was no ticket inside, then sends another, when it seems to appear in the partially open wrapper.\nFurther observance shows John reading the \"fine print\" on the ticket, and realize that he doesn't have the full phrase to open the portal.\nHubert then rearranges the hats, and then clone-conjures up a new ticket, as an identical ticket materializes in the wrapper.,\nAs John reads the wrapper, nothing seems to happen, and he realizes the cloned ticket may not have quicksilver in it. \n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "description": "Placing a quicksilver ticket on his desk, he grabs his hats, and then says a few magic words.\nThe ticket disappears, and as he's looking into the crystal ball, he sees John opening his favorite candy bar with nothing in the wrapper.\nHe then does the same thing again, only this time the ticket is partially visible inside the candy wrapper.  \nOn closer inspection, John notices only half of the ticket exists.\nHubert decides to try a 'clone conjure' spell, and conjures a ticket on his own desk, and then after running to the crystal ball, he notices that John now has an idential ticket, only something is off.\nThe ticket doesn't appear to contain quicksilver, but the message on the back seems to be intact, so all he can do is just wait for John to figure it out.\n\nHit 1 to continue.\n\nHit 0 to quit.",
     "inbound":
     [
         "002_Hubert_Home_8"

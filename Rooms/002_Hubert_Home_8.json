@@ -1,7 +1,7 @@
 {
     "id": "002_Hubert_Home_8",
     "label": "Hubert Home 8",
-    "description": "Hubert picks John, and finds out he works at a library with his Mom, and every day goes and buys his favorite candy bar, A Wonky-bar.  He figures to send the ticket via the candy bar.\n\nOn his desk, Hubert has 3 hats of various styles from which to cast magic spells with.  There's also a large box which almost looks like a safe with a little door.  On the front of the box there is a small label which reads \"Magic Mailbox #001 of 100.  Property of Halfway Hubert.\"\n\nHit 1 if you wish to use the 'magic' mailbox.\nHit 2 if you wish to use a spell or two to send John his silver ticket.\n\nHit 0 to quit.",
+    "description": "John puts his 3 magic hats on his desk where there also sits a large box which almost looks like a safe with a little door.  On the front of the box there is a small label which reads \"Magic Mailbox #001 of 100.  Property of Halfway Hubert.\"\n\nHit 1 if you wish to use the 'magic' mailbox.\nHit 2 if you wish to use a spell or two to send John his silver ticket.\n\nHit 0 to quit.",
     "inbound":
     [
         "002_Hubert_Home_7"

@@ -23,6 +23,8 @@ var door_lines : Array = []
 
 var original_id : String = "XXX"
 
+var previous_position = 0
+
 #func _enter_tree():
 	#if Engine.is_editor_hint():
 		#print("Room._enter_tree: Initializing room: ", id, " (Label: ", label, ")")
@@ -385,6 +387,13 @@ func ReSortDoors( roomlist ):
 
 	self.UpdateDoorVisuals()
 	self.UpdateDoorLines()
+	
+func HasDestinationTo( room_id : String ) -> bool:
+	for door in self.doors:
+		if door.destination == room_id:
+			return true
+		
+	return false
 	
 func RemoveChildren() -> void:
 #{

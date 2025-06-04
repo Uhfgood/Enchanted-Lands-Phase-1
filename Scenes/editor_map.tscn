@@ -59,7 +59,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17338" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
+[node name="@Node2D@32034" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(1, 508)
@@ -132,7 +132,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17339" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
+[node name="@Node2D@32035" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-5, 473)
@@ -217,7 +217,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17340" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+[node name="@Node2D@32036" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-251, 568)
@@ -225,7 +225,7 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17341" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+[node name="@Node2D@32037" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(252, 1071)
@@ -295,7 +295,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17342" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
+[node name="@Node2D@32038" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-1, 539)
@@ -304,16 +304,16 @@ width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 10" type="Node2D" parent="Rooms"]
-position = Vector2(-287, 3966)
+position = Vector2(-347, 3991)
 script = ExtResource("2_aqcr6")
 id = "002_Hubert_Home_10"
 label = "Hubert Home 10"
-description = "Hubert takes a quicksilver ticket and a few hats off of his desk and puts them on then says some magic words. 
-The ticket then disappears, as Hubert peers into the crystal ball, he sees John buy his favorite chocolate bar and open it.
-Seeing there was no ticket inside, then sends another, when it seems to appear in the partially open wrapper.
-Further observance shows John reading the \"fine print\" on the ticket, and realize that he doesn't have the full phrase to open the portal.
-Hubert then rearranges the hats, and then clone-conjures up a new ticket, as an identical ticket materializes in the wrapper.,
-As John reads the wrapper, nothing seems to happen, and he realizes the cloned ticket may not have quicksilver in it. 
+description = "Placing a quicksilver ticket on his desk, he grabs his hats, and then says a few magic words.
+The ticket disappears, and as he's looking into the crystal ball, he sees John opening his favorite candy bar with nothing in the wrapper.
+He then does the same thing again, only this time the ticket is partially visible inside the candy wrapper.  
+On closer inspection, John notices only half of the ticket exists.
+Hubert decides to try a 'clone conjure' spell, and conjures a ticket on his own desk, and then after running to the crystal ball, he notices that John now has an idential ticket, only something is off.
+The ticket doesn't appear to contain quicksilver, but the message on the back seems to be intact, so all he can do is just wait for John to figure it out.
 
 Hit 1 to continue.
 
@@ -369,10 +369,10 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17343" type="Node2D" parent="Rooms/Hubert Home 10/LinesContainer"]
+[node name="@Node2D@32039" type="Node2D" parent="Rooms/Hubert Home 10/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-6, 500)
+end_pos = Vector2(54, 475)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -477,7 +477,7 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17344" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@32040" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-618, 580)
@@ -485,7 +485,7 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17345" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@32041" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-61, 1571)
@@ -493,7 +493,7 @@ default_color = Color(1, 0.733333, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17346" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@32042" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(601, 583)
@@ -578,7 +578,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17347" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
+[node name="@Node2D@32043" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-388, 524)
@@ -586,7 +586,7 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17348" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
+[node name="@Node2D@32044" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(431, 1027)
@@ -671,7 +671,7 @@ color = Color(0.733333, 1, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17349" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
+[node name="@Node2D@32045" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-536, 1024)
@@ -679,7 +679,7 @@ default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17350" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
+[node name="@Node2D@32046" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(251, 559)
@@ -748,7 +748,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17351" type="Node2D" parent="Rooms/Hubert Home 5/LinesContainer"]
+[node name="@Node2D@32047" type="Node2D" parent="Rooms/Hubert Home 5/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(693, 539)
@@ -817,7 +817,7 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17352" type="Node2D" parent="Rooms/Hubert Home 6/LinesContainer"]
+[node name="@Node2D@32048" type="Node2D" parent="Rooms/Hubert Home 6/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-661, 501)
@@ -830,7 +830,9 @@ position = Vector2(-968, 3124)
 script = ExtResource("2_aqcr6")
 id = "002_Hubert_Home_7"
 label = "Hubert Home 7"
-description = "Hubert picks John, and finds out he works at a library with his Mom, and every day goes and buys his favorite candy bar, A Wonky-bar.  He figures to send the ticket via the candy bar.
+description = "Hubert picks John, and decides to somehow send a quicksilver ticket via his favorite candybar.
+Pulling 3 hats from his head, he rearranges them and puts them back on, and then says some magic words.
+A book called \"Unicorn Sign Language for Beginners\" appears in midair before changing to Beauty and the beast then disappears.
 
 Hit 1 to prepare to send a quicksilver ticket to John.
 
@@ -914,22 +916,20 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17353" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
+[node name="@Node2D@32049" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(4, 430)
+end_pos = Vector2(-1, 435)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 8" type="Node2D" parent="Rooms"]
-position = Vector2(-964, 3518)
+position = Vector2(-969, 3523)
 script = ExtResource("2_aqcr6")
 id = "002_Hubert_Home_8"
 label = "Hubert Home 8"
-description = "Hubert picks John, and finds out he works at a library with his Mom, and every day goes and buys his favorite candy bar, A Wonky-bar.  He figures to send the ticket via the candy bar.
-
-On his desk, Hubert has 3 hats of various styles from which to cast magic spells with.  There's also a large box which almost looks like a safe with a little door.  On the front of the box there is a small label which reads \"Magic Mailbox #001 of 100.  Property of Halfway Hubert.\"
+description = "John puts his 3 magic hats on his desk where there also sits a large box which almost looks like a safe with a little door.  On the front of the box there is a small label which reads \"Magic Mailbox #001 of 100.  Property of Halfway Hubert.\"
 
 Hit 1 if you wish to use the 'magic' mailbox.
 Hit 2 if you wish to use a spell or two to send John his silver ticket.
@@ -1001,28 +1001,29 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17354" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
+[node name="@Node2D@32050" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(-252, 330)
-end_pos = Vector2(-689, 497)
+end_pos = Vector2(-602, 504)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17355" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
+[node name="@Node2D@32051" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(252, 330)
-end_pos = Vector2(677, 484)
+end_pos = Vector2(622, 504)
 default_color = Color(1, 0.733333, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 9" type="Node2D" parent="Rooms"]
-position = Vector2(-1653, 3979)
+position = Vector2(-1571, 3991)
 script = ExtResource("2_aqcr6")
 id = "002_Hubert_Home_9"
 label = "Hubert Home 9"
 description = "Hubert pulls open the door on the box, and puts a single silver ticket into it.  And then says the destination out loud: \"John Thomas, Cerulea.  Benny Wonky Chocolate Bar. -- Oh inside the wrapper!\"  Hubert then just waits.
+While gazing into the crystal ball, Hubert notices John working at the library...
 
 Hit 1 to continue.
 Hit 0 to quit."
@@ -1077,10 +1078,10 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17356" type="Node2D" parent="Rooms/Hubert Home 9/LinesContainer"]
+[node name="@Node2D@32052" type="Node2D" parent="Rooms/Hubert Home 9/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-3, 546)
+end_pos = Vector2(-85, 534)
 default_color = Color(1, 0.2, 0.2, 1)
 width = 5.0
 metadata/_edit_lock_ = true
@@ -1090,7 +1091,7 @@ position = Vector2(-1656, 4489)
 script = ExtResource("2_aqcr6")
 id = "003_Cerulea"
 label = "Cerulea"
-description = "John is busily working at the library, trying to make sure there are no books in the wrong section, when he comes across a book entitled \"Unicorn Sign Language For The Bewildered, Befuddled, Beginner\".  The book has no barcode, or dewey decimal number, or any kind of external label.  He looks around the library to decide what section it belongs in.
+description = "While working at his library John spots \"Unicorn Sign Language for the Beginner\" in the fairy tale section.
 
 Hit 1 to continue.
 
@@ -1146,7 +1147,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17357" type="Node2D" parent="Rooms/Cerulea/LinesContainer"]
+[node name="@Node2D@32053" type="Node2D" parent="Rooms/Cerulea/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(465, 400)
@@ -1218,7 +1219,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17358" type="Node2D" parent="Rooms/Cerulea 1/LinesContainer"]
+[node name="@Node2D@32054" type="Node2D" parent="Rooms/Cerulea 1/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-394, 459)
@@ -1297,7 +1298,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@17359" type="Node2D" parent="Rooms/Cerulea 2/LinesContainer"]
+[node name="@Node2D@32055" type="Node2D" parent="Rooms/Cerulea 2/LinesContainer"]
 script = ExtResource("4_ujc8x")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-22, 671)
