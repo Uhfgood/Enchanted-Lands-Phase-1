@@ -461,10 +461,8 @@ func LoadAllRooms():
 		room.UpdateDoorLines()
 
 	# Step 4: Initialize previous positions
-	#previous_positions.clear()
 	for room in rooms.get_children():
 		if room is VisualRoom:
-			#previous_positions[room.id] = room.position
 			room.previous_position = room.position
 	
 	RebuildRoomsDictionary()
@@ -493,9 +491,6 @@ func _exit_tree():
 		holding_node.queue_free()
 		holding_node = null
 	
-	# Dictionary to store previous positions of rooms
-#var previous_positions: Dictionary = {}
-
 func update_lines_for_room_and_dependents(room: Node) -> void:
 	# Update lines for this room (outbound lines)
 	room.UpdateDoorLines()
@@ -503,18 +498,12 @@ func update_lines_for_room_and_dependents(room: Node) -> void:
 	# Update lines for all rooms that have this room as a destination (inbound lines)
 	for other_room in rooms.get_children():
 		if other_room != room and other_room is VisualRoom:
-			#for door in other_room.doors:
-			#	if door.destination == room.id:
-					#break
 			if( other_room.HasDestinationTo( room.id ) ):
 					other_room.UpdateDoorLines()
 					
 func _process(_delta: float) -> void:
 	for room in rooms.get_children():
 		if room is VisualRoom:
-			#if previous_positions.has(room.id):
-			#	if previous_positions[room.id] != room.position:
 			if room.previous_position != room.position:
 				update_lines_for_room_and_dependents(room)
-			#previous_positions[room.id] = room.position
 			room.previous_position = room.position
