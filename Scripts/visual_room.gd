@@ -5,7 +5,6 @@ class_name VisualRoom extends Node2D
 var editor_map: Node = null
 
 @export var id : String = "XXX" : set = _set_id
-#@export var origin : String = "XXX"
 @export var label : String = "New Room" : set = _set_label
 @export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
 

@@ -1,11 +1,10 @@
-@tool
-class_name Room extends Node2D
+#@tool
+class_name Room # extends Node2D
 
 # Reference to the editor_map node (set by editor_map.gd)
 var editor_map: Node = null
 
 @export var id : String = "XXX" : set = _set_id
-#@export var origin : String = "XXX"
 @export var label : String = "New Room" : set = _set_label
 @export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
 
@@ -80,7 +79,7 @@ func LoadDataFromJSON( json_name : String ) -> bool:
 	#}  // end if "inbound" in json_data
 	
 	self.label = json_data[ "label" ]
-	self.name = self.label
+	#self.name = self.label
 	self.description = json_data[ "description" ]
 	#print( "Creating " + self.name + " from JSON data." )
 	
@@ -93,14 +92,14 @@ func LoadDataFromJSON( json_name : String ) -> bool:
 			var door_id = door_data[ "id" ]
 			var choice = door_data[ "choice" ] 
 			var dest = door_data[ "destination" ]
-			var door_name = "Door_To_" + dest.substr( 4 )
+			#var door_name = "Door_To_" + dest.substr( 4 )
 			#print( "Creating " + door_name + " from JSON data." )
 
-			var new_door = Door.create( door_id, choice, dest, door_name )
+			var new_door = Door.create( door_id, choice, dest ) #, door_name )
 			if new_door:
 			#{
 				doors.append( new_door )
-				add_child( new_door )
+				#add_child( new_door )
 
 				if( i < 9 ):
 					var spec_str = "ch: " + choice + ", dest: " + dest + ";"
@@ -128,13 +127,13 @@ static func Create( n_id : String, n_label : String, n_desc : String ) -> Room:
 	room.original_id = n_id
 	#room.origin = n_origin
 	room.label = n_label
-	room.name = n_label
+	#room.name = n_label
 	room.description = n_desc
 	room.doors = []
 	room.inbound_rooms = [ "", "", "", "", "", "", "", "", "" ]
 	room.door_specs = [ "", "", "", "", "", "", "", "", "" ]
 	
-	print( "Creating ", room.name )
+	#print( "Creating ", room.name )
 	return room
 	
 #} // end create()
