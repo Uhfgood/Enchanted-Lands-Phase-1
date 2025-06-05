@@ -23,26 +23,8 @@ var door_lines : Array = []
 
 var original_id : String = "XXX"
 
-var previous_position = 0
+var previous_position : Vector2 = Vector2()
 
-#func _enter_tree():
-	#if Engine.is_editor_hint():
-		#print("Room._enter_tree: Initializing room: ", id, " (Label: ", label, ")")
-		#print("  Is inside tree: ", is_inside_tree())
-		#print("  Stack: ", get_stack())
-
-#func _ready():
-	#if Engine.is_editor_hint():
-		#print("Room._ready: Initializing room: ", id, " (Label: ", label, ")")
-		#print("  Is inside tree: ", is_inside_tree())
-		#print("  Owner: ", the_owner.name if the_owner else "null")
-		#var door_names = []
-		#for door in get_children():
-			#if door is Door:
-			#	door_names.append(door.name)
-		#print("  Doors: ", doors.size(), " (", door_names, ")")
-		#print("  Stack: ", get_stack())
-		
 # Setter for description
 func _set_description(new_description: String) -> void:
 	description = new_description
