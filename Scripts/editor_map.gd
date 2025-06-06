@@ -4,7 +4,8 @@ extends Node
 var is_removing_room: bool = false
 
 # Flag to prevent load_all_rooms from running multiple times
-var has_loaded_rooms: bool = false
+static var has_loaded_rooms = false
+
 @onready var rooms = $Rooms
 var currently_selected_room = null
 
@@ -255,32 +256,178 @@ func _on_save_button_pressed():
 	removed_rooms.clear()
 	
 #} // end func _on_save_button_pressed()
+
+#func _ready():
+	#holding_node.name = "HoldingNode"
+	#get_tree().root.add_child.call_deferred(holding_node)
+	#holding_node.set_owner(null)
+	#if not has_loaded_rooms:
+		#LoadAllRooms()
+		#has_loaded_rooms = true
+		#rooms.set_meta("_edit_lock_", true)
+
+#func _enter_tree():
+	#print("EditorMap entering tree, instance:", self)
+	#if is_inside_tree():
+		#var editor_selection = EditorInterface.get_selection()
+		#if editor_selection and not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
+			#var connection_result = editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
+			#if connection_result == OK:
+				#print("EditorMap connected to selection_changed")
+			#else:
+				#print("Failed to connect selection_changed, error code:", connection_result)
+		#if is_instance_valid(holding_node):
+			#if holding_node.get_parent():
+				#holding_node.get_parent().remove_child(holding_node)
+			#get_tree().root.call_deferred("add_child", holding_node)
+			#holding_node.set_owner(null)
+			#holding_node.name = "HoldingNode"
+
+#func _exit_tree():
+	#print("EditorMap exiting tree, Rooms children: ", rooms.get_child_count())
+	#has_loaded_rooms = false # Reset to allow LoadAllRooms after reload
+	#if get_tree().edited_scene_root:
+		#get_tree().get_edited_scene_root().disconnect("selection_changed", _on_selection_changed)
+	#var editor_selection = EditorInterface.get_selection()
+	#if editor_selection and editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
+		#editor_selection.disconnect("selection_changed", Callable(self, "_on_selection_changed"))
+		#print("EditorMap disconnected from selection_changed")
+	#if rooms:
+		#for room in rooms.get_children():
+			#if room is VisualRoom:
+				#room.RemoveChildren()
+				#rooms.remove_child(room)
+				#room.queue_free()
+			#else:
+				#rooms.remove_child(room)
+				#room.queue_free()
+	#if is_instance_valid(holding_node):
+		#for child in holding_node.get_children():
+			#child.queue_free()
+		#if holding_node.get_parent():
+			#holding_node.get_parent().remove_child(holding_node)
+		#holding_node.queue_free()
+		#holding_node = null
+
+#func _exit_tree():
+	#print("EditorMap exiting tree, Rooms children: ", rooms.get_child_count())
+	#has_loaded_rooms = false # Reset to allow LoadAllRooms after reload
+	#var scene_root = get_tree().edited_scene_root
+	#if scene_root and scene_root.is_connected("selection_changed", _on_selection_changed):
+		#scene_root.disconnect("selection_changed", _on_selection_changed)
+	#if is_instance_valid(holding_node):
+		#for child in holding_node.get_children():
+			#child.queue_free()
+		#if holding_node.get_parent():
+			#holding_node.get_parent().remove_child(holding_node)
+		#holding_node.queue_free()
+		#holding_node = null
+		#
+#func _ready():
+	#if not has_loaded_rooms:
+		#print("Deferring LoadAllRooms to next idle frame")
+		#call_deferred("LoadAllRooms")
+		#has_loaded_rooms = true
+	#rooms.set_meta("_edit_lock_", true)
+
+#func _enter_tree():
+	#print("EditorMap entering tree, instance:%s" % self)
+	#var editor_selection = EditorInterface.get_selection()
+	#if editor_selection and not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
+		#editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
+		#print("Connected selection_changed to EditorSelection")
+#
+#func _exit_tree():
+	#print("EditorMap exiting tree, Rooms children: ", rooms.get_child_count())
+	#has_loaded_rooms = false # Reset to allow LoadAllRooms after reload
+	#var editor_selection = EditorInterface.get_selection()
+	#if editor_selection and editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
+		#editor_selection.disconnect("selection_changed", Callable(self, "_on_selection_changed"))
+	#if is_instance_valid(holding_node):
+		#for child in holding_node.get_children():
+			#child.queue_free()
+		#if holding_node.get_parent():
+			#holding_node.get_parent().remove_child(holding_node)
+		#holding_node.queue_free()
+		#holding_node = null
+		#
+#func _ready():
+	#if not has_loaded_rooms:
+		#print("Deferring LoadAllRooms to next idle frame")
+		#call_deferred("LoadAllRooms")
+		#has_loaded_rooms = true
+	#rooms.set_meta("_edit_lock_", true)
 	
 func _ready():
-	holding_node.name = "HoldingNode"
-	get_tree().root.add_child.call_deferred(holding_node)
-	holding_node.set_owner(null)
+	print("EditorMap _ready, instance:%s, has_loaded_rooms: %s" % [self, has_loaded_rooms])
+	if rooms:
+		print("Clearing %d rooms in _ready" % rooms.get_child_count())
+		for room in rooms.get_children():
+			rooms.remove_child(room)
+			room.queue_free()
 	if not has_loaded_rooms:
-		LoadAllRooms()
+		print("Deferring LoadAllRooms to next idle frame")
+		call_deferred("LoadAllRooms")
 		has_loaded_rooms = true
-		rooms.set_meta("_edit_lock_", true)
+	rooms.set_meta("_edit_lock_", true)
+	var editor_selection = EditorInterface.get_selection()
+	if editor_selection and not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
+		editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
+		print("Connected selection_changed to EditorSelection")
 
+func _enter_tree():
+	print("EditorMap entering tree, instance:%s" % self)
 
-func AddRoomToEditorMap( room : VisualRoom ):
-#{
+func _exit_tree():
+	print("EditorMap exiting tree, instance:%s, Rooms children: %d" % [self, rooms.get_child_count()])
+	has_loaded_rooms = false
+	if rooms:
+		print("Clearing %d rooms in _exit_tree" % rooms.get_child_count())
+		for room in rooms.get_children():
+			rooms.remove_child(room)
+			room.queue_free()
+	var editor_selection = EditorInterface.get_selection()
+	if editor_selection and editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
+		editor_selection.disconnect("selection_changed", Callable(self, "_on_selection_changed"))
+	if is_instance_valid(holding_node):
+		for child in holding_node.get_children():
+			child.queue_free()
+		if holding_node.get_parent():
+			holding_node.get_parent().remove_child(holding_node)
+		holding_node.queue_free()
+		holding_node = null
+
+#func AddRoomToEditorMap( room : VisualRoom ):
+##{
+	#if not room:
+		#print( "  Error: Room is null" )
+		#return
+	#rooms.add_child( room ) 
+	#room.SetOwner( self )
+	#
+	## Rebuild the doors array from children
+	#room.RebuildDoors()
+	#room.editor_map = self
+	#room.SetupVisuals()
+	#
+##}  // end func AddRoomToEditorMap
+
+func AddRoomToEditorMap(room: VisualRoom):
 	if not room:
-		print( "  Error: Room is null" )
+		print("Error: Room is null")
 		return
-	rooms.add_child( room) 
-	room.SetOwner( self )
-	
-	# Rebuild the doors array from children
-	room.RebuildDoors()
+	print("Adding room ", room.id, " to Rooms node, is Rooms valid: ", is_instance_valid(rooms))
+	print("Rooms child count before add: ", rooms.get_child_count())
+	rooms.add_child(room)
+	print("Added room ", room.id, ", parent: ", room.get_parent().name if room.get_parent() else "null")
+	print("Rooms child count after add: ", rooms.get_child_count())
+	print("Setting owner for ", room.id)
+	room.SetOwner(self)
 	room.editor_map = self
+	print("Setting up visuals for room: ", room.id)
 	room.SetupVisuals()
-	
-#}  // end func AddRoomToEditorMap
-	
+	print("Room ", room.id, " setup complete, is in tree: ", room.is_inside_tree())
+		
 func CreateNewMetaFile( filename ):
 #{
 	var metaname = filename
@@ -424,8 +571,7 @@ func topological_sort_rooms() -> Array:
 	return sorted_rooms
 	
 func LoadAllRooms():
-	print("Running load_all_rooms")
-	
+	print("Running LoadAllRooms, instance:%s, stack: %s" % [self, get_stack()])
 	rooms_dict.clear()
 	
 	for child in rooms.get_children():
@@ -444,6 +590,7 @@ func LoadAllRooms():
 				var json_name = filename.replace(".json", "")
 				var room = VisualRoom.CreateFromJSON(json_name)
 				if room:
+					print( "Room: " + room.id + " created.")
 					rooms_dict[ room.id ] = room
 					AddRoomToEditorMap(room)
 					LoadMetadataForRoom(room, filename)
@@ -471,26 +618,48 @@ func LoadAllRooms():
 		room.UpdateInboundVisuals()
 		room.UpdateDoorLines()
 
-func _exit_tree():
-	if rooms:
-		for room in rooms.get_children():
-			if room is VisualRoom:
-				room.RemoveChildren()
-				rooms.remove_child(room)
-				room.queue_free()
-			else:
-				rooms.remove_child(room)
-				room.queue_free()
-	else:
-		print("  Rooms node not found")
-		
-	# Existing cleanup for holding_node
-	if holding_node:
-		for child in holding_node.get_children():
-			child.queue_free()
-		holding_node.queue_free()
-		holding_node = null
+#func _exit_tree():
+	#if rooms:
+		#for room in rooms.get_children():
+			#if room is VisualRoom:
+				#room.RemoveChildren()
+				#rooms.remove_child(room)
+				#room.queue_free()
+			#else:
+				#rooms.remove_child(room)
+				#room.queue_free()
+	#else:
+		#print("  Rooms node not found")
+		#
+	## Existing cleanup for holding_node
+	#if holding_node:
+		#for child in holding_node.get_children():
+			#child.queue_free()
+		#holding_node.queue_free()
+		#holding_node = null
 	
+#func _exit_tree():
+	#var editor_selection = EditorInterface.get_selection()
+	#if editor_selection and editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
+		#editor_selection.disconnect("selection_changed", Callable(self, "_on_selection_changed"))
+		#print("EditorMap disconnected from selection_changed")
+	#if rooms:
+		#for room in rooms.get_children():
+			#if room is VisualRoom:
+				#room.RemoveChildren()
+				#rooms.remove_child(room)
+				#room.queue_free()
+			#else:
+				#rooms.remove_child(room)
+				#room.queue_free()
+	#if is_instance_valid(holding_node):
+		#for child in holding_node.get_children():
+			#child.queue_free()
+		#if holding_node.get_parent():
+			#holding_node.get_parent().remove_child(holding_node)
+		#holding_node.queue_free()
+		#holding_node = null
+		
 func update_lines_for_room_and_dependents(room: Node) -> void:
 	# Update lines for this room (outbound lines)
 	room.UpdateDoorLines()
