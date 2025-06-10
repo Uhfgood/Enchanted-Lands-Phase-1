@@ -257,6 +257,14 @@ func _on_save_button_pressed():
 	
 #} // end func _on_save_button_pressed()
 
+#func _notification(what):
+	#if what == NOTIFICATION_EDITOR_PRE_SAVE:
+		#print("Editor pre-save, clearing Rooms to prevent saving")
+		#if rooms:
+			#for room in rooms.get_children():
+				#rooms.remove_child(room)
+				#room.queue_free()
+
 func _notification(what):
 	if what == NOTIFICATION_EDITOR_PRE_SAVE:
 		print("Editor pre-save, clearing Rooms to prevent saving")
@@ -264,7 +272,15 @@ func _notification(what):
 			for room in rooms.get_children():
 				rooms.remove_child(room)
 				room.queue_free()
-				
+		# Trigger reload after save
+		var scene_path = EditorInterface.get_edited_scene_root().get_scene_file_path()
+		if scene_path:
+			print("Triggering reload of scene: ", scene_path)
+			call_deferred("reload_scene", scene_path)
+
+func reload_scene(scene_path: String):
+	EditorInterface.reload_scene_from_path(scene_path)
+					
 func _ready():
 	print("EditorMap _ready, instance:%s, has_loaded_rooms: %s" % [self, has_loaded_rooms])
 	if rooms:
@@ -308,17 +324,10 @@ func AddRoomToEditorMap(room: VisualRoom):
 	if not room:
 		print("Error: Room is null")
 		return
-	print("Adding room ", room.id, " to Rooms node, is Rooms valid: ", is_instance_valid(rooms))
-	print("Rooms child count before add: ", rooms.get_child_count())
 	rooms.add_child(room)
-	print("Added room ", room.id, ", parent: ", room.get_parent().name if room.get_parent() else "null")
-	print("Rooms child count after add: ", rooms.get_child_count())
-	print("Setting owner for ", room.id)
 	room.SetOwner(self)
 	room.editor_map = self
-	print("Setting up visuals for room: ", room.id)
 	room.SetupVisuals()
-	print("Room ", room.id, " setup complete, is in tree: ", room.is_inside_tree())
 		
 func CreateNewMetaFile( filename ):
 #{
@@ -390,9 +399,9 @@ func SaveRoomDataForRoom(room, filename: String):
 		var door_strings = []
 		for door in room.doors:
 			var door_data = '        {\n'  # Fixed: Removed erroneous "\ LandingPage"
-			door_data += '            "id": ' + JSON.stringify(door.id) + ',\n'
-			door_data += '            "choice": ' + JSON.stringify(door.choice) + ',\n'
-			door_data += '            "destination": ' + JSON.stringify(door.destination) + '\n'
+			door_data += '            "id": ' + JSON.stringify(door.settings.id) + ',\n'
+			door_data += '            "choice": ' + JSON.stringify(door.settings.choice) + ',\n'
+			door_data += '            "destination": ' + JSON.stringify(door.settings.destination) + '\n'
 			door_data += '        }'
 			door_strings.append(door_data)
 		

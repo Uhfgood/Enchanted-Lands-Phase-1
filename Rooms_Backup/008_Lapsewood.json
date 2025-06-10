@@ -9,9 +9,9 @@
     "doors":
     [
         {
-            "id": "Door_To_Cerulea_1",
+            "id": "Door_To_Cerulea_100",
             "choice": "1",
-            "destination": "003_Cerulea_1"
+            "destination": "003_Cerulea_100"
         }
     ]
 }

@@ -1,0 +1,16 @@
+{
+    "id": "005_Sky_2",
+    "label": "Sky 2",
+    "description": "Crooktooth starts heading toward Sir William again, when two other dragons swoop in behind him.\nThese two dragons, Chester, and Nestor, fly toward Sir William and turn around to confront Crooktooth.\nAll three start flying towards the Black Knight.\n\nHit 1 if you wish to go to Max Mines 1.\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "005_Sky_1",
+    ],
+    "doors": [
+        {
+            "id": "Door_To_Max_Mines_1",
+            "choice": "1",
+            "destination": "026_Max_Mines_1"
+        }
+    ]
+}

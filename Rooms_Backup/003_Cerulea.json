@@ -1,16 +1,22 @@
 {
     "id": "003_Cerulea",
     "label": "Cerulea",
-    "description": "In our realm, also called Cerulea by Enchanted Landians, John is leaving work and walking home, down the street.\nJohn stops in at a store nearby, and gets his favorite candy bar with a silver \"ticket\" inside.\nJohn looks at the silver ticket, and says some words in the fine print, and a portal opens.\nJohn steps through the portal as it closes behind him.\n\nHit 1 if you wish to go to Caves Of Dragonmount.\n\nHit 0 to quit.",
+    "description": "While working at the library, John is putting books back on the shelves, when he notices a book that has fallen on the floor behind him.\nHe picks it up noting the hole it left in the book case, and proceeds to put it back, when it seems to jump out again.\nHe does this for a few more times, before really reading the cover, which says \"Unicorn Sign Language for Beginners\".\n\nHit 1 to attempt to put it in another section.\nHit 2 to take it to the reference desk.\n\nHit 0 to quit.",
     "inbound":
     [
-        "002_Hubert_Home",
+        "002_Hubert_Home_9"
     ],
-    "doors": [
+    "doors":
+    [
         {
-            "id": "Door_To_Caves_Of_Dragonmount",
+            "id": "Door_To_Cerulea_1",
             "choice": "1",
-            "destination": "004_Caves_Of_Dragonmount"
+            "destination": "003_Cerulea_1"
+        },
+        {
+            "id": "Door_To_Cerulea_2",
+            "choice": "2",
+            "destination": "003_Cerulea_2"
         }
     ]
 }

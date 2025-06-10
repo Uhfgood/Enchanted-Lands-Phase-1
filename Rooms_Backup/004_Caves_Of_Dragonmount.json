@@ -4,9 +4,10 @@
     "description": "Somewhere in the kingdom, Chester, a friendly dragon, lands at the entrance to the \"Caves of Dragonmount.\"\nChester walks around the cave system trying to find his friends.\nChester then leaves, and flies around while looking some more.\n\nHit 1 if you wish to go to Sky.\n\nHit 0 to quit.",
     "inbound":
     [
-        "003_Cerulea",
+        "003_Cerulea_5"
     ],
-    "doors": [
+    "doors":
+    [
         {
             "id": "Door_To_Sky",
             "choice": "1",

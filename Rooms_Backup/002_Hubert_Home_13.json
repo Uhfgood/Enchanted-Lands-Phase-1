@@ -1,0 +1,17 @@
+{
+    "id": "002_Hubert_Home_13",
+    "label": "Hubert Home 13",
+    "description": "Hubert decides to try a 'clone conjure' spell, and conjures a ticket on his own desk.\nAfter running to the crystal ball, he notices that John has a ticket, but something is off.\nThe ticket doesn't appear to contain quicksilver, but the message on the back seems to be intact.\nHubert then attempts to cast \"Object Translocation\".\n\nHit 1 to cast \"Object Translocation\".\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "002_Hubert_Home_10"
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Hubert_Home_14",
+            "choice": "1",
+            "destination": "002_Hubert_Home_14"
+        }
+    ]
+}

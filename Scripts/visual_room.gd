@@ -210,19 +210,12 @@ static func CreateFromJSON( json_name : String )->VisualRoom:
 	
 func GetDoorByChoice( choice : String ):
 	for door in doors:
-		if( door.choice == choice ):
+		if( door.settings.choice == choice ):
 			return door
 	
 	return null
 	
 func CreateDoorsFromSpecs():
-	#var doors = self.doors.duplicate()
-	#self.doors.clear()
-	#for door in doors:
-		#if door and door.get_parent() == room:
-			#door.owner = null
-			#self.remove_child(door)
-			#door.queue_free()
 	
 	for door in self.doors:
 		if door and door.get_parent() == self:
@@ -279,7 +272,7 @@ func CreateDoorsFromSpecs():
 		if i < self.doors.size():
 			door = self.doors[i]
 			if door != null:
-				spec_str = "ch: " + door.choice + ", dest: " + door.destination + ";"
+				spec_str = "ch: " + door.settings.choice + ", dest: " + door.settings.destination + ";"
 			else:
 				spec_str = ""
 		else:
@@ -308,9 +301,9 @@ func ClearInboundRooms( roomlist ):
 func RebuildInboundRooms( roomlist ):
 	for door in self.doors:
 	#{
-		if( roomlist.has( door.destination ) ):
+		if( roomlist.has( door.settings.destination ) ):
 		#{
-			var dest_room = roomlist[ door.destination ]
+			var dest_room = roomlist[ door.settings.destination ]
 			
 			for i in range( dest_room.inbound_rooms.size() ):
 				if( dest_room.inbound_rooms[ i ] == "" ):
@@ -320,7 +313,7 @@ func RebuildInboundRooms( roomlist ):
 		#}  // end if rooms_dict.has...
 		else:
 			# Just warning when there's a door but the destination is missing.
-			print( "Room: " + self.id + ", Door dest. " + door.destination + " does not exist in rooms_dict." )
+			print( "Room: " + self.id + ", Door dest. " + door.settings.destination + " does not exist in rooms_dict." )
 		
 	#} // end for door
 
@@ -350,8 +343,8 @@ func ReSortDoors( roomlist ):
 	door_data.clear()
 	for door in self.doors:
 	#{
-		if( roomlist.has( door.destination ) ):
-			var dest_x = roomlist[ door.destination ].position.x
+		if( roomlist.has( door.settings.destination ) ):
+			var dest_x = roomlist[ door.settings.destination ].position.x
 			var pair = [ door, dest_x ]
 			door_data.append( pair )
 		else:
@@ -371,7 +364,7 @@ func ReSortDoors( roomlist ):
 	
 func HasDestinationTo( room_id : String ) -> bool:
 	for door in self.doors:
-		if door.destination == room_id:
+		if door.settings.destination == room_id:
 			return true
 		
 	return false
@@ -663,7 +656,6 @@ func UpdateDoorVisuals():
 			hbox.get_parent().remove_child(hbox)
 			hbox.queue_free()
 			hbox = null
-			#print("Removed DoorVisualsContainer due to no doors in room: ", name)
 	
 	# Create a new HBoxContainer if needed (either no HBoxContainer or it was removed)
 	if not hbox and not doors.is_empty():
@@ -696,9 +688,6 @@ func UpdateDoorVisuals():
 			hbox.position = Vector2(-panel_width / 2, panel.size.y + separator_y - 10) # Align ColorRect center with Panel bottom
 		else:
 			hbox.position = Vector2(-panel_width / 2, 0)
-		# Debug positioning
-		#print("Created new DoorVisualsContainer for room: ", name)
-		#print("  HBoxContainer position: ", hbox.position, ", size: ", hbox.size)
 	
 	# Create new door visuals if there are doors
 	if hbox:
@@ -715,9 +704,7 @@ func UpdateDoorVisuals():
 			door_visual.owner = get_tree().edited_scene_root
 			door_visual.queue_redraw() # Force redraw
 			door_visuals.append(door_visual)
-			# Debug door visual
-			#print("  Added door visual for door: ", door.name, " in room: ", name)
-			#print("    DoorVisual position: ", door_visual.position, ", size: ", door_visual.size)
+
 		# Force the HBoxContainer to update its layout
 		hbox.queue_redraw()
 
@@ -816,7 +803,7 @@ func UpdateInboundVisuals():
 				inbound_room = editor_map.rooms_dict[ inbound ]
 				for inbound_door in inbound_room.doors:
 				#{
-					if( inbound_door.destination == id ):
+					if( inbound_door.settings.destination == id ):
 						#print( "inbound door found" )
 						color = inbound_door.color
 						#print( color )
@@ -922,13 +909,11 @@ func UpdateDoorLines():
 		adjusted_start_pos.x = visual_x
 		adjusted_start_pos.y += y_offset
 		
-		if not editor_map or not editor_map.rooms_dict.has(door.destination):
-			#print("Skipping line for door ", door.name, ": destination ", door.destination, " not found")
+		if not editor_map or not editor_map.rooms_dict.has(door.settings.destination):
 			continue
 
-		var dest_room = editor_map.rooms_dict[door.destination]
+		var dest_room = editor_map.rooms_dict[door.settings.destination]
 		if not dest_room:
-			#print("Skipping line for door ", door.name, ": destination room is null")
 			continue
 
 		# Find the matching InboundVisual
@@ -938,7 +923,6 @@ func UpdateDoorLines():
 			inbound_visual = dest_room.inbound_visuals[inbound_index]
 	
 		if not inbound_visual:
-			#print("Skipping line for door ", door.name, ": no matching InboundVisual found in ", dest_room.name)
 			continue
 
 		var inbox = dest_room.get_node_or_null("InboundVisualsContainer")
@@ -977,4 +961,3 @@ func UpdateDoorLines():
 		lines_container.add_child(line)
 		door_lines.append(line)
 		line.owner = get_tree().edited_scene_root
-		#print("Drew line for door ", door.name, " from ", adjusted_start_pos, " to ", end_pos)

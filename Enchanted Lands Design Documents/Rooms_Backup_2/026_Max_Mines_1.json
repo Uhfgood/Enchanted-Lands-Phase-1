@@ -1,0 +1,17 @@
+{
+    "id": "026_Max_Mines_1",
+    "label": "Max Mines 1",
+    "description": "In the mines, the gnomes promptly put John, Roland, and the rest to work.\nAfter a bit, John signals the dwarves to overpower the guards.\n\nHit 1 if you wish to go to Max Mines 2.\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "005_Sky_2",
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Max_Mines_2",
+            "choice": "1",
+            "destination": "026_Max_Mines_2"
+        }
+    ]
+}

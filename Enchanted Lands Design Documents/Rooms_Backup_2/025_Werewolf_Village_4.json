@@ -1,0 +1,17 @@
+{
+    "id": "025_Werewolf_Village_4",
+    "label": "Werewolf Village 4",
+    "description": "After going to the werewolf village with Violet, and confronting her and Kurt, about Red, he kills Kurt with a fireball.\nViolet runs into the forest, and Max says he'll make anyone the leader who disposes of her.\nThorne comes back, but before giving him the totem, he says he'll only give it back if they agree to join his army.\nThe Werewolves under Thorne agree to join the army and Max gives him the Totem before returning to the Castle.\n\nHit 1 if you wish to go to Bats In The Belfry 5.\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "042_Castle_Throne_Room",
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Bats_In_The_Belfry_5",
+            "choice": "1",
+            "destination": "030_Bats_In_The_Belfry_5"
+        }
+    ]
+}
