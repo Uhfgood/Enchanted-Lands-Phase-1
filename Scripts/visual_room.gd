@@ -4,30 +4,51 @@ class_name VisualRoom extends Node2D
 # Reference to the editor_map node (set by editor_map.gd)
 var editor_map: Node = null
 
+@export var settings : Room
+
 @export var id : String = "XXX" : set = _set_id
-@export var label : String = "New Room" : set = _set_label
-@export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
-
-@export var inbound_rooms : Array = [ "", "", "", "", "", "", "", "", "" ]
-@export var door_specs : Array = [ "", "", "", "", "", "", "", "", "" ] : set = _set_door_specs
-func _set_door_specs( doorspecs : Array ):
-	door_specs = doorspecs
-	#if Engine.is_editor_hint():
-	#	emit_signal("property_list_changed")  # Notify the editor to refresh the Inspector
+func _set_id(new_id: String) -> void:
+	id = new_id
+	var tokens = new_id.split("_")
+	var new_label = ""
+	var size = tokens.size()
+	for i in range(1, size):
+		if i < size - 1:
+			new_label += tokens[i] + " "
+		else:
+			new_label += tokens[i]
 	
-var doors : Array = []
-var door_visuals : Array = []
-var inbound_visuals : Array = []
-var door_lines : Array = []
+	self.label = new_label
+	
+	if has_node("Panel"):
+		update_name_label()
+	else:
+		call_deferred("update_name_label", 0, 5)
 
-var original_id : String = "XXX"
+@export var label : String = "New Room" : set = _set_label
+func _set_label(new_label: String) -> void:
+	label = new_label
+	if has_node("Panel"):
+		update_name_label()
+	else:
+		call_deferred("update_name_label", 0, 5)
 
-var previous_position : Vector2 = Vector2()
+func update_name_label(retry_count: int = 0, max_retries: int = 5) -> void:
+	if not is_inside_tree():  # Safety check: ensure node is in the scene tree
+		return
 
-# Setter for description
+	var name_label = get_node_or_null("Panel/VBox/NameLabel")
+	if name_label:
+		name_label.text = self.label
+		name_label.queue_redraw()
+	elif retry_count < max_retries:
+		call_deferred("update_name_label", retry_count + 1, max_retries)  # Retry without timer
+	else:
+		print("Max retries reached, NameLabel still not found for room: ", name)
+			
+@export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
 func _set_description(new_description: String) -> void:
 	description = new_description
-	#if Engine.is_editor_hint():
 	update_description_label()
 
 # Update the DescLabel text
@@ -39,60 +60,32 @@ func update_description_label() -> void:
 	if desc_label:
 		desc_label.text = TruncateText(description, 5, 40)
 		desc_label.queue_redraw()  # Ensure the label redraws
-		
-func _set_id(new_id: String) -> void:
-	id = new_id
-	var tokens = new_id.split("_")
-	#print("Setting id for room: ", name, ", tokens: ", tokens)
-	var new_label = ""
-	var size = tokens.size()
-	for i in range(1, size):
-		if i < size - 1:
-			new_label += tokens[i] + " "
-		else:
-			new_label += tokens[i]
+
+@export var inbound_rooms : Array = [ "", "", "", "", "", "", "", "", "" ]
+@export var door_specs : Array = [ "", "", "", "", "", "", "", "", "" ] : set = _set_door_specs
+func _set_door_specs( doorspecs : Array ):
+	door_specs = doorspecs
 	
-	self.label = new_label
-	#print("New label derived from id: ", new_label)
-	
-	#if Engine.is_editor_hint():
-	if has_node("Panel"):
-		update_name_label()
-	else:
-		#print("Deferring name label update for room: ", name)
-		call_deferred("update_name_label", 0, 5)
+var doors : Array = []
+func GetDoorData() -> Array:
+	var door_data = []
+	for door in doors:
+		if door is VisualDoor and door.settings:
+			door_data.append({
+				"id": door.settings.id,
+				"choice": door.settings.choice,
+				"destination": door.settings.destination
+			})
+	return door_data
 
+var door_visuals : Array = []
+var inbound_visuals : Array = []
+var door_lines : Array = []
 
-func _set_label(new_label: String) -> void:
-	label = new_label
-	#print("setting new label for room: ", name, ", Panel exists: ", has_node("Panel"))
-	#if Engine.is_editor_hint():
-	if has_node("Panel"):
-		update_name_label()
-	else:
-		#print("Deferring name label update for room: ", name)
-		call_deferred("update_name_label", 0, 5)
-			
-func update_name_label(retry_count: int = 0, max_retries: int = 5) -> void:
-	#if not Engine.is_editor_hint():
-	#	return
+var original_id : String = "XXX"
 
-	if not is_inside_tree():  # Safety check: ensure node is in the scene tree
-		#print("Room not in scene tree, aborting name label update for: ", name)
-		return
+var previous_position : Vector2 = Vector2()
 
-	#print("Updating name label for room: ", name, ", retry: ", retry_count)
-	var name_label = get_node_or_null("Panel/VBox/NameLabel")
-	#print("Attempting to get node at path: Panel/VBox/NameLabel, Result: ", name_label)
-	if name_label:
-		#print("Got name_label node, setting text to: ", self.label)
-		name_label.text = self.label
-		name_label.queue_redraw()
-	elif retry_count < max_retries:
-		#print("NameLabel not found for room: ", name, ", retrying...", retry_count + 1)
-		call_deferred("update_name_label", retry_count + 1, max_retries)  # Retry without timer
-	else:
-		print("Max retries reached, NameLabel still not found for room: ", name)
 		
 func LoadDataFromJSON( json_name : String ) -> bool:
 #{

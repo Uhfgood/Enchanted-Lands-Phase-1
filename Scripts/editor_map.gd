@@ -397,11 +397,11 @@ func SaveRoomDataForRoom(room, filename: String):
 		json_str += '    [\n'
 
 		var door_strings = []
-		for door in room.doors:
+		for door in room.GetDoorData():
 			var door_data = '        {\n'  # Fixed: Removed erroneous "\ LandingPage"
-			door_data += '            "id": ' + JSON.stringify(door.settings.id) + ',\n'
-			door_data += '            "choice": ' + JSON.stringify(door.settings.choice) + ',\n'
-			door_data += '            "destination": ' + JSON.stringify(door.settings.destination) + '\n'
+			door_data += '            "id": ' + JSON.stringify( door.id ) + ',\n'
+			door_data += '            "choice": ' + JSON.stringify( door.choice ) + ',\n'
+			door_data += '            "destination": ' + JSON.stringify( door.destination ) + '\n'
 			door_data += '        }'
 			door_strings.append(door_data)
 		

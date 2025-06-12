@@ -1,30 +1,13 @@
 #@tool
-class_name Room # extends Node2D
+class_name Room extends Resource
 
 # Reference to the editor_map node (set by editor_map.gd)
 var editor_map: Node = null
 
 @export var id : String = "XXX" : set = _set_id
-@export var label : String = "New Room" : set = _set_label
-@export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
-
-@export var inbound_rooms : Array = [ "", "", "", "", "", "", "", "", "" ]
-@export var door_specs : Array = [ "", "", "", "", "", "", "", "", "" ] : set = _set_door_specs
-func _set_door_specs( doorspecs : Array ):
-	door_specs = doorspecs
-	
-var doors : Array = []
-
-var original_id : String = "XXX"
-
-# Setter for description
-func _set_description(new_description: String) -> void:
-	description = new_description
-		
 func _set_id(new_id: String) -> void:
 	id = new_id
 	var tokens = new_id.split("_")
-	#print("Setting id for room: ", name, ", tokens: ", tokens)
 	var new_label = ""
 	var size = tokens.size()
 	for i in range(1, size):
@@ -35,8 +18,23 @@ func _set_id(new_id: String) -> void:
 	
 	self.label = new_label
 
+@export var label : String = "New Room" : set = _set_label
 func _set_label(new_label: String) -> void:
 	label = new_label
+
+@export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
+# Setter for description
+func _set_description(new_description: String) -> void:
+	description = new_description
+
+@export var inbound_rooms : Array = [ "", "", "", "", "", "", "", "", "" ]
+@export var door_specs : Array = [ "", "", "", "", "", "", "", "", "" ] : set = _set_door_specs
+func _set_door_specs( doorspecs : Array ):
+	door_specs = doorspecs
+	
+var doors : Array = []
+
+var original_id : String = "XXX"
 
 func LoadDataFromJSON( json_name : String ) -> bool:
 #{
