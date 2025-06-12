@@ -4,7 +4,7 @@ class_name VisualRoom extends Node2D
 # Reference to the editor_map node (set by editor_map.gd)
 var editor_map: Node = null
 
-@export var settings : Room
+@export var settings : Roomdata
 
 @export var id : String = "XXX" : set = _set_id
 func _set_id(new_id: String) -> void:
