@@ -53,8 +53,6 @@ func _set_description(new_description: String) -> void:
 
 # Update the DescLabel text
 func update_description_label() -> void:
-	#if not Engine.is_editor_hint():
-	#	return  # Safeguard: Only run in the editor
 
 	var desc_label = get_node_or_null("Panel/VBox/DescLabel")
 	if desc_label:
@@ -87,92 +85,92 @@ var original_id : String = "XXX"
 var previous_position : Vector2 = Vector2()
 
 		
-func LoadDataFromJSON( json_name : String ) -> bool:
-#{
-	var filename = "res://Rooms/" + json_name + ".json"
-	
-	if not FileAccess.file_exists( filename ):
-		print( filename + " does not exist." )
-		
-	# load the json here:
-	var file = FileAccess.open( filename, FileAccess.READ )
-	if not file:
-		print( "Error loading file from json: " + filename )
-		return false
-		
-	# parse json
-	var json_data = JSON.parse_string( file.get_as_text() )
-	file.close()
-	if json_data == null:
-		print( "Error parsing JSON data: " + filename )
-		return false
-		
-	# set room properties
-	self.id = json_data[ "id" ]
-	self.original_id = self.id
-	
-	if( "inbound" in json_data ):
-	#{
-		var i = 0;
-		for inbound_data in json_data[ "inbound" ]:
-		#{
-			if( i < self.inbound_rooms.size() ):
-			#{
-				self.inbound_rooms[ i ] = inbound_data
-				i += 1
-				
-			#}  // end if i < size
-				
-		#}  // end for inbound_data
-		
-	#}  // end if "inbound" in json_data
-	
-	self.label = json_data[ "label" ]
-	self.name = self.label
-	self.description = json_data[ "description" ]
-	#print( "Creating " + self.name + " from JSON data." )
-	
-	var hue = 0.0
-	
-	# create and attach door nodes
-	if "doors" in json_data:
-	#{
-		var i = 0
-		for door_data in json_data[ "doors" ]:
-		#{
-			var door_id = door_data[ "id" ]
-			var choice = door_data[ "choice" ] 
-			var dest = door_data[ "destination" ]
-			var door_name = "Door_To_" + dest.substr( 4 )
-			#print( "Creating " + door_name + " from JSON data." )
-
-			var color = Color.from_hsv( hue, 0.8, 1.0 )
-			hue += 1.0 / 9
-			
-			var new_door = EditorDoor.create( door_id, choice, dest, door_name, color )
-			if new_door:
-			#{
-				doors.append( new_door )
-				add_child( new_door )
-
-				if( i < 9 ):
-					var spec_str = "ch: " + choice + ", dest: " + dest + ";"
-					door_specs[ i ] = spec_str
-					i += 1
-				 
-				#print( "Successfully created " + new_door.name + "." )
-				
-			#}  // end if new_door
-			else:
-				print( "New door not valid." )
-		
-		#}  // end for
-						
-	#}  // end if doors()
-	
-	return true
-
-#Th} // end func LoadDataFromJSON()
+#func LoadDataFromJSON( json_name : String ) -> bool:
+##{
+	#var filename = "res://Rooms/" + json_name + ".json"
+	#
+	#if not FileAccess.file_exists( filename ):
+		#print( filename + " does not exist." )
+		#
+	## load the json here:
+	#var file = FileAccess.open( filename, FileAccess.READ )
+	#if not file:
+		#print( "Error loading file from json: " + filename )
+		#return false
+		#
+	## parse json
+	#var json_data = JSON.parse_string( file.get_as_text() )
+	#file.close()
+	#if json_data == null:
+		#print( "Error parsing JSON data: " + filename )
+		#return false
+		#
+	## set room properties
+	#self.id = json_data[ "id" ]
+	#self.original_id = self.id
+	#
+	#if( "inbound" in json_data ):
+	##{
+		#var i = 0;
+		#for inbound_data in json_data[ "inbound" ]:
+		##{
+			#if( i < self.inbound_rooms.size() ):
+			##{
+				#self.inbound_rooms[ i ] = inbound_data
+				#i += 1
+				#
+			##}  // end if i < size
+				#
+		##}  // end for inbound_data
+		#
+	##}  // end if "inbound" in json_data
+	#
+	#self.label = json_data[ "label" ]
+	#self.name = self.label
+	#self.description = json_data[ "description" ]
+	##print( "Creating " + self.name + " from JSON data." )
+	#
+	#var hue = 0.0
+	#
+	## create and attach door nodes
+	#if "doors" in json_data:
+	##{
+		#var i = 0
+		#for door_data in json_data[ "doors" ]:
+		##{
+			#var door_id = door_data[ "id" ]
+			#var choice = door_data[ "choice" ] 
+			#var dest = door_data[ "destination" ]
+			#var door_name = "Door_To_" + dest.substr( 4 )
+			##print( "Creating " + door_name + " from JSON data." )
+#
+			#var color = Color.from_hsv( hue, 0.8, 1.0 )
+			#hue += 1.0 / 9
+			#
+			#var new_door = EditorDoor.create( door_id, choice, dest, door_name, color )
+			#if new_door:
+			##{
+				#doors.append( new_door )
+				#add_child( new_door )
+#
+				#if( i < 9 ):
+					#var spec_str = "ch: " + choice + ", dest: " + dest + ";"
+					#door_specs[ i ] = spec_str
+					#i += 1
+				 #
+				##print( "Successfully created " + new_door.name + "." )
+				#
+			##}  // end if new_door
+			#else:
+				#print( "New door not valid." )
+		#
+		##}  // end for
+						#
+	##}  // end if doors()
+	#
+	#return true
+#
+##Th} // end func LoadDataFromJSON()
 
 static func Create( n_id : String, n_label : String, n_desc : String ) -> EditorRoom:
 #{
