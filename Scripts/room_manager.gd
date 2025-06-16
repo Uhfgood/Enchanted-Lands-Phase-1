@@ -24,7 +24,7 @@ func LoadRoom( room_name : String ):
 	var json_fn = "res://Rooms/" + room_name + ".json";
 	
 	if ResourceLoader.exists( json_fn ):
-		room = Roomdata.CreateFromJSON( room_name )
+		room = Room.CreateFromJSON( room_name )
 	else:
 		print( room_name + " does not exist, as either .tscn or .json." )
 

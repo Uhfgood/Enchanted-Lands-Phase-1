@@ -33,7 +33,7 @@ func _on_selection_changed():
 		if is_instance_valid(selected_node):
 		#{
 			print("Selected Node: ", selected_node.name)
-			if(selected_node is VisualRoom):
+			if(selected_node is EditorRoom):
 				currently_selected_room = selected_node
 			else:
 				print( "Currently selected node is not a room." )
@@ -79,7 +79,7 @@ func _on_add_room_button_pressed():
 	var new_id = "000_" + unique_label.replace( " ", "_" )
 	var new_label = unique_label
 	var new_desc = "There's nothing here yet.  Hit 0 to quit."
-	var new_room = VisualRoom.Create( new_id, new_label, new_desc )
+	var new_room = EditorRoom.Create( new_id, new_label, new_desc )
 	AddRoomToEditorMap( new_room )
 
 	# Select the new room in the scene tree
@@ -100,7 +100,7 @@ func AssignInboundRooms():
 #{	
 	## Pre-step: clear out all the inbound_rooms arrays
 	for room in rooms_dict.values():
-		room.ClearInboundRooms( rooms_dict )
+		room.ClearInboundRooms()
 #
 	## Step 1:  Rebuild the inbound_rooms arrays for each room.
 	for room in rooms_dict.values():
@@ -264,22 +264,14 @@ func _on_save_button_pressed():
 			#for room in rooms.get_children():
 				#rooms.remove_child(room)
 				#room.queue_free()
-
-func _notification(what):
-	if what == NOTIFICATION_EDITOR_PRE_SAVE:
-		print("Editor pre-save, clearing Rooms to prevent saving")
-		if rooms:
-			for room in rooms.get_children():
-				rooms.remove_child(room)
-				room.queue_free()
-		# Trigger reload after save
-		var scene_path = EditorInterface.get_edited_scene_root().get_scene_file_path()
-		if scene_path:
-			print("Triggering reload of scene: ", scene_path)
-			call_deferred("reload_scene", scene_path)
-
-func reload_scene(scene_path: String):
-	EditorInterface.reload_scene_from_path(scene_path)
+		## Trigger reload after save
+		#var scene_path = EditorInterface.get_edited_scene_root().get_scene_file_path()
+		#if scene_path:
+			#print("Triggering reload of scene: ", scene_path)
+			#call_deferred("reload_scene", scene_path)
+#
+#func reload_scene(scene_path: String):
+	#EditorInterface.reload_scene_from_path(scene_path)
 					
 func _ready():
 	print("EditorMap _ready, instance:%s, has_loaded_rooms: %s" % [self, has_loaded_rooms])
@@ -320,7 +312,7 @@ func _exit_tree():
 		holding_node.queue_free()
 		holding_node = null
 
-func AddRoomToEditorMap(room: VisualRoom):
+func AddRoomToEditorMap(room: EditorRoom):
 	if not room:
 		print("Error: Room is null")
 		return
@@ -489,7 +481,7 @@ func LoadAllRooms():
 			filename = item
 			if filename.ends_with(".json"):
 				var json_name = filename.replace(".json", "")
-				var room = VisualRoom.CreateFromJSON(json_name)
+				var room = EditorRoom.CreateFromJSON(json_name)
 				if room:
 					print( "Room: " + room.id + " created.")
 					rooms_dict[ room.id ] = room
@@ -510,7 +502,7 @@ func LoadAllRooms():
 
 	# Step 4: Initialize previous positions
 	for room in rooms.get_children():
-		if room is VisualRoom:
+		if room is EditorRoom:
 			room.previous_position = room.position
 	
 	RebuildRoomsDictionary()
@@ -525,13 +517,13 @@ func update_lines_for_room_and_dependents(room: Node) -> void:
 	
 	# Update lines for all rooms that have this room as a destination (inbound lines)
 	for other_room in rooms.get_children():
-		if other_room != room and other_room is VisualRoom:
+		if other_room != room and other_room is EditorRoom:
 			if( other_room.HasDestinationTo( room.id ) ):
 					other_room.UpdateDoorLines()
 					
 func _process(_delta: float) -> void:
 	for room in rooms.get_children():
-		if room is VisualRoom:
+		if room is EditorRoom:
 			if room.previous_position != room.position:
 				update_lines_for_room_and_dependents(room)
 			room.previous_position = room.position

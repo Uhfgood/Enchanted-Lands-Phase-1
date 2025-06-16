@@ -1,10 +1,10 @@
 @tool
-class_name VisualRoom extends Node2D
+class_name EditorRoom extends Node2D
 
 # Reference to the editor_map node (set by editor_map.gd)
 var editor_map: Node = null
 
-@export var settings : Roomdata
+@export var settings : Room
 
 @export var id : String = "XXX" : set = _set_id
 func _set_id(new_id: String) -> void:
@@ -70,7 +70,7 @@ var doors : Array = []
 func GetDoorData() -> Array:
 	var door_data = []
 	for door in doors:
-		if door is VisualDoor and door.settings:
+		if door is EditorDoor and door.settings:
 			door_data.append({
 				"id": door.settings.id,
 				"choice": door.settings.choice,
@@ -149,7 +149,7 @@ func LoadDataFromJSON( json_name : String ) -> bool:
 			var color = Color.from_hsv( hue, 0.8, 1.0 )
 			hue += 1.0 / 9
 			
-			var new_door = VisualDoor.create( door_id, choice, dest, door_name, color )
+			var new_door = EditorDoor.create( door_id, choice, dest, door_name, color )
 			if new_door:
 			#{
 				doors.append( new_door )
@@ -174,12 +174,12 @@ func LoadDataFromJSON( json_name : String ) -> bool:
 
 #Th} // end func LoadDataFromJSON()
 
-static func Create( n_id : String, n_label : String, n_desc : String ) -> VisualRoom:
+static func Create( n_id : String, n_label : String, n_desc : String ) -> EditorRoom:
 #{
-	var room = VisualRoom.new()
+	var room = EditorRoom.new()
 	room.id = n_id
 	room.original_id = n_id
-	#room.origin = n_origin
+	
 	room.label = n_label
 	room.name = n_label
 	room.description = n_desc
@@ -192,15 +192,48 @@ static func Create( n_id : String, n_label : String, n_desc : String ) -> Visual
 	
 #} // end create()
 	
-static func CreateFromJSON( json_name : String )->VisualRoom:
-	var new_room = VisualRoom.new()
+static func CreateFromJSON( json_name : String )->EditorRoom:
+#{
+	var new_room = EditorRoom.new()
 	
-	if new_room.LoadDataFromJSON( json_name ) == false:
+	#if new_room.LoadDataFromJSON( json_name ) == false:
+	#	return null
+	
+	#if( new_room ):
+	#{
+	var hue = 0.0
+	
+	new_room.settings = Room.CreateFromJSON( json_name )
+	if( new_room.settings ):
+	#{
+		for door in new_room.settings.doors:
+		#{
+			var color = Color.from_hsv( hue, 0.8, 1.0 )
+			hue += 1.0 / 9
+			var door_name = "Door_To_" + door.destination.substr( 4 )
+			var new_door = EditorDoor.create( door.id, door.choice, door.destination, door_name, color )
+			if new_door:
+			#{
+				new_room.doors.append( new_door )
+				new_room.add_child( new_door )
+			
+			#}  # end if new_door
+		
+		#}  # end for door
+
+		new_room.SetupVisuals()
+	
+	#}  # end if new_room.settings
+	else:
+		print( "Failed to load room: ", json_name )
 		return null
-				
-	#print( "Successfully loaded json: ", json_name )
-	return new_room
+		
+	#}  // end if new_room
 	
+	return new_room
+
+#}  // end CreateFromJSON()
+
 func GetDoorByChoice( choice : String ):
 	for door in doors:
 		if( door.settings.choice == choice ):
@@ -253,7 +286,7 @@ func CreateDoorsFromSpecs():
 		
 		var color = Color.from_hsv( hue, 0.8, 1.0 )
 		hue += 1.0 / 9
-		var new_door = VisualDoor.create( id_str, choice_str, dest_str, id_str, color )
+		var new_door = EditorDoor.create( id_str, choice_str, dest_str, id_str, color )
 		if new_door:
 			self.doors.append(new_door)
 			self.add_child(new_door)
@@ -277,17 +310,17 @@ func CreateDoorsFromSpecs():
 func SetOwner( new_owner ):
 	self.owner = new_owner
 	for door in self.get_children():
-		if door is VisualDoor:
+		if door is EditorDoor:
 			door.owner = new_owner
 	
 func RebuildDoors():
 	self.doors.clear()
 	for child in self.get_children():
-		if child is VisualDoor:
+		if child is EditorDoor:
 			self.doors.append( child )
 			
 	
-func ClearInboundRooms( roomlist ):
+func ClearInboundRooms():
 	for i in range( self.inbound_rooms.size() ):
 		self.inbound_rooms[ i ] = ""
 	

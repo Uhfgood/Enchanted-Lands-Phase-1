@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bao4yxphomyw"]
 
-[ext_resource type="Script" path="res://Scripts/roomdata.gd" id="1_muppc"]
-[ext_resource type="Script" path="res://Scripts/doordata.gd" id="2_55kkp"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="1_muppc"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_55kkp"]
 
 [node name="000_Main_Menu" type="Node2D"]
 script = ExtResource("1_muppc")

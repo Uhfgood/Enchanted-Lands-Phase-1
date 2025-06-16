@@ -1,5 +1,4 @@
-#@tool
-class_name Roomdata extends Resource
+class_name Room extends Resource
 
 # Reference to the editor_map node (set by editor_map.gd)
 var editor_map: Node = null
@@ -91,7 +90,7 @@ func LoadDataFromJSON( json_name : String ) -> bool:
 			#var door_name = "Door_To_" + dest.substr( 4 )
 			#print( "Creating " + door_name + " from JSON data." )
 
-			var new_door = Doordata.create( door_id, choice, dest ) #, door_name )
+			var new_door = Door.create( door_id, choice, dest ) #, door_name )
 			if new_door:
 			#{
 				doors.append( new_door )
@@ -116,9 +115,9 @@ func LoadDataFromJSON( json_name : String ) -> bool:
 
 #} // end func LoadDataFromJSON()
 
-static func Create( n_id : String, n_label : String, n_desc : String ) -> Roomdata:
+static func Create( n_id : String, n_label : String, n_desc : String ) -> Room:
 #{
-	var room = Roomdata.new()
+	var room = Room.new()
 	room.id = n_id
 	room.original_id = n_id
 	#room.origin = n_origin
@@ -134,8 +133,8 @@ static func Create( n_id : String, n_label : String, n_desc : String ) -> Roomda
 	
 #} // end create()
 	
-static func CreateFromJSON( json_name : String )->Roomdata:
-	var new_room = Roomdata.new()
+static func CreateFromJSON( json_name : String )->Room:
+	var new_room = Room.new()
 	
 	if new_room.LoadDataFromJSON( json_name ) == false:
 		return null

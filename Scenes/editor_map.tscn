@@ -1,10 +1,966 @@
-[gd_scene load_steps=2 format=3 uid="uid://bl74drpt5u5vp"]
+[gd_scene load_steps=66 format=3 uid="uid://bl74drpt5u5vp"]
 
 [ext_resource type="Script" path="res://Scripts/editor_map.gd" id="1_k3d1g"]
+[ext_resource type="Script" path="res://Scripts/editor_room.gd" id="2_qkq53"]
+[ext_resource type="Script" path="res://Scripts/editor_door.gd" id="3_cc1ac"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="3_eyqhx"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="4_7vr2k"]
+
+[sub_resource type="Resource" id="Resource_lkmud"]
+script = ExtResource("3_eyqhx")
+id = "000_Main_Menu"
+label = "Main Menu"
+description = "Main Menu:
+
+Hit 1 to start.
+
+Hit 0 to quit."
+inbound_rooms = ["", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 001_Enchanted_Lands;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_jfjju"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "001_Enchanted_Lands"
+id = "Door_To_Enchanted_Lands"
+
+[sub_resource type="Resource" id="Resource_osnxo"]
+script = ExtResource("3_eyqhx")
+id = "001_Enchanted_Lands"
+label = "Enchanted Lands"
+description = "Welcome to Enchanted Lands!
+Take a magical vacation, slay a dragon, rescue a princess, become a great and powerful wizard, or stay at one of our many fine hotels. Anything is possible... At least that's what the brochure says. Enchanted Lands, the magical resort kingdom is not doing so well. The King seems to be acting strangely. Enchanted Enterprises has been bought out by Enchanted Holdings, Inc. Administration has closed the various magical training schools, and a dark presence has returned from banished realms.
+Is there no one that can solve these mysteries?
+Will the schools ever reopen?
+Will there ever be anymore stupendous vacation deals?
+Stay tuned.
+
+Hit 1 if you wish to continue.
+
+Hit 0 to quit."
+inbound_rooms = ["000_Main_Menu", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 001_Enchanted_Lands_1;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_eo1u4"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "001_Enchanted_Lands_1"
+id = "Door_To_Enchanted_Lands_1"
+
+[sub_resource type="Resource" id="Resource_tifwl"]
+script = ExtResource("3_eyqhx")
+id = "001_Enchanted_Lands_1"
+label = "Enchanted Lands 1"
+description = "Enchanted Lands Magical Resort was sold to a mysterious figure, by the ruler of the kingdom.
+This figure, named Max, has systematically closed down most of the resort.
+Many people have disappeared including both citizens and tourists.
+Ever since the King closed down the resort, he's been acting strangely.
+Chief advisor and friend to the King, the Wizard Hubert, after seeing him, goes home to prepare to get external help.
+
+Hit 1 if you wish to go to Hubert's Home.
+
+Hit 0 to quit."
+inbound_rooms = ["001_Enchanted_Lands", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_22gkk"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "002_Hubert_Home"
+id = "Door_To_Hubert_Home"
+
+[sub_resource type="Resource" id="Resource_nar4h"]
+script = ExtResource("3_eyqhx")
+id = "002_Hubert_Home"
+label = "Hubert Home"
+description = "Hubert goes to his home and then goes directly to the study, where he sees many books, scrolls, and loose papers.  There's also a large crystal ball in it's own cradle in the center of the room.
+
+Hit 1 if you wish to examine the books, scrolls, and papers.
+Hit 2 if you wish to look into the crystal ball.
+
+Hit 0 to quit."
+inbound_rooms = ["001_Enchanted_Lands_1", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home_1;", "ch: 2, dest: 002_Hubert_Home_2;", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_or2vy"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "002_Hubert_Home_1"
+id = "Door_To_Hubert_Home_1"
+
+[sub_resource type="Resource" id="Resource_l63bm"]
+script = ExtResource("4_7vr2k")
+choice = "2"
+destination = "002_Hubert_Home_2"
+id = "Door_To_Hubert_Home_2"
+
+[sub_resource type="Resource" id="Resource_8wt5y"]
+script = ExtResource("3_eyqhx")
+id = "002_Hubert_Home_1"
+label = "Hubert Home 1"
+description = "One of the loose papers he examines has a handwritten list of requirements for an assistant, which reads:
+Loner, possibly shy, not much interaction with the opposite sex, into fantasy, terribly honest, loyal to a fault, puts others needs before his own.
+
+Hit 1 to go over to the crystal ball.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home_2;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_18mdv"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "002_Hubert_Home_2"
+id = "Door_To_Hubert_Home_2"
+
+[sub_resource type="Resource" id="Resource_52w36"]
+script = ExtResource("3_eyqhx")
+id = "002_Hubert_Home_10"
+label = "Hubert Home 10"
+description = "Going over to the bookcase behind the crystal ball, he selects a book entitled \"Professor Zorland's Hat Magick Compendium\".
+He takes the book over to his desk and opens it somewhere in the middle and thumbs through a few pages.
+He notes two spells, \"Object Translocation\" and \"Clone Conjure\".
+
+Hit 1 to cast the \"Object Translocation\" spell.
+Hit 2 to cast the \"Clone Conjure\" spell.
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_8", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home_11;", "ch: 2, dest: 002_Hubert_Home_13;", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_wnf2h"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "002_Hubert_Home_11"
+id = "Door_To_Hubert_Home_11"
+
+[sub_resource type="Resource" id="Resource_4b72k"]
+script = ExtResource("4_7vr2k")
+choice = "2"
+destination = "002_Hubert_Home_13"
+id = "Door_To_Hubert_Home_13"
+
+[sub_resource type="Resource" id="Resource_f3oyj"]
+script = ExtResource("3_eyqhx")
+id = "002_Hubert_Home_11"
+label = "Hubert Home 11"
+description = "Placing a quicksilver ticket on his desk, he grabs his hats, and then says a few magic words.
+The ticket disappears, and as he's looking into the crystal ball, he sees John opening his favorite candy bar with nothing in the wrapper.
+He then does the same thing again, only this time the ticket is partially visible inside the candy wrapper.  
+On closer inspection, John notices only half of the ticket exists.
+Hubert then proceed to execute a \"Clone Conjure\" spell.
+
+Hit 1 to cast \"Clone Conjure\"
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_10", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home_12;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_85w0y"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "002_Hubert_Home_12"
+id = "Door_To_Hubert_Home_12"
+
+[sub_resource type="Resource" id="Resource_olatt"]
+script = ExtResource("3_eyqhx")
+id = "002_Hubert_Home_12"
+label = "Hubert Home 12"
+description = "Hubert decides to try a 'clone conjure' spell, and conjures a ticket on his own desk.
+After running to the crystal ball, he notices that John now has an idential ticket, only something is off.
+The ticket doesn't appear to contain quicksilver, but the message on the back seems to be intact.
+Hubert waits for John to figure it out.
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_11", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 003_Cerulea_4;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_7sg50"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "003_Cerulea_4"
+id = "Door_To_Cerulea_4"
+
+[sub_resource type="Resource" id="Resource_kpofu"]
+script = ExtResource("3_eyqhx")
+id = "002_Hubert_Home_13"
+label = "Hubert Home 13"
+description = "Hubert decides to try a 'clone conjure' spell, and conjures a ticket on his own desk.
+After running to the crystal ball, he notices that John has a ticket, but something is off.
+The ticket doesn't appear to contain quicksilver, but the message on the back seems to be intact.
+Hubert then attempts to cast \"Object Translocation\".
+
+Hit 1 to cast \"Object Translocation\".
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_10", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home_14;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_fpyxw"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "002_Hubert_Home_14"
+id = "Door_To_Hubert_Home_14"
+
+[sub_resource type="Resource" id="Resource_km2ii"]
+script = ExtResource("3_eyqhx")
+id = "002_Hubert_Home_14"
+label = "Hubert Home 14"
+description = "Placing a quicksilver ticket on his desk, he grabs his hats, and then says a few magic words.
+The ticket disappears, and as he's looking into the crystal ball, he sees John opening his favorite candy bar with nothing in the wrapper.
+He then does the same thing again, only this time the ticket is partially visible inside the candy wrapper.  
+On closer inspection, John notices only half of the ticket exists.
+Hubert then waits for John to respond.
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_13", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 003_Cerulea_4;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_n5qcy"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "003_Cerulea_4"
+id = "Door_To_Cerulea_4"
+
+[sub_resource type="Resource" id="Resource_3xljw"]
+script = ExtResource("3_eyqhx")
+id = "002_Hubert_Home_2"
+label = "Hubert Home 2"
+description = "Hubert walks over to the giant crystal ball, and starts to peer into it.  He instructs the crystal ball to show him 3 likely candidates to help him figure out what's going on in the kingdom.  The ball shows 3 likely candidates, Daniel, John, and Harry.
+
+Hit 1 if you wish to pick Daniel.
+Hit 2 if you wish to pick John.
+Hit 3 if you wish to pick Harry.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_1", "002_Hubert_Home", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home_3;", "ch: 2, dest: 002_Hubert_Home_7;", "ch: 3, dest: 002_Hubert_Home_4;", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_glown"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "002_Hubert_Home_3"
+id = "Door_To_Hubert_Home_3"
+
+[sub_resource type="Resource" id="Resource_dsr17"]
+script = ExtResource("4_7vr2k")
+choice = "2"
+destination = "002_Hubert_Home_7"
+id = "Door_To_Hubert_Home_7"
+
+[sub_resource type="Resource" id="Resource_uaxw3"]
+script = ExtResource("4_7vr2k")
+choice = "3"
+destination = "002_Hubert_Home_4"
+id = "Door_To_Hubert_Home_4"
+
+[sub_resource type="Resource" id="Resource_01q5w"]
+script = ExtResource("3_eyqhx")
+id = "002_Hubert_Home_3"
+label = "Hubert Home 3"
+description = "Looking over Daniel, Hubert sees him getting bullied, but then through the help of an Okinawan karate instructor, overcomes his problems through a martial arts tournament.  Well maybe Daniel isn't quite the right fit, so Hubert goes back to the crystal ball.
+
+Hit 1 to pick Harry.
+Hit 2 to pick John.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_2", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home_5;", "ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_eaw8l"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "002_Hubert_Home_5"
+id = "Door_To_Hubert_Home_5"
+
+[sub_resource type="Resource" id="Resource_nuy0c"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "002_Hubert_Home_7"
+id = "Door_To_Hubert_Home_7"
+
+[sub_resource type="Resource" id="Resource_hppqo"]
+script = ExtResource("3_eyqhx")
+id = "002_Hubert_Home_4"
+label = "Hubert Home 4"
+description = "Looking over Harry's life, Hubert notices, he's already a wizard, and that he makes friends rather quickly, so Harry is probably not the right fit.  Daniel and John are the only choices left.
+
+Hit 1 to pick Daniel.
+Hit 2 to pick John.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_2", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 2, dest: 002_Hubert_Home_7;", "ch: 1, dest: 002_Hubert_Home_6;", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_rc3w8"]
+script = ExtResource("4_7vr2k")
+choice = "2"
+destination = "002_Hubert_Home_7"
+id = "Door_To_Hubert_Home_7"
+
+[sub_resource type="Resource" id="Resource_irh4a"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "002_Hubert_Home_6"
+id = "Door_To_Hubert_Home_6"
+
+[sub_resource type="Resource" id="Resource_75j1j"]
+script = ExtResource("3_eyqhx")
+id = "002_Hubert_Home_5"
+label = "Hubert Home 5"
+description = "Looking over Harry's life, Hubert notices, he's already a wizard, and that he makes friends rather quickly, so Harry is probably not the right fit.  So only John is left.
+
+Hit 1 to pick John.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_3", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_ri2yw"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "002_Hubert_Home_7"
+id = "Door_To_Hubert_Home_7"
+
+[sub_resource type="Resource" id="Resource_cgvun"]
+script = ExtResource("3_eyqhx")
+id = "002_Hubert_Home_6"
+label = "Hubert Home 6"
+description = "Looking over Daniel, Hubert sees him getting bullied, but then through the help of an Okinawan karate instructor, overcomes his problems through a martial arts tournament.  Well maybe Daniel isn't quite the right fit, so he picks John.
+
+Hit 1 to pick John.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_4", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_ys4oy"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "002_Hubert_Home_7"
+id = "Door_To_Hubert_Home_7"
+
+[sub_resource type="Resource" id="Resource_63wr8"]
+script = ExtResource("3_eyqhx")
+id = "002_Hubert_Home_7"
+label = "Hubert Home 7"
+description = "Hubert picks John, and decides to somehow send a quicksilver ticket via his favorite candybar.
+Pulling 3 hats from his head, he rearranges them and puts them back on, and then says some magic words.
+A book called \"Unicorn Sign Language for Beginners\" appears in midair before changing to \"Beauty and the Beast\" then disappears.
+
+Hit 1 to prepare to send a quicksilver ticket to John.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_5", "002_Hubert_Home_3", "002_Hubert_Home_2", "002_Hubert_Home_4", "002_Hubert_Home_6", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home_8;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_5u5dv"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "002_Hubert_Home_8"
+id = "Door_To_Hubert_Home_8"
+
+[sub_resource type="Resource" id="Resource_yho60"]
+script = ExtResource("3_eyqhx")
+id = "002_Hubert_Home_8"
+label = "Hubert Home 8"
+description = "Hubert puts his 3 magic hats on his desk where there also sits a large box which almost looks like a safe with a little door.  On the front of the box there is a small label which reads \"Magic Mailbox #001 of 100.  Property of Halfway Hubert.\"
+
+Hit 1 if you wish to use the 'magic' mailbox.
+Hit 2 if you wish to use a spell or two to send John his silver ticket.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_7", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 002_Hubert_Home_9;", "ch: 2, dest: 002_Hubert_Home_10;", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_6kop3"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "002_Hubert_Home_9"
+id = "Door_To_Hubert_Home_9"
+
+[sub_resource type="Resource" id="Resource_jtm4b"]
+script = ExtResource("4_7vr2k")
+choice = "2"
+destination = "002_Hubert_Home_10"
+id = "Door_To_Hubert_Home_10"
+
+[sub_resource type="Resource" id="Resource_cb3du"]
+script = ExtResource("3_eyqhx")
+id = "002_Hubert_Home_9"
+label = "Hubert Home 9"
+description = "Hubert pulls open the door on the box, and puts a single silver ticket into it.  And then says the destination out loud: \"John Thomas, Cerulea.  Benny Wonky Chocolate Bar. -- Oh inside the wrapper!\"  Hubert then just waits.
+While gazing into the crystal ball, Hubert notices John working at the library...
+
+Hit 1 to continue.
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_8", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_iu2to"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "003_Cerulea"
+id = "Door_To_Cerulea"
+
+[sub_resource type="Resource" id="Resource_7n2m6"]
+script = ExtResource("3_eyqhx")
+id = "003_Cerulea"
+label = "Cerulea"
+description = "While working at the library, John is putting books back on the shelves, when he notices a book that has fallen on the floor behind him.
+He picks it up noting the hole it left in the book case, and proceeds to put it back, when it seems to jump out again.
+He does this for a few more times, before really reading the cover, which says \"Unicorn Sign Language for Beginners\".
+
+Hit 1 to attempt to put it in another section.
+Hit 2 to take it to the reference desk.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_9", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 003_Cerulea_1;", "ch: 2, dest: 003_Cerulea_2;", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_tws1c"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "003_Cerulea_1"
+id = "Door_To_Cerulea_1"
+
+[sub_resource type="Resource" id="Resource_ammjh"]
+script = ExtResource("4_7vr2k")
+choice = "2"
+destination = "003_Cerulea_2"
+id = "Door_To_Cerulea_2"
+
+[sub_resource type="Resource" id="Resource_sjvh8"]
+script = ExtResource("3_eyqhx")
+id = "003_Cerulea_1"
+label = "Cerulea 1"
+description = "He mutters something to himself about, \"No wonder, a book about sign language doesn't belong in the fairy tale section.\"
+So then he moves to a \"how-to\" section, and attempts the book in there, and still the same thing happens.
+He's still has some work to do today, so he puts the book into his cart and finishes his rounds.
+
+Hit 1 to take the book home with you.
+
+Hit 0 to quit."
+inbound_rooms = ["003_Cerulea", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 003_Cerulea_3;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_kanwu"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "003_Cerulea_3"
+id = "Door_To_Cerulea_3"
+
+[sub_resource type="Resource" id="Resource_fl1pa"]
+script = ExtResource("3_eyqhx")
+id = "003_Cerulea_2"
+label = "Cerulea 2"
+description = "John decides to take it over to the reference desk, and ask if they've ever heard of this book.
+After replying in the negative, the reference librarian tells John he could probably take it home then.
+
+Hit 1 to start heading home.
+
+Hit 0 to quit."
+inbound_rooms = ["003_Cerulea", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 003_Cerulea_3;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_ghkjp"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "003_Cerulea_3"
+id = "Door_To_Cerulea_3"
+
+[sub_resource type="Resource" id="Resource_bgmtg"]
+script = ExtResource("3_eyqhx")
+id = "003_Cerulea_3"
+label = "Cerulea 3"
+description = "While at home, John proceeds to read the book through.
+After reading it he's a bit confused and amused because of the diagrams.
+John returns to work, the next day, to a pretty uneventful workday.
+On his way home, John stops at a local store for his favorite candy bar.
+Upon opening the wrapper, he notices a silver ticket inside, and pulls it out.
+Flipping the ticket over he reads the words on the back.
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+inbound_rooms = ["003_Cerulea_1", "003_Cerulea_2", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 003_Cerulea_5;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_0hsds"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "003_Cerulea_5"
+id = "Door_To_Cerulea_5"
+
+[sub_resource type="Resource" id="Resource_74v21"]
+script = ExtResource("3_eyqhx")
+id = "003_Cerulea_4"
+label = "Cerulea 4"
+description = "On his way home, John stops at a local store for his favorite candy bar.
+Upon opening the wrapper, he notices part of a ticket appear inside, and then he flips it over.
+Flipping the ticket over he reads the words on the back.
+Looking at the words on the back, he realizes it's not complete.
+As he's pondering what to do, another ticket appears inside the open wrapper.
+This looks to be intact but different, in that it doesn't appear to have any silver in it.
+After flipping it over John recognizes the same words as the partial ticket.
+Now holding both the non-silver and partial tickets, he reads all the words off the back.
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+inbound_rooms = ["002_Hubert_Home_12", "002_Hubert_Home_14", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 003_Cerulea_5;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_hnm7m"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "003_Cerulea_5"
+id = "Door_To_Cerulea_5"
+
+[sub_resource type="Resource" id="Resource_ucq1s"]
+script = ExtResource("3_eyqhx")
+id = "003_Cerulea_5"
+label = "Cerulea 5"
+description = "As soon as John utters the magic words, a portal appears in front of him.
+Inside the portal, is what appears to be the inside of a train cabin, with various people sitting.
+Being utterly amazed, John decides to step through, and then the portal closes behind him.
+
+Meanwhile a dragon is seen in the sky...
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+inbound_rooms = ["003_Cerulea_3", "003_Cerulea_4", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_55llk"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "004_Caves_Of_Dragonmount"
+id = "Door_To_Caves_Of_Dragonmount"
+
+[sub_resource type="Resource" id="Resource_xohrk"]
+script = ExtResource("3_eyqhx")
+id = "003_Cerulea_99"
+label = "Cerulea 99"
+description = "In our realm (Cerulea), Zanzibar the great, magician, con artist, and thief, manages to escape the police into the Lands.
+
+Hit 1 if you wish to go to Random Villages.
+
+Hit 0 to quit."
+inbound_rooms = ["", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 009_Random_Villages;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_is4m0"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "009_Random_Villages"
+id = "Door_To_Random_Villages"
+
+[sub_resource type="Resource" id="Resource_uo0bk"]
+script = ExtResource("3_eyqhx")
+id = "004_Caves_Of_Dragonmount"
+label = "Caves Of Dragonmount"
+description = "Somewhere in the kingdom, Chester, a friendly dragon, lands at the entrance to the \"Caves of Dragonmount.\"
+Chester walks around the cave system trying to find his friends.
+Chester then leaves, and flies around while looking some more.
+
+Hit 1 if you wish to go to Sky.
+
+Hit 0 to quit."
+inbound_rooms = ["003_Cerulea_5", "003_Cerulea_12", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 005_Sky;", "", "", "", "", "", "", "", ""]
+
+[sub_resource type="Resource" id="Resource_454fm"]
+script = ExtResource("4_7vr2k")
+choice = "1"
+destination = "005_Sky"
+id = "Door_To_Sky"
 
 [node name="EditorMap" type="Node"]
 script = ExtResource("1_k3d1g")
 
 [node name="Rooms" type="Node2D" parent="."]
 position = Vector2(1446, 563)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@18304" type="Node2D" parent="Rooms"]
+position = Vector2(-1899, -4966)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_lkmud")
+
+[node name="Door_To_Enchanted_Lands" type="Node2D" parent="Rooms/@Node2D@18304"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_jfjju")
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/@Node2D@18304"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Enchanted_Lands" type="ColorRect" parent="Rooms/@Node2D@18304/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/@Node2D@18304"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@18305" type="Node2D" parent="Rooms"]
+position = Vector2(-1909, -4621)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_osnxo")
+
+[node name="Door_To_Enchanted_Lands_1" type="Node2D" parent="Rooms/@Node2D@18305"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_eo1u4")
+
+[node name="@Node2D@18306" type="Node2D" parent="Rooms"]
+position = Vector2(-1909, -4274)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_tifwl")
+
+[node name="Door_To_Hubert_Home" type="Node2D" parent="Rooms/@Node2D@18306"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_22gkk")
+
+[node name="@Node2D@18307" type="Node2D" parent="Rooms"]
+position = Vector2(-1907, -3926)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_nar4h")
+
+[node name="Door_To_Hubert_Home_1" type="Node2D" parent="Rooms/@Node2D@18307"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_or2vy")
+
+[node name="Door_To_Hubert_Home_2" type="Node2D" parent="Rooms/@Node2D@18307"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.733333, 0.2, 1)
+settings = SubResource("Resource_l63bm")
+
+[node name="@Node2D@18308" type="Node2D" parent="Rooms"]
+position = Vector2(-2158, -3335)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_8wt5y")
+
+[node name="Door_To_Hubert_Home_2" type="Node2D" parent="Rooms/@Node2D@18308"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_18mdv")
+
+[node name="@Node2D@18309" type="Node2D" parent="Rooms"]
+position = Vector2(-903, -217)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_52w36")
+
+[node name="Door_To_Hubert_Home_11" type="Node2D" parent="Rooms/@Node2D@18309"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_wnf2h")
+
+[node name="Door_To_Hubert_Home_13" type="Node2D" parent="Rooms/@Node2D@18309"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.733333, 0.2, 1)
+settings = SubResource("Resource_4b72k")
+
+[node name="@Node2D@18310" type="Node2D" parent="Rooms"]
+position = Vector2(-1291, 162)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_f3oyj")
+
+[node name="Door_To_Hubert_Home_12" type="Node2D" parent="Rooms/@Node2D@18310"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_85w0y")
+
+[node name="@Node2D@18311" type="Node2D" parent="Rooms"]
+position = Vector2(-1291, 517)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_olatt")
+
+[node name="Door_To_Cerulea_4" type="Node2D" parent="Rooms/@Node2D@18311"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_7sg50")
+
+[node name="@Node2D@18312" type="Node2D" parent="Rooms"]
+position = Vector2(-519, 166)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_kpofu")
+
+[node name="Door_To_Hubert_Home_14" type="Node2D" parent="Rooms/@Node2D@18312"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_fpyxw")
+
+[node name="@Node2D@18313" type="Node2D" parent="Rooms"]
+position = Vector2(-519, 521)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_km2ii")
+
+[node name="Door_To_Cerulea_4" type="Node2D" parent="Rooms/@Node2D@18313"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_n5qcy")
+
+[node name="@Node2D@18314" type="Node2D" parent="Rooms"]
+position = Vector2(-1909, -2698)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_3xljw")
+
+[node name="Door_To_Hubert_Home_3" type="Node2D" parent="Rooms/@Node2D@18314"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_glown")
+
+[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18314"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.733333, 0.2, 1)
+settings = SubResource("Resource_dsr17")
+
+[node name="Door_To_Hubert_Home_4" type="Node2D" parent="Rooms/@Node2D@18314"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(0.733333, 1, 0.2, 1)
+settings = SubResource("Resource_uaxw3")
+
+[node name="@Node2D@18315" type="Node2D" parent="Rooms"]
+position = Vector2(-2607, -2294)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_01q5w")
+
+[node name="Door_To_Hubert_Home_5" type="Node2D" parent="Rooms/@Node2D@18315"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_eaw8l")
+
+[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18315"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.733333, 0.2, 1)
+settings = SubResource("Resource_nuy0c")
+
+[node name="@Node2D@18316" type="Node2D" parent="Rooms"]
+position = Vector2(-1195, -2264)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_hppqo")
+
+[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18316"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_rc3w8")
+
+[node name="Door_To_Hubert_Home_6" type="Node2D" parent="Rooms/@Node2D@18316"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.733333, 0.2, 1)
+settings = SubResource("Resource_irh4a")
+
+[node name="@Node2D@18317" type="Node2D" parent="Rooms"]
+position = Vector2(-2985, -1759)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_75j1j")
+
+[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18317"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_ri2yw")
+
+[node name="@Node2D@18318" type="Node2D" parent="Rooms"]
+position = Vector2(-949, -1667)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_cgvun")
+
+[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18318"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_ys4oy")
+
+[node name="@Node2D@18319" type="Node2D" parent="Rooms"]
+position = Vector2(-1899, -1245)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_63wr8")
+
+[node name="Door_To_Hubert_Home_8" type="Node2D" parent="Rooms/@Node2D@18319"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_5u5dv")
+
+[node name="@Node2D@18320" type="Node2D" parent="Rooms"]
+position = Vector2(-1899, -781)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_yho60")
+
+[node name="Door_To_Hubert_Home_9" type="Node2D" parent="Rooms/@Node2D@18320"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_6kop3")
+
+[node name="Door_To_Hubert_Home_10" type="Node2D" parent="Rooms/@Node2D@18320"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.733333, 0.2, 1)
+settings = SubResource("Resource_jtm4b")
+
+[node name="@Node2D@18321" type="Node2D" parent="Rooms"]
+position = Vector2(-2810, -420)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_cb3du")
+
+[node name="Door_To_Cerulea" type="Node2D" parent="Rooms/@Node2D@18321"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_iu2to")
+
+[node name="@Node2D@18322" type="Node2D" parent="Rooms"]
+position = Vector2(-2810, 101)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_7n2m6")
+
+[node name="Door_To_Cerulea_1" type="Node2D" parent="Rooms/@Node2D@18322"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_tws1c")
+
+[node name="Door_To_Cerulea_2" type="Node2D" parent="Rooms/@Node2D@18322"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.733333, 0.2, 1)
+settings = SubResource("Resource_ammjh")
+
+[node name="@Node2D@18323" type="Node2D" parent="Rooms"]
+position = Vector2(-3327, 643)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_sjvh8")
+
+[node name="Door_To_Cerulea_3" type="Node2D" parent="Rooms/@Node2D@18323"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_kanwu")
+
+[node name="@Node2D@18324" type="Node2D" parent="Rooms"]
+position = Vector2(-2306, 639)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_fl1pa")
+
+[node name="Door_To_Cerulea_3" type="Node2D" parent="Rooms/@Node2D@18324"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_ghkjp")
+
+[node name="@Node2D@18325" type="Node2D" parent="Rooms"]
+position = Vector2(-2810, 1200)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_bgmtg")
+
+[node name="Door_To_Cerulea_5" type="Node2D" parent="Rooms/@Node2D@18325"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_0hsds")
+
+[node name="@Node2D@18326" type="Node2D" parent="Rooms"]
+position = Vector2(-903, 1200)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_74v21")
+
+[node name="Door_To_Cerulea_5" type="Node2D" parent="Rooms/@Node2D@18326"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_hnm7m")
+
+[node name="@Node2D@18327" type="Node2D" parent="Rooms"]
+position = Vector2(-2025, 1740)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_ucq1s")
+
+[node name="Door_To_Caves_Of_Dragonmount" type="Node2D" parent="Rooms/@Node2D@18327"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_55llk")
+
+[node name="@Node2D@18328" type="Node2D" parent="Rooms"]
+position = Vector2(27, -3398)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_xohrk")
+
+[node name="Door_To_Random_Villages" type="Node2D" parent="Rooms/@Node2D@18328"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_is4m0")
+
+[node name="@Node2D@18329" type="Node2D" parent="Rooms"]
+position = Vector2(-2025, 2534)
+script = ExtResource("2_qkq53")
+settings = SubResource("Resource_uo0bk")
+
+[node name="Door_To_Sky" type="Node2D" parent="Rooms/@Node2D@18329"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+settings = SubResource("Resource_454fm")
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/@Node2D@18329"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Sky" type="ColorRect" parent="Rooms/@Node2D@18329/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/@Node2D@18329"]
+position = Vector2(0, -100)
 metadata/_edit_lock_ = true
