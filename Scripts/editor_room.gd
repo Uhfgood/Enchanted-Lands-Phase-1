@@ -194,15 +194,9 @@ static func Create( n_id : String, n_label : String, n_desc : String ) -> Editor
 	
 static func CreateFromJSON( json_name : String )->EditorRoom:
 #{
-	var new_room = EditorRoom.new()
-	
-	#if new_room.LoadDataFromJSON( json_name ) == false:
-	#	return null
-	
-	#if( new_room ):
-	#{
 	var hue = 0.0
-	
+	var new_room = EditorRoom.new()
+		
 	new_room.settings = Room.CreateFromJSON( json_name )
 	if( new_room.settings ):
 	#{
