@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/room.gd" id="3_eyqhx"]
 [ext_resource type="Script" path="res://Scripts/door.gd" id="4_7vr2k"]
 
-[sub_resource type="Resource" id="Resource_lkmud"]
+[sub_resource type="Resource" id="Resource_q0c02"]
 script = ExtResource("3_eyqhx")
 id = "000_Main_Menu"
 label = "Main Menu"
@@ -18,13 +18,13 @@ Hit 0 to quit."
 inbound_rooms = ["", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 001_Enchanted_Lands;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_jfjju"]
+[sub_resource type="Resource" id="Resource_t6qkp"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "001_Enchanted_Lands"
 id = "Door_To_Enchanted_Lands"
 
-[sub_resource type="Resource" id="Resource_osnxo"]
+[sub_resource type="Resource" id="Resource_qxwet"]
 script = ExtResource("3_eyqhx")
 id = "001_Enchanted_Lands"
 label = "Enchanted Lands"
@@ -41,13 +41,13 @@ Hit 0 to quit."
 inbound_rooms = ["000_Main_Menu", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 001_Enchanted_Lands_1;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_eo1u4"]
+[sub_resource type="Resource" id="Resource_qjbuo"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "001_Enchanted_Lands_1"
 id = "Door_To_Enchanted_Lands_1"
 
-[sub_resource type="Resource" id="Resource_tifwl"]
+[sub_resource type="Resource" id="Resource_jmglr"]
 script = ExtResource("3_eyqhx")
 id = "001_Enchanted_Lands_1"
 label = "Enchanted Lands 1"
@@ -63,13 +63,13 @@ Hit 0 to quit."
 inbound_rooms = ["001_Enchanted_Lands", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_22gkk"]
+[sub_resource type="Resource" id="Resource_o4ruw"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "002_Hubert_Home"
 id = "Door_To_Hubert_Home"
 
-[sub_resource type="Resource" id="Resource_nar4h"]
+[sub_resource type="Resource" id="Resource_vhc8k"]
 script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home"
 label = "Hubert Home"
@@ -82,19 +82,19 @@ Hit 0 to quit."
 inbound_rooms = ["001_Enchanted_Lands_1", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_1;", "ch: 2, dest: 002_Hubert_Home_2;", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_or2vy"]
+[sub_resource type="Resource" id="Resource_775dp"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "002_Hubert_Home_1"
 id = "Door_To_Hubert_Home_1"
 
-[sub_resource type="Resource" id="Resource_l63bm"]
+[sub_resource type="Resource" id="Resource_ixkjr"]
 script = ExtResource("4_7vr2k")
 choice = "2"
 destination = "002_Hubert_Home_2"
 id = "Door_To_Hubert_Home_2"
 
-[sub_resource type="Resource" id="Resource_8wt5y"]
+[sub_resource type="Resource" id="Resource_6urh2"]
 script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home_1"
 label = "Hubert Home 1"
@@ -107,13 +107,13 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_2;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_18mdv"]
+[sub_resource type="Resource" id="Resource_eunb1"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "002_Hubert_Home_2"
 id = "Door_To_Hubert_Home_2"
 
-[sub_resource type="Resource" id="Resource_52w36"]
+[sub_resource type="Resource" id="Resource_djnui"]
 script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home_10"
 label = "Hubert Home 10"
@@ -127,19 +127,19 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_8", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_11;", "ch: 2, dest: 002_Hubert_Home_13;", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_wnf2h"]
+[sub_resource type="Resource" id="Resource_dtjt0"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "002_Hubert_Home_11"
 id = "Door_To_Hubert_Home_11"
 
-[sub_resource type="Resource" id="Resource_4b72k"]
+[sub_resource type="Resource" id="Resource_8ua8a"]
 script = ExtResource("4_7vr2k")
 choice = "2"
 destination = "002_Hubert_Home_13"
 id = "Door_To_Hubert_Home_13"
 
-[sub_resource type="Resource" id="Resource_f3oyj"]
+[sub_resource type="Resource" id="Resource_bm4ma"]
 script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home_11"
 label = "Hubert Home 11"
@@ -155,13 +155,13 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_10", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_12;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_85w0y"]
+[sub_resource type="Resource" id="Resource_f7343"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "002_Hubert_Home_12"
 id = "Door_To_Hubert_Home_12"
 
-[sub_resource type="Resource" id="Resource_olatt"]
+[sub_resource type="Resource" id="Resource_ilrxu"]
 script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home_12"
 label = "Hubert Home 12"
@@ -176,13 +176,13 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_11", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_4;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_7sg50"]
+[sub_resource type="Resource" id="Resource_00qgv"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "003_Cerulea_4"
 id = "Door_To_Cerulea_4"
 
-[sub_resource type="Resource" id="Resource_kpofu"]
+[sub_resource type="Resource" id="Resource_tepv3"]
 script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home_13"
 label = "Hubert Home 13"
@@ -197,13 +197,13 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_10", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_14;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_fpyxw"]
+[sub_resource type="Resource" id="Resource_3xfef"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "002_Hubert_Home_14"
 id = "Door_To_Hubert_Home_14"
 
-[sub_resource type="Resource" id="Resource_km2ii"]
+[sub_resource type="Resource" id="Resource_4jnkb"]
 script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home_14"
 label = "Hubert Home 14"
@@ -219,13 +219,13 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_13", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_4;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_n5qcy"]
+[sub_resource type="Resource" id="Resource_b8mas"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "003_Cerulea_4"
 id = "Door_To_Cerulea_4"
 
-[sub_resource type="Resource" id="Resource_3xljw"]
+[sub_resource type="Resource" id="Resource_da11f"]
 script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home_2"
 label = "Hubert Home 2"
@@ -239,25 +239,25 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_1", "002_Hubert_Home", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_3;", "ch: 2, dest: 002_Hubert_Home_7;", "ch: 3, dest: 002_Hubert_Home_4;", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_glown"]
+[sub_resource type="Resource" id="Resource_1nnd8"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "002_Hubert_Home_3"
 id = "Door_To_Hubert_Home_3"
 
-[sub_resource type="Resource" id="Resource_dsr17"]
+[sub_resource type="Resource" id="Resource_3arce"]
 script = ExtResource("4_7vr2k")
 choice = "2"
 destination = "002_Hubert_Home_7"
 id = "Door_To_Hubert_Home_7"
 
-[sub_resource type="Resource" id="Resource_uaxw3"]
+[sub_resource type="Resource" id="Resource_cevwk"]
 script = ExtResource("4_7vr2k")
 choice = "3"
 destination = "002_Hubert_Home_4"
 id = "Door_To_Hubert_Home_4"
 
-[sub_resource type="Resource" id="Resource_01q5w"]
+[sub_resource type="Resource" id="Resource_ggj4p"]
 script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home_3"
 label = "Hubert Home 3"
@@ -270,19 +270,19 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_2", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_5;", "ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_eaw8l"]
+[sub_resource type="Resource" id="Resource_tsvtf"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "002_Hubert_Home_5"
 id = "Door_To_Hubert_Home_5"
 
-[sub_resource type="Resource" id="Resource_nuy0c"]
+[sub_resource type="Resource" id="Resource_xvgag"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "002_Hubert_Home_7"
 id = "Door_To_Hubert_Home_7"
 
-[sub_resource type="Resource" id="Resource_hppqo"]
+[sub_resource type="Resource" id="Resource_rul3c"]
 script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home_4"
 label = "Hubert Home 4"
@@ -295,19 +295,19 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_2", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 2, dest: 002_Hubert_Home_7;", "ch: 1, dest: 002_Hubert_Home_6;", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_rc3w8"]
+[sub_resource type="Resource" id="Resource_xoded"]
 script = ExtResource("4_7vr2k")
 choice = "2"
 destination = "002_Hubert_Home_7"
 id = "Door_To_Hubert_Home_7"
 
-[sub_resource type="Resource" id="Resource_irh4a"]
+[sub_resource type="Resource" id="Resource_vr6q5"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "002_Hubert_Home_6"
 id = "Door_To_Hubert_Home_6"
 
-[sub_resource type="Resource" id="Resource_75j1j"]
+[sub_resource type="Resource" id="Resource_2leg8"]
 script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home_5"
 label = "Hubert Home 5"
@@ -319,13 +319,13 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_3", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_ri2yw"]
+[sub_resource type="Resource" id="Resource_wmhu3"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "002_Hubert_Home_7"
 id = "Door_To_Hubert_Home_7"
 
-[sub_resource type="Resource" id="Resource_cgvun"]
+[sub_resource type="Resource" id="Resource_rmyyh"]
 script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home_6"
 label = "Hubert Home 6"
@@ -337,13 +337,13 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_4", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_ys4oy"]
+[sub_resource type="Resource" id="Resource_p4pxk"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "002_Hubert_Home_7"
 id = "Door_To_Hubert_Home_7"
 
-[sub_resource type="Resource" id="Resource_63wr8"]
+[sub_resource type="Resource" id="Resource_atmwf"]
 script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home_7"
 label = "Hubert Home 7"
@@ -357,13 +357,13 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_5", "002_Hubert_Home_3", "002_Hubert_Home_2", "002_Hubert_Home_4", "002_Hubert_Home_6", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_8;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_5u5dv"]
+[sub_resource type="Resource" id="Resource_2kkwr"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "002_Hubert_Home_8"
 id = "Door_To_Hubert_Home_8"
 
-[sub_resource type="Resource" id="Resource_yho60"]
+[sub_resource type="Resource" id="Resource_3dmw3"]
 script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home_8"
 label = "Hubert Home 8"
@@ -376,19 +376,19 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_7", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_9;", "ch: 2, dest: 002_Hubert_Home_10;", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_6kop3"]
+[sub_resource type="Resource" id="Resource_ywrpc"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "002_Hubert_Home_9"
 id = "Door_To_Hubert_Home_9"
 
-[sub_resource type="Resource" id="Resource_jtm4b"]
+[sub_resource type="Resource" id="Resource_qf1s3"]
 script = ExtResource("4_7vr2k")
 choice = "2"
 destination = "002_Hubert_Home_10"
 id = "Door_To_Hubert_Home_10"
 
-[sub_resource type="Resource" id="Resource_cb3du"]
+[sub_resource type="Resource" id="Resource_c3on8"]
 script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home_9"
 label = "Hubert Home 9"
@@ -400,13 +400,13 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_8", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_iu2to"]
+[sub_resource type="Resource" id="Resource_1mf8h"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "003_Cerulea"
 id = "Door_To_Cerulea"
 
-[sub_resource type="Resource" id="Resource_7n2m6"]
+[sub_resource type="Resource" id="Resource_2eh2r"]
 script = ExtResource("3_eyqhx")
 id = "003_Cerulea"
 label = "Cerulea"
@@ -421,19 +421,19 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_9", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_1;", "ch: 2, dest: 003_Cerulea_2;", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_tws1c"]
+[sub_resource type="Resource" id="Resource_hs4ht"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "003_Cerulea_1"
 id = "Door_To_Cerulea_1"
 
-[sub_resource type="Resource" id="Resource_ammjh"]
+[sub_resource type="Resource" id="Resource_dg4im"]
 script = ExtResource("4_7vr2k")
 choice = "2"
 destination = "003_Cerulea_2"
 id = "Door_To_Cerulea_2"
 
-[sub_resource type="Resource" id="Resource_sjvh8"]
+[sub_resource type="Resource" id="Resource_nhkby"]
 script = ExtResource("3_eyqhx")
 id = "003_Cerulea_1"
 label = "Cerulea 1"
@@ -447,13 +447,13 @@ Hit 0 to quit."
 inbound_rooms = ["003_Cerulea", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_3;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_kanwu"]
+[sub_resource type="Resource" id="Resource_8v5yw"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "003_Cerulea_3"
 id = "Door_To_Cerulea_3"
 
-[sub_resource type="Resource" id="Resource_fl1pa"]
+[sub_resource type="Resource" id="Resource_6svwd"]
 script = ExtResource("3_eyqhx")
 id = "003_Cerulea_2"
 label = "Cerulea 2"
@@ -466,13 +466,13 @@ Hit 0 to quit."
 inbound_rooms = ["003_Cerulea", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_3;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_ghkjp"]
+[sub_resource type="Resource" id="Resource_dy2jb"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "003_Cerulea_3"
 id = "Door_To_Cerulea_3"
 
-[sub_resource type="Resource" id="Resource_bgmtg"]
+[sub_resource type="Resource" id="Resource_c28yc"]
 script = ExtResource("3_eyqhx")
 id = "003_Cerulea_3"
 label = "Cerulea 3"
@@ -489,13 +489,13 @@ Hit 0 to quit."
 inbound_rooms = ["003_Cerulea_1", "003_Cerulea_2", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_5;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_0hsds"]
+[sub_resource type="Resource" id="Resource_ufqbf"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "003_Cerulea_5"
 id = "Door_To_Cerulea_5"
 
-[sub_resource type="Resource" id="Resource_74v21"]
+[sub_resource type="Resource" id="Resource_w3k60"]
 script = ExtResource("3_eyqhx")
 id = "003_Cerulea_4"
 label = "Cerulea 4"
@@ -514,13 +514,13 @@ Hit 0 to quit."
 inbound_rooms = ["002_Hubert_Home_12", "002_Hubert_Home_14", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_5;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_hnm7m"]
+[sub_resource type="Resource" id="Resource_dhpll"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "003_Cerulea_5"
 id = "Door_To_Cerulea_5"
 
-[sub_resource type="Resource" id="Resource_ucq1s"]
+[sub_resource type="Resource" id="Resource_7ii2s"]
 script = ExtResource("3_eyqhx")
 id = "003_Cerulea_5"
 label = "Cerulea 5"
@@ -536,13 +536,13 @@ Hit 0 to quit."
 inbound_rooms = ["003_Cerulea_3", "003_Cerulea_4", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_55llk"]
+[sub_resource type="Resource" id="Resource_24sxl"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "004_Caves_Of_Dragonmount"
 id = "Door_To_Caves_Of_Dragonmount"
 
-[sub_resource type="Resource" id="Resource_xohrk"]
+[sub_resource type="Resource" id="Resource_d7buk"]
 script = ExtResource("3_eyqhx")
 id = "003_Cerulea_99"
 label = "Cerulea 99"
@@ -554,13 +554,13 @@ Hit 0 to quit."
 inbound_rooms = ["", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 009_Random_Villages;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_is4m0"]
+[sub_resource type="Resource" id="Resource_0cnxw"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "009_Random_Villages"
 id = "Door_To_Random_Villages"
 
-[sub_resource type="Resource" id="Resource_uo0bk"]
+[sub_resource type="Resource" id="Resource_4j0us"]
 script = ExtResource("3_eyqhx")
 id = "004_Caves_Of_Dragonmount"
 label = "Caves Of Dragonmount"
@@ -574,7 +574,7 @@ Hit 0 to quit."
 inbound_rooms = ["003_Cerulea_5", "003_Cerulea_12", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 005_Sky;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_454fm"]
+[sub_resource type="Resource" id="Resource_jhhsj"]
 script = ExtResource("4_7vr2k")
 choice = "1"
 destination = "005_Sky"
@@ -587,18 +587,18 @@ script = ExtResource("1_k3d1g")
 position = Vector2(1446, 563)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18304" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18447" type="Node2D" parent="Rooms"]
 position = Vector2(-1899, -4966)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_lkmud")
+settings = SubResource("Resource_q0c02")
 
-[node name="Door_To_Enchanted_Lands" type="Node2D" parent="Rooms/@Node2D@18304"]
+[node name="Door_To_Enchanted_Lands" type="Node2D" parent="Rooms/@Node2D@18447"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_jfjju")
+settings = SubResource("Resource_t6qkp")
 
-[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/@Node2D@18304"]
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/@Node2D@18447"]
 z_index = 1
 custom_minimum_size = Vector2(684, 20)
 offset_left = -342.0
@@ -609,341 +609,341 @@ theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="DoorVisual_Door_To_Enchanted_Lands" type="ColorRect" parent="Rooms/@Node2D@18304/DoorVisualsContainer"]
+[node name="DoorVisual_Door_To_Enchanted_Lands" type="ColorRect" parent="Rooms/@Node2D@18447/DoorVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
 
-[node name="LinesContainer" type="Node2D" parent="Rooms/@Node2D@18304"]
+[node name="LinesContainer" type="Node2D" parent="Rooms/@Node2D@18447"]
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@18305" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18448" type="Node2D" parent="Rooms"]
 position = Vector2(-1909, -4621)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_osnxo")
+settings = SubResource("Resource_qxwet")
 
-[node name="Door_To_Enchanted_Lands_1" type="Node2D" parent="Rooms/@Node2D@18305"]
+[node name="Door_To_Enchanted_Lands_1" type="Node2D" parent="Rooms/@Node2D@18448"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_eo1u4")
+settings = SubResource("Resource_qjbuo")
 
-[node name="@Node2D@18306" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18449" type="Node2D" parent="Rooms"]
 position = Vector2(-1909, -4274)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_tifwl")
+settings = SubResource("Resource_jmglr")
 
-[node name="Door_To_Hubert_Home" type="Node2D" parent="Rooms/@Node2D@18306"]
+[node name="Door_To_Hubert_Home" type="Node2D" parent="Rooms/@Node2D@18449"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_22gkk")
+settings = SubResource("Resource_o4ruw")
 
-[node name="@Node2D@18307" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18450" type="Node2D" parent="Rooms"]
 position = Vector2(-1907, -3926)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_nar4h")
+settings = SubResource("Resource_vhc8k")
 
-[node name="Door_To_Hubert_Home_1" type="Node2D" parent="Rooms/@Node2D@18307"]
+[node name="Door_To_Hubert_Home_1" type="Node2D" parent="Rooms/@Node2D@18450"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_or2vy")
+settings = SubResource("Resource_775dp")
 
-[node name="Door_To_Hubert_Home_2" type="Node2D" parent="Rooms/@Node2D@18307"]
+[node name="Door_To_Hubert_Home_2" type="Node2D" parent="Rooms/@Node2D@18450"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.733333, 0.2, 1)
-settings = SubResource("Resource_l63bm")
+settings = SubResource("Resource_ixkjr")
 
-[node name="@Node2D@18308" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18451" type="Node2D" parent="Rooms"]
 position = Vector2(-2158, -3335)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_8wt5y")
+settings = SubResource("Resource_6urh2")
 
-[node name="Door_To_Hubert_Home_2" type="Node2D" parent="Rooms/@Node2D@18308"]
+[node name="Door_To_Hubert_Home_2" type="Node2D" parent="Rooms/@Node2D@18451"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_18mdv")
+settings = SubResource("Resource_eunb1")
 
-[node name="@Node2D@18309" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18452" type="Node2D" parent="Rooms"]
 position = Vector2(-903, -217)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_52w36")
+settings = SubResource("Resource_djnui")
 
-[node name="Door_To_Hubert_Home_11" type="Node2D" parent="Rooms/@Node2D@18309"]
+[node name="Door_To_Hubert_Home_11" type="Node2D" parent="Rooms/@Node2D@18452"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_wnf2h")
+settings = SubResource("Resource_dtjt0")
 
-[node name="Door_To_Hubert_Home_13" type="Node2D" parent="Rooms/@Node2D@18309"]
+[node name="Door_To_Hubert_Home_13" type="Node2D" parent="Rooms/@Node2D@18452"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.733333, 0.2, 1)
-settings = SubResource("Resource_4b72k")
+settings = SubResource("Resource_8ua8a")
 
-[node name="@Node2D@18310" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18453" type="Node2D" parent="Rooms"]
 position = Vector2(-1291, 162)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_f3oyj")
+settings = SubResource("Resource_bm4ma")
 
-[node name="Door_To_Hubert_Home_12" type="Node2D" parent="Rooms/@Node2D@18310"]
+[node name="Door_To_Hubert_Home_12" type="Node2D" parent="Rooms/@Node2D@18453"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_85w0y")
+settings = SubResource("Resource_f7343")
 
-[node name="@Node2D@18311" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18454" type="Node2D" parent="Rooms"]
 position = Vector2(-1291, 517)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_olatt")
+settings = SubResource("Resource_ilrxu")
 
-[node name="Door_To_Cerulea_4" type="Node2D" parent="Rooms/@Node2D@18311"]
+[node name="Door_To_Cerulea_4" type="Node2D" parent="Rooms/@Node2D@18454"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_7sg50")
+settings = SubResource("Resource_00qgv")
 
-[node name="@Node2D@18312" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18455" type="Node2D" parent="Rooms"]
 position = Vector2(-519, 166)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_kpofu")
+settings = SubResource("Resource_tepv3")
 
-[node name="Door_To_Hubert_Home_14" type="Node2D" parent="Rooms/@Node2D@18312"]
+[node name="Door_To_Hubert_Home_14" type="Node2D" parent="Rooms/@Node2D@18455"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_fpyxw")
+settings = SubResource("Resource_3xfef")
 
-[node name="@Node2D@18313" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18456" type="Node2D" parent="Rooms"]
 position = Vector2(-519, 521)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_km2ii")
+settings = SubResource("Resource_4jnkb")
 
-[node name="Door_To_Cerulea_4" type="Node2D" parent="Rooms/@Node2D@18313"]
+[node name="Door_To_Cerulea_4" type="Node2D" parent="Rooms/@Node2D@18456"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_n5qcy")
+settings = SubResource("Resource_b8mas")
 
-[node name="@Node2D@18314" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18457" type="Node2D" parent="Rooms"]
 position = Vector2(-1909, -2698)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_3xljw")
+settings = SubResource("Resource_da11f")
 
-[node name="Door_To_Hubert_Home_3" type="Node2D" parent="Rooms/@Node2D@18314"]
+[node name="Door_To_Hubert_Home_3" type="Node2D" parent="Rooms/@Node2D@18457"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_glown")
+settings = SubResource("Resource_1nnd8")
 
-[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18314"]
+[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18457"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.733333, 0.2, 1)
-settings = SubResource("Resource_dsr17")
+settings = SubResource("Resource_3arce")
 
-[node name="Door_To_Hubert_Home_4" type="Node2D" parent="Rooms/@Node2D@18314"]
+[node name="Door_To_Hubert_Home_4" type="Node2D" parent="Rooms/@Node2D@18457"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(0.733333, 1, 0.2, 1)
-settings = SubResource("Resource_uaxw3")
+settings = SubResource("Resource_cevwk")
 
-[node name="@Node2D@18315" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18458" type="Node2D" parent="Rooms"]
 position = Vector2(-2607, -2294)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_01q5w")
+settings = SubResource("Resource_ggj4p")
 
-[node name="Door_To_Hubert_Home_5" type="Node2D" parent="Rooms/@Node2D@18315"]
+[node name="Door_To_Hubert_Home_5" type="Node2D" parent="Rooms/@Node2D@18458"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_eaw8l")
+settings = SubResource("Resource_tsvtf")
 
-[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18315"]
+[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18458"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.733333, 0.2, 1)
-settings = SubResource("Resource_nuy0c")
+settings = SubResource("Resource_xvgag")
 
-[node name="@Node2D@18316" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18459" type="Node2D" parent="Rooms"]
 position = Vector2(-1195, -2264)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_hppqo")
+settings = SubResource("Resource_rul3c")
 
-[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18316"]
+[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18459"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_rc3w8")
+settings = SubResource("Resource_xoded")
 
-[node name="Door_To_Hubert_Home_6" type="Node2D" parent="Rooms/@Node2D@18316"]
+[node name="Door_To_Hubert_Home_6" type="Node2D" parent="Rooms/@Node2D@18459"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.733333, 0.2, 1)
-settings = SubResource("Resource_irh4a")
+settings = SubResource("Resource_vr6q5")
 
-[node name="@Node2D@18317" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18460" type="Node2D" parent="Rooms"]
 position = Vector2(-2985, -1759)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_75j1j")
+settings = SubResource("Resource_2leg8")
 
-[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18317"]
+[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18460"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_ri2yw")
+settings = SubResource("Resource_wmhu3")
 
-[node name="@Node2D@18318" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18461" type="Node2D" parent="Rooms"]
 position = Vector2(-949, -1667)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_cgvun")
+settings = SubResource("Resource_rmyyh")
 
-[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18318"]
+[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18461"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_ys4oy")
+settings = SubResource("Resource_p4pxk")
 
-[node name="@Node2D@18319" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18462" type="Node2D" parent="Rooms"]
 position = Vector2(-1899, -1245)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_63wr8")
+settings = SubResource("Resource_atmwf")
 
-[node name="Door_To_Hubert_Home_8" type="Node2D" parent="Rooms/@Node2D@18319"]
+[node name="Door_To_Hubert_Home_8" type="Node2D" parent="Rooms/@Node2D@18462"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_5u5dv")
+settings = SubResource("Resource_2kkwr")
 
-[node name="@Node2D@18320" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18463" type="Node2D" parent="Rooms"]
 position = Vector2(-1899, -781)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_yho60")
+settings = SubResource("Resource_3dmw3")
 
-[node name="Door_To_Hubert_Home_9" type="Node2D" parent="Rooms/@Node2D@18320"]
+[node name="Door_To_Hubert_Home_9" type="Node2D" parent="Rooms/@Node2D@18463"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_6kop3")
+settings = SubResource("Resource_ywrpc")
 
-[node name="Door_To_Hubert_Home_10" type="Node2D" parent="Rooms/@Node2D@18320"]
+[node name="Door_To_Hubert_Home_10" type="Node2D" parent="Rooms/@Node2D@18463"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.733333, 0.2, 1)
-settings = SubResource("Resource_jtm4b")
+settings = SubResource("Resource_qf1s3")
 
-[node name="@Node2D@18321" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18464" type="Node2D" parent="Rooms"]
 position = Vector2(-2810, -420)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_cb3du")
+settings = SubResource("Resource_c3on8")
 
-[node name="Door_To_Cerulea" type="Node2D" parent="Rooms/@Node2D@18321"]
+[node name="Door_To_Cerulea" type="Node2D" parent="Rooms/@Node2D@18464"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_iu2to")
+settings = SubResource("Resource_1mf8h")
 
-[node name="@Node2D@18322" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18465" type="Node2D" parent="Rooms"]
 position = Vector2(-2810, 101)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_7n2m6")
+settings = SubResource("Resource_2eh2r")
 
-[node name="Door_To_Cerulea_1" type="Node2D" parent="Rooms/@Node2D@18322"]
+[node name="Door_To_Cerulea_1" type="Node2D" parent="Rooms/@Node2D@18465"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_tws1c")
+settings = SubResource("Resource_hs4ht")
 
-[node name="Door_To_Cerulea_2" type="Node2D" parent="Rooms/@Node2D@18322"]
+[node name="Door_To_Cerulea_2" type="Node2D" parent="Rooms/@Node2D@18465"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.733333, 0.2, 1)
-settings = SubResource("Resource_ammjh")
+settings = SubResource("Resource_dg4im")
 
-[node name="@Node2D@18323" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18466" type="Node2D" parent="Rooms"]
 position = Vector2(-3327, 643)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_sjvh8")
+settings = SubResource("Resource_nhkby")
 
-[node name="Door_To_Cerulea_3" type="Node2D" parent="Rooms/@Node2D@18323"]
+[node name="Door_To_Cerulea_3" type="Node2D" parent="Rooms/@Node2D@18466"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_kanwu")
+settings = SubResource("Resource_8v5yw")
 
-[node name="@Node2D@18324" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18467" type="Node2D" parent="Rooms"]
 position = Vector2(-2306, 639)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_fl1pa")
+settings = SubResource("Resource_6svwd")
 
-[node name="Door_To_Cerulea_3" type="Node2D" parent="Rooms/@Node2D@18324"]
+[node name="Door_To_Cerulea_3" type="Node2D" parent="Rooms/@Node2D@18467"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_ghkjp")
+settings = SubResource("Resource_dy2jb")
 
-[node name="@Node2D@18325" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18468" type="Node2D" parent="Rooms"]
 position = Vector2(-2810, 1200)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_bgmtg")
+settings = SubResource("Resource_c28yc")
 
-[node name="Door_To_Cerulea_5" type="Node2D" parent="Rooms/@Node2D@18325"]
+[node name="Door_To_Cerulea_5" type="Node2D" parent="Rooms/@Node2D@18468"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_0hsds")
+settings = SubResource("Resource_ufqbf")
 
-[node name="@Node2D@18326" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18469" type="Node2D" parent="Rooms"]
 position = Vector2(-903, 1200)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_74v21")
+settings = SubResource("Resource_w3k60")
 
-[node name="Door_To_Cerulea_5" type="Node2D" parent="Rooms/@Node2D@18326"]
+[node name="Door_To_Cerulea_5" type="Node2D" parent="Rooms/@Node2D@18469"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_hnm7m")
+settings = SubResource("Resource_dhpll")
 
-[node name="@Node2D@18327" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18470" type="Node2D" parent="Rooms"]
 position = Vector2(-2025, 1740)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_ucq1s")
+settings = SubResource("Resource_7ii2s")
 
-[node name="Door_To_Caves_Of_Dragonmount" type="Node2D" parent="Rooms/@Node2D@18327"]
+[node name="Door_To_Caves_Of_Dragonmount" type="Node2D" parent="Rooms/@Node2D@18470"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_55llk")
+settings = SubResource("Resource_24sxl")
 
-[node name="@Node2D@18328" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18471" type="Node2D" parent="Rooms"]
 position = Vector2(27, -3398)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_xohrk")
+settings = SubResource("Resource_d7buk")
 
-[node name="Door_To_Random_Villages" type="Node2D" parent="Rooms/@Node2D@18328"]
+[node name="Door_To_Random_Villages" type="Node2D" parent="Rooms/@Node2D@18471"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_is4m0")
+settings = SubResource("Resource_0cnxw")
 
-[node name="@Node2D@18329" type="Node2D" parent="Rooms"]
+[node name="@Node2D@18472" type="Node2D" parent="Rooms"]
 position = Vector2(-2025, 2534)
 script = ExtResource("2_qkq53")
-settings = SubResource("Resource_uo0bk")
+settings = SubResource("Resource_4j0us")
 
-[node name="Door_To_Sky" type="Node2D" parent="Rooms/@Node2D@18329"]
+[node name="Door_To_Sky" type="Node2D" parent="Rooms/@Node2D@18472"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_454fm")
+settings = SubResource("Resource_jhhsj")
 
-[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/@Node2D@18329"]
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/@Node2D@18472"]
 z_index = 1
 custom_minimum_size = Vector2(684, 20)
 offset_left = -342.0
@@ -954,13 +954,13 @@ theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="DoorVisual_Door_To_Sky" type="ColorRect" parent="Rooms/@Node2D@18329/DoorVisualsContainer"]
+[node name="DoorVisual_Door_To_Sky" type="ColorRect" parent="Rooms/@Node2D@18472/DoorVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
 
-[node name="LinesContainer" type="Node2D" parent="Rooms/@Node2D@18329"]
+[node name="LinesContainer" type="Node2D" parent="Rooms/@Node2D@18472"]
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
