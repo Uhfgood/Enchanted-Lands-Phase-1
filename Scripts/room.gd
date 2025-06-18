@@ -26,11 +26,6 @@ func _set_label(new_label: String) -> void:
 func _set_description(new_description: String) -> void:
 	description = new_description
 
-#@export var inbound_rooms : Array = [ "", "", "", "", "", "", "", "", "" ]
-#@export var door_specs : Array = [ "", "", "", "", "", "", "", "", "" ] : set = _set_door_specs
-#func _set_door_specs( doorspecs : Array ):
-#	door_specs = doorspecs
-	
 var doors : Array = []
 
 var original_id : String = "XXX"
@@ -120,15 +115,10 @@ static func Create( n_id : String, n_label : String, n_desc : String ) -> Room:
 	var room = Room.new()
 	room.id = n_id
 	room.original_id = n_id
-	#room.origin = n_origin
 	room.label = n_label
-	#room.name = n_label
 	room.description = n_desc
 	room.doors = []
-	#room.inbound_rooms = [ "", "", "", "", "", "", "", "", "" ]
-	#room.door_specs = [ "", "", "", "", "", "", "", "", "" ]
-	
-	#print( "Creating ", room.name )
+
 	return room
 	
 #} // end create()
@@ -139,7 +129,6 @@ static func CreateFromJSON( json_name : String )->Room:
 	if new_room.LoadDataFromJSON( json_name ) == false:
 		return null
 				
-	#print( "Successfully loaded json: ", json_name )
 	return new_room
 	
 func GetDoorByChoice( choice : String ):

@@ -4,35 +4,7 @@ class_name EditorRoom extends Node2D
 # Reference to the editor_map node (set by editor_map.gd)
 var editor_map: Node = null
 
-#@export var roomdata : Room
 var roomdata : Room
-
-#@export var id : String = "XXX" : set = _set_id
-#func _set_id(new_id: String) -> void:
-	#id = new_id
-	#var tokens = new_id.split("_")
-	#var new_label = ""
-	#var size = tokens.size()
-	#for i in range(1, size):
-		#if i < size - 1:
-			#new_label += tokens[i] + " "
-		#else:
-			#new_label += tokens[i]
-	#
-	##self.label = new_label
-	#
-	#if has_node("Panel"):
-		#update_name_label()
-	#else:
-		#call_deferred("update_name_label", 0, 5)
-
-#@export var label : String = "New Room" : set = _set_label
-#func _set_label(new_label: String) -> void:
-	#label = new_label
-	#if has_node("Panel"):
-		#update_name_label()
-	#else:
-		#call_deferred("update_name_label", 0, 5)
 
 func update_name_label(retry_count: int = 0, max_retries: int = 5) -> void:
 	if not is_inside_tree():  # Safety check: ensure node is in the scene tree
@@ -46,17 +18,12 @@ func update_name_label(retry_count: int = 0, max_retries: int = 5) -> void:
 	else:
 		print("Max retries reached, NameLabel still not found for room: ", name)
 			
-#@export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
-#func _set_description(new_description: String) -> void:
-	#description = new_description
-	#update_description_label()
 
 # Update the DescLabel text
 func update_description_label() -> void:
 
 	var desc_label = get_node_or_null("Panel/VBox/DescLabel")
 	if desc_label:
-		#desc_label.text = TruncateText(description, 5, 40)
 		desc_label.text = TruncateText( self.roomdata.description, 5, 40 )
 		desc_label.queue_redraw()  # Ensure the label redraws
 
@@ -66,17 +33,6 @@ func _set_door_specs( doorspecs : Array ):
 	door_specs = doorspecs
 	
 var edoors = {}
-#func GetDoorData() -> Array:
-	#var door_data = []
-	#for door in doors:
-		#if door is EditorDoor and door.settings:
-			#door_data.append({
-				#"id": door.settings.id,
-				#"choice": door.settings.choice,
-				#"destination": door.settings.destination
-			#})
-	#return door_data
-
 func GetDoorData() -> Array:
 	var door_data = []
 	for door in self.roomdata.doors:
@@ -197,24 +153,6 @@ func _set( property: StringName, value: Variant ) -> bool:
 	
 	return false
 #}
-
-#static func Create( n_id : String, n_label : String, n_desc : String ) -> EditorRoom:
-##{
-	#var room = EditorRoom.new()
-	#room.id = n_id
-	#room.original_id = n_id
-	#
-	#room.label = n_label
-	#room.name = n_label
-	#room.description = n_desc
-	#room.doors = []
-	#room.inbound_rooms = [ "", "", "", "", "", "", "", "", "" ]
-	#room.door_specs = [ "", "", "", "", "", "", "", "", "" ]
-	#
-	#print( "Creating ", room.name )
-	#return room
-	#
-##} // end create()
 
 static func Create( n_id : String, n_label : String, n_desc : String ) -> EditorRoom:
 #{
@@ -452,12 +390,8 @@ func TruncateText(text: String, max_lines: int = 5, chars_per_line: int = 40) ->
 	var result = ""
 	var processed_lines = 0  # Track the number of processed lines
 
-	# Debug: Print the input text
-	#print("TruncateText input for room ", name, ": '", text, "'")
-
 	# Split the text into lines based on natural \n characters
 	var lines = text.split("\n")
-	#var current_text = ""
 
 	# Process lines until we have 5 description lines
 	while current_lines < max_lines and processed_lines < lines.size():
@@ -558,15 +492,10 @@ func TruncateText(text: String, max_lines: int = 5, chars_per_line: int = 40) ->
 		else:
 			result = "..."
 
-	# Debug: Print the result
-	#print("TruncateText result for room ", name, ": '", result, "'")
 	return result
 		
 func SetupVisuals():
 #{
-	#if not Engine.is_editor_hint():
-	#	return  # Safeguard: Only run in the editor
-
 	if not has_node("Panel"):
 		# Create a Panel as the visual base with a border
 		var panel = Panel.new()
@@ -615,7 +544,6 @@ func SetupVisuals():
 		# Add a Label for the truncated description
 		var desc_label = Label.new()
 		desc_label.name = "DescLabel"
-		#desc_label.text = TruncateText(description, 5, 40)  # Truncate to 5 lines, 40 chars
 		desc_label.text = TruncateText( self.roomdata.description, 5, 40 )  # Truncate to 5 lines, 40 chars
 		desc_label.autowrap_mode = TextServer.AUTOWRAP_WORD  # Enable word wrapping
 		desc_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -651,7 +579,6 @@ func resize_panel(panel: Panel, vbox: VBoxContainer, name_label: Label, desc_lab
 	desc_label.queue_redraw()
 
 	# Get the font and default font size
-	#var font = desc_label.get_theme_font("font") if desc_label.has_theme_font("font") else desc_label.get_theme_default_font()
 	var font_size = 32
 	var line_spacing = desc_label.get_theme_constant("line_spacing") if desc_label.has_theme_constant("line_spacing") else 0
 
@@ -762,7 +689,7 @@ func UpdateDoorVisuals():
 			door_visual.custom_minimum_size = Vector2(20, 20) # Ensure minimum size
 			door_visual.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 			door_visual.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-			door_visual.color = self.edoors[ door.id ].color #door.color #Color(1, 0, 0) # Red for visibility
+			door_visual.color = self.edoors[ door.id ].color 
 			door_visual.visible = true
 			hbox.add_child(door_visual)
 			door_visual.owner = get_tree().edited_scene_root
@@ -824,8 +751,8 @@ func UpdateInboundVisuals():
 		# Set the separation to spread the ColorRect nodes across the Panel's width with margins
 		var margin = 80 # Pixels on each side
 		var total_width = panel_width - 2 * margin # Available width after margins
-		var node_width = inbound_count * 20 # var node_width = doors.size() * 20 # Total width of ColorRect nodes
-		var gaps = inbound_count - 1 # var gaps = doors.size() - 1 # Number of gaps between nodes
+		var node_width = inbound_count * 20 # Total width of ColorRect nodes
+		var gaps = inbound_count - 1# Number of gaps between nodes
 		var separation = (total_width - node_width) / gaps if gaps > 0 else 0
 		hbox.add_theme_constant_override("separation", separation)		
 		
@@ -841,10 +768,6 @@ func UpdateInboundVisuals():
 			hbox.position = Vector2(-panel_width / 2, separator_y - 20) # Align ColorRect center with Panel bottom
 		else:
 			hbox.position = Vector2(-panel_width / 2, 0)
-		
-		# Debug positioning
-		#print("Created new InboundVisualsContainer for room: ", name)
-		#print("  HBoxContainer position: ", hbox.position, ", size: ", hbox.size)
 		
 	#}  // end if not hbox
 	
@@ -863,7 +786,6 @@ func UpdateInboundVisuals():
 				
 			if( editor_map.rooms_dict.has( inbound ) ):
 			#{
-				#print( "Rooms dictionary has " + inbound )
 				var inbound_eroom = editor_map.rooms_dict[ inbound ]
 				inbound_room = inbound_eroom.roomdata
 				for inbound_door in inbound_room.doors:
@@ -879,16 +801,12 @@ func UpdateInboundVisuals():
 			inbound_visual.custom_minimum_size = Vector2( 20, 20 ) # Ensure minimum size
 			inbound_visual.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 			inbound_visual.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-			#print( "Setting inbound visual to : ", color )
-			inbound_visual.color = color #Color(1, 0, 0) # Red for visibility
+			inbound_visual.color = color
 			inbound_visual.visible = true
 			hbox.add_child( inbound_visual )
 			inbound_visual.owner = get_tree().edited_scene_root
 			inbound_visual.queue_redraw() # Force redraw
 			inbound_visuals.append( inbound_visual )
-			# Debug inbound visual
-			#print("  Added inbound visual for inbound room: ", inbound, " in room: ", name)
-			#print("    DoorVisual position: ", inbound_visual.position, ", size: ", inbound_visual.size)
 		# Force the HBoxContainer to update its layout
 		hbox.queue_redraw()
 		
@@ -1009,7 +927,6 @@ func UpdateDoorLines():
 		end_pos += dest_room.position - self.position
 		
 		var line = CustomLine2D.new()
-		#line.set_line(adjusted_start_pos, end_pos, door.color, 5.0)
 		line.set_line(adjusted_start_pos, end_pos, edoors[ door.id ].color, 5.0)
 		
 		# Lock the CustomLine2D node to prevent viewport movement
