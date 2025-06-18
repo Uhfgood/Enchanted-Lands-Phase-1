@@ -93,6 +93,7 @@ func _on_add_room_button_pressed():
 
 # create a dictionary so I can rebuild inbound list later
 func RebuildRoomsDictionary():	
+	rooms_dict.clear()
 	for room in rooms.get_children():
 		rooms_dict[ room.id ] = room 
 
@@ -133,7 +134,7 @@ func _on_remove_room_button_pressed():
 	editor_selection.clear()
 	
 	# Get the room's ID to locate the files
-	var room_id = currently_selected_room.id
+	var room_id = currently_selected_room.roomdata.id
 	if room_id == "":
 		print("Room " + currently_selected_room.label + " has no ID; removing from scene only.")
 	else:
@@ -145,19 +146,21 @@ func _on_remove_room_button_pressed():
 	if currently_selected_room.get_parent() == rooms:
 	#{
 		currently_selected_room.owner = null
-		rooms.remove_child(currently_selected_room)
+		rooms.remove_child( currently_selected_room )
 	#}
 	else:
 		print("Warning: Room is not a child of Rooms node: " + room_id)
 	
 	# Free the room node
-	holding_node.add_child(currently_selected_room)
+	holding_node.add_child( currently_selected_room )
 
 	# Clear the selected room
 	currently_selected_room = null
 	
 	# Reset the removal flag
 	is_removing_room = false
+	
+	RebuildRoomsDictionary()
 	
 	AssignInboundRooms()
 

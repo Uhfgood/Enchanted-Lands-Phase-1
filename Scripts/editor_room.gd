@@ -38,9 +38,9 @@ func GetDoorData() -> Array:
 	for door in self.roomdata.doors:
 		if door is Door and self.roomdata != null:
 			door_data.append({
-				"id": self.doordata.id,
-				"choice": self.doordata.choice,
-				"destination": self.doordata.destination
+				"id": door.id,
+				"choice": door.choice,
+				"destination": door.destination
 			})
 	return door_data
 
@@ -119,6 +119,7 @@ func _set( property: StringName, value: Variant ) -> bool:
 					new_label += tokens[i]
 			
 			self.roomdata.label = new_label
+			self.name = new_label
 			
 			if has_node("Panel"):
 				update_name_label()
@@ -179,6 +180,7 @@ static func CreateFromJSON( json_name : String )->EditorRoom:
 	new_room.roomdata = Room.CreateFromJSON( json_name )
 	if( new_room.roomdata ):
 	#{
+		var i = 0
 		new_room.name = new_room.roomdata.label
 		
 		for door in new_room.roomdata.doors:
@@ -189,11 +191,15 @@ static func CreateFromJSON( json_name : String )->EditorRoom:
 			var new_door = EditorDoor.create( door_name, color )
 			if new_door:
 			#{
-				#new_room.edoors.append( new_door )
 				new_room.edoors[ door.id ] = new_door
 				new_room.add_child( new_door )
 			
 			#}  # end if new_door
+		
+			if( i < 9 ):
+				var spec_str = "ch: " + door.choice + ", dest: " + door.destination + ";"
+				new_room.door_specs[ i ] = spec_str
+				i += 1
 		
 		#}  # end for door
 
@@ -212,7 +218,7 @@ static func CreateFromJSON( json_name : String )->EditorRoom:
 
 func CreateDoorsFromSpecs():
 	
-	for edoor in self.edoors:
+	for edoor in self.edoors.values():
 		if edoor:
 			edoor.owner = null
 			self.remove_child(edoor)
@@ -366,8 +372,8 @@ func ReSortDoors( roomlist ):
 	self.UpdateDoorLines()
 	
 func HasDestinationTo( room_id : String ) -> bool:
-	for door in self.doors:
-		if door.settings.destination == room_id:
+	for door in self.roomdata.doors:
+		if door.destination == room_id:
 			return true
 		
 	return false
@@ -375,8 +381,8 @@ func HasDestinationTo( room_id : String ) -> bool:
 func RemoveChildren() -> void:
 #{
 	# Explicitly clear the doors array to ensure consistency
-	if self.edoors:
-		self.edoors.clear()
+	self.roomdata.doors.clear()	
+	self.edoors.clear()
 	
 	# Remove and free all child nodes
 	for child in self.get_children():
