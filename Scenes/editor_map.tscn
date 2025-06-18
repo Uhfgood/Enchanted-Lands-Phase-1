@@ -1,13 +1,20 @@
-[gd_scene load_steps=66 format=3 uid="uid://bl74drpt5u5vp"]
+[gd_scene load_steps=5 format=3 uid="uid://bl74drpt5u5vp"]
 
 [ext_resource type="Script" path="res://Scripts/editor_map.gd" id="1_k3d1g"]
 [ext_resource type="Script" path="res://Scripts/editor_room.gd" id="2_qkq53"]
 [ext_resource type="Script" path="res://Scripts/editor_door.gd" id="3_cc1ac"]
-[ext_resource type="Script" path="res://Scripts/room.gd" id="3_eyqhx"]
-[ext_resource type="Script" path="res://Scripts/door.gd" id="4_7vr2k"]
+[ext_resource type="Script" path="res://Scripts/CustomLine2D.gd" id="4_agx46"]
 
-[sub_resource type="Resource" id="Resource_q0c02"]
-script = ExtResource("3_eyqhx")
+[node name="EditorMap" type="Node"]
+script = ExtResource("1_k3d1g")
+
+[node name="Rooms" type="Node2D" parent="."]
+position = Vector2(1446, 563)
+metadata/_edit_lock_ = true
+
+[node name="Main Menu" type="Node2D" parent="Rooms"]
+position = Vector2(-1899, -4966)
+script = ExtResource("2_qkq53")
 id = "000_Main_Menu"
 label = "Main Menu"
 description = "Main Menu:
@@ -15,17 +22,46 @@ description = "Main Menu:
 Hit 1 to start.
 
 Hit 0 to quit."
-inbound_rooms = ["", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 001_Enchanted_Lands;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_t6qkp"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "001_Enchanted_Lands"
-id = "Door_To_Enchanted_Lands"
+[node name="Door_To_Enchanted_Lands" type="Node2D" parent="Rooms/Main Menu"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_qxwet"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Main Menu"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Enchanted_Lands" type="ColorRect" parent="Rooms/Main Menu/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Main Menu"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19684" type="Node2D" parent="Rooms/Main Menu/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(-10, 388)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Enchanted Lands" type="Node2D" parent="Rooms"]
+position = Vector2(-1909, -4621)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["000_Main_Menu", "", "", "", "", "", "", "", ""]
 id = "001_Enchanted_Lands"
 label = "Enchanted Lands"
 description = "Welcome to Enchanted Lands!
@@ -38,17 +74,64 @@ Stay tuned.
 Hit 1 if you wish to continue.
 
 Hit 0 to quit."
-inbound_rooms = ["000_Main_Menu", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 001_Enchanted_Lands_1;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_qjbuo"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "001_Enchanted_Lands_1"
-id = "Door_To_Enchanted_Lands_1"
+[node name="Door_To_Enchanted_Lands_1" type="Node2D" parent="Rooms/Enchanted Lands"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_jmglr"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Enchanted Lands"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Enchanted_Lands_1" type="ColorRect" parent="Rooms/Enchanted Lands/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Enchanted Lands"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_000_Main_Menu" type="ColorRect" parent="Rooms/Enchanted Lands/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Enchanted Lands"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19685" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(0, 390)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
+position = Vector2(-1909, -4274)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["001_Enchanted_Lands", "", "", "", "", "", "", "", ""]
 id = "001_Enchanted_Lands_1"
 label = "Enchanted Lands 1"
 description = "Enchanted Lands Magical Resort was sold to a mysterious figure, by the ruler of the kingdom.
@@ -60,17 +143,64 @@ Chief advisor and friend to the King, the Wizard Hubert, after seeing him, goes 
 Hit 1 if you wish to go to Hubert's Home.
 
 Hit 0 to quit."
-inbound_rooms = ["001_Enchanted_Lands", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 002_Hubert_Home;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_o4ruw"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "002_Hubert_Home"
-id = "Door_To_Hubert_Home"
+[node name="Door_To_Hubert_Home" type="Node2D" parent="Rooms/Enchanted Lands 1"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_vhc8k"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Enchanted Lands 1"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Hubert_Home" type="ColorRect" parent="Rooms/Enchanted Lands 1/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Enchanted Lands 1"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_001_Enchanted_Lands" type="ColorRect" parent="Rooms/Enchanted Lands 1/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Enchanted Lands 1"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19686" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(2, 391)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home" type="Node2D" parent="Rooms"]
+position = Vector2(-1907, -3926)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["001_Enchanted_Lands_1", "", "", "", "", "", "", "", ""]
 id = "002_Hubert_Home"
 label = "Hubert Home"
 description = "Hubert goes to his home and then goes directly to the study, where he sees many books, scrolls, and loose papers.  There's also a large crystal ball in it's own cradle in the center of the room.
@@ -79,23 +209,84 @@ Hit 1 if you wish to examine the books, scrolls, and papers.
 Hit 2 if you wish to look into the crystal ball.
 
 Hit 0 to quit."
-inbound_rooms = ["001_Enchanted_Lands_1", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 002_Hubert_Home_1;", "ch: 2, dest: 002_Hubert_Home_2;", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_775dp"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "002_Hubert_Home_1"
-id = "Door_To_Hubert_Home_1"
+[node name="Door_To_Hubert_Home_1" type="Node2D" parent="Rooms/Hubert Home"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_ixkjr"]
-script = ExtResource("4_7vr2k")
-choice = "2"
-destination = "002_Hubert_Home_2"
-id = "Door_To_Hubert_Home_2"
+[node name="Door_To_Hubert_Home_2" type="Node2D" parent="Rooms/Hubert Home"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.733333, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_6urh2"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 484
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Hubert_Home_1" type="ColorRect" parent="Rooms/Hubert Home/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="DoorVisual_Door_To_Hubert_Home_2" type="ColorRect" parent="Rooms/Hubert Home/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_001_Enchanted_Lands_1" type="ColorRect" parent="Rooms/Hubert Home/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19687" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(-252, 330)
+end_pos = Vector2(-251, 634)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19688" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(252, 330)
+end_pos = Vector2(250, 1271)
+default_color = Color(1, 0.733333, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 1" type="Node2D" parent="Rooms"]
+position = Vector2(-2158, -3335)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["002_Hubert_Home", "", "", "", "", "", "", "", ""]
 id = "002_Hubert_Home_1"
 label = "Hubert Home 1"
 description = "One of the loose papers he examines has a handwritten list of requirements for an assistant, which reads:
@@ -104,17 +295,64 @@ Loner, possibly shy, not much interaction with the opposite sex, into fantasy, t
 Hit 1 to go over to the crystal ball.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 002_Hubert_Home_2;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_eunb1"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "002_Hubert_Home_2"
-id = "Door_To_Hubert_Home_2"
+[node name="Door_To_Hubert_Home_2" type="Node2D" parent="Rooms/Hubert Home 1"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_djnui"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 1"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Hubert_Home_2" type="ColorRect" parent="Rooms/Hubert Home 1/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 1"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home" type="ColorRect" parent="Rooms/Hubert Home 1/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 1"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19689" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(-3, 680)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 10" type="Node2D" parent="Rooms"]
+position = Vector2(-903, -217)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["002_Hubert_Home_8", "", "", "", "", "", "", "", ""]
 id = "002_Hubert_Home_10"
 label = "Hubert Home 10"
 description = "Going over to the bookcase behind the crystal ball, he selects a book entitled \"Professor Zorland's Hat Magick Compendium\".
@@ -124,23 +362,84 @@ He notes two spells, \"Object Translocation\" and \"Clone Conjure\".
 Hit 1 to cast the \"Object Translocation\" spell.
 Hit 2 to cast the \"Clone Conjure\" spell.
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_8", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 002_Hubert_Home_11;", "ch: 2, dest: 002_Hubert_Home_13;", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_dtjt0"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "002_Hubert_Home_11"
-id = "Door_To_Hubert_Home_11"
+[node name="Door_To_Hubert_Home_11" type="Node2D" parent="Rooms/Hubert Home 10"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_8ua8a"]
-script = ExtResource("4_7vr2k")
-choice = "2"
-destination = "002_Hubert_Home_13"
-id = "Door_To_Hubert_Home_13"
+[node name="Door_To_Hubert_Home_13" type="Node2D" parent="Rooms/Hubert Home 10"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.733333, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_bm4ma"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 10"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 484
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Hubert_Home_11" type="ColorRect" parent="Rooms/Hubert Home 10/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="DoorVisual_Door_To_Hubert_Home_13" type="ColorRect" parent="Rooms/Hubert Home 10/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 10"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_8" type="ColorRect" parent="Rooms/Hubert Home 10/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 10"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19690" type="Node2D" parent="Rooms/Hubert Home 10/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(-252, 330)
+end_pos = Vector2(-388, 422)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19691" type="Node2D" parent="Rooms/Hubert Home 10/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(252, 330)
+end_pos = Vector2(384, 426)
+default_color = Color(1, 0.733333, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 11" type="Node2D" parent="Rooms"]
+position = Vector2(-1291, 162)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["002_Hubert_Home_10", "", "", "", "", "", "", "", ""]
 id = "002_Hubert_Home_11"
 label = "Hubert Home 11"
 description = "Placing a quicksilver ticket on his desk, he grabs his hats, and then says a few magic words.
@@ -152,17 +451,64 @@ Hubert then proceed to execute a \"Clone Conjure\" spell.
 Hit 1 to cast \"Clone Conjure\"
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_10", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 002_Hubert_Home_12;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_f7343"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "002_Hubert_Home_12"
-id = "Door_To_Hubert_Home_12"
+[node name="Door_To_Hubert_Home_12" type="Node2D" parent="Rooms/Hubert Home 11"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_ilrxu"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 11"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Hubert_Home_12" type="ColorRect" parent="Rooms/Hubert Home 11/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 11"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_10" type="ColorRect" parent="Rooms/Hubert Home 11/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 11"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19692" type="Node2D" parent="Rooms/Hubert Home 11/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(0, 398)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 12" type="Node2D" parent="Rooms"]
+position = Vector2(-1291, 517)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["002_Hubert_Home_11", "", "", "", "", "", "", "", ""]
 id = "002_Hubert_Home_12"
 label = "Hubert Home 12"
 description = "Hubert decides to try a 'clone conjure' spell, and conjures a ticket on his own desk.
@@ -173,17 +519,64 @@ Hubert waits for John to figure it out.
 Hit 1 to continue.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_11", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 003_Cerulea_4;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_00qgv"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "003_Cerulea_4"
-id = "Door_To_Cerulea_4"
+[node name="Door_To_Cerulea_4" type="Node2D" parent="Rooms/Hubert Home 12"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_tepv3"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 12"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Cerulea_4" type="ColorRect" parent="Rooms/Hubert Home 12/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 12"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_11" type="ColorRect" parent="Rooms/Hubert Home 12/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 12"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19693" type="Node2D" parent="Rooms/Hubert Home 12/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(136, 726)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 13" type="Node2D" parent="Rooms"]
+position = Vector2(-519, 166)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["002_Hubert_Home_10", "", "", "", "", "", "", "", ""]
 id = "002_Hubert_Home_13"
 label = "Hubert Home 13"
 description = "Hubert decides to try a 'clone conjure' spell, and conjures a ticket on his own desk.
@@ -194,17 +587,64 @@ Hubert then attempts to cast \"Object Translocation\".
 Hit 1 to cast \"Object Translocation\".
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_10", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 002_Hubert_Home_14;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_3xfef"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "002_Hubert_Home_14"
-id = "Door_To_Hubert_Home_14"
+[node name="Door_To_Hubert_Home_14" type="Node2D" parent="Rooms/Hubert Home 13"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_4jnkb"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 13"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Hubert_Home_14" type="ColorRect" parent="Rooms/Hubert Home 13/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 13"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_10" type="ColorRect" parent="Rooms/Hubert Home 13/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 13"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19694" type="Node2D" parent="Rooms/Hubert Home 13/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(0, 398)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 14" type="Node2D" parent="Rooms"]
+position = Vector2(-519, 521)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["002_Hubert_Home_13", "", "", "", "", "", "", "", ""]
 id = "002_Hubert_Home_14"
 label = "Hubert Home 14"
 description = "Placing a quicksilver ticket on his desk, he grabs his hats, and then says a few magic words.
@@ -216,17 +656,64 @@ Hubert then waits for John to respond.
 Hit 1 to continue.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_13", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 003_Cerulea_4;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_b8mas"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "003_Cerulea_4"
-id = "Door_To_Cerulea_4"
+[node name="Door_To_Cerulea_4" type="Node2D" parent="Rooms/Hubert Home 14"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_da11f"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 14"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Cerulea_4" type="ColorRect" parent="Rooms/Hubert Home 14/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 14"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_13" type="ColorRect" parent="Rooms/Hubert Home 14/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 14"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19695" type="Node2D" parent="Rooms/Hubert Home 14/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(-132, 722)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 2" type="Node2D" parent="Rooms"]
+position = Vector2(-1909, -2698)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["002_Hubert_Home_1", "002_Hubert_Home", "", "", "", "", "", "", ""]
 id = "002_Hubert_Home_2"
 label = "Hubert Home 2"
 description = "Hubert walks over to the giant crystal ball, and starts to peer into it.  He instructs the crystal ball to show him 3 likely candidates to help him figure out what's going on in the kingdom.  The ball shows 3 likely candidates, Daniel, John, and Harry.
@@ -236,29 +723,111 @@ Hit 2 if you wish to pick John.
 Hit 3 if you wish to pick Harry.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_1", "002_Hubert_Home", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 002_Hubert_Home_3;", "ch: 2, dest: 002_Hubert_Home_7;", "ch: 3, dest: 002_Hubert_Home_4;", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_1nnd8"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "002_Hubert_Home_3"
-id = "Door_To_Hubert_Home_3"
+[node name="Door_To_Hubert_Home_3" type="Node2D" parent="Rooms/Hubert Home 2"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_3arce"]
-script = ExtResource("4_7vr2k")
-choice = "2"
-destination = "002_Hubert_Home_7"
-id = "Door_To_Hubert_Home_7"
+[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/Hubert Home 2"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.733333, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_cevwk"]
-script = ExtResource("4_7vr2k")
-choice = "3"
-destination = "002_Hubert_Home_4"
-id = "Door_To_Hubert_Home_4"
+[node name="Door_To_Hubert_Home_4" type="Node2D" parent="Rooms/Hubert Home 2"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(0.733333, 1, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_ggj4p"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 2"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 232
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Hubert_Home_3" type="ColorRect" parent="Rooms/Hubert Home 2/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="DoorVisual_Door_To_Hubert_Home_7" type="ColorRect" parent="Rooms/Hubert Home 2/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="DoorVisual_Door_To_Hubert_Home_4" type="ColorRect" parent="Rooms/Hubert Home 2/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.733333, 1, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 2"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 484
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_1" type="ColorRect" parent="Rooms/Hubert Home 2/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisual_002_Hubert_Home" type="ColorRect" parent="Rooms/Hubert Home 2/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 2"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19696" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(-252, 330)
+end_pos = Vector2(-698, 447)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19697" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(10, 1496)
+default_color = Color(1, 0.733333, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19698" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(252, 330)
+end_pos = Vector2(714, 477)
+default_color = Color(0.733333, 1, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 3" type="Node2D" parent="Rooms"]
+position = Vector2(-2607, -2294)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["002_Hubert_Home_2", "", "", "", "", "", "", "", ""]
 id = "002_Hubert_Home_3"
 label = "Hubert Home 3"
 description = "Looking over Daniel, Hubert sees him getting bullied, but then through the help of an Okinawan karate instructor, overcomes his problems through a martial arts tournament.  Well maybe Daniel isn't quite the right fit, so Hubert goes back to the crystal ball.
@@ -267,23 +836,84 @@ Hit 1 to pick Harry.
 Hit 2 to pick John.
 
 Hit 0 to quit."
+
+[node name="Door_To_Hubert_Home_5" type="Node2D" parent="Rooms/Hubert Home 3"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/Hubert Home 3"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 3"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 484
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Hubert_Home_5" type="ColorRect" parent="Rooms/Hubert Home 3/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="DoorVisual_Door_To_Hubert_Home_7" type="ColorRect" parent="Rooms/Hubert Home 3/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 3"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_2" type="ColorRect" parent="Rooms/Hubert Home 3/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 3"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19699" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(-252, 330)
+end_pos = Vector2(-378, 578)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19700" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(252, 330)
+end_pos = Vector2(582, 1092)
+default_color = Color(1, 0.733333, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 4" type="Node2D" parent="Rooms"]
+position = Vector2(-1195, -2264)
+script = ExtResource("2_qkq53")
 inbound_rooms = ["002_Hubert_Home_2", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 002_Hubert_Home_5;", "ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", ""]
-
-[sub_resource type="Resource" id="Resource_tsvtf"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "002_Hubert_Home_5"
-id = "Door_To_Hubert_Home_5"
-
-[sub_resource type="Resource" id="Resource_xvgag"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "002_Hubert_Home_7"
-id = "Door_To_Hubert_Home_7"
-
-[sub_resource type="Resource" id="Resource_rul3c"]
-script = ExtResource("3_eyqhx")
 id = "002_Hubert_Home_4"
 label = "Hubert Home 4"
 description = "Looking over Harry's life, Hubert notices, he's already a wizard, and that he makes friends rather quickly, so Harry is probably not the right fit.  Daniel and John are the only choices left.
@@ -292,23 +922,84 @@ Hit 1 to pick Daniel.
 Hit 2 to pick John.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_2", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 2, dest: 002_Hubert_Home_7;", "ch: 1, dest: 002_Hubert_Home_6;", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_xoded"]
-script = ExtResource("4_7vr2k")
-choice = "2"
-destination = "002_Hubert_Home_7"
-id = "Door_To_Hubert_Home_7"
+[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/Hubert Home 4"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_vr6q5"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "002_Hubert_Home_6"
-id = "Door_To_Hubert_Home_6"
+[node name="Door_To_Hubert_Home_6" type="Node2D" parent="Rooms/Hubert Home 4"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.733333, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_2leg8"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 4"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 484
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Hubert_Home_7" type="ColorRect" parent="Rooms/Hubert Home 4/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="DoorVisual_Door_To_Hubert_Home_6" type="ColorRect" parent="Rooms/Hubert Home 4/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 4"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_2" type="ColorRect" parent="Rooms/Hubert Home 4/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.733333, 1, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 4"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19701" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(-252, 330)
+end_pos = Vector2(-578, 1062)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19702" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(252, 330)
+end_pos = Vector2(246, 640)
+default_color = Color(1, 0.733333, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 5" type="Node2D" parent="Rooms"]
+position = Vector2(-2985, -1759)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["002_Hubert_Home_3", "", "", "", "", "", "", "", ""]
 id = "002_Hubert_Home_5"
 label = "Hubert Home 5"
 description = "Looking over Harry's life, Hubert notices, he's already a wizard, and that he makes friends rather quickly, so Harry is probably not the right fit.  So only John is left.
@@ -316,17 +1007,64 @@ description = "Looking over Harry's life, Hubert notices, he's already a wizard,
 Hit 1 to pick John.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_3", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_wmhu3"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "002_Hubert_Home_7"
-id = "Door_To_Hubert_Home_7"
+[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/Hubert Home 5"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_rmyyh"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 5"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Hubert_Home_7" type="ColorRect" parent="Rooms/Hubert Home 5/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 5"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_3" type="ColorRect" parent="Rooms/Hubert Home 5/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 5"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19703" type="Node2D" parent="Rooms/Hubert Home 5/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(834, 557)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 6" type="Node2D" parent="Rooms"]
+position = Vector2(-949, -1667)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["002_Hubert_Home_4", "", "", "", "", "", "", "", ""]
 id = "002_Hubert_Home_6"
 label = "Hubert Home 6"
 description = "Looking over Daniel, Hubert sees him getting bullied, but then through the help of an Okinawan karate instructor, overcomes his problems through a martial arts tournament.  Well maybe Daniel isn't quite the right fit, so he picks John.
@@ -334,17 +1072,64 @@ description = "Looking over Daniel, Hubert sees him getting bullied, but then th
 Hit 1 to pick John.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_4", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_p4pxk"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "002_Hubert_Home_7"
-id = "Door_To_Hubert_Home_7"
+[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/Hubert Home 6"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_atmwf"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 6"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Hubert_Home_7" type="ColorRect" parent="Rooms/Hubert Home 6/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 6"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_4" type="ColorRect" parent="Rooms/Hubert Home 6/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 6"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19704" type="Node2D" parent="Rooms/Hubert Home 6/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(-698, 465)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 7" type="Node2D" parent="Rooms"]
+position = Vector2(-1899, -1245)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["002_Hubert_Home_5", "002_Hubert_Home_3", "002_Hubert_Home_2", "002_Hubert_Home_4", "002_Hubert_Home_6", "", "", "", ""]
 id = "002_Hubert_Home_7"
 label = "Hubert Home 7"
 description = "Hubert picks John, and decides to somehow send a quicksilver ticket via his favorite candybar.
@@ -354,17 +1139,92 @@ A book called \"Unicorn Sign Language for Beginners\" appears in midair before c
 Hit 1 to prepare to send a quicksilver ticket to John.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_5", "002_Hubert_Home_3", "002_Hubert_Home_2", "002_Hubert_Home_4", "002_Hubert_Home_6", "", "", "", ""]
-door_specs = ["ch: 1, dest: 002_Hubert_Home_8;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_2kkwr"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "002_Hubert_Home_8"
-id = "Door_To_Hubert_Home_8"
+[node name="Door_To_Hubert_Home_8" type="Node2D" parent="Rooms/Hubert Home 7"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_3dmw3"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 7"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Hubert_Home_8" type="ColorRect" parent="Rooms/Hubert Home 7/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 7"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 106
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_5" type="ColorRect" parent="Rooms/Hubert Home 7/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisual_002_Hubert_Home_3" type="ColorRect" parent="Rooms/Hubert Home 7/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="InboundVisual_002_Hubert_Home_2" type="ColorRect" parent="Rooms/Hubert Home 7/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="InboundVisual_002_Hubert_Home_4" type="ColorRect" parent="Rooms/Hubert Home 7/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisual_002_Hubert_Home_6" type="ColorRect" parent="Rooms/Hubert Home 7/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 7"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19705" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(0, 507)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 8" type="Node2D" parent="Rooms"]
+position = Vector2(-1899, -781)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["002_Hubert_Home_7", "", "", "", "", "", "", "", ""]
 id = "002_Hubert_Home_8"
 label = "Hubert Home 8"
 description = "Hubert puts his 3 magic hats on his desk where there also sits a large box which almost looks like a safe with a little door.  On the front of the box there is a small label which reads \"Magic Mailbox #001 of 100.  Property of Halfway Hubert.\"
@@ -373,23 +1233,84 @@ Hit 1 if you wish to use the 'magic' mailbox.
 Hit 2 if you wish to use a spell or two to send John his silver ticket.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_7", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 002_Hubert_Home_9;", "ch: 2, dest: 002_Hubert_Home_10;", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_ywrpc"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "002_Hubert_Home_9"
-id = "Door_To_Hubert_Home_9"
+[node name="Door_To_Hubert_Home_9" type="Node2D" parent="Rooms/Hubert Home 8"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_qf1s3"]
-script = ExtResource("4_7vr2k")
-choice = "2"
-destination = "002_Hubert_Home_10"
-id = "Door_To_Hubert_Home_10"
+[node name="Door_To_Hubert_Home_10" type="Node2D" parent="Rooms/Hubert Home 8"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.733333, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_c3on8"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 8"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 484
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Hubert_Home_9" type="ColorRect" parent="Rooms/Hubert Home 8/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="DoorVisual_Door_To_Hubert_Home_10" type="ColorRect" parent="Rooms/Hubert Home 8/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 8"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_7" type="ColorRect" parent="Rooms/Hubert Home 8/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 8"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19706" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(-252, 330)
+end_pos = Vector2(-911, 404)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19707" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(252, 330)
+end_pos = Vector2(996, 607)
+default_color = Color(1, 0.733333, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Hubert Home 9" type="Node2D" parent="Rooms"]
+position = Vector2(-2810, -420)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["002_Hubert_Home_8", "", "", "", "", "", "", "", ""]
 id = "002_Hubert_Home_9"
 label = "Hubert Home 9"
 description = "Hubert pulls open the door on the box, and puts a single silver ticket into it.  And then says the destination out loud: \"John Thomas, Cerulea.  Benny Wonky Chocolate Bar. -- Oh inside the wrapper!\"  Hubert then just waits.
@@ -397,17 +1318,64 @@ While gazing into the crystal ball, Hubert notices John working at the library..
 
 Hit 1 to continue.
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_8", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_1mf8h"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "003_Cerulea"
-id = "Door_To_Cerulea"
+[node name="Door_To_Cerulea" type="Node2D" parent="Rooms/Hubert Home 9"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_2eh2r"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 9"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Cerulea" type="ColorRect" parent="Rooms/Hubert Home 9/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Hubert Home 9"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_8" type="ColorRect" parent="Rooms/Hubert Home 9/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Hubert Home 9"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19708" type="Node2D" parent="Rooms/Hubert Home 9/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(0, 564)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Cerulea" type="Node2D" parent="Rooms"]
+position = Vector2(-2810, 101)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["002_Hubert_Home_9", "", "", "", "", "", "", "", ""]
 id = "003_Cerulea"
 label = "Cerulea"
 description = "While working at the library, John is putting books back on the shelves, when he notices a book that has fallen on the floor behind him.
@@ -418,23 +1386,84 @@ Hit 1 to attempt to put it in another section.
 Hit 2 to take it to the reference desk.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_9", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 003_Cerulea_1;", "ch: 2, dest: 003_Cerulea_2;", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_hs4ht"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "003_Cerulea_1"
-id = "Door_To_Cerulea_1"
+[node name="Door_To_Cerulea_1" type="Node2D" parent="Rooms/Cerulea"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_dg4im"]
-script = ExtResource("4_7vr2k")
-choice = "2"
-destination = "003_Cerulea_2"
-id = "Door_To_Cerulea_2"
+[node name="Door_To_Cerulea_2" type="Node2D" parent="Rooms/Cerulea"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.733333, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_nhkby"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 484
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Cerulea_1" type="ColorRect" parent="Rooms/Cerulea/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="DoorVisual_Door_To_Cerulea_2" type="ColorRect" parent="Rooms/Cerulea/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_9" type="ColorRect" parent="Rooms/Cerulea/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Cerulea"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19709" type="Node2D" parent="Rooms/Cerulea/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(-252, 330)
+end_pos = Vector2(-517, 585)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19710" type="Node2D" parent="Rooms/Cerulea/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(252, 330)
+end_pos = Vector2(504, 581)
+default_color = Color(1, 0.733333, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Cerulea 1" type="Node2D" parent="Rooms"]
+position = Vector2(-3327, 643)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["003_Cerulea", "", "", "", "", "", "", "", ""]
 id = "003_Cerulea_1"
 label = "Cerulea 1"
 description = "He mutters something to himself about, \"No wonder, a book about sign language doesn't belong in the fairy tale section.\"
@@ -444,17 +1473,64 @@ He's still has some work to do today, so he puts the book into his cart and fini
 Hit 1 to take the book home with you.
 
 Hit 0 to quit."
+
+[node name="Door_To_Cerulea_3" type="Node2D" parent="Rooms/Cerulea 1"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea 1"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Cerulea_3" type="ColorRect" parent="Rooms/Cerulea 1/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea 1"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_003_Cerulea" type="ColorRect" parent="Rooms/Cerulea 1/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Cerulea 1"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19711" type="Node2D" parent="Rooms/Cerulea 1/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(265, 600)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Cerulea 2" type="Node2D" parent="Rooms"]
+position = Vector2(-2306, 639)
+script = ExtResource("2_qkq53")
 inbound_rooms = ["003_Cerulea", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 003_Cerulea_3;", "", "", "", "", "", "", "", ""]
-
-[sub_resource type="Resource" id="Resource_8v5yw"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "003_Cerulea_3"
-id = "Door_To_Cerulea_3"
-
-[sub_resource type="Resource" id="Resource_6svwd"]
-script = ExtResource("3_eyqhx")
 id = "003_Cerulea_2"
 label = "Cerulea 2"
 description = "John decides to take it over to the reference desk, and ask if they've ever heard of this book.
@@ -463,17 +1539,64 @@ After replying in the negative, the reference librarian tells John he could prob
 Hit 1 to start heading home.
 
 Hit 0 to quit."
-inbound_rooms = ["003_Cerulea", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 003_Cerulea_3;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_dy2jb"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "003_Cerulea_3"
-id = "Door_To_Cerulea_3"
+[node name="Door_To_Cerulea_3" type="Node2D" parent="Rooms/Cerulea 2"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_c28yc"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea 2"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Cerulea_3" type="ColorRect" parent="Rooms/Cerulea 2/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea 2"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_003_Cerulea" type="ColorRect" parent="Rooms/Cerulea 2/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Cerulea 2"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19712" type="Node2D" parent="Rooms/Cerulea 2/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(-252, 604)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Cerulea 3" type="Node2D" parent="Rooms"]
+position = Vector2(-2810, 1200)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["003_Cerulea_1", "003_Cerulea_2", "", "", "", "", "", "", ""]
 id = "003_Cerulea_3"
 label = "Cerulea 3"
 description = "While at home, John proceeds to read the book through.
@@ -486,17 +1609,71 @@ Flipping the ticket over he reads the words on the back.
 Hit 1 to continue.
 
 Hit 0 to quit."
-inbound_rooms = ["003_Cerulea_1", "003_Cerulea_2", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 003_Cerulea_5;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_ufqbf"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "003_Cerulea_5"
-id = "Door_To_Cerulea_5"
+[node name="Door_To_Cerulea_5" type="Node2D" parent="Rooms/Cerulea 3"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_w3k60"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea 3"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Cerulea_5" type="ColorRect" parent="Rooms/Cerulea 3/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea 3"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 484
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_003_Cerulea_1" type="ColorRect" parent="Rooms/Cerulea 3/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisual_003_Cerulea_2" type="ColorRect" parent="Rooms/Cerulea 3/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Cerulea 3"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19713" type="Node2D" parent="Rooms/Cerulea 3/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(533, 583)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Cerulea 4" type="Node2D" parent="Rooms"]
+position = Vector2(-903, 1200)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["002_Hubert_Home_12", "002_Hubert_Home_14", "", "", "", "", "", "", ""]
 id = "003_Cerulea_4"
 label = "Cerulea 4"
 description = "On his way home, John stops at a local store for his favorite candy bar.
@@ -511,17 +1688,71 @@ Now holding both the non-silver and partial tickets, he reads all the words off 
 Hit 1 to continue.
 
 Hit 0 to quit."
-inbound_rooms = ["002_Hubert_Home_12", "002_Hubert_Home_14", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 003_Cerulea_5;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_dhpll"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "003_Cerulea_5"
-id = "Door_To_Cerulea_5"
+[node name="Door_To_Cerulea_5" type="Node2D" parent="Rooms/Cerulea 4"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_7ii2s"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea 4"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Cerulea_5" type="ColorRect" parent="Rooms/Cerulea 4/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea 4"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 484
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_002_Hubert_Home_12" type="ColorRect" parent="Rooms/Cerulea 4/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisual_002_Hubert_Home_14" type="ColorRect" parent="Rooms/Cerulea 4/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Cerulea 4"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19714" type="Node2D" parent="Rooms/Cerulea 4/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(-870, 583)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Cerulea 5" type="Node2D" parent="Rooms"]
+position = Vector2(-2025, 1740)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["003_Cerulea_3", "003_Cerulea_4", "", "", "", "", "", "", ""]
 id = "003_Cerulea_5"
 label = "Cerulea 5"
 description = "As soon as John utters the magic words, a portal appears in front of him.
@@ -533,17 +1764,70 @@ Meanwhile a dragon is seen in the sky...
 Hit 1 to continue.
 
 Hit 0 to quit."
-inbound_rooms = ["003_Cerulea_3", "003_Cerulea_4", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_24sxl"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "004_Caves_Of_Dragonmount"
-id = "Door_To_Caves_Of_Dragonmount"
+[node name="Door_To_Caves_Of_Dragonmount" type="Node2D" parent="Rooms/Cerulea 5"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_d7buk"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea 5"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Caves_Of_Dragonmount" type="ColorRect" parent="Rooms/Cerulea 5/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea 5"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 484
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_003_Cerulea_3" type="ColorRect" parent="Rooms/Cerulea 5/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisual_003_Cerulea_4" type="ColorRect" parent="Rooms/Cerulea 5/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Cerulea 5"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@19715" type="Node2D" parent="Rooms/Cerulea 5/LinesContainer"]
+script = ExtResource("4_agx46")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(0, 837)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Cerulea 99" type="Node2D" parent="Rooms"]
+position = Vector2(27, -3398)
+script = ExtResource("2_qkq53")
 id = "003_Cerulea_99"
 label = "Cerulea 99"
 description = "In our realm (Cerulea), Zanzibar the great, magician, con artist, and thief, manages to escape the police into the Lands.
@@ -551,17 +1835,38 @@ description = "In our realm (Cerulea), Zanzibar the great, magician, con artist,
 Hit 1 if you wish to go to Random Villages.
 
 Hit 0 to quit."
-inbound_rooms = ["", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 009_Random_Villages;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_0cnxw"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "009_Random_Villages"
-id = "Door_To_Random_Villages"
+[node name="Door_To_Random_Villages" type="Node2D" parent="Rooms/Cerulea 99"]
+visible = false
+script = ExtResource("3_cc1ac")
+color = Color(1, 0.2, 0.2, 1)
 
-[sub_resource type="Resource" id="Resource_4j0us"]
-script = ExtResource("3_eyqhx")
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Cerulea 99"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Random_Villages" type="ColorRect" parent="Rooms/Cerulea 99/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Cerulea 99"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="Caves Of Dragonmount" type="Node2D" parent="Rooms"]
+position = Vector2(-2025, 2534)
+script = ExtResource("2_qkq53")
+inbound_rooms = ["003_Cerulea_5", "", "", "", "", "", "", "", ""]
 id = "004_Caves_Of_Dragonmount"
 label = "Caves Of Dragonmount"
 description = "Somewhere in the kingdom, Chester, a friendly dragon, lands at the entrance to the \"Caves of Dragonmount.\"
@@ -571,34 +1876,13 @@ Chester then leaves, and flies around while looking some more.
 Hit 1 if you wish to go to Sky.
 
 Hit 0 to quit."
-inbound_rooms = ["003_Cerulea_5", "003_Cerulea_12", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 005_Sky;", "", "", "", "", "", "", "", ""]
 
-[sub_resource type="Resource" id="Resource_jhhsj"]
-script = ExtResource("4_7vr2k")
-choice = "1"
-destination = "005_Sky"
-id = "Door_To_Sky"
-
-[node name="EditorMap" type="Node"]
-script = ExtResource("1_k3d1g")
-
-[node name="Rooms" type="Node2D" parent="."]
-position = Vector2(1446, 563)
-metadata/_edit_lock_ = true
-
-[node name="@Node2D@18447" type="Node2D" parent="Rooms"]
-position = Vector2(-1899, -4966)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_q0c02")
-
-[node name="Door_To_Enchanted_Lands" type="Node2D" parent="Rooms/@Node2D@18447"]
+[node name="Door_To_Sky" type="Node2D" parent="Rooms/Caves Of Dragonmount"]
 visible = false
 script = ExtResource("3_cc1ac")
 color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_t6qkp")
 
-[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/@Node2D@18447"]
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Caves Of Dragonmount"]
 z_index = 1
 custom_minimum_size = Vector2(684, 20)
 offset_left = -342.0
@@ -609,358 +1893,31 @@ theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="DoorVisual_Door_To_Enchanted_Lands" type="ColorRect" parent="Rooms/@Node2D@18447/DoorVisualsContainer"]
+[node name="DoorVisual_Door_To_Sky" type="ColorRect" parent="Rooms/Caves Of Dragonmount/DoorVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
 
-[node name="LinesContainer" type="Node2D" parent="Rooms/@Node2D@18447"]
-position = Vector2(0, -100)
-metadata/_edit_lock_ = true
-
-[node name="@Node2D@18448" type="Node2D" parent="Rooms"]
-position = Vector2(-1909, -4621)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_qxwet")
-
-[node name="Door_To_Enchanted_Lands_1" type="Node2D" parent="Rooms/@Node2D@18448"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_qjbuo")
-
-[node name="@Node2D@18449" type="Node2D" parent="Rooms"]
-position = Vector2(-1909, -4274)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_jmglr")
-
-[node name="Door_To_Hubert_Home" type="Node2D" parent="Rooms/@Node2D@18449"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_o4ruw")
-
-[node name="@Node2D@18450" type="Node2D" parent="Rooms"]
-position = Vector2(-1907, -3926)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_vhc8k")
-
-[node name="Door_To_Hubert_Home_1" type="Node2D" parent="Rooms/@Node2D@18450"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_775dp")
-
-[node name="Door_To_Hubert_Home_2" type="Node2D" parent="Rooms/@Node2D@18450"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.733333, 0.2, 1)
-settings = SubResource("Resource_ixkjr")
-
-[node name="@Node2D@18451" type="Node2D" parent="Rooms"]
-position = Vector2(-2158, -3335)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_6urh2")
-
-[node name="Door_To_Hubert_Home_2" type="Node2D" parent="Rooms/@Node2D@18451"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_eunb1")
-
-[node name="@Node2D@18452" type="Node2D" parent="Rooms"]
-position = Vector2(-903, -217)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_djnui")
-
-[node name="Door_To_Hubert_Home_11" type="Node2D" parent="Rooms/@Node2D@18452"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_dtjt0")
-
-[node name="Door_To_Hubert_Home_13" type="Node2D" parent="Rooms/@Node2D@18452"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.733333, 0.2, 1)
-settings = SubResource("Resource_8ua8a")
-
-[node name="@Node2D@18453" type="Node2D" parent="Rooms"]
-position = Vector2(-1291, 162)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_bm4ma")
-
-[node name="Door_To_Hubert_Home_12" type="Node2D" parent="Rooms/@Node2D@18453"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_f7343")
-
-[node name="@Node2D@18454" type="Node2D" parent="Rooms"]
-position = Vector2(-1291, 517)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_ilrxu")
-
-[node name="Door_To_Cerulea_4" type="Node2D" parent="Rooms/@Node2D@18454"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_00qgv")
-
-[node name="@Node2D@18455" type="Node2D" parent="Rooms"]
-position = Vector2(-519, 166)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_tepv3")
-
-[node name="Door_To_Hubert_Home_14" type="Node2D" parent="Rooms/@Node2D@18455"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_3xfef")
-
-[node name="@Node2D@18456" type="Node2D" parent="Rooms"]
-position = Vector2(-519, 521)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_4jnkb")
-
-[node name="Door_To_Cerulea_4" type="Node2D" parent="Rooms/@Node2D@18456"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_b8mas")
-
-[node name="@Node2D@18457" type="Node2D" parent="Rooms"]
-position = Vector2(-1909, -2698)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_da11f")
-
-[node name="Door_To_Hubert_Home_3" type="Node2D" parent="Rooms/@Node2D@18457"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_1nnd8")
-
-[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18457"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.733333, 0.2, 1)
-settings = SubResource("Resource_3arce")
-
-[node name="Door_To_Hubert_Home_4" type="Node2D" parent="Rooms/@Node2D@18457"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(0.733333, 1, 0.2, 1)
-settings = SubResource("Resource_cevwk")
-
-[node name="@Node2D@18458" type="Node2D" parent="Rooms"]
-position = Vector2(-2607, -2294)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_ggj4p")
-
-[node name="Door_To_Hubert_Home_5" type="Node2D" parent="Rooms/@Node2D@18458"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_tsvtf")
-
-[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18458"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.733333, 0.2, 1)
-settings = SubResource("Resource_xvgag")
-
-[node name="@Node2D@18459" type="Node2D" parent="Rooms"]
-position = Vector2(-1195, -2264)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_rul3c")
-
-[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18459"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_xoded")
-
-[node name="Door_To_Hubert_Home_6" type="Node2D" parent="Rooms/@Node2D@18459"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.733333, 0.2, 1)
-settings = SubResource("Resource_vr6q5")
-
-[node name="@Node2D@18460" type="Node2D" parent="Rooms"]
-position = Vector2(-2985, -1759)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_2leg8")
-
-[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18460"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_wmhu3")
-
-[node name="@Node2D@18461" type="Node2D" parent="Rooms"]
-position = Vector2(-949, -1667)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_rmyyh")
-
-[node name="Door_To_Hubert_Home_7" type="Node2D" parent="Rooms/@Node2D@18461"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_p4pxk")
-
-[node name="@Node2D@18462" type="Node2D" parent="Rooms"]
-position = Vector2(-1899, -1245)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_atmwf")
-
-[node name="Door_To_Hubert_Home_8" type="Node2D" parent="Rooms/@Node2D@18462"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_2kkwr")
-
-[node name="@Node2D@18463" type="Node2D" parent="Rooms"]
-position = Vector2(-1899, -781)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_3dmw3")
-
-[node name="Door_To_Hubert_Home_9" type="Node2D" parent="Rooms/@Node2D@18463"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_ywrpc")
-
-[node name="Door_To_Hubert_Home_10" type="Node2D" parent="Rooms/@Node2D@18463"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.733333, 0.2, 1)
-settings = SubResource("Resource_qf1s3")
-
-[node name="@Node2D@18464" type="Node2D" parent="Rooms"]
-position = Vector2(-2810, -420)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_c3on8")
-
-[node name="Door_To_Cerulea" type="Node2D" parent="Rooms/@Node2D@18464"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_1mf8h")
-
-[node name="@Node2D@18465" type="Node2D" parent="Rooms"]
-position = Vector2(-2810, 101)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_2eh2r")
-
-[node name="Door_To_Cerulea_1" type="Node2D" parent="Rooms/@Node2D@18465"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_hs4ht")
-
-[node name="Door_To_Cerulea_2" type="Node2D" parent="Rooms/@Node2D@18465"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.733333, 0.2, 1)
-settings = SubResource("Resource_dg4im")
-
-[node name="@Node2D@18466" type="Node2D" parent="Rooms"]
-position = Vector2(-3327, 643)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_nhkby")
-
-[node name="Door_To_Cerulea_3" type="Node2D" parent="Rooms/@Node2D@18466"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_8v5yw")
-
-[node name="@Node2D@18467" type="Node2D" parent="Rooms"]
-position = Vector2(-2306, 639)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_6svwd")
-
-[node name="Door_To_Cerulea_3" type="Node2D" parent="Rooms/@Node2D@18467"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_dy2jb")
-
-[node name="@Node2D@18468" type="Node2D" parent="Rooms"]
-position = Vector2(-2810, 1200)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_c28yc")
-
-[node name="Door_To_Cerulea_5" type="Node2D" parent="Rooms/@Node2D@18468"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_ufqbf")
-
-[node name="@Node2D@18469" type="Node2D" parent="Rooms"]
-position = Vector2(-903, 1200)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_w3k60")
-
-[node name="Door_To_Cerulea_5" type="Node2D" parent="Rooms/@Node2D@18469"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_dhpll")
-
-[node name="@Node2D@18470" type="Node2D" parent="Rooms"]
-position = Vector2(-2025, 1740)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_7ii2s")
-
-[node name="Door_To_Caves_Of_Dragonmount" type="Node2D" parent="Rooms/@Node2D@18470"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_24sxl")
-
-[node name="@Node2D@18471" type="Node2D" parent="Rooms"]
-position = Vector2(27, -3398)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_d7buk")
-
-[node name="Door_To_Random_Villages" type="Node2D" parent="Rooms/@Node2D@18471"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_0cnxw")
-
-[node name="@Node2D@18472" type="Node2D" parent="Rooms"]
-position = Vector2(-2025, 2534)
-script = ExtResource("2_qkq53")
-settings = SubResource("Resource_4j0us")
-
-[node name="Door_To_Sky" type="Node2D" parent="Rooms/@Node2D@18472"]
-visible = false
-script = ExtResource("3_cc1ac")
-color = Color(1, 0.2, 0.2, 1)
-settings = SubResource("Resource_jhhsj")
-
-[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/@Node2D@18472"]
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Caves Of Dragonmount"]
 z_index = 1
 custom_minimum_size = Vector2(684, 20)
 offset_left = -342.0
-offset_top = 210.0
+offset_top = -57.0
 offset_right = 342.0
-offset_bottom = 230.0
+offset_bottom = -37.0
 theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="DoorVisual_Door_To_Sky" type="ColorRect" parent="Rooms/@Node2D@18472/DoorVisualsContainer"]
+[node name="InboundVisual_003_Cerulea_5" type="ColorRect" parent="Rooms/Caves Of Dragonmount/InboundVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
 
-[node name="LinesContainer" type="Node2D" parent="Rooms/@Node2D@18472"]
+[node name="LinesContainer" type="Node2D" parent="Rooms/Caves Of Dragonmount"]
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true

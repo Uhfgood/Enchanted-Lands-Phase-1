@@ -4,59 +4,60 @@ class_name EditorRoom extends Node2D
 # Reference to the editor_map node (set by editor_map.gd)
 var editor_map: Node = null
 
-@export var settings : Room
+#@export var roomdata : Room
+var roomdata : Room
 
-@export var id : String = "XXX" : set = _set_id
-func _set_id(new_id: String) -> void:
-	id = new_id
-	var tokens = new_id.split("_")
-	var new_label = ""
-	var size = tokens.size()
-	for i in range(1, size):
-		if i < size - 1:
-			new_label += tokens[i] + " "
-		else:
-			new_label += tokens[i]
-	
-	self.label = new_label
-	
-	if has_node("Panel"):
-		update_name_label()
-	else:
-		call_deferred("update_name_label", 0, 5)
+#@export var id : String = "XXX" : set = _set_id
+#func _set_id(new_id: String) -> void:
+	#id = new_id
+	#var tokens = new_id.split("_")
+	#var new_label = ""
+	#var size = tokens.size()
+	#for i in range(1, size):
+		#if i < size - 1:
+			#new_label += tokens[i] + " "
+		#else:
+			#new_label += tokens[i]
+	#
+	##self.label = new_label
+	#
+	#if has_node("Panel"):
+		#update_name_label()
+	#else:
+		#call_deferred("update_name_label", 0, 5)
 
-@export var label : String = "New Room" : set = _set_label
-func _set_label(new_label: String) -> void:
-	label = new_label
-	if has_node("Panel"):
-		update_name_label()
-	else:
-		call_deferred("update_name_label", 0, 5)
+#@export var label : String = "New Room" : set = _set_label
+#func _set_label(new_label: String) -> void:
+	#label = new_label
+	#if has_node("Panel"):
+		#update_name_label()
+	#else:
+		#call_deferred("update_name_label", 0, 5)
 
 func update_name_label(retry_count: int = 0, max_retries: int = 5) -> void:
 	if not is_inside_tree():  # Safety check: ensure node is in the scene tree
 		return
-
 	var name_label = get_node_or_null("Panel/VBox/NameLabel")
 	if name_label:
-		name_label.text = self.label
+		name_label.text = self.roomdata.label
 		name_label.queue_redraw()
 	elif retry_count < max_retries:
 		call_deferred("update_name_label", retry_count + 1, max_retries)  # Retry without timer
 	else:
 		print("Max retries reached, NameLabel still not found for room: ", name)
 			
-@export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
-func _set_description(new_description: String) -> void:
-	description = new_description
-	update_description_label()
+#@export_multiline var description : String = "Modify the description text to describe your scene, and add your choices.  Make sure to number your choices up to 9, and add 0 for Exit." : set = _set_description
+#func _set_description(new_description: String) -> void:
+	#description = new_description
+	#update_description_label()
 
 # Update the DescLabel text
 func update_description_label() -> void:
 
 	var desc_label = get_node_or_null("Panel/VBox/DescLabel")
 	if desc_label:
-		desc_label.text = TruncateText(description, 5, 40)
+		#desc_label.text = TruncateText(description, 5, 40)
+		desc_label.text = TruncateText( self.roomdata.description, 5, 40 )
 		desc_label.queue_redraw()  # Ensure the label redraws
 
 @export var inbound_rooms : Array = [ "", "", "", "", "", "", "", "", "" ]
@@ -64,15 +65,26 @@ func update_description_label() -> void:
 func _set_door_specs( doorspecs : Array ):
 	door_specs = doorspecs
 	
-var doors : Array = []
+var edoors = {}
+#func GetDoorData() -> Array:
+	#var door_data = []
+	#for door in doors:
+		#if door is EditorDoor and door.settings:
+			#door_data.append({
+				#"id": door.settings.id,
+				#"choice": door.settings.choice,
+				#"destination": door.settings.destination
+			#})
+	#return door_data
+
 func GetDoorData() -> Array:
 	var door_data = []
-	for door in doors:
-		if door is EditorDoor and door.settings:
+	for door in self.roomdata.doors:
+		if door is Door and self.roomdata != null:
 			door_data.append({
-				"id": door.settings.id,
-				"choice": door.settings.choice,
-				"destination": door.settings.destination
+				"id": self.doordata.id,
+				"choice": self.doordata.choice,
+				"destination": self.doordata.destination
 			})
 	return door_data
 
@@ -84,16 +96,135 @@ var original_id : String = "XXX"
 
 var previous_position : Vector2 = Vector2()
 
+func _get_property_list() -> Array[ Dictionary ]:
+#{
+	var properties: Array[ Dictionary ] = []
+	properties.append(
+		{
+			"name": "id",
+			"type": TYPE_STRING,
+			"hint": PROPERTY_HINT_NONE,
+			"hint_string": ""
+		}
+	)
+	properties.append(
+		{
+			"name": "label",
+			"type": TYPE_STRING,
+			"hint": PROPERTY_HINT_NONE,
+			"hint_string": ""
+		}
+	)
+	properties.append(
+		{
+			"name": "description",
+			"type": TYPE_STRING,
+			"hint": PROPERTY_HINT_MULTILINE_TEXT,
+			"hint_string": ""
+		}
+	)
+	
+	return properties
+
+#}  // end func _get_property list()
+
+func _get( property: StringName ) -> Variant:
+#{	
+	if( self.roomdata != null ):
+	#{
+		if( property == "id" ):
+			return self.roomdata.id
+			
+		if( property == "label" ):
+			return self.roomdata.label
+	
+		if( property == "description" ):
+			return self.roomdata.description
+						
+	#}  // end if self.roomdata != null
+	
+	return null
+#}
+
+func _set( property: StringName, value: Variant ) -> bool:
+#{
+	if( self.roomdata != null ):
+	#{
+		if( property == "id" ):
+		#{
+			self.roomdata.id = value
+			var tokens = value.split("_")
+			var new_label = ""
+			var size = tokens.size()
+			for i in range(1, size):
+				if i < size - 1:
+					new_label += tokens[i] + " "
+				else:
+					new_label += tokens[i]
+			
+			self.roomdata.label = new_label
+			
+			if has_node("Panel"):
+				update_name_label()
+			else:
+				call_deferred("update_name_label", 0, 5)
+		
+		#}  // id
+		
+		if property == "label":
+		#{
+			self.name = value
+			self.roomdata.label = value
+			if has_node("Panel"):
+				update_name_label()
+			else:
+				call_deferred("update_name_label", 0, 5)
+			print( "Updated label to: ", roomdata.label )
+			return true
+		
+		#}  // label
+		
+		if property == "description":
+		#{
+			self.roomdata.description = value
+			update_description_label()
+			print( "Updated description to: ", roomdata.description )
+			return true
+		
+		#}  // description
+		
+	#}  // if self.roomdata != null
+	
+	return false
+#}
+
+#static func Create( n_id : String, n_label : String, n_desc : String ) -> EditorRoom:
+##{
+	#var room = EditorRoom.new()
+	#room.id = n_id
+	#room.original_id = n_id
+	#
+	#room.label = n_label
+	#room.name = n_label
+	#room.description = n_desc
+	#room.doors = []
+	#room.inbound_rooms = [ "", "", "", "", "", "", "", "", "" ]
+	#room.door_specs = [ "", "", "", "", "", "", "", "", "" ]
+	#
+	#print( "Creating ", room.name )
+	#return room
+	#
+##} // end create()
+
 static func Create( n_id : String, n_label : String, n_desc : String ) -> EditorRoom:
 #{
 	var room = EditorRoom.new()
-	room.id = n_id
-	room.original_id = n_id
+	if( !room ):
+		return null
 	
-	room.label = n_label
+	room.roomdata = Room.Create( n_id, n_label, n_desc )	
+	room.original_id = n_id
 	room.name = n_label
-	room.description = n_desc
-	room.doors = []
 	room.inbound_rooms = [ "", "", "", "", "", "", "", "", "" ]
 	room.door_specs = [ "", "", "", "", "", "", "", "", "" ]
 	
@@ -107,18 +238,21 @@ static func CreateFromJSON( json_name : String )->EditorRoom:
 	var hue = 0.0
 	var new_room = EditorRoom.new()
 		
-	new_room.settings = Room.CreateFromJSON( json_name )
-	if( new_room.settings ):
+	new_room.roomdata = Room.CreateFromJSON( json_name )
+	if( new_room.roomdata ):
 	#{
-		for door in new_room.settings.doors:
+		new_room.name = new_room.roomdata.label
+		
+		for door in new_room.roomdata.doors:
 		#{
 			var color = Color.from_hsv( hue, 0.8, 1.0 )
 			hue += 1.0 / 9
 			var door_name = "Door_To_" + door.destination.substr( 4 )
-			var new_door = EditorDoor.create( door.id, door.choice, door.destination, door_name, color )
+			var new_door = EditorDoor.create( door_name, color )
 			if new_door:
 			#{
-				new_room.doors.append( new_door )
+				#new_room.edoors.append( new_door )
+				new_room.edoors[ door.id ] = new_door
 				new_room.add_child( new_door )
 			
 			#}  # end if new_door
@@ -127,7 +261,7 @@ static func CreateFromJSON( json_name : String )->EditorRoom:
 
 		new_room.SetupVisuals()
 	
-	#}  # end if new_room.settings
+	#}  # end if new_room.roomdata
 	else:
 		print( "Failed to load room: ", json_name )
 		return null
@@ -138,23 +272,18 @@ static func CreateFromJSON( json_name : String )->EditorRoom:
 
 #}  // end CreateFromJSON()
 
-func GetDoorByChoice( choice : String ):
-	for door in doors:
-		if( door.settings.choice == choice ):
-			return door
-	
-	return null
-	
 func CreateDoorsFromSpecs():
 	
-	for door in self.doors:
-		if door and door.get_parent() == self:
-			door.owner = null
-			self.remove_child(door)
-			door.queue_free()
-
-	self.doors.clear()
+	for edoor in self.edoors:
+		if edoor:
+			edoor.owner = null
+			self.remove_child(edoor)
+			edoor.queue_free()
+	self.edoors.clear()
 	
+	if( self.roomdata ):
+		self.roomdata.doors.clear()
+		
 	var id_str = "***_***"
 	var choice_str = "*"
 	var dest_str = "***_***"
@@ -187,27 +316,33 @@ func CreateDoorsFromSpecs():
 					i += 1
 					
 		id_str = "Door_To_" + dest_str.substr(4)
+
+		if( roomdata ):
+			var room_door = Door.create( id_str, choice_str, dest_str )
+			if room_door:
+				self.roomdata.doors.append( room_door )
 		
 		var color = Color.from_hsv( hue, 0.8, 1.0 )
 		hue += 1.0 / 9
-		var new_door = EditorDoor.create( id_str, choice_str, dest_str, id_str, color )
+		var new_door = EditorDoor.create( id_str, color )
 		if new_door:
-			self.doors.append(new_door)
-			self.add_child(new_door)
+			self.edoors[ id_str ] = new_door
+			self.add_child( new_door )
 			new_door.owner = get_tree().edited_scene_root
 	
 	var door = null
 	var spec_str = ""
 	for i in range(9):
-		if i < self.doors.size():
-			door = self.doors[i]
+		if i < self.roomdata.doors.size():
+			door = self.roomdata.doors[ i ]
 			if door != null:
-				spec_str = "ch: " + door.settings.choice + ", dest: " + door.settings.destination + ";"
+				spec_str = "ch: " + door.choice + ", dest: " + door.destination + ";"
 			else:
 				spec_str = ""
 		else:
 			spec_str = ""
-		self.door_specs[i] = spec_str
+			
+		self.door_specs[ i ] = spec_str
 	
 	self.emit_signal("property_list_changed")
 
@@ -218,10 +353,10 @@ func SetOwner( new_owner ):
 			door.owner = new_owner
 	
 func RebuildDoors():
-	self.doors.clear()
+	self.edoors.clear()
 	for child in self.get_children():
 		if child is EditorDoor:
-			self.doors.append( child )
+			self.edoors.append( child )
 			
 	
 func ClearInboundRooms():
@@ -229,11 +364,11 @@ func ClearInboundRooms():
 		self.inbound_rooms[ i ] = ""
 	
 func RebuildInboundRooms( roomlist ):
-	for door in self.doors:
+	for door in self.roomdata.doors:
 	#{
-		if( roomlist.has( door.settings.destination ) ):
+		if( roomlist.has( door.destination ) ):
 		#{
-			var dest_room = roomlist[ door.settings.destination ]
+			var dest_room = roomlist[ door.destination ]
 			
 			for i in range( dest_room.inbound_rooms.size() ):
 				if( dest_room.inbound_rooms[ i ] == "" ):
@@ -243,7 +378,7 @@ func RebuildInboundRooms( roomlist ):
 		#}  // end if rooms_dict.has...
 		else:
 			# Just warning when there's a door but the destination is missing.
-			print( "Room: " + self.id + ", Door dest. " + door.settings.destination + " does not exist in rooms_dict." )
+			print( "Room: " + self.id + ", Door dest. " + door.destination + " does not exist in rooms_dict." )
 		
 	#} // end for door
 
@@ -271,10 +406,10 @@ func ReorderInboundRooms( roomlist ):
 func ReSortDoors( roomlist ):
 	var door_data = []
 	door_data.clear()
-	for door in self.doors:
+	for door in self.roomdata.doors:
 	#{
-		if( roomlist.has( door.settings.destination ) ):
-			var dest_x = roomlist[ door.settings.destination ].position.x
+		if( roomlist.has( door.destination ) ):
+			var dest_x = roomlist[ door.destination ].position.x
 			var pair = [ door, dest_x ]
 			door_data.append( pair )
 		else:
@@ -285,9 +420,9 @@ func ReSortDoors( roomlist ):
 	door_data.sort_custom( func( a, b ): return a[ 1 ] < b[ 1 ] )
 	
 	# repopulate the doors array
-	self.doors.clear()
+	self.roomdata.doors.clear()
 	for i in range( door_data.size() ):
-		self.doors.append( door_data[ i ][ 0 ] )
+		self.roomdata.doors.append( door_data[ i ][ 0 ] )
 
 	self.UpdateDoorVisuals()
 	self.UpdateDoorLines()
@@ -302,8 +437,8 @@ func HasDestinationTo( room_id : String ) -> bool:
 func RemoveChildren() -> void:
 #{
 	# Explicitly clear the doors array to ensure consistency
-	if self.doors:
-		self.doors.clear()
+	if self.edoors:
+		self.edoors.clear()
 	
 	# Remove and free all child nodes
 	for child in self.get_children():
@@ -463,7 +598,7 @@ func SetupVisuals():
 		# Add a Label for the title (room name)
 		var name_label = Label.new()
 		name_label.name = "NameLabel"
-		name_label.text = name  # Use the node's name (e.g., "rm000-Welcome")
+		name_label.text = self.roomdata.label  # Use the node's name (e.g., "rm000-Welcome")
 		name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		name_label.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		vbox.add_child(name_label)
@@ -480,15 +615,14 @@ func SetupVisuals():
 		# Add a Label for the truncated description
 		var desc_label = Label.new()
 		desc_label.name = "DescLabel"
-		desc_label.text = TruncateText(description, 5, 40)  # Truncate to 5 lines, 40 chars
+		#desc_label.text = TruncateText(description, 5, 40)  # Truncate to 5 lines, 40 chars
+		desc_label.text = TruncateText( self.roomdata.description, 5, 40 )  # Truncate to 5 lines, 40 chars
 		desc_label.autowrap_mode = TextServer.AUTOWRAP_WORD  # Enable word wrapping
 		desc_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		desc_label.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		desc_label.max_lines_visible = 6  # Limit to 6 lines (5 description + ellipsis)
 		vbox.add_child(desc_label)
 
-		# Defer resizing the panel until the labels are fully laid out
-		#call_deferred("resize_panel", panel, vbox, name_label, desc_label)
 		resize_panel(panel, vbox, name_label, desc_label)
 	
 		# Calculate the horizontal center of the Panel
@@ -582,13 +716,13 @@ func UpdateDoorVisuals():
 			child.queue_free()
 		
 		# Remove the HBoxContainer if there are no doors
-		if doors.is_empty():
+		if self.roomdata.doors.is_empty():
 			hbox.get_parent().remove_child(hbox)
 			hbox.queue_free()
 			hbox = null
 	
 	# Create a new HBoxContainer if needed (either no HBoxContainer or it was removed)
-	if not hbox and not doors.is_empty():
+	if not hbox and not self.roomdata.doors.is_empty():
 		hbox = HBoxContainer.new()
 		hbox.name = "DoorVisualsContainer"
 		# Get the Panel's width for the HBoxContainer
@@ -601,8 +735,8 @@ func UpdateDoorVisuals():
 		# Set the separation to spread the ColorRect nodes across the Panel's width with margins
 		var margin = 80 # Pixels on each side
 		var total_width = panel_width - 2 * margin # Available width after margins
-		var node_width = doors.size() * 20 # Total width of ColorRect nodes
-		var gaps = doors.size() - 1 # Number of gaps between nodes
+		var node_width = self.roomdata.doors.size() * 20 # Total width of ColorRect nodes
+		var gaps = self.roomdata.doors.size() - 1 # Number of gaps between nodes
 		var separation = (total_width - node_width) / gaps if gaps > 0 else 0
 		hbox.add_theme_constant_override("separation", separation)		
 		
@@ -621,14 +755,14 @@ func UpdateDoorVisuals():
 	
 	# Create new door visuals if there are doors
 	if hbox:
-		for door in doors:
+		for door in self.roomdata.doors:
 			var door_visual = ColorRect.new()
-			door_visual.name = "DoorVisual_" + door.name
+			door_visual.name = "DoorVisual_" + door.id
 			door_visual.size = Vector2(20, 20)
 			door_visual.custom_minimum_size = Vector2(20, 20) # Ensure minimum size
 			door_visual.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 			door_visual.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-			door_visual.color = door.color #Color(1, 0, 0) # Red for visibility
+			door_visual.color = self.edoors[ door.id ].color #door.color #Color(1, 0, 0) # Red for visibility
 			door_visual.visible = true
 			hbox.add_child(door_visual)
 			door_visual.owner = get_tree().edited_scene_root
@@ -648,7 +782,7 @@ func UpdateInboundVisuals():
 	var inbound_count = 0;
 	for i in range( 9 ):
 	#{
-		if( inbound_rooms[ i ] != "" ):
+		if( self.inbound_rooms[ i ] != "" ):
 			inbound_count += 1
 	#}		
 	if( inbound_count > 0 ):
@@ -716,7 +850,7 @@ func UpdateInboundVisuals():
 	
 	# Create new inbound visuals if there are inbound links
 	if( hbox ):
-		for inbound in inbound_rooms:
+		for inbound in self.inbound_rooms:
 			if( inbound == "" ):
 				continue
 			
@@ -730,13 +864,12 @@ func UpdateInboundVisuals():
 			if( editor_map.rooms_dict.has( inbound ) ):
 			#{
 				#print( "Rooms dictionary has " + inbound )
-				inbound_room = editor_map.rooms_dict[ inbound ]
+				var inbound_eroom = editor_map.rooms_dict[ inbound ]
+				inbound_room = inbound_eroom.roomdata
 				for inbound_door in inbound_room.doors:
 				#{
-					if( inbound_door.settings.destination == id ):
-						#print( "inbound door found" )
-						color = inbound_door.color
-						#print( color )
+					if( inbound_door.destination == self.roomdata.id ):
+						color = inbound_eroom.edoors[ inbound_door.id ].color
 				#}
 			#}
 			
@@ -762,11 +895,6 @@ func UpdateInboundVisuals():
 #}  // end func UpdateInboundVisuals()
 
 func UpdateDoorLines():
-	#print("UpdateDoorLines called for room: ", name, " with doors.size(): ", doors.size(), ", door_visuals.size(): ", door_visuals.size(), ", is_inside_tree(): ", is_inside_tree())
-	
-	#if not Engine.is_editor_hint() or not is_inside_tree():
-		#print("Skipping UpdateDoorLines for room: ", name, " during cleanup or non-editor context")
-	#	return
 
 # Clear the door_visuals array
 	door_lines.clear()
@@ -782,8 +910,7 @@ func UpdateDoorLines():
 		remove_child(lines_container)
 		lines_container.queue_free()
 	
-	if doors.is_empty():
-		#print( "No doors in room: ", self.id )
+	if self.roomdata.doors.is_empty():
 		return
 	
 	var y_offset = 100
@@ -808,8 +935,8 @@ func UpdateDoorLines():
 	hbox.queue_redraw()
 	
 	# Ensure doors and door_visuals are aligned
-	if doors.size() != door_visuals.size():
-		print("Mismatch between doors and door_visuals for room: ", name, " (doors: ", doors.size(), ", visuals: ", door_visuals.size(), ")")
+	if self.roomdata.doors.size() != door_visuals.size():
+		print("Mismatch between doors and door_visuals for room: ", name, " (doors: ", self.roomdata.doors.size(), ", visuals: ", door_visuals.size(), ")")
 		return
 
 	if door_visuals.is_empty():
@@ -823,14 +950,14 @@ func UpdateDoorLines():
 	var start_pos = Vector2(0, panel.position.y + panel.size.y + 10)
 
 	# Iterate over doors and door visuals
-	for i in range(doors.size()):
-		var door = doors[i]
+	for i in range(self.roomdata.doors.size()):
+		var door = self.roomdata.doors[i]
 		var panel_width = panel.size.x
 		panel_width += 100  # increase so the lock icon moves to the side
 		var margin = 80
 		var total_width = panel_width - 2 * margin
-		var node_width = doors.size() * 20
-		var gaps = doors.size() - 1
+		var node_width = self.roomdata.doors.size() * 20
+		var gaps = self.roomdata.doors.size() - 1
 		var separation = (total_width - node_width) / gaps if gaps > 0 else 0
 		var total_content_width = node_width + separation * gaps
 		var start_x = -total_content_width / 2  # Center the content
@@ -839,10 +966,10 @@ func UpdateDoorLines():
 		adjusted_start_pos.x = visual_x
 		adjusted_start_pos.y += y_offset
 		
-		if not editor_map or not editor_map.rooms_dict.has(door.settings.destination):
+		if not editor_map or not editor_map.rooms_dict.has(door.destination):
 			continue
 
-		var dest_room = editor_map.rooms_dict[door.settings.destination]
+		var dest_room = editor_map.rooms_dict[door.destination]
 		if not dest_room:
 			continue
 
@@ -882,8 +1009,9 @@ func UpdateDoorLines():
 		end_pos += dest_room.position - self.position
 		
 		var line = CustomLine2D.new()
-		line.set_line(adjusted_start_pos, end_pos, door.color, 5.0)
-
+		#line.set_line(adjusted_start_pos, end_pos, door.color, 5.0)
+		line.set_line(adjusted_start_pos, end_pos, edoors[ door.id ].color, 5.0)
+		
 		# Lock the CustomLine2D node to prevent viewport movement
 		line.set_meta("_edit_lock_", true)
 

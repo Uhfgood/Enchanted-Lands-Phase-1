@@ -26,10 +26,10 @@ func _set_label(new_label: String) -> void:
 func _set_description(new_description: String) -> void:
 	description = new_description
 
-@export var inbound_rooms : Array = [ "", "", "", "", "", "", "", "", "" ]
-@export var door_specs : Array = [ "", "", "", "", "", "", "", "", "" ] : set = _set_door_specs
-func _set_door_specs( doorspecs : Array ):
-	door_specs = doorspecs
+#@export var inbound_rooms : Array = [ "", "", "", "", "", "", "", "", "" ]
+#@export var door_specs : Array = [ "", "", "", "", "", "", "", "", "" ] : set = _set_door_specs
+#func _set_door_specs( doorspecs : Array ):
+#	door_specs = doorspecs
 	
 var doors : Array = []
 
@@ -59,21 +59,21 @@ func LoadDataFromJSON( json_name : String ) -> bool:
 	self.id = json_data[ "id" ]
 	self.original_id = self.id
 	
-	if( "inbound" in json_data ):
-	#{
-		var i = 0;
-		for inbound_data in json_data[ "inbound" ]:
-		#{
-			if( i < self.inbound_rooms.size() ):
-			#{
-				self.inbound_rooms[ i ] = inbound_data
-				i += 1
-				
-			#}  // end if i < size
-				
-		#}  // end for inbound_data
-		
-	#}  // end if "inbound" in json_data
+	#if( "inbound" in json_data ):
+	##{
+		#var i = 0;
+		#for inbound_data in json_data[ "inbound" ]:
+		##{
+			#if( i < self.inbound_rooms.size() ):
+			##{
+				#self.inbound_rooms[ i ] = inbound_data
+				#i += 1
+				#
+			##}  // end if i < size
+				#
+		##}  // end for inbound_data
+		#
+	##}  // end if "inbound" in json_data
 	
 	self.label = json_data[ "label" ]
 	self.description = json_data[ "description" ]
@@ -96,10 +96,10 @@ func LoadDataFromJSON( json_name : String ) -> bool:
 				doors.append( new_door )
 				#add_child( new_door )
 
-				if( i < 9 ):
-					var spec_str = "ch: " + choice + ", dest: " + dest + ";"
-					door_specs[ i ] = spec_str
-					i += 1
+				#if( i < 9 ):
+					#var spec_str = "ch: " + choice + ", dest: " + dest + ";"
+					#door_specs[ i ] = spec_str
+					#i += 1
 				 
 				#print( "Successfully created " + new_door.name + "." )
 				
@@ -125,8 +125,8 @@ static func Create( n_id : String, n_label : String, n_desc : String ) -> Room:
 	#room.name = n_label
 	room.description = n_desc
 	room.doors = []
-	room.inbound_rooms = [ "", "", "", "", "", "", "", "", "" ]
-	room.door_specs = [ "", "", "", "", "", "", "", "", "" ]
+	#room.inbound_rooms = [ "", "", "", "", "", "", "", "", "" ]
+	#room.door_specs = [ "", "", "", "", "", "", "", "", "" ]
 	
 	#print( "Creating ", room.name )
 	return room
