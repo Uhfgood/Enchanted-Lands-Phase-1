@@ -2,10 +2,6 @@
     "id": "003_Cerulea_2",
     "label": "Cerulea 2",
     "description": "John decides to take it over to the reference desk, and ask if they've ever heard of this book.\nAfter replying in the negative, the reference librarian tells John he could probably take it home then.\n\nHit 1 to start heading home.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "003_Cerulea"
-    ],
     "doors":
     [
         {

@@ -18,6 +18,8 @@ var holding_node: Node = Node.new()
 
 func _on_selection_changed():
 #{
+	print( "_on_selection_changed executed" )
+	
 	# Ignore selection changes during removal
 	if is_removing_room:
 		print("Ignoring selection change during room removal.")
@@ -80,8 +82,9 @@ func _on_add_room_button_pressed():
 	var new_label = unique_label
 	var new_desc = "There's nothing here yet.  Hit 0 to quit."
 	var new_room = EditorRoom.Create( new_id, new_label, new_desc )
+	new_room.SetupVisuals()
 	AddRoomToEditorMap( new_room )
-
+	
 	# Select the new room in the scene tree
 	var editor_selection = EditorInterface.get_selection()
 	editor_selection.clear()
@@ -168,6 +171,19 @@ func _on_remove_room_button_pressed():
 	for room in rooms.get_children():
 		room.UpdateInboundVisuals()
 		room.UpdateDoorLines()
+	
+	print( "Removed room: ", room_id )
+	
+	# Synchronous reconnection
+	if not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
+		editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
+		print("Reconnected selection_changed signal")
+		
+	#for child in holding_node.get_children():
+	#	holding_node.remove_child(child)
+	#	child.queue_free()
+		
+	#print("Holding node children: ", holding_node.get_child_count())
 	
 #} // end func _on_remove_room_button_pressed
 	
@@ -322,7 +338,7 @@ func AddRoomToEditorMap(room: EditorRoom):
 	rooms.add_child(room)
 	room.SetOwner(self)
 	room.editor_map = self
-	room.SetupVisuals()
+	#room.SetupVisuals()
 		
 func CreateNewMetaFile( filename ):
 #{
@@ -365,27 +381,27 @@ func SaveRoomDataForRoom(room, filename: String):
 		json_str += '    "label": ' + JSON.stringify(room.label) + ",\n"
 		json_str += '    "description": ' + JSON.stringify(room.description) + ",\n"
 		
-		# inbound data
-		json_str += '    "inbound":\n'
-		json_str += '    [\n'
-
-		var in_strings = []
-		var in_count = 0
-		for inbound in room.inbound_rooms:
-			if( inbound != "" ):
-				var in_data = ''
-				in_data += '        ' + JSON.stringify( inbound )
-				in_strings.append( in_data )
-				in_count += 1
-		
-		for i in range( in_count ):
-			json_str += in_strings[ i ]
-			if( i < in_strings.size() - 1 ):
-				json_str += ",\n"		
-			
-		if in_strings.size() > 0:
-			json_str += "\n"
-		json_str += "    ],\n"
+		## inbound data
+		#json_str += '    "inbound":\n'
+		#json_str += '    [\n'
+#
+		#var in_strings = []
+		#var in_count = 0
+		#for inbound in room.inbound_rooms:
+			#if( inbound != "" ):
+				#var in_data = ''
+				#in_data += '        ' + JSON.stringify( inbound )
+				#in_strings.append( in_data )
+				#in_count += 1
+		#
+		#for i in range( in_count ):
+			#json_str += in_strings[ i ]
+			#if( i < in_strings.size() - 1 ):
+				#json_str += ",\n"		
+			#
+		#if in_strings.size() > 0:
+			#json_str += "\n"
+		#json_str += "    ],\n"
 		
 		# door data
 		json_str += '    "doors":\n'
@@ -490,7 +506,7 @@ func LoadAllRooms():
 					rooms_dict[ room.id ] = room
 					AddRoomToEditorMap(room)
 					LoadMetadataForRoom(room, filename)
-				if filename.begins_with("004"):
+				if filename.begins_with("005"):
 					break
 
 	# Step 2: Assign inbound rooms for all rooms
@@ -507,12 +523,12 @@ func LoadAllRooms():
 	for room in rooms.get_children():
 		if room is EditorRoom:
 			room.previous_position = room.position
-	
-	RebuildRoomsDictionary()
-	for room in rooms_dict.values():
-		room.UpdateDoorVisuals()
-		room.UpdateInboundVisuals()
-		room.UpdateDoorLines()
+	#
+	#RebuildRoomsDictionary()
+	#for room in rooms_dict.values():
+		#room.UpdateDoorVisuals()
+		#room.UpdateInboundVisuals()
+		#room.UpdateDoorLines()
 
 func update_lines_for_room_and_dependents(room: Node) -> void:
 	# Update lines for this room (outbound lines)

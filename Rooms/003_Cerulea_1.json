@@ -2,10 +2,6 @@
     "id": "003_Cerulea_1",
     "label": "Cerulea 1",
     "description": "He mutters something to himself about, \"No wonder, a book about sign language doesn't belong in the fairy tale section.\"\nSo then he moves to a \"how-to\" section, and attempts the book in there, and still the same thing happens.\nHe's still has some work to do today, so he puts the book into his cart and finishes his rounds.\n\nHit 1 to take the book home with you.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "003_Cerulea"
-    ],
     "doors":
     [
         {

@@ -6,6 +6,10 @@ var editor_map: Node = null
 
 var roomdata : Room
 
+var last_zoom_level: float = 1.0
+
+var line_thickness = 5.0
+
 func update_name_label(retry_count: int = 0, max_retries: int = 5) -> void:
 	if not is_inside_tree():  # Safety check: ensure node is in the scene tree
 		return
@@ -503,6 +507,7 @@ func TruncateText(text: String, max_lines: int = 5, chars_per_line: int = 40) ->
 func SetupVisuals():
 #{
 	if not has_node("Panel"):
+		
 		# Create a Panel as the visual base with a border
 		var panel = Panel.new()
 		panel.name = "Panel"
@@ -933,7 +938,7 @@ func UpdateDoorLines():
 		end_pos += dest_room.position - self.position
 		
 		var line = CustomLine2D.new()
-		line.set_line(adjusted_start_pos, end_pos, edoors[ door.id ].color, 5.0)
+		line.set_line(adjusted_start_pos, end_pos, edoors[ door.id ].color, line_thickness)
 		
 		# Lock the CustomLine2D node to prevent viewport movement
 		line.set_meta("_edit_lock_", true)
@@ -942,3 +947,10 @@ func UpdateDoorLines():
 		lines_container.add_child(line)
 		door_lines.append(line)
 		line.owner = get_tree().edited_scene_root
+
+func _process(_delta: float):
+	var current_zoom_level = get_viewport().get_final_transform().x.x
+	if abs(current_zoom_level - last_zoom_level) > 0.01:
+		last_zoom_level = current_zoom_level
+		line_thickness = 2.0 / current_zoom_level
+		UpdateDoorLines()
