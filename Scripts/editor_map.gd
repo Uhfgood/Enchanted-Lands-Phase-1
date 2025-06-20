@@ -1,5 +1,5 @@
 @tool
-extends Node
+class_name EditorMap extends Node
 
 var is_removing_room: bool = false
 
@@ -313,7 +313,7 @@ func _enter_tree():
 	print("EditorMap entering tree, instance:%s" % self)
 
 func _exit_tree():
-	print("EditorMap exiting tree, instance:%s, Rooms children: %d" % [self, rooms.get_child_count()])
+	#print("EditorMap exiting tree, instance:%s, Rooms children: %d" % [self, rooms.get_child_count()])
 	has_loaded_rooms = false
 	if rooms:
 		print("Clearing %d rooms in _exit_tree" % rooms.get_child_count())

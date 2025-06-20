@@ -4,21 +4,13 @@ extends EditorPlugin
 var button: Button
 var add_button: Button
 var remove_button: Button
-
 var editor_map: Node
 
 func _enter_tree():
 	print("---")
 	print("Plugin enabled!")
 	
-	# Initialize editor_map
-	editor_map = get_tree().edited_scene_root
-	if not editor_map:
-		print("No edited scene root available.")
-	else:
-		print("Editor map set to: " + editor_map.name + ".")
-	
-	# Save Room Data button
+	# Create buttons once
 	button = Button.new()
 	button.text = "Save Room Data"
 	button.size = Vector2(130, 30)
@@ -28,11 +20,6 @@ func _enter_tree():
 	print("Button added to canvas editor menu.")
 	print("Button visibility: " + str(button.visible) + ".")
 	
-	if editor_map and editor_map.has_method("_on_save_button_pressed"):
-		var result = button.connect("pressed", Callable(editor_map, "_on_save_button_pressed"))
-		print("Save Room Data button connection result: " + str(result) + ".")
-	
-	# Add Room button
 	add_button = Button.new()
 	add_button.text = "+"
 	add_button.size = Vector2(130, 30)
@@ -42,11 +29,6 @@ func _enter_tree():
 	print("'+' added to canvas editor menu.")
 	print("'+' visibility: " + str(add_button.visible) + ".")
 	
-	if editor_map and editor_map.has_method("_on_add_room_button_pressed"):
-		var result = add_button.connect("pressed", Callable(editor_map, "_on_add_room_button_pressed"))
-		print("Add Room button connection result: " + str(result) + ".")
-	
-	# Remove Room button
 	remove_button = Button.new()
 	remove_button.text = "-"
 	remove_button.size = Vector2(130, 30)
@@ -56,30 +38,40 @@ func _enter_tree():
 	print("'-' added to canvas editor menu.")
 	print("'-' visibility: " + str(remove_button.visible) + ".")
 	
-	if editor_map and editor_map.has_method("_on_remove_room_button_pressed"):
-		var result = remove_button.connect("pressed", Callable(editor_map, "_on_remove_room_button_pressed"))
-		print("Remove Room button connection result: " + str(result) + ".")
+	# Initialize editor_map
+	editor_map = get_tree().edited_scene_root
+	if not editor_map or editor_map.name != "EditorMap":
+		print("No valid EditorMap scene root available.")
+		return
+	
+	print("Editor map set to: " + editor_map.name + ".")
+	connect_buttons()
+
+func connect_buttons():
+	if editor_map.has_method("_on_save_button_pressed"):
+		if not button.is_connected("pressed", Callable(editor_map, "_on_save_button_pressed")):
+			var result = button.connect("pressed", Callable(editor_map, "_on_save_button_pressed"))
+			print("Save Room Data button connection result: " + str(result) + ".")
+	
+	if editor_map.has_method("_on_add_room_button_pressed"):
+		if not add_button.is_connected("pressed", Callable(editor_map, "_on_add_room_button_pressed")):
+			var result = add_button.connect("pressed", Callable(editor_map, "_on_add_room_button_pressed"))
+			print("Add Room button connection result: " + str(result) + ".")
+	
+	if editor_map.has_method("_on_remove_room_button_pressed"):
+		if not remove_button.is_connected("pressed", Callable(editor_map, "_on_remove_room_button_pressed")):
+			var result = remove_button.connect("pressed", Callable(editor_map, "_on_remove_room_button_pressed"))
+			print("Remove Room button connection result: " + str(result) + ".")
 
 func _process(delta):
 	var current_editor_map = get_tree().edited_scene_root
+	if not current_editor_map or current_editor_map.name != "EditorMap":
+		return
 	
-	if current_editor_map and current_editor_map.has_method("_on_save_button_pressed"):
-		if not button.is_connected("pressed", Callable(current_editor_map, "_on_save_button_pressed")):
-			button.connect("pressed", Callable(current_editor_map, "_on_save_button_pressed"))
-			#print("Reconnected Save Room Data button to editor_map.")
-	
-	if current_editor_map and current_editor_map.has_method("_on_add_room_button_pressed"):
-		if not add_button.is_connected("pressed", Callable(current_editor_map, "_on_add_room_button_pressed")):
-			add_button.connect("pressed", Callable(current_editor_map, "_on_add_room_button_pressed"))
-			#print("Reconnected Add Room button to editor_map.")
-	
-	if current_editor_map and current_editor_map.has_method("_on_remove_room_button_pressed"):
-		if not remove_button.is_connected("pressed", Callable(current_editor_map, "_on_remove_room_button_pressed")):
-			remove_button.connect("pressed", Callable(current_editor_map, "_on_remove_room_button_pressed"))
-			#print("Reconnected Remove Room button to editor_map.")
-
-func _on_button_pressed():
-	print("Button pressed!")
+	if current_editor_map != editor_map:
+		editor_map = current_editor_map
+		print("Editor map updated to: " + editor_map.name + ".")
+		connect_buttons()
 
 func _exit_tree():
 	if button:
