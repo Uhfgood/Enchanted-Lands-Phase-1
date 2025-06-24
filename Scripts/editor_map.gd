@@ -295,14 +295,22 @@ func _on_save_button_pressed():
 func _ready():
 	print("EditorMap _ready, instance:%s, has_loaded_rooms: %s" % [self, has_loaded_rooms])
 	if rooms:
+		print( "parent= " + rooms.get_parent().name )
 		print("Clearing %d rooms in _ready" % rooms.get_child_count())
 		for room in rooms.get_children():
 			rooms.remove_child(room)
 			room.queue_free()
 	if not has_loaded_rooms:
 		print("Deferring LoadAllRooms to next idle frame")
-		call_deferred("LoadAllRooms")
+		#call_deferred("LoadAllRooms")
+		if( get_tree() ):
+			call_deferred("LoadAllRooms")
+			print( "Call has been deferred." )
+		else:
+			print( "Tree is invalid" )
+			
 		has_loaded_rooms = true
+		
 	rooms.set_meta("_edit_lock_", true)
 	var editor_selection = EditorInterface.get_selection()
 	if editor_selection and not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
@@ -483,7 +491,8 @@ func topological_sort_rooms() -> Array:
 	return sorted_rooms
 	
 func LoadAllRooms():
-	print("Running LoadAllRooms, instance:%s, stack: %s" % [self, get_stack()])
+	#print("Running LoadAllRooms, instance:%s, stack: %s" % [self, get_stack()])
+	print( "Running LoadAllRooms" )
 	rooms_dict.clear()
 	
 	for child in rooms.get_children():

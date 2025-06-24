@@ -276,8 +276,16 @@ func CreateDoorsFromSpecs():
 		if new_door:
 			self.edoors[ id_str ] = new_door
 			self.add_child( new_door )
-			new_door.owner = get_tree().edited_scene_root
-	
+			
+			if( get_tree() ):
+				var root = get_tree().edited_scene_root
+				if( root ):
+					new_door.owner = root
+				else:
+					print( "EditorRoom: Skipped door owner set due to null scene root" )
+			else:
+				print( "get_tree() returned null, skipping door owner set")
+					
 	var door = null
 	var spec_str = ""
 	for i in range(9):
@@ -659,6 +667,14 @@ func UpdateDoorVisuals():
 			hbox.queue_free()
 			hbox = null
 	
+	var scene_root = null
+	if( get_tree() ):
+		scene_root = get_tree().edited_scene_root
+		if( !scene_root ):
+			return
+	else:
+		return
+		
 	# Create a new HBoxContainer if needed (either no HBoxContainer or it was removed)
 	if not hbox and not self.roomdata.doors.is_empty():
 		hbox = HBoxContainer.new()
@@ -679,7 +695,9 @@ func UpdateDoorVisuals():
 		hbox.add_theme_constant_override("separation", separation)		
 		
 		add_child(hbox)
-		hbox.owner = get_tree().edited_scene_root
+		#hbox.owner = get_tree().edited_scene_root
+		hbox.owner = scene_root
+		
 		# Lock the HBoxContainer in the editor
 		hbox.set_meta("_edit_lock_", true)
 		# Set z-index to render in front of the Panel
@@ -703,7 +721,8 @@ func UpdateDoorVisuals():
 			door_visual.color = self.edoors[ door.id ].color 
 			door_visual.visible = true
 			hbox.add_child(door_visual)
-			door_visual.owner = get_tree().edited_scene_root
+			#door_visual.owner = get_tree().edited_scene_root
+			door_visual.owner = scene_root
 			door_visual.queue_redraw() # Force redraw
 			door_visuals.append(door_visual)
 
@@ -747,6 +766,14 @@ func UpdateInboundVisuals():
 		
 	#}  // end if hbox
 	
+	var scene_root = null
+	if( get_tree() ):
+		scene_root = get_tree().edited_scene_root
+		if( !scene_root ):
+			return
+	else:
+		return
+
 	# Create a new HBoxContainer if needed (either no HBoxContainer or it was removed)
 	if not hbox and not inbound_is_empty:
 	#{
@@ -768,7 +795,8 @@ func UpdateInboundVisuals():
 		hbox.add_theme_constant_override("separation", separation)		
 		
 		add_child(hbox)
-		hbox.owner = get_tree().edited_scene_root
+		#hbox.owner = get_tree().edited_scene_root
+		hbox.owner = scene_root
 		# Lock the HBoxContainer in the editor
 		hbox.set_meta("_edit_lock_", true)
 		# Set z-index to render in front of the Panel
@@ -815,7 +843,8 @@ func UpdateInboundVisuals():
 			inbound_visual.color = color
 			inbound_visual.visible = true
 			hbox.add_child( inbound_visual )
-			inbound_visual.owner = get_tree().edited_scene_root
+			#inbound_visual.owner = get_tree().edited_scene_root
+			inbound_visual.owner = scene_root
 			inbound_visual.queue_redraw() # Force redraw
 			inbound_visuals.append( inbound_visual )
 		# Force the HBoxContainer to update its layout
@@ -842,6 +871,14 @@ func UpdateDoorLines():
 	if self.roomdata.doors.is_empty():
 		return
 	
+	var scene_root = null
+	if( get_tree() ):
+		scene_root = get_tree().edited_scene_root
+		if( !scene_root ):
+			return
+	else:
+		return
+
 	var y_offset = 100
 	
 	# Step 2: Create a new LinesContainer as a Node2D
@@ -849,7 +886,8 @@ func UpdateDoorLines():
 	lines_container.name = "LinesContainer"
 	lines_container.position = Vector2(0, -y_offset )  
 	add_child(lines_container)
-	lines_container.owner = get_tree().edited_scene_root
+	#lines_container.owner = get_tree().edited_scene_root
+	lines_container.owner = scene_root
 	# Lock only the container in the editor
 	lines_container.set_meta("_edit_lock_", true)
 	
@@ -946,7 +984,8 @@ func UpdateDoorLines():
 		# Add the line to the LinesContainer instead of the Room
 		lines_container.add_child(line)
 		door_lines.append(line)
-		line.owner = get_tree().edited_scene_root
+		#line.owner = get_tree().edited_scene_root
+		line.owner = scene_root
 
 func _process(_delta: float):
 	var current_zoom_level = get_viewport().get_final_transform().x.x
