@@ -2,10 +2,6 @@
     "id": "002_Hubert_Home_14",
     "label": "Hubert Home 14",
     "description": "Placing a quicksilver ticket on his desk, he grabs his hats, and then says a few magic words.\nThe ticket disappears, and as he's looking into the crystal ball, he sees John opening his favorite candy bar with nothing in the wrapper.\nHe then does the same thing again, only this time the ticket is partially visible inside the candy wrapper.  \nOn closer inspection, John notices only half of the ticket exists.\nHubert then waits for John to respond.\n\nHit 1 to continue.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "002_Hubert_Home_13"
-    ],
     "doors":
     [
         {

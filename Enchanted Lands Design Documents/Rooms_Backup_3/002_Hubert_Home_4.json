@@ -1,0 +1,22 @@
+{
+    "id": "002_Hubert_Home_4",
+    "label": "Hubert Home 4",
+    "description": "Looking over Harry's life, Hubert notices, he's already a wizard, and that he makes friends rather quickly, so Harry is probably not the right fit.  Daniel and John are the only choices left.\n\nHit 1 to pick Daniel.\nHit 2 to pick John.\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "002_Hubert_Home_2"
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Hubert_Home_7",
+            "choice": "2",
+            "destination": "002_Hubert_Home_7"
+        },
+        {
+            "id": "Door_To_Hubert_Home_6",
+            "choice": "1",
+            "destination": "002_Hubert_Home_6"
+        }
+    ]
+}

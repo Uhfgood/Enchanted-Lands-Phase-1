@@ -1,0 +1,17 @@
+{
+    "id": "002_Hubert_Home_9",
+    "label": "Hubert Home 9",
+    "description": "Hubert pulls open the door on the box, and puts a single silver ticket into it.  And then says the destination out loud: \"John Thomas, Cerulea.  Benny Wonky Chocolate Bar. -- Oh inside the wrapper!\"  Hubert then just waits.\nWhile gazing into the crystal ball, Hubert notices John working at the library...\n\nHit 1 to continue.\nHit 0 to quit.",
+    "inbound":
+    [
+        "002_Hubert_Home_8"
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Cerulea",
+            "choice": "1",
+            "destination": "003_Cerulea"
+        }
+    ]
+}

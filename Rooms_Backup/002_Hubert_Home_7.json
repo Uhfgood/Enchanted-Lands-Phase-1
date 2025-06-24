@@ -2,14 +2,6 @@
     "id": "002_Hubert_Home_7",
     "label": "Hubert Home 7",
     "description": "Hubert picks John, and decides to somehow send a quicksilver ticket via his favorite candybar.\nPulling 3 hats from his head, he rearranges them and puts them back on, and then says some magic words.\nA book called \"Unicorn Sign Language for Beginners\" appears in midair before changing to \"Beauty and the Beast\" then disappears.\n\nHit 1 to prepare to send a quicksilver ticket to John.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "002_Hubert_Home_5",
-        "002_Hubert_Home_3",
-        "002_Hubert_Home_2",
-        "002_Hubert_Home_4",
-        "002_Hubert_Home_6"
-    ],
     "doors":
     [
         {

@@ -1,0 +1,17 @@
+{
+    "id": "032_Castle_North_Terrace",
+    "label": "Castle North Terrace",
+    "description": "Max arrives at the administration castle aboard a transport train.\nMax has his techs activate the machine for the first time.\nFirst at half power, he has them open a few gates, then a few more.\nThousands of gates are opened simultaneously, and then shut off.\n\nHit 1 if you wish to go to Castle West Terrace.\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "011_Dwarf_Mines_2",
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Castle_West_Terrace",
+            "choice": "1",
+            "destination": "033_Castle_West_Terrace"
+        }
+    ]
+}

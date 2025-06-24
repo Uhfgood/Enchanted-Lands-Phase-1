@@ -1,12 +1,7 @@
 {
     "id": "003_Cerulea_5",
     "label": "Cerulea 5",
-    "description": "As soon as John utters the magic words, a portal appears in front of him.\nInside the portal, is what appears to be the inside of a train cabin, with various people sitting.\nBeing utterly amazed, John decides to step through, and then the portal closes behind him.\n\nMeanwhile a dragon is seen in the sky...\n\nHit 1 to continue.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "003_Cerulea_3",
-        "003_Cerulea_4"
-    ],
+    "description": "As soon as John utters the magic words, a portal appears in front of him.\nInside the portal, is what appears to be the inside of a train cabin, with various people sitting.\nBeing utterly amazed, John decides to step through, and then the portal closes behind him.\n\nMeanwhile a dragon is seen in the skies above Enchanted Lands...\n\nHit 1 to continue.\n\nHit 0 to quit.",
     "doors":
     [
         {

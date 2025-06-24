@@ -2,10 +2,6 @@
     "id": "002_Hubert_Home",
     "label": "Hubert Home",
     "description": "Hubert goes to his home and then goes directly to the study, where he sees many books, scrolls, and loose papers.  There's also a large crystal ball in it's own cradle in the center of the room.\n\nHit 1 if you wish to examine the books, scrolls, and papers.\nHit 2 if you wish to look into the crystal ball.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "001_Enchanted_Lands_1"
-    ],
     "doors":
     [
         {

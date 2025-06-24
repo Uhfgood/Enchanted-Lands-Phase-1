@@ -1,0 +1,22 @@
+{
+    "id": "003_Cerulea",
+    "label": "Cerulea",
+    "description": "While working at the library, John is putting books back on the shelves, when he notices a book that has fallen on the floor behind him.\nHe picks it up noting the hole it left in the book case, and proceeds to put it back, when it seems to jump out again.\nHe does this for a few more times, before really reading the cover, which says \"Unicorn Sign Language for Beginners\".\n\nHit 1 to attempt to put it in another section.\nHit 2 to take it to the reference desk.\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "002_Hubert_Home_9"
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Cerulea_1",
+            "choice": "1",
+            "destination": "003_Cerulea_1"
+        },
+        {
+            "id": "Door_To_Cerulea_2",
+            "choice": "2",
+            "destination": "003_Cerulea_2"
+        }
+    ]
+}

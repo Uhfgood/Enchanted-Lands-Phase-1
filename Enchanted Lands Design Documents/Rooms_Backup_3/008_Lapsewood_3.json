@@ -1,0 +1,17 @@
+{
+    "id": "008_Lapsewood_3",
+    "label": "Lapsewood 3",
+    "description": "Standing in the middle of Lapsewood, John notices Hubert wearing Wizard garb and suggests he cast a spell or something.\nHubert reaches into a bag and pulls out some hats and puts them on then wiggles his fingers.\nWhen he does this they're instantly teleported elsewhere.\nHubert and company wake up on the road, and confirm it was definitely Lapsewood, because splitting headaches.\nHubert recognizes the road, and they travel without event to The Bats in the Belfry Hotel.\n\nHit 1 if you wish to go to Werewolf Village 2.\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "022_Scarborough_Faire_Chicken_2",
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Werewolf_Village_2",
+            "choice": "1",
+            "destination": "025_Werewolf_Village_2"
+        }
+    ]
+}

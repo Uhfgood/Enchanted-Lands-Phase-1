@@ -1,0 +1,17 @@
+{
+    "id": "043_Castle_North_Terrace_Catwalk",
+    "label": "Castle North Terrace Catwalk",
+    "description": "John still has his silver ticket, and Max manages to grab it out of his coat.\nWhile grabbing for the ticket, he pulls John down with him as he goes over the edge.\nJohn holds on to the catwalk with his feet, as Max dangles below.\nMax starts slipping and with the ticket in hand eventually falls.\nJohn turns away as Max falls, and when he turns back, Max is gone.\n\nHit 1 if you wish to go to Castle North Terrace 3.\n\nHit 0 to quit.",
+    "inbound":
+    [
+        "032_Castle_North_Terrace_2",
+    ],
+    "doors":
+    [
+        {
+            "id": "Door_To_Castle_North_Terrace_3",
+            "choice": "1",
+            "destination": "032_Castle_North_Terrace_3"
+        }
+    ]
+}

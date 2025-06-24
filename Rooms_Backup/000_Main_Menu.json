@@ -2,9 +2,6 @@
     "id": "000_Main_Menu",
     "label": "Main Menu",
     "description": "Main Menu:\n\nHit 1 to start.\n\nHit 0 to quit.",
-    "inbound":
-    [
-    ],
     "doors":
     [
         {
