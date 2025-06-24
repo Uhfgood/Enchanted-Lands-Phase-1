@@ -5,9 +5,19 @@
     "doors":
     [
         {
-            "id": "Door_To_Sky",
+            "id": "Door_To_Caves_Of_Dragonmount_1",
             "choice": "1",
-            "destination": "005_Sky"
+            "destination": "004_Caves_Of_Dragonmount_1"
+        },
+        {
+            "id": "Door_To_Caves_Of_Dragonmount_2",
+            "choice": "2",
+            "destination": "004_Caves_Of_Dragonmount_2"
+        },
+        {
+            "id": "Door_To_Caves_Of_Dragonmount_3",
+            "choice": "3",
+            "destination": "004_Caves_Of_Dragonmount_3"
         }
     ]
 }

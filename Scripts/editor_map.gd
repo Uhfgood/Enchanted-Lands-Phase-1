@@ -18,6 +18,9 @@ var holding_node: Node = Node.new()
 
 func _on_selection_changed():
 #{
+	if( !Engine.is_editor_hint() ):
+		return
+
 	print( "_on_selection_changed executed" )
 	
 	# Ignore selection changes during removal
@@ -85,13 +88,16 @@ func _on_add_room_button_pressed():
 	new_room.SetupVisuals()
 	AddRoomToEditorMap( new_room )
 	
-	# Select the new room in the scene tree
-	var editor_selection = EditorInterface.get_selection()
-	editor_selection.clear()
-	editor_selection.add_node( new_room )
-	print( "Selected new room: " + new_room.label + "." )
-	print( "---" )
-
+	if( Engine.is_editor_hint() ):
+	#{
+		# Select the new room in the scene tree
+		var editor_selection = EditorInterface.get_selection()
+		editor_selection.clear()
+		editor_selection.add_node( new_room )
+		print( "Selected new room: " + new_room.label + "." )
+		print( "---" )
+	#}
+	
 #}  // end _on_add_room_button_pressed():
 
 # create a dictionary so I can rebuild inbound list later
@@ -128,13 +134,17 @@ func _on_remove_room_button_pressed():
 	# Set the removal flag
 	is_removing_room = true
 	
-	# Disconnect the selection_changed signal to prevent it from firing during removal
-	var editor_selection = EditorInterface.get_selection()
-	if editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
-		editor_selection.disconnect("selection_changed", Callable(self, "_on_selection_changed"))
-	
-	# Clear the editor's selection
-	editor_selection.clear()
+	var editor_selection = null
+	if( Engine.is_editor_hint() ):
+	#{
+		# Disconnect the selection_changed signal to prevent it from firing during removal
+		editor_selection = EditorInterface.get_selection()
+		if editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
+			editor_selection.disconnect("selection_changed", Callable(self, "_on_selection_changed"))
+		# Clear the editor's selection
+		editor_selection.clear()
+	#}
+		
 	
 	# Get the room's ID to locate the files
 	var room_id = currently_selected_room.roomdata.id
@@ -174,11 +184,14 @@ func _on_remove_room_button_pressed():
 	
 	print( "Removed room: ", room_id )
 	
-	# Synchronous reconnection
-	if not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
-		editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
-		print("Reconnected selection_changed signal")
-		
+	if( Engine.is_editor_hint() ):
+	#{
+		# Synchronous reconnection
+		if not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
+			editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
+			print("Reconnected selection_changed signal")
+	#}
+				
 	#for child in holding_node.get_children():
 	#	holding_node.remove_child(child)
 	#	child.queue_free()
@@ -312,11 +325,14 @@ func _ready():
 		has_loaded_rooms = true
 		
 	rooms.set_meta("_edit_lock_", true)
-	var editor_selection = EditorInterface.get_selection()
-	if editor_selection and not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
-		editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
-		print("Connected selection_changed to EditorSelection")
-
+	if( Engine.is_editor_hint() ):
+	#{
+		var editor_selection = EditorInterface.get_selection()
+		if editor_selection and not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
+			editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
+			print("Connected selection_changed to EditorSelection")
+	#}
+	
 func _enter_tree():
 	print("EditorMap entering tree, instance:%s" % self)
 
@@ -328,9 +344,14 @@ func _exit_tree():
 		for room in rooms.get_children():
 			rooms.remove_child(room)
 			room.queue_free()
-	var editor_selection = EditorInterface.get_selection()
-	if editor_selection and editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
-		editor_selection.disconnect("selection_changed", Callable(self, "_on_selection_changed"))
+	
+	if( Engine.is_editor_hint() ):
+	#{
+		var editor_selection = EditorInterface.get_selection()
+		if editor_selection and editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
+			editor_selection.disconnect("selection_changed", Callable(self, "_on_selection_changed"))
+	#}
+	
 	if is_instance_valid(holding_node):
 		for child in holding_node.get_children():
 			child.queue_free()

@@ -76,7 +76,7 @@ func LoadDataFromJSON( json_name : String ) -> bool:
 	# create and attach door nodes
 	if "doors" in json_data:
 	#{
-		var i = 0
+		#var i = 0
 		for door_data in json_data[ "doors" ]:
 		#{
 			var door_id = door_data[ "id" ]

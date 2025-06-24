@@ -1,0 +1,18 @@
+{
+    "id": "004_Caves_Of_Dragonmount_3",
+    "label": "Caves Of Dragonmount 3",
+    "description": "There's nothing here yet.  Hit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Caves_Of_Dragonmount_8",
+            "choice": "1",
+            "destination": "004_Caves_Of_Dragonmount_8"
+        },
+        {
+            "id": "Door_To_Caves_Of_Dragonmount_9",
+            "choice": "2",
+            "destination": "004_Caves_Of_Dragonmount_9"
+        }
+    ]
+}
