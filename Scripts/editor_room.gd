@@ -140,7 +140,7 @@ func _set( property: StringName, value: Variant ) -> bool:
 				update_name_label()
 			else:
 				call_deferred("update_name_label", 0, 5)
-			print( "Updated label to: ", roomdata.label )
+			#print( "Updated label to: ", roomdata.label )
 			return true
 		
 		#}  // label
@@ -149,7 +149,7 @@ func _set( property: StringName, value: Variant ) -> bool:
 		#{
 			self.roomdata.description = value
 			update_description_label()
-			print( "Updated description to: ", roomdata.description )
+			#print( "Updated description to: ", roomdata.description )
 			return true
 		
 		#}  // description
@@ -171,7 +171,7 @@ static func Create( n_id : String, n_label : String, n_desc : String ) -> Editor
 	room.inbound_rooms = [ "", "", "", "", "", "", "", "", "" ]
 	room.door_specs = [ "", "", "", "", "", "", "", "", "" ]
 	
-	print( "Creating ", room.name )
+	#print( "Creating ", room.name )
 	return room
 	
 #} // end create()

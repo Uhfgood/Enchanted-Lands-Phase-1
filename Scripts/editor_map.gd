@@ -21,11 +21,11 @@ func _on_selection_changed():
 	if( !Engine.is_editor_hint() ):
 		return
 
-	print( "_on_selection_changed executed" )
+	#print( "_on_selection_changed executed" )
 	
 	# Ignore selection changes during removal
 	if is_removing_room:
-		print("Ignoring selection change during room removal.")
+		#print("Ignoring selection change during room removal.")
 		return
 	
 	var editor_selection = EditorInterface.get_selection()
@@ -37,11 +37,11 @@ func _on_selection_changed():
 		# Safety check: Ensure the node is still valid
 		if is_instance_valid(selected_node):
 		#{
-			print("Selected Node: ", selected_node.name)
+			#print("Selected Node: ", selected_node.name)
 			if(selected_node is EditorRoom):
 				currently_selected_room = selected_node
 			else:
-				print( "Currently selected node is not a room." )
+				#print( "Currently selected node is not a room." )
 				currently_selected_room = null
 			
 		#} // end if is_instance_valid
@@ -49,8 +49,8 @@ func _on_selection_changed():
 			print("Selected node is invalid (possibly freed).")
 			
 	#}  // end if not selected_nodes.is_empty()
-	else:
-		print("No nodes selected")
+	#else:
+		#print("No nodes selected")
 
 #}  // end func _on_selection_changed()
 
@@ -79,7 +79,7 @@ func get_unique_room_label( base_label : String ) -> String:
 
 func _on_add_room_button_pressed():
 #{
-	print( "---" )
+	#print( "---" )
 	var unique_label = get_unique_room_label( "New Location" )
 	var new_id = "000_" + unique_label.replace( " ", "_" )
 	var new_label = unique_label
@@ -94,8 +94,8 @@ func _on_add_room_button_pressed():
 		var editor_selection = EditorInterface.get_selection()
 		editor_selection.clear()
 		editor_selection.add_node( new_room )
-		print( "Selected new room: " + new_room.label + "." )
-		print( "---" )
+		#print( "Selected new room: " + new_room.label + "." )
+		#print( "---" )
 	#}
 	
 #}  // end _on_add_room_button_pressed():
@@ -182,14 +182,14 @@ func _on_remove_room_button_pressed():
 		room.UpdateInboundVisuals()
 		room.UpdateDoorLines()
 	
-	print( "Removed room: ", room_id )
+	#print( "Removed room: ", room_id )
 	
 	if( Engine.is_editor_hint() ):
 	#{
 		# Synchronous reconnection
 		if not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
 			editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
-			print("Reconnected selection_changed signal")
+			#print("Reconnected selection_changed signal")
 	#}
 				
 	#for child in holding_node.get_children():
@@ -306,19 +306,19 @@ func _on_save_button_pressed():
 	#EditorInterface.reload_scene_from_path(scene_path)
 					
 func _ready():
-	print("EditorMap _ready, instance:%s, has_loaded_rooms: %s" % [self, has_loaded_rooms])
+	#print("EditorMap _ready, instance:%s, has_loaded_rooms: %s" % [self, has_loaded_rooms])
 	if rooms:
-		print( "parent= " + rooms.get_parent().name )
-		print("Clearing %d rooms in _ready" % rooms.get_child_count())
+		#print( "parent= " + rooms.get_parent().name )
+		#print("Clearing %d rooms in _ready" % rooms.get_child_count())
 		for room in rooms.get_children():
 			rooms.remove_child(room)
 			room.queue_free()
 	if not has_loaded_rooms:
-		print("Deferring LoadAllRooms to next idle frame")
+		#print("Deferring LoadAllRooms to next idle frame")
 		#call_deferred("LoadAllRooms")
 		if( get_tree() ):
 			call_deferred("LoadAllRooms")
-			print( "Call has been deferred." )
+			#print( "Call has been deferred." )
 		else:
 			print( "Tree is invalid" )
 			
@@ -330,17 +330,17 @@ func _ready():
 		var editor_selection = EditorInterface.get_selection()
 		if editor_selection and not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
 			editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
-			print("Connected selection_changed to EditorSelection")
+			#print("Connected selection_changed to EditorSelection")
 	#}
 	
-func _enter_tree():
-	print("EditorMap entering tree, instance:%s" % self)
+#func _enter_tree():
+	#print("EditorMap entering tree, instance:%s" % self)
 
 func _exit_tree():
 	#print("EditorMap exiting tree, instance:%s, Rooms children: %d" % [self, rooms.get_child_count()])
 	has_loaded_rooms = false
 	if rooms:
-		print("Clearing %d rooms in _exit_tree" % rooms.get_child_count())
+		#print("Clearing %d rooms in _exit_tree" % rooms.get_child_count())
 		for room in rooms.get_children():
 			rooms.remove_child(room)
 			room.queue_free()
@@ -462,7 +462,7 @@ func SaveRoomDataForRoom(room, filename: String):
 		room.UpdateInboundVisuals()
 		room.UpdateDoorLines()
 		
-		print("Room data saved for: ", filename)
+		#print("Room data saved for: ", filename)
 	else:
 		print("Couldn't open file for writing: ", jsonpath)
 		
@@ -513,7 +513,6 @@ func topological_sort_rooms() -> Array:
 	
 func LoadAllRooms():
 	#print("Running LoadAllRooms, instance:%s, stack: %s" % [self, get_stack()])
-	print( "Running LoadAllRooms" )
 	rooms_dict.clear()
 	
 	for child in rooms.get_children():
@@ -532,7 +531,7 @@ func LoadAllRooms():
 				var json_name = filename.replace(".json", "")
 				var room = EditorRoom.CreateFromJSON(json_name)
 				if room:
-					print( "Room: " + room.id + " created.")
+					#print( "Room: " + room.id + " created.")
 					rooms_dict[ room.id ] = room
 					AddRoomToEditorMap(room)
 					LoadMetadataForRoom(room, filename)

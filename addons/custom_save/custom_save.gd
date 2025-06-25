@@ -51,17 +51,17 @@ func connect_buttons():
 	if editor_map.has_method("_on_save_button_pressed"):
 		if not button.is_connected("pressed", Callable(editor_map, "_on_save_button_pressed")):
 			var result = button.connect("pressed", Callable(editor_map, "_on_save_button_pressed"))
-			print("Save Room Data button connection result: " + str(result) + ".")
+			#print("Save Room Data button connection result: " + str(result) + ".")
 	
 	if editor_map.has_method("_on_add_room_button_pressed"):
 		if not add_button.is_connected("pressed", Callable(editor_map, "_on_add_room_button_pressed")):
 			var result = add_button.connect("pressed", Callable(editor_map, "_on_add_room_button_pressed"))
-			print("Add Room button connection result: " + str(result) + ".")
+			#print("Add Room button connection result: " + str(result) + ".")
 	
 	if editor_map.has_method("_on_remove_room_button_pressed"):
 		if not remove_button.is_connected("pressed", Callable(editor_map, "_on_remove_room_button_pressed")):
 			var result = remove_button.connect("pressed", Callable(editor_map, "_on_remove_room_button_pressed"))
-			print("Remove Room button connection result: " + str(result) + ".")
+			#print("Remove Room button connection result: " + str(result) + ".")
 
 func _process(delta):
 	var current_editor_map = get_tree().edited_scene_root
@@ -70,7 +70,7 @@ func _process(delta):
 	
 	if current_editor_map != editor_map:
 		editor_map = current_editor_map
-		print("Editor map updated to: " + editor_map.name + ".")
+		#print("Editor map updated to: " + editor_map.name + ".")
 		connect_buttons()
 
 func _exit_tree():

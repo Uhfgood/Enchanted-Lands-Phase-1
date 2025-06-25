@@ -1,7 +1,7 @@
 {
     "id": "004_Caves_Of_Dragonmount_2",
     "label": "Caves Of Dragonmount 2",
-    "description": "There's nothing here yet.  Hit 0 to quit.",
+    "description": "Ember's cave.  \n\nHit 1 to examine Glint's cave.\nHit 2 to check out Shade's cave.\n\nHit 0 to quit.",
     "doors":
     [
         {

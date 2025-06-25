@@ -1,7 +1,7 @@
 {
     "id": "004_Caves_Of_Dragonmount_3",
     "label": "Caves Of Dragonmount 3",
-    "description": "There's nothing here yet.  Hit 0 to quit.",
+    "description": "Shades cave. \n\nHit 1 to examine Glint's cave.\nHit 2 to call out to Ember in front of her cave.\n\nHit 0 to quit.",
     "doors":
     [
         {
