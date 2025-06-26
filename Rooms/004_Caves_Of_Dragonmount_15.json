@@ -1,7 +1,7 @@
 {
     "id": "004_Caves_Of_Dragonmount_15",
     "label": "Caves Of Dragonmount 15",
-    "description": "Glint's cave.\n\nHit 1 to take to the skies in order to continue the search!\n\nHit 0 to quit.",
+    "description": "Walking into Glint's cave, Chester notices the piles of gold coins strewn about.  Glint is nowhere to be found, so Chester decides to take another flight to look for his friends.\n\nHit 1 to take to the skies in order to continue the search!\n\nHit 0 to quit.",
     "doors":
     [
         {

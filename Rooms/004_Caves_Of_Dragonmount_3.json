@@ -1,7 +1,7 @@
 {
     "id": "004_Caves_Of_Dragonmount_3",
     "label": "Caves Of Dragonmount 3",
-    "description": "Shades cave. \n\nHit 1 to examine Glint's cave.\nHit 2 to call out to Ember in front of her cave.\n\nHit 0 to quit.",
+    "description": "At the back of Shade's cave, is a gallery, where he's carefully arranged various suits of armor and vast array of weaponry.  Chester listens for Shade's unusual snoring as he's usually sleeping in the front, and after not hearing anything, looks inside and notices he's not there.  Chester decides to check out the other two caves.\n\nHit 1 to examine Glint's cave.\nHit 2 to call out to Ember in front of her cave.\n\nHit 0 to quit.",
     "doors":
     [
         {

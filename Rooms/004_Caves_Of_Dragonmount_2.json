@@ -1,7 +1,7 @@
 {
     "id": "004_Caves_Of_Dragonmount_2",
     "label": "Caves Of Dragonmount 2",
-    "description": "Ember's cave.  \n\nHit 1 to examine Glint's cave.\nHit 2 to check out Shade's cave.\n\nHit 0 to quit.",
+    "description": "Chester, being the gentlemanly dragon, decides not to invade Ember's privacy and instead decides to call out to her.  When he recieves no response, he raps loudly on the wall of the cave entrance.  Concluding she's probably not around, Chester decides to check out Glint and Shade's homes.\n\nHit 1 to examine Glint's cave.\nHit 2 to check out Shade's cave.\n\nHit 0 to quit.",
     "doors":
     [
         {

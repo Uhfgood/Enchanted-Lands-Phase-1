@@ -1,7 +1,7 @@
 {
     "id": "004_Caves_Of_Dragonmount_7",
     "label": "Caves Of Dragonmount 7",
-    "description": "Shade's cave.\n\nHit 1 to examine Glint's cave.\n\nHit 0 to quit.",
+    "description": "Chester listens for Shade's snoring, and after hearing nothing, pokes his head in and notices It's empty except for Shade's gallery, in the back, which houses various suits of armor and weaponry.  Chester then realizes nobody's home and goes to examine Glint's home.\n\nHit 1 to examine Glint's cave.\n\nHit 0 to quit.",
     "doors":
     [
         {
