@@ -9,9 +9,9 @@
     "doors":
     [
         {
-            "id": "Door_To_Sky_1",
+            "id": "Door_To_Sky_11",
             "choice": "1",
-            "destination": "005_Sky_1"
+            "destination": "005_Sky_11"
         }
     ]
 }

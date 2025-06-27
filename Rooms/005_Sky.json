@@ -5,9 +5,19 @@
     "doors":
     [
         {
-            "id": "Door_To_Chester_Cave",
+            "id": "Door_To_Sky_1",
             "choice": "1",
-            "destination": "006_Chester_Cave"
+            "destination": "005_Sky_1"
+        },
+        {
+            "id": "Door_To_Sky_2",
+            "choice": "2",
+            "destination": "005_Sky_2"
+        },
+        {
+            "id": "Door_To_Sky_3",
+            "choice": "3",
+            "destination": "005_Sky_3"
         }
     ]
 }

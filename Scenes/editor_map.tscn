@@ -13,7 +13,7 @@ position = Vector2(1446, 563)
 metadata/_edit_lock_ = true
 
 [node name="Main Menu" type="Node2D" parent="Rooms"]
-position = Vector2(-1462, -7337)
+position = Vector2(-2547, -10790)
 script = ExtResource("2_sr6l1")
 door_specs = ["ch: 1, dest: 001_Enchanted_Lands;", "", "", "", "", "", "", "", ""]
 id = "000_Main_Menu"
@@ -51,16 +51,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38448" type="Node2D" parent="Rooms/Main Menu/LinesContainer"]
+[node name="@Node2D@92938" type="Node2D" parent="Rooms/Main Menu/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-10, 388)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Enchanted Lands" type="Node2D" parent="Rooms"]
-position = Vector2(-1472, -6992)
+position = Vector2(-2557, -10445)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["000_Main_Menu", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 001_Enchanted_Lands_1;", "", "", "", "", "", "", "", ""]
@@ -122,16 +122,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38449" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
+[node name="@Node2D@92939" type="Node2D" parent="Rooms/Enchanted Lands/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(0, 390)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Enchanted Lands 1" type="Node2D" parent="Rooms"]
-position = Vector2(-1472, -6645)
+position = Vector2(-2557, -10098)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["001_Enchanted_Lands", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home;", "", "", "", "", "", "", "", ""]
@@ -192,16 +192,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38450" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
+[node name="@Node2D@92940" type="Node2D" parent="Rooms/Enchanted Lands 1/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(2, 391)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home" type="Node2D" parent="Rooms"]
-position = Vector2(-1470, -6297)
+position = Vector2(-2555, -9750)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["001_Enchanted_Lands_1", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_1;", "ch: 2, dest: 002_Hubert_Home_2;", "", "", "", "", "", "", ""]
@@ -271,24 +271,24 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38451" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+[node name="@Node2D@92941" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-251, 634)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38452" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
+[node name="@Node2D@92942" type="Node2D" parent="Rooms/Hubert Home/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(250, 1271)
 default_color = Color(1, 0.733333, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 1" type="Node2D" parent="Rooms"]
-position = Vector2(-1721, -5706)
+position = Vector2(-2806, -9159)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_2;", "", "", "", "", "", "", "", ""]
@@ -346,16 +346,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38453" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
+[node name="@Node2D@92943" type="Node2D" parent="Rooms/Hubert Home 1/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-3, 680)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 10" type="Node2D" parent="Rooms"]
-position = Vector2(-466, -2588)
+position = Vector2(-1551, -5800)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home_8", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_11;", "ch: 2, dest: 002_Hubert_Home_13;", "", "", "", "", "", "", ""]
@@ -426,24 +426,24 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38454" type="Node2D" parent="Rooms/Hubert Home 10/LinesContainer"]
+[node name="@Node2D@92944" type="Node2D" parent="Rooms/Hubert Home 10/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-388, 422)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38455" type="Node2D" parent="Rooms/Hubert Home 10/LinesContainer"]
+[node name="@Node2D@92945" type="Node2D" parent="Rooms/Hubert Home 10/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(384, 426)
 default_color = Color(1, 0.733333, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 11" type="Node2D" parent="Rooms"]
-position = Vector2(-854, -2209)
+position = Vector2(-1939, -5421)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home_10", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_12;", "", "", "", "", "", "", "", ""]
@@ -504,16 +504,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38456" type="Node2D" parent="Rooms/Hubert Home 11/LinesContainer"]
+[node name="@Node2D@92946" type="Node2D" parent="Rooms/Hubert Home 11/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(0, 398)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 12" type="Node2D" parent="Rooms"]
-position = Vector2(-854, -1854)
+position = Vector2(-1939, -5066)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home_11", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_4;", "", "", "", "", "", "", "", ""]
@@ -573,16 +573,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38457" type="Node2D" parent="Rooms/Hubert Home 12/LinesContainer"]
+[node name="@Node2D@92947" type="Node2D" parent="Rooms/Hubert Home 12/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(136, 726)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 13" type="Node2D" parent="Rooms"]
-position = Vector2(-82, -2205)
+position = Vector2(-1167, -5417)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home_10", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_14;", "", "", "", "", "", "", "", ""]
@@ -642,16 +642,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38458" type="Node2D" parent="Rooms/Hubert Home 13/LinesContainer"]
+[node name="@Node2D@92948" type="Node2D" parent="Rooms/Hubert Home 13/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(0, 398)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 14" type="Node2D" parent="Rooms"]
-position = Vector2(-82, -1850)
+position = Vector2(-1167, -5062)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home_13", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_4;", "", "", "", "", "", "", "", ""]
@@ -712,16 +712,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38459" type="Node2D" parent="Rooms/Hubert Home 14/LinesContainer"]
+[node name="@Node2D@92949" type="Node2D" parent="Rooms/Hubert Home 14/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-132, 722)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 2" type="Node2D" parent="Rooms"]
-position = Vector2(-1472, -5069)
+position = Vector2(-2557, -8522)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home_1", "002_Hubert_Home", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_3;", "ch: 2, dest: 002_Hubert_Home_7;", "ch: 3, dest: 002_Hubert_Home_4;", "", "", "", "", "", ""]
@@ -811,32 +811,32 @@ color = Color(0.733333, 1, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38460" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@92950" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-698, 447)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38461" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@92951" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(10, 1496)
 default_color = Color(1, 0.733333, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38462" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
+[node name="@Node2D@92952" type="Node2D" parent="Rooms/Hubert Home 2/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(714, 477)
 default_color = Color(0.733333, 1, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 3" type="Node2D" parent="Rooms"]
-position = Vector2(-2170, -4665)
+position = Vector2(-3255, -8118)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home_2", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_5;", "ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", ""]
@@ -906,24 +906,24 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38463" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
+[node name="@Node2D@92953" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-378, 578)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38464" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
+[node name="@Node2D@92954" type="Node2D" parent="Rooms/Hubert Home 3/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(582, 1092)
 default_color = Color(1, 0.733333, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 4" type="Node2D" parent="Rooms"]
-position = Vector2(-758, -4635)
+position = Vector2(-1843, -8088)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home_2", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 2, dest: 002_Hubert_Home_7;", "ch: 1, dest: 002_Hubert_Home_6;", "", "", "", "", "", "", ""]
@@ -993,24 +993,24 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38465" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
+[node name="@Node2D@92955" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-578, 1062)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38466" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
+[node name="@Node2D@92956" type="Node2D" parent="Rooms/Hubert Home 4/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(397, 536)
 default_color = Color(1, 0.733333, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 5" type="Node2D" parent="Rooms"]
-position = Vector2(-2548, -4130)
+position = Vector2(-3633, -7583)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home_3", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", "", ""]
@@ -1067,16 +1067,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38467" type="Node2D" parent="Rooms/Hubert Home 5/LinesContainer"]
+[node name="@Node2D@92957" type="Node2D" parent="Rooms/Hubert Home 5/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(834, 557)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 6" type="Node2D" parent="Rooms"]
-position = Vector2(-361, -4142)
+position = Vector2(-1446, -7595)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home_4", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_7;", "", "", "", "", "", "", "", ""]
@@ -1133,16 +1133,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38468" type="Node2D" parent="Rooms/Hubert Home 6/LinesContainer"]
+[node name="@Node2D@92958" type="Node2D" parent="Rooms/Hubert Home 6/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-849, 569)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 7" type="Node2D" parent="Rooms"]
-position = Vector2(-1462, -3616)
+position = Vector2(-2547, -7069)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home_5", "002_Hubert_Home_3", "002_Hubert_Home_2", "002_Hubert_Home_4", "002_Hubert_Home_6", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_8;", "", "", "", "", "", "", "", ""]
@@ -1229,16 +1229,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38469" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
+[node name="@Node2D@92959" type="Node2D" parent="Rooms/Hubert Home 7/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(0, 507)
+end_pos = Vector2(0, 748)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 8" type="Node2D" parent="Rooms"]
-position = Vector2(-1462, -3152)
+position = Vector2(-2547, -6364)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home_7", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 002_Hubert_Home_9;", "ch: 2, dest: 002_Hubert_Home_10;", "", "", "", "", "", "", ""]
@@ -1308,24 +1308,24 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38470" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
+[node name="@Node2D@92960" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-911, 404)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38471" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
+[node name="@Node2D@92961" type="Node2D" parent="Rooms/Hubert Home 8/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(996, 607)
 default_color = Color(1, 0.733333, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Hubert Home 9" type="Node2D" parent="Rooms"]
-position = Vector2(-2373, -2791)
+position = Vector2(-3458, -6003)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home_8", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea;", "", "", "", "", "", "", "", ""]
@@ -1382,16 +1382,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38472" type="Node2D" parent="Rooms/Hubert Home 9/LinesContainer"]
+[node name="@Node2D@92962" type="Node2D" parent="Rooms/Hubert Home 9/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(0, 564)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Cerulea" type="Node2D" parent="Rooms"]
-position = Vector2(-2373, -2270)
+position = Vector2(-3458, -5482)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home_9", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_1;", "ch: 2, dest: 003_Cerulea_2;", "", "", "", "", "", "", ""]
@@ -1463,24 +1463,24 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38473" type="Node2D" parent="Rooms/Cerulea/LinesContainer"]
+[node name="@Node2D@92963" type="Node2D" parent="Rooms/Cerulea/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-622, 630)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38474" type="Node2D" parent="Rooms/Cerulea/LinesContainer"]
+[node name="@Node2D@92964" type="Node2D" parent="Rooms/Cerulea/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(609, 620)
 default_color = Color(1, 0.733333, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Cerulea 1" type="Node2D" parent="Rooms"]
-position = Vector2(-2995, -1683)
+position = Vector2(-4080, -4895)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["003_Cerulea", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_3;", "", "", "", "", "", "", "", ""]
@@ -1539,16 +1539,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38475" type="Node2D" parent="Rooms/Cerulea 1/LinesContainer"]
+[node name="@Node2D@92965" type="Node2D" parent="Rooms/Cerulea 1/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(370, 555)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Cerulea 2" type="Node2D" parent="Rooms"]
-position = Vector2(-1764, -1693)
+position = Vector2(-2849, -4905)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["003_Cerulea", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_3;", "", "", "", "", "", "", "", ""]
@@ -1606,16 +1606,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38476" type="Node2D" parent="Rooms/Cerulea 2/LinesContainer"]
+[node name="@Node2D@92966" type="Node2D" parent="Rooms/Cerulea 2/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-357, 565)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Cerulea 3" type="Node2D" parent="Rooms"]
-position = Vector2(-2373, -1171)
+position = Vector2(-3458, -4383)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["003_Cerulea_1", "003_Cerulea_2", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_5;", "", "", "", "", "", "", "", ""]
@@ -1684,16 +1684,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38477" type="Node2D" parent="Rooms/Cerulea 3/LinesContainer"]
+[node name="@Node2D@92967" type="Node2D" parent="Rooms/Cerulea 3/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(533, 583)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Cerulea 4" type="Node2D" parent="Rooms"]
-position = Vector2(-466, -1171)
+position = Vector2(-1551, -4383)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["002_Hubert_Home_12", "002_Hubert_Home_14", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 003_Cerulea_5;", "", "", "", "", "", "", "", ""]
@@ -1764,16 +1764,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38478" type="Node2D" parent="Rooms/Cerulea 4/LinesContainer"]
+[node name="@Node2D@92968" type="Node2D" parent="Rooms/Cerulea 4/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(-870, 583)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Cerulea 5" type="Node2D" parent="Rooms"]
-position = Vector2(-1588, -631)
+position = Vector2(-2673, -3843)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["003_Cerulea_3", "003_Cerulea_4", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount;", "", "", "", "", "", "", "", ""]
@@ -1841,16 +1841,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38479" type="Node2D" parent="Rooms/Cerulea 5/LinesContainer"]
+[node name="@Node2D@92969" type="Node2D" parent="Rooms/Cerulea 5/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(0, 629)
+end_pos = Vector2(3, 855)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Cerulea 99" type="Node2D" parent="Rooms"]
-position = Vector2(464, -5769)
+position = Vector2(-3885, 4938)
 script = ExtResource("2_sr6l1")
 door_specs = ["ch: 1, dest: 009_Random_Villages;", "", "", "", "", "", "", "", ""]
 id = "003_Cerulea_99"
@@ -1889,17 +1889,13 @@ position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount" type="Node2D" parent="Rooms"]
-position = Vector2(-1588, -45)
+position = Vector2(-2670, -3031)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["003_Cerulea_5", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount_1;", "ch: 2, dest: 004_Caves_Of_Dragonmount_2;", "ch: 3, dest: 004_Caves_Of_Dragonmount_3;", "", "", "", "", "", ""]
 id = "004_Caves_Of_Dragonmount"
 label = "Caves Of Dragonmount"
-description = "Somewhere in the kingdom, Chester, a friendly dragon, lands at the entrance to the \"Caves of Dragonmount.\"
-Chester walks around the cave system trying to find his friends.
-Chester then leaves, and flies around while looking some more.
-
-Chester lands at the base of Dragonmount, a vast mountain range with an elaborate cave system underneath.
+description = "Somewhere in the kingdom, Chester the friendly dragon is taking another sightseeing trip.  He lands at the base of Dragonmount, a vast mountain range with an elaborate cave system underneath.
 In an attempt to locate 3 of his friends, he goes into the caves.
 
 Hit 1 if you wish to enter Glint's cave.
@@ -1977,32 +1973,32 @@ color = Color(0.733333, 1, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38480" type="Node2D" parent="Rooms/Caves Of Dragonmount/LinesContainer"]
+[node name="@Node2D@92970" type="Node2D" parent="Rooms/Caves Of Dragonmount/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(-252, 330)
-end_pos = Vector2(-434, 512)
+end_pos = Vector2(-1447, 620)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38481" type="Node2D" parent="Rooms/Caves Of Dragonmount/LinesContainer"]
+[node name="@Node2D@92971" type="Node2D" parent="Rooms/Caves Of Dragonmount/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(665, 1225)
+end_pos = Vector2(18, 584)
 default_color = Color(1, 0.733333, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38482" type="Node2D" parent="Rooms/Caves Of Dragonmount/LinesContainer"]
+[node name="@Node2D@92972" type="Node2D" parent="Rooms/Caves Of Dragonmount/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(252, 330)
-end_pos = Vector2(1747, 1921)
+end_pos = Vector2(1412, 686)
 default_color = Color(0.733333, 1, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount 1" type="Node2D" parent="Rooms"]
-position = Vector2(-2022, 424)
+position = Vector2(-4117, -2454)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount_4;", "ch: 2, dest: 004_Caves_Of_Dragonmount_5;", "", "", "", "", "", "", ""]
@@ -2072,24 +2068,24 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38483" type="Node2D" parent="Rooms/Caves Of Dragonmount 1/LinesContainer"]
+[node name="@Node2D@92973" type="Node2D" parent="Rooms/Caves Of Dragonmount 1/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-322, 401)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38484" type="Node2D" parent="Rooms/Caves Of Dragonmount 1/LinesContainer"]
+[node name="@Node2D@92974" type="Node2D" parent="Rooms/Caves Of Dragonmount 1/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(322, 400)
 default_color = Color(1, 0.733333, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount 10" type="Node2D" parent="Rooms"]
-position = Vector2(-2344, 1115)
+position = Vector2(-4439, -1763)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount_4", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 005_Sky;", "", "", "", "", "", "", "", ""]
@@ -2146,16 +2142,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38485" type="Node2D" parent="Rooms/Caves Of Dragonmount 10/LinesContainer"]
+[node name="@Node2D@92975" type="Node2D" parent="Rooms/Caves Of Dragonmount 10/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(521, 2128)
+end_pos = Vector2(1528, 1558)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount 11" type="Node2D" parent="Rooms"]
-position = Vector2(-1700, 1114)
+position = Vector2(-3795, -1764)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount_5", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 005_Sky;", "", "", "", "", "", "", "", ""]
@@ -2212,16 +2208,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38486" type="Node2D" parent="Rooms/Caves Of Dragonmount 11/LinesContainer"]
+[node name="@Node2D@92976" type="Node2D" parent="Rooms/Caves Of Dragonmount 11/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-22.2, 2129)
+end_pos = Vector2(984.8, 1559)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount 12" type="Node2D" parent="Rooms"]
-position = Vector2(-1252, 1852)
+position = Vector2(-2981, -1775)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount_6", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 005_Sky;", "", "", "", "", "", "", "", ""]
@@ -2278,16 +2274,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38487" type="Node2D" parent="Rooms/Caves Of Dragonmount 12/LinesContainer"]
+[node name="@Node2D@92977" type="Node2D" parent="Rooms/Caves Of Dragonmount 12/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-369.4, 1391)
+end_pos = Vector2(271.6, 1570)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount 13" type="Node2D" parent="Rooms"]
-position = Vector2(-591, 1838)
+position = Vector2(-2320, -1789)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount_7", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 005_Sky;", "", "", "", "", "", "", "", ""]
@@ -2344,16 +2340,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38488" type="Node2D" parent="Rooms/Caves Of Dragonmount 13/LinesContainer"]
+[node name="@Node2D@92978" type="Node2D" parent="Rooms/Caves Of Dragonmount 13/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-929.6, 1405)
+end_pos = Vector2(-288.6, 1584)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount 14" type="Node2D" parent="Rooms"]
-position = Vector2(-151, 2526)
+position = Vector2(-1568, -1695)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount_8", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 005_Sky;", "", "", "", "", "", "", "", ""]
@@ -2410,16 +2406,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38489" type="Node2D" parent="Rooms/Caves Of Dragonmount 14/LinesContainer"]
+[node name="@Node2D@92979" type="Node2D" parent="Rooms/Caves Of Dragonmount 14/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-1268.8, 717)
+end_pos = Vector2(-939.8, 1490)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount 15" type="Node2D" parent="Rooms"]
-position = Vector2(489, 2527)
+position = Vector2(-928, -1694)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount_9", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 005_Sky;", "", "", "", "", "", "", "", ""]
@@ -2476,16 +2472,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38490" type="Node2D" parent="Rooms/Caves Of Dragonmount 15/LinesContainer"]
+[node name="@Node2D@92980" type="Node2D" parent="Rooms/Caves Of Dragonmount 15/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
-end_pos = Vector2(-1808, 716)
+end_pos = Vector2(-1479, 1489)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount 2" type="Node2D" parent="Rooms"]
-position = Vector2(-923, 1137)
+position = Vector2(-2652, -2490)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount_6;", "ch: 2, dest: 004_Caves_Of_Dragonmount_7;", "", "", "", "", "", "", ""]
@@ -2555,24 +2551,24 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38491" type="Node2D" parent="Rooms/Caves Of Dragonmount 2/LinesContainer"]
+[node name="@Node2D@92981" type="Node2D" parent="Rooms/Caves Of Dragonmount 2/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-329, 419)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38492" type="Node2D" parent="Rooms/Caves Of Dragonmount 2/LinesContainer"]
+[node name="@Node2D@92982" type="Node2D" parent="Rooms/Caves Of Dragonmount 2/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(332, 405)
 default_color = Color(1, 0.733333, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount 3" type="Node2D" parent="Rooms"]
-position = Vector2(159, 1833)
+position = Vector2(-1258, -2388)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount_8;", "ch: 2, dest: 004_Caves_Of_Dragonmount_9;", "", "", "", "", "", "", ""]
@@ -2642,24 +2638,24 @@ color = Color(1, 0.733333, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38493" type="Node2D" parent="Rooms/Caves Of Dragonmount 3/LinesContainer"]
+[node name="@Node2D@92983" type="Node2D" parent="Rooms/Caves Of Dragonmount 3/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(-252, 330)
 end_pos = Vector2(-310, 400)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38494" type="Node2D" parent="Rooms/Caves Of Dragonmount 3/LinesContainer"]
+[node name="@Node2D@92984" type="Node2D" parent="Rooms/Caves Of Dragonmount 3/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(252, 330)
 end_pos = Vector2(330, 398)
 default_color = Color(1, 0.733333, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount 4" type="Node2D" parent="Rooms"]
-position = Vector2(-2344, 782)
+position = Vector2(-4439, -2096)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount_1", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount_10;", "", "", "", "", "", "", "", ""]
@@ -2715,16 +2711,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38495" type="Node2D" parent="Rooms/Caves Of Dragonmount 4/LinesContainer"]
+[node name="@Node2D@92985" type="Node2D" parent="Rooms/Caves Of Dragonmount 4/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(0, 376)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount 5" type="Node2D" parent="Rooms"]
-position = Vector2(-1700, 781)
+position = Vector2(-3795, -2097)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount_1", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount_11;", "", "", "", "", "", "", "", ""]
@@ -2781,16 +2777,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38496" type="Node2D" parent="Rooms/Caves Of Dragonmount 5/LinesContainer"]
+[node name="@Node2D@92986" type="Node2D" parent="Rooms/Caves Of Dragonmount 5/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(0, 376)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount 6" type="Node2D" parent="Rooms"]
-position = Vector2(-1252, 1513)
+position = Vector2(-2981, -2114)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount_2", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount_12;", "", "", "", "", "", "", "", ""]
@@ -2848,16 +2844,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38497" type="Node2D" parent="Rooms/Caves Of Dragonmount 6/LinesContainer"]
+[node name="@Node2D@92987" type="Node2D" parent="Rooms/Caves Of Dragonmount 6/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(0, 382)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount 7" type="Node2D" parent="Rooms"]
-position = Vector2(-591, 1499)
+position = Vector2(-2320, -2128)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount_2", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount_13;", "", "", "", "", "", "", "", ""]
@@ -2914,16 +2910,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38498" type="Node2D" parent="Rooms/Caves Of Dragonmount 7/LinesContainer"]
+[node name="@Node2D@92988" type="Node2D" parent="Rooms/Caves Of Dragonmount 7/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(0, 382)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount 8" type="Node2D" parent="Rooms"]
-position = Vector2(-151, 2190)
+position = Vector2(-1568, -2031)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount_3", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount_14;", "", "", "", "", "", "", "", ""]
@@ -2980,16 +2976,16 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38499" type="Node2D" parent="Rooms/Caves Of Dragonmount 8/LinesContainer"]
+[node name="@Node2D@92989" type="Node2D" parent="Rooms/Caves Of Dragonmount 8/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(0, 379)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Caves Of Dragonmount 9" type="Node2D" parent="Rooms"]
-position = Vector2(489, 2188)
+position = Vector2(-928, -2033)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount_3", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 004_Caves_Of_Dragonmount_15;", "", "", "", "", "", "", "", ""]
@@ -3046,19 +3042,19 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true
 
-[node name="@Node2D@38500" type="Node2D" parent="Rooms/Caves Of Dragonmount 9/LinesContainer"]
+[node name="@Node2D@92990" type="Node2D" parent="Rooms/Caves Of Dragonmount 9/LinesContainer"]
 script = ExtResource("4_2brnr")
 start_pos = Vector2(0, 330)
 end_pos = Vector2(0, 382)
 default_color = Color(1, 0.2, 0.2, 1)
-width = 4.75683
+width = 5.33936
 metadata/_edit_lock_ = true
 
 [node name="Sky" type="Node2D" parent="Rooms"]
-position = Vector2(-1571, 3200)
+position = Vector2(-2659, -248)
 script = ExtResource("2_sr6l1")
 inbound_rooms = ["004_Caves_Of_Dragonmount_10", "004_Caves_Of_Dragonmount_11", "004_Caves_Of_Dragonmount_12", "004_Caves_Of_Dragonmount_13", "004_Caves_Of_Dragonmount_14", "004_Caves_Of_Dragonmount_15", "", "", ""]
-door_specs = ["ch: 1, dest: 006_Chester_Cave;", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 005_Sky_1;", "ch: 2, dest: 005_Sky_2;", "ch: 3, dest: 005_Sky_3;", "", "", "", "", "", ""]
 id = "005_Sky"
 label = "Sky"
 description = "As Chester is flying around, he sees a random village being burned down by a friend.
@@ -3076,16 +3072,30 @@ offset_left = -342.0
 offset_top = 210.0
 offset_right = 342.0
 offset_bottom = 230.0
-theme_override_constants/separation = 0
+theme_override_constants/separation = 232
 alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="DoorVisual_Door_To_Chester_Cave" type="ColorRect" parent="Rooms/Sky/DoorVisualsContainer"]
+[node name="DoorVisual_Door_To_Sky_1" type="ColorRect" parent="Rooms/Sky/DoorVisualsContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
+
+[node name="DoorVisual_Door_To_Sky_2" type="ColorRect" parent="Rooms/Sky/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="DoorVisual_Door_To_Sky_3" type="ColorRect" parent="Rooms/Sky/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.733333, 1, 0.2, 1)
 
 [node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Sky"]
 z_index = 1
@@ -3140,11 +3150,453 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.2, 0.2, 1)
 
-[node name="Door_To_Chester_Cave" type="Node2D" parent="Rooms/Sky"]
+[node name="Door_To_Sky_1" type="Node2D" parent="Rooms/Sky"]
 visible = false
 script = ExtResource("3_dn0hp")
 color = Color(1, 0.2, 0.2, 1)
 
+[node name="Door_To_Sky_2" type="Node2D" parent="Rooms/Sky"]
+visible = false
+script = ExtResource("3_dn0hp")
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="Door_To_Sky_3" type="Node2D" parent="Rooms/Sky"]
+visible = false
+script = ExtResource("3_dn0hp")
+color = Color(0.733333, 1, 0.2, 1)
+
 [node name="LinesContainer" type="Node2D" parent="Rooms/Sky"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@92991" type="Node2D" parent="Rooms/Sky/LinesContainer"]
+script = ExtResource("4_2brnr")
+start_pos = Vector2(-252, 330)
+end_pos = Vector2(-636, 632)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.33936
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@92992" type="Node2D" parent="Rooms/Sky/LinesContainer"]
+script = ExtResource("4_2brnr")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(15, 636)
+default_color = Color(1, 0.733333, 0.2, 1)
+width = 5.33936
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@92993" type="Node2D" parent="Rooms/Sky/LinesContainer"]
+script = ExtResource("4_2brnr")
+start_pos = Vector2(252, 330)
+end_pos = Vector2(657, 647)
+default_color = Color(0.733333, 1, 0.2, 1)
+width = 5.33936
+metadata/_edit_lock_ = true
+
+[node name="Sky 1" type="Node2D" parent="Rooms"]
+position = Vector2(-3295, 341)
+script = ExtResource("2_sr6l1")
+inbound_rooms = ["005_Sky", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 006_Chester_Cave;", "", "", "", "", "", "", "", ""]
+id = "005_Sky_1"
+label = "Sky 1"
+description = "There's nothing here yet.  Hit 0 to quit."
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Sky 1"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Chester_Cave" type="ColorRect" parent="Rooms/Sky 1/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Sky 1"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_005_Sky" type="ColorRect" parent="Rooms/Sky 1/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Chester_Cave" type="Node2D" parent="Rooms/Sky 1"]
+visible = false
+script = ExtResource("3_dn0hp")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Sky 1"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@92994" type="Node2D" parent="Rooms/Sky 1/LinesContainer"]
+script = ExtResource("4_2brnr")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(405, 549)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.33936
+metadata/_edit_lock_ = true
+
+[node name="Sky 11" type="Node2D" parent="Rooms"]
+position = Vector2(-2524, 4288)
+script = ExtResource("2_sr6l1")
+door_specs = ["ch: 1, dest: 005_Sky_12;", "", "", "", "", "", "", "", ""]
+id = "005_Sky_11"
+label = "Sky 11"
+description = "While Sir William is flying, a huge black dragon swoops out from the sky and hits him full on.
+The Black Knight sitting atop Crooktooth circles around and starts flying toward Sir William again.
+After falling a bit Sir William regains his balance and starts flying towards Crooktooth.
+Sir William gets a few hits, but doesn't do much damage to Crooktooth as he knocks Sir William out of the sky again.
+
+Hit 1 if you wish to go to Sky 2.
+
+Hit 0 to quit."
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Sky 11"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Sky_12" type="ColorRect" parent="Rooms/Sky 11/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Sky_12" type="Node2D" parent="Rooms/Sky 11"]
+visible = false
+script = ExtResource("3_dn0hp")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Sky 11"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@92995" type="Node2D" parent="Rooms/Sky 11/LinesContainer"]
+script = ExtResource("4_2brnr")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(42, 705)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.33936
+metadata/_edit_lock_ = true
+
+[node name="Sky 12" type="Node2D" parent="Rooms"]
+position = Vector2(-2482, 4950)
+script = ExtResource("2_sr6l1")
+inbound_rooms = ["005_Sky_11", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 026_Max_Mines_1;", "", "", "", "", "", "", "", ""]
+id = "005_Sky_12"
+label = "Sky 12"
+description = "Crooktooth starts heading toward Sir William again, when two other dragons swoop in behind him.
+These two dragons, Chester, and Nestor, fly toward Sir William and turn around to confront Crooktooth.
+All three start flying towards the Black Knight.
+
+Hit 1 if you wish to go to Max Mines 1.
+
+Hit 0 to quit."
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Sky 12"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Max_Mines_1" type="ColorRect" parent="Rooms/Sky 12/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Sky 12"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_005_Sky_11" type="ColorRect" parent="Rooms/Sky 12/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Max_Mines_1" type="Node2D" parent="Rooms/Sky 12"]
+visible = false
+script = ExtResource("3_dn0hp")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Sky 12"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="Sky 13" type="Node2D" parent="Rooms"]
+position = Vector2(-1542, 4788)
+script = ExtResource("2_sr6l1")
+door_specs = ["ch: 1, dest: 037_Werewolf_Village_Road;", "", "", "", "", "", "", "", ""]
+id = "005_Sky_13"
+label = "Sky 13"
+description = "Sir William and the twins manage to batter Crooktooth and his rider, the Black Knight.
+The battle ends quickly, when the Black Knight and Crooktooth separate and fall to their deaths.
+
+Hit 1 if you wish to go to Werewolf Village Road.
+
+Hit 0 to quit."
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Sky 13"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Werewolf_Village_Road" type="ColorRect" parent="Rooms/Sky 13/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Werewolf_Village_Road" type="Node2D" parent="Rooms/Sky 13"]
+visible = false
+script = ExtResource("3_dn0hp")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Sky 13"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="Sky 2" type="Node2D" parent="Rooms"]
+position = Vector2(-2644, 345)
+script = ExtResource("2_sr6l1")
+inbound_rooms = ["005_Sky", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 006_Chester_Cave;", "", "", "", "", "", "", "", ""]
+id = "005_Sky_2"
+label = "Sky 2"
+description = "There's nothing here yet.  Hit 0 to quit."
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Sky 2"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Chester_Cave" type="ColorRect" parent="Rooms/Sky 2/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Sky 2"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_005_Sky" type="ColorRect" parent="Rooms/Sky 2/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="Door_To_Chester_Cave" type="Node2D" parent="Rooms/Sky 2"]
+visible = false
+script = ExtResource("3_dn0hp")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Sky 2"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@92996" type="Node2D" parent="Rooms/Sky 2/LinesContainer"]
+script = ExtResource("4_2brnr")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(6, 545)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.33936
+metadata/_edit_lock_ = true
+
+[node name="Sky 3" type="Node2D" parent="Rooms"]
+position = Vector2(-2002, 356)
+script = ExtResource("2_sr6l1")
+inbound_rooms = ["005_Sky", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 006_Chester_Cave;", "", "", "", "", "", "", "", ""]
+id = "005_Sky_3"
+label = "Sky 3"
+description = "There's nothing here yet.  Hit 0 to quit."
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Sky 3"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Chester_Cave" type="ColorRect" parent="Rooms/Sky 3/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Sky 3"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_005_Sky" type="ColorRect" parent="Rooms/Sky 3/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.733333, 1, 0.2, 1)
+
+[node name="Door_To_Chester_Cave" type="Node2D" parent="Rooms/Sky 3"]
+visible = false
+script = ExtResource("3_dn0hp")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Sky 3"]
+position = Vector2(0, -100)
+metadata/_edit_lock_ = true
+
+[node name="@Node2D@92997" type="Node2D" parent="Rooms/Sky 3/LinesContainer"]
+script = ExtResource("4_2brnr")
+start_pos = Vector2(0, 330)
+end_pos = Vector2(-384, 534)
+default_color = Color(1, 0.2, 0.2, 1)
+width = 5.33936
+metadata/_edit_lock_ = true
+
+[node name="Chester Cave" type="Node2D" parent="Rooms"]
+position = Vector2(-2638, 847)
+script = ExtResource("2_sr6l1")
+inbound_rooms = ["005_Sky_1", "005_Sky_2", "005_Sky_3", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 007_Train_Cabin;", "", "", "", "", "", "", "", ""]
+id = "006_Chester_Cave"
+label = "Chester Cave"
+description = "Chester picks up a few shiny objects from his cave, and then leaves again to search for more of his friends.
+
+Hit 1 if you wish to go to Train Cabin.
+
+Hit 0 to quit."
+
+[node name="DoorVisualsContainer" type="HBoxContainer" parent="Rooms/Chester Cave"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = 210.0
+offset_right = 342.0
+offset_bottom = 230.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DoorVisual_Door_To_Train_Cabin" type="ColorRect" parent="Rooms/Chester Cave/DoorVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisualsContainer" type="HBoxContainer" parent="Rooms/Chester Cave"]
+z_index = 1
+custom_minimum_size = Vector2(684, 20)
+offset_left = -342.0
+offset_top = -57.0
+offset_right = 342.0
+offset_bottom = -37.0
+theme_override_constants/separation = 232
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InboundVisual_005_Sky_1" type="ColorRect" parent="Rooms/Chester Cave/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisual_005_Sky_2" type="ColorRect" parent="Rooms/Chester Cave/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="InboundVisual_005_Sky_3" type="ColorRect" parent="Rooms/Chester Cave/InboundVisualsContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Train_Cabin" type="Node2D" parent="Rooms/Chester Cave"]
+visible = false
+script = ExtResource("3_dn0hp")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="LinesContainer" type="Node2D" parent="Rooms/Chester Cave"]
 position = Vector2(0, -100)
 metadata/_edit_lock_ = true

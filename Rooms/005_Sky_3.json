@@ -1,16 +1,13 @@
 {
     "id": "005_Sky_3",
     "label": "Sky 3",
-    "description": "Sir William and the twins manage to batter Crooktooth and his rider, the Black Knight.\nThe battle ends quickly, when the Black Knight and Crooktooth separate and fall to their deaths.\n\nHit 1 if you wish to go to Werewolf Village Road.\n\nHit 0 to quit.",
-    "inbound":
+    "description": "There's nothing here yet.  Hit 0 to quit.",
+    "doors":
     [
-        "026_Max_Mines_2",
-    ],
-    "doors": [
         {
-            "id": "Door_To_Werewolf_Village_Road",
+            "id": "Door_To_Chester_Cave",
             "choice": "1",
-            "destination": "037_Werewolf_Village_Road"
+            "destination": "006_Chester_Cave"
         }
     ]
 }

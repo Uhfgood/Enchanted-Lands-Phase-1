@@ -1,7 +1,7 @@
 {
     "id": "004_Caves_Of_Dragonmount",
     "label": "Caves Of Dragonmount",
-    "description": "Somewhere in the kingdom, Chester, a friendly dragon, lands at the entrance to the \"Caves of Dragonmount.\"\nChester walks around the cave system trying to find his friends.\nChester then leaves, and flies around while looking some more.\n\nChester lands at the base of Dragonmount, a vast mountain range with an elaborate cave system underneath.\nIn an attempt to locate 3 of his friends, he goes into the caves.\n\nHit 1 if you wish to enter Glint's cave.\nHit 2 if you wish to call out to Ember in front of her cave.\nHit 3 if you wish to examine Shade's cave.\n\nHit 0 to quit.",
+    "description": "Somewhere in the kingdom, Chester the friendly dragon is taking another sightseeing trip.  He lands at the base of Dragonmount, a vast mountain range with an elaborate cave system underneath.\nIn an attempt to locate 3 of his friends, he goes into the caves.\n\nHit 1 if you wish to enter Glint's cave.\nHit 2 if you wish to call out to Ember in front of her cave.\nHit 3 if you wish to examine Shade's cave.\n\nHit 0 to quit.",
     "doors":
     [
         {
