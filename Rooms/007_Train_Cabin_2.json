@@ -1,0 +1,13 @@
+{
+    "id": "007_Train_Cabin_2",
+    "label": "Train Cabin 2",
+    "description": "ohn runs toward the little man which after seeing John manages to make it to the cabin door and open it.  Before John can reach him, the little man then messes with a device simliar to what he put on the wall, and the cabin starts to spin as the little man with the woman jumps out.\n\nJohn tumbles and then blacks out.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Lapsewood",
+            "choice": "1",
+            "destination": "008_Lapsewood"
+        }
+    ]
+}

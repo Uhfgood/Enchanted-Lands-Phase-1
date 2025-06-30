@@ -1,13 +1,18 @@
 {
     "id": "007_Train_Cabin",
     "label": "Train Cabin",
-    "description": "John steps into what looks like a train cabin, when he sees a beautiful young woman sitting near the front.\nThe beautiful woman is grabbed by a short fat little man, as the train cabin starts tumbling, causing John to fall.\n\nHit 1 if you wish to go to Lapsewood.\n\nHit 0 to quit.",
+    "description": "John steps into what looks like a train cabin, when he sees a beautiful young woman sitting near the front.\nThe beautiful woman is grabbed by a short fat little man, as the train cabin starts tumbling, causing John to fall.\n\nJohn steps through the portal into what appears to be a train cabin and sees a beautiful young woman sitting near the front of the cabin.\nAs John gets ready to start walking down the aisle, a short fat little man jumps out, runs to the front, and places a small bejewled disk on the wall. \nThe short fat little man, then runs to the woman's seat, sprinkles some sparking dust that looks like glitter, and he notices she falls asleep really fast.\nThe little man grabs her and heaves her over his shoulder and heads towards the center of the cabin, where a door is placed.\nFeeling a little concerned for the woman, John wants to do something.\n\nHit 1 if you want John to call out to the little man.\nHit 2 if you want John to attempt to stop the little man.\n\nHit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Lapsewood",
+            "id": "Door_To_Train_Cabin_1",
             "choice": "1",
-            "destination": "008_Lapsewood"
+            "destination": "007_Train_Cabin_1"
+        },
+        {
+            "id": "Door_To_Train_Cabin_2",
+            "choice": "1",
+            "destination": "007_Train_Cabin_2"
         }
     ]
 }
