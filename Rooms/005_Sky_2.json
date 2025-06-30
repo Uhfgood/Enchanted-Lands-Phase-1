@@ -1,13 +1,18 @@
 {
     "id": "005_Sky_2",
     "label": "Sky 2",
-    "description": "There's nothing here yet.  Hit 0 to quit.",
+    "description": "Spotting Shade terroizing a small village, Chester flies up and grabs on to Shade's tail.\nShade starts thrashing wildly but ends up crashing to a grove of trees.\nChester leaves to find Ember and Glint.\n\nHit 1 to search for Ember.\nHit 2 to search for Glint\n\nHit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Chester_Cave",
+            "id": "Door_To_Sky_4",
             "choice": "1",
-            "destination": "006_Chester_Cave"
+            "destination": "005_Sky_4"
+        },
+        {
+            "id": "Door_To_Sky_5",
+            "choice": "2",
+            "destination": "005_Sky_5"
         }
     ]
 }

@@ -1,7 +1,7 @@
 {
     "id": "006_Chester_Cave",
     "label": "Chester Cave",
-    "description": "Chester picks up a few shiny objects from his cave, and then leaves again to search for more of his friends.\n\nHit 1 if you wish to go to Train Cabin.\n\nHit 0 to quit.",
+    "description": "Chester picks up a few shiny objects from his cave, and then leaves again to search for more of his friends.\n\nChester tends to hoard gold and silver tableware, and bonus if they're bejewled.  He's also got smaller collections of other items.  After having seen his friends act contrary to their nature, he reasons that they must be under some sort of enchantment, and thus decides to find a way to break it.\n\nAs Chester is flying home he spots yet another flying train which is somewhat unusual given the fact that there hasn't been much tourist activity as-of-late.\n\nHit 1 to continue.\n\nHit 0 to quit.",
     "doors":
     [
         {

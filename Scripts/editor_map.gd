@@ -535,7 +535,7 @@ func LoadAllRooms():
 					rooms_dict[ room.id ] = room
 					AddRoomToEditorMap(room)
 					LoadMetadataForRoom(room, filename)
-				if filename.begins_with("006"):
+				if filename.begins_with("007"):
 					break
 
 	# Step 2: Assign inbound rooms for all rooms
