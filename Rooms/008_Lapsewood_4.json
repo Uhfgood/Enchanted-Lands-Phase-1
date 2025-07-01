@@ -1,13 +1,13 @@
 {
-    "id": "008_Lapsewood",
-    "label": "Lapsewood",
+    "id": "008_Lapsewood_4",
+    "label": "Lapsewood 4",
     "description": "John awakens in a forest without leaves as Hubert walks over and introduces himself.\nHubert tells John that he brought him here, to help find out why Enchanted Lands has closed.\nHubert mentions that it's a good thing that he fell near the edge of Lapsewood, since it makes you forget things.\nHubert and John start walking out of the leafless forest.\n\nWhen John wakes up, he sits up and looks around, noticing they seem to be in a leafless forest.\n\nHit 1 if you wish to go to Lapsewood 4.\n\nHit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Lapsewood_4",
+            "id": "Door_To_Lapsewood_5",
             "choice": "1",
-            "destination": "008_Lapsewood_4"
+            "destination": "008_Lapsewood_5"
         }
     ]
 }
