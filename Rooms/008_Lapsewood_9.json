@@ -1,0 +1,13 @@
+{
+    "id": "008_Lapsewood_9",
+    "label": "Lapsewood 9",
+    "description": "The Wizard introduces him self as Hubert Halfway, and then mentions they need to leave the area quickly.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Cerulea_99",
+            "choice": "1",
+            "destination": "003_Cerulea_99"
+        }
+    ]
+}
