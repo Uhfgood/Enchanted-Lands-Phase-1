@@ -1,7 +1,7 @@
 {
     "id": "008_Lapsewood",
     "label": "Lapsewood",
-    "description": "John awakens in a forest without leaves as Hubert walks over and introduces himself.\nHubert tells John that he brought him here, to help find out why Enchanted Lands has closed.\nHubert mentions that it's a good thing that he fell near the edge of Lapsewood, since it makes you forget things.\nHubert and John start walking out of the leafless forest.\n\nWhen John wakes up, he sits up and looks around, noticing they seem to be in a leafless forest.\nGetting to his feet, he notices other passengers walking around, gathering belongings and searching for loved ones.\nA dwarf starts screaming for some item he's looking for.\n\nHit 1 if you wish to ask the dwarf what he's looking for.\nHit 2 if you wish to just start searching for anything unusual that a dwarf might want.\n\nHit 0 to quit.",
+    "description": "When John wakes up, he sits up and looks around, noticing they seem to be in a leafless forest.\nGetting to his feet, he notices other passengers walking around, gathering belongings and searching for loved ones.\nA dwarf starts screaming for some item he's looking for.\n\nHit 1 if you want John to ask the dwarf what he's looking for.\nHit 2 if you want John to just start searching for anything unusual that a dwarf might want.\n\nHit 0 to quit.",
     "doors":
     [
         {

@@ -1,13 +1,23 @@
 {
     "id": "008_Lapsewood_9",
     "label": "Lapsewood 9",
-    "description": "The Wizard introduces him self as Hubert Halfway, and then mentions they need to leave the area quickly.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "description": "The Wizard introduces him self as Hubert Halfway, and then mentions they need to leave the area quickly.\nHubert then addresses John and tells him he knows he must have some questions and asks him what he would like to know about.\nJohn mentions that he saw a strange little man, rather stocky, mention getting some important papers to Hubert, called the Omni-Gate, before the riders came and abducted him.\nHubert mentions that he knows Burly but he doesn't know for sure what the Omni-Gate could be.\n\nTo ask Hubert where you are, hit 1.\nTo ask Hubert who he is, hit 2.\nIf you're wondering why John's here, hit 3.\n\nHit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Cerulea_99",
+            "id": "Door_To_Lapsewood_10",
             "choice": "1",
-            "destination": "003_Cerulea_99"
+            "destination": "008_Lapsewood_10"
+        },
+        {
+            "id": "Door_To_Lapsewood_11",
+            "choice": "2",
+            "destination": "008_Lapsewood_11"
+        },
+        {
+            "id": "Door_To_Lapsewood_12",
+            "choice": "3",
+            "destination": "008_Lapsewood_12"
         }
     ]
 }

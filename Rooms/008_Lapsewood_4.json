@@ -1,7 +1,7 @@
 {
     "id": "008_Lapsewood_4",
     "label": "Lapsewood 4",
-    "description": "John asks the dwarf what he's looking for.\nWithout answering the dwarf looks around and sees a pile and reaches in his hand.\nHe pulls out a huge roast chicken and starts eating it with abandon.\nAfter apparently calming down, he tells John he's looking for a small leather satchel.\nHe then comments how he was in the dining car, so they must look for that first.\n\nHit 1 if you wish to examine the pile the Dwarf had pulled the chicken out of.\nHit 2 if you wish to examine the ground around where the Dwarf was searching.\n\nHit 0 to quit.",
+    "description": "John asks the dwarf what he's looking for.\nWithout answering the dwarf looks around and sees a pile and reaches in his hand.\nHe pulls out a huge roast chicken and starts eating it with abandon.\nAfter apparently calming down, he tells John he's looking for a small leather satchel.\nHe then comments how he was in the dining car, so they must look for that first.\n\nHit 1 to examine the pile the Dwarf had pulled the chicken out of.\nHit 2 to search the ground around where the Dwarf was searching.\n\nHit 0 to quit.",
     "doors":
     [
         {
