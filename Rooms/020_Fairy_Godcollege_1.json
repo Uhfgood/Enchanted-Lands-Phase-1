@@ -9,9 +9,9 @@
     "doors":
     [
         {
-            "id": "Door_To_Random_Villages_4",
+            "id": "Door_To_Random_Villages_3",
             "choice": "1",
-            "destination": "009_Random_Villages_4"
+            "destination": "009_Random_Villages_3"
         }
     ]
 }
