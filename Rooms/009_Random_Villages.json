@@ -1,13 +1,23 @@
 {
     "id": "009_Random_Villages",
     "label": "Random Villages",
-    "description": "Zanzibar then does a few tricks for the first locals he sees, in some random village.\nZanzibar gets his crow, Corvus, to steal from the locals.\n\nHit 1 if you wish to go to Lapsewood Edge.\n\nHit 0 to quit.",
+    "description": "Zanzibar then does a few tricks for the first locals he sees, in some random village.\nZanzibar gets his crow, Corvus, to steal from the locals.\n\nOnce through the portal, Zanzibar is standing among many other wizards, in what appears to be a closed up restaurant.\nWhen asked who he was Zanzibar tells them he's been stranted in Las Vegas, and he gathers that they all have these amulets that gain them entrance back, and pretends he was robbed of his.\nZanzibar then asksed about what had happened since he presumably left, and they told them about the Lands and the fact everything is closed.\nEveryone leaves the restaurant and Zanzibar wanders in a random direction for a while before coming to a small village.\nZanzibar needs some money, so he decides he'll use a coin-doubling magic scam, and decides to check out the local tavern named \"The Shedding Shetland\".\nZanzibar looks around and surveys the situation.  The coin-doubler needs some initial capital, so Zanzibar decides on 3 ways to get the initial coinage.  A tall, burly patron, bursts into the tavern and pushes his way past Zanzibar to the bar, where he plots down a large bag of coins a few of which spill out onto the bar.\n\nHit 1 to attempt to wow tavern patrons with a mind-reading act.\nHit 2 to use a cups and balls illusion to distract patrons so that Corvus can grab a few coins.\nHit 3 to get Corvus to lift a few coins from the burly patron's coin-purse.\n\nHit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Lapsewood_Edge",
+            "id": "Door_To_Random_Villages_5",
             "choice": "1",
-            "destination": "010_Lapsewood_Edge"
+            "destination": "009_Random_Villages_5"
+        },
+        {
+            "id": "Door_To_Random_Villages_6",
+            "choice": "2",
+            "destination": "009_Random_Villages_6"
+        },
+        {
+            "id": "Door_To_Random_Villages_7",
+            "choice": "3",
+            "destination": "009_Random_Villages_7"
         }
     ]
 }

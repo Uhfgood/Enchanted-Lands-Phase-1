@@ -1,0 +1,13 @@
+{
+    "id": "009_Random_Villages_5",
+    "label": "Random Villages 5",
+    "description": "Mind-reading act.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Lapsewood_Edge",
+            "choice": "1",
+            "destination": "010_Lapsewood_Edge"
+        }
+    ]
+}

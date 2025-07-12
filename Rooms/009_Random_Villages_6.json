@@ -1,0 +1,13 @@
+{
+    "id": "009_Random_Villages_6",
+    "label": "Random Villages 6",
+    "description": "Cups and balls.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Lapsewood_Edge",
+            "choice": "1",
+            "destination": "010_Lapsewood_Edge"
+        }
+    ]
+}
