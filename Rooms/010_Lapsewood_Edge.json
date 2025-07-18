@@ -1,13 +1,23 @@
 {
     "id": "010_Lapsewood_Edge",
     "label": "Lapsewood Edge",
-    "description": "Once they're out of the confines of Lapsewood, Hubert stops to give instructions.\nHubert sends John to Knight School and Princess Prep to figure out what's happening.\nHubert himself goes to examine Wizard U and Fairy Godcollege.\n\nHit 1 if you wish to go to Dwarf Mines.\n\nHit 0 to quit.",
+    "description": "Once they're out of the confines of Lapsewood, Hubert stops to give instructions.\nHubert sends John to Knight School and Princess Prep to figure out what's happening.\nHubert himself goes to examine Wizard U and Fairy Godcollege.\n\nWalking out of Lapsewood they head toward the road and talk to answer anymore questions John may have.\nJohn asks Hubert to give him a little more information about Enchanted Lands.\nHubert relays a bit more information concerning the schools, the Dwarf mines and the gnome kingdom, as well as the flying trains which necessitates a brief explanation about magic in Enchanted Lands.\n\nHit 1 if you wish to learn more about the schools.\nHit 2 if you want to know about the Dwarves and Gnomes.\nHit 3 if you wondering about the conveyance you were in.\n\nHit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Dwarf_Mines",
+            "id": "Door_To_Johns_Further_Questions",
             "choice": "1",
-            "destination": "011_Dwarf_Mines"
+            "destination": "045_Johns_Further_Questions"
+        },
+        {
+            "id": "Door_To_Johns_Further_Questions_1",
+            "choice": "2",
+            "destination": "045_Johns_Further_Questions_1"
+        },
+        {
+            "id": "Door_To_Johns_Further_Questions_2",
+            "choice": "1",
+            "destination": "045_Johns_Further_Questions_2"
         }
     ]
 }

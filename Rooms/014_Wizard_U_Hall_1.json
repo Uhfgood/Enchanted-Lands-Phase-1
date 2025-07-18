@@ -2,10 +2,6 @@
     "id": "014_Wizard_U_Hall_1",
     "label": "Wizard U Hall 1",
     "description": "Just inside the door at Wizard U, the Unicorn reads a sign that hints at the library.\nThe Unicorn then passes through the \"hall of fame\", noting the paintings of each of the Wizards.\nThe Unicorn sees Hubert's painting in the hall of fame, and particularly notes it has been defaced.\nHe then proceeds to find the library.\n\nHit 1 if you wish to go to Wizard U Library.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "018_Wizard_U_Entrance",
-    ],
     "doors":
     [
         {

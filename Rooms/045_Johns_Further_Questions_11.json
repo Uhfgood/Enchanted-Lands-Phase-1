@@ -1,0 +1,13 @@
+{
+    "id": "045_Johns_Further_Questions_11",
+    "label": "Johns Further Questions 11",
+    "description": "Hubert tells John he was in a flying train due to the \"Quicksilver\" which is a magical ore that makes inanimate objects levitate and facilitates other modern conveniences.  Tourists always step into a flying train if one is running to first start off their vacation.  Hubert also states lately there aren't many trains running due to the troubles.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_Entrance",
+            "choice": "1",
+            "destination": "012_Knight_School_Entrance"
+        }
+    ]
+}

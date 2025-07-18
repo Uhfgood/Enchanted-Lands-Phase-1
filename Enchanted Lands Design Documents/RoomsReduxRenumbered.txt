@@ -231,7 +231,7 @@ desc:
 Roland goes into the dwarf mines, and then from there finds a secret entrance into the Gnome Kingdom.
 door: 020_Fairy_Godcollege
 
-id: 020_Fairy_Godcollege
+id: 020_Fairy_GodcollegeRoland
 label: Fairy Godcollege
 parent: 011_Dwarf_Mines_1
 desc: 

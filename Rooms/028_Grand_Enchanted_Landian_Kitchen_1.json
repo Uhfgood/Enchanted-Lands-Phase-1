@@ -2,10 +2,6 @@
     "id": "028_Grand_Enchanted_Landian_Kitchen_1",
     "label": "Grand Enchanted Landian Kitchen 1",
     "description": "They try to walk out of the side doors of the kitchen, calmly and slowly.\n\nHit 1 if you wish to go to Grand Enchanted Landian Hotel Room.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "023_Grand_Enchanted_Landian_Wine_Cellar_1",
-    ],
     "doors":
     [
         {

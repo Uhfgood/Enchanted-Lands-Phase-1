@@ -1,0 +1,13 @@
+{
+    "id": "009_Random_Villages_8",
+    "label": "Random Villages 8",
+    "description": "While surveying his surroundings a loud large burly patron pushes past Zanzibar to the bar.\nAfter slamming a large bag full of coins on the bar, the burly patron turns to a barmaid sitting next to him.\nZanzibar gets Corvus to grab some of those coins that spilled onto the table.\nHe now has enough for the coin-doubling magic.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Random_Villages_9",
+            "choice": "1",
+            "destination": "009_Random_Villages_9"
+        }
+    ]
+}

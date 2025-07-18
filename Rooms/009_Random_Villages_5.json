@@ -1,13 +1,23 @@
 {
     "id": "009_Random_Villages_5",
     "label": "Random Villages 5",
-    "description": "Mind-reading act.\n\nHit 0 to quit.",
+    "description": "Zanzibar heads out to the local tavern named \"The Shedding Shetland\".\nZanzibar looks around and surveys the situation and notices a tall, burly patron entering, who plops down a large bag of coins a few of which spill out onto the bar.\nZanzibar needs some initial capital to run his scams and comes up with 3 ways to get it. s \n\nHit 1 to attempt to wow tavern patrons with a mind-reading act.\nHit 2 to use a cups and balls illusion to distract patrons so that Corvus can grab a few coins.\nHit 3 to get Corvus to lift a few coins from the burly patron's coin-purse.\n\nHit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Lapsewood_Edge",
+            "id": "Door_To_Random_Villages_6",
             "choice": "1",
-            "destination": "010_Lapsewood_Edge"
+            "destination": "009_Random_Villages_6"
+        },
+        {
+            "id": "Door_To_Random_Villages_7",
+            "choice": "2",
+            "destination": "009_Random_Villages_7"
+        },
+        {
+            "id": "Door_To_Random_Villages_8",
+            "choice": "3",
+            "destination": "009_Random_Villages_8"
         }
     ]
 }

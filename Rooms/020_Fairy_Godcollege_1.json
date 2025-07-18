@@ -2,10 +2,6 @@
     "id": "020_Fairy_Godcollege_1",
     "label": "Fairy Godcollege 1",
     "description": "Kurt, Rottweiler's second in command, leaves the werewolf village, after remembering Red and Violet's rivalry.\nKurt then travels to Fairy Godcollege to meet with Violet.\nViolet agrees to help Kurt become the leader of the pack, if Kurt eliminates Red.\n\nHit 1 if you wish to go to Random Villages 4.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "025_Werewolf_Village",
-    ],
     "doors":
     [
         {

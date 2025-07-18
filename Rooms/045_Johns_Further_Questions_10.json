@@ -1,0 +1,13 @@
+{
+    "id": "045_Johns_Further_Questions_10",
+    "label": "Johns Further Questions 10",
+    "description": "John asks about the two small men one being short and fat, yhe other. taller and heartier.  The short, fat, Gnome had grabbed a young woman before John blacked out, and slightly larger one, had also beena a passenger on the same train.  Hubert mentions the woman is probably important since that short fat little man was Barty, King of the Gnomes.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_Entrance",
+            "choice": "1",
+            "destination": "012_Knight_School_Entrance"
+        }
+    ]
+}

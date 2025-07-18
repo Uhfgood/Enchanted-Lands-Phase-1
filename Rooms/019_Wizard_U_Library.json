@@ -1,17 +1,13 @@
 {
     "id": "019_Wizard_U_Library",
     "label": "Wizard U Library",
-    "description": "After finding the library and exploring it, he finds a section on curses, and pulls off a few books with his horn.\nInside the library at Wizard U, the Unicorn notices the page about 'transmogrification'.\nUsing his horn to turn the pages, he reads that anyone can be turned into anything, even a unicorn.\nAfter closing the book, the Unicorn notices the picture appears to be the same wizard who had his painting defaced.\nThe dust jacket reads \"Hubert Halfway, resides with his spellbooks at a house near the edge of Lapsewood\".\nThe Unicorn then leaves Wizard U.\n\nHit 1 if you wish to go to Dwarf Mines 1.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "014_Wizard_U_Hall_1",
-    ],
+    "description": "After finding the library and exploring it, he finds a section on curses, and pulls off a few books with his horn.\nInside the library at Wizard U, the Unicorn notices the page about 'transmogrification'.\nUsing his horn to turn the pages, he reads that anyone can be turned into anything, even a unicorn.\nAfter closing the book, the Unicorn notices the picture appears to be the same wizard who had his painting defaced.\nThe dust jacket reads \"Hubert Halfway, resides with his spellbooks at a house near the edge of Lapsewood\".\nThe Unicorn then leaves Wizard U.\n\nHit 1 if you wish to continue.\n\nHit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Dwarf_Mines_1",
+            "id": "Door_To_Fairy_Godcollege",
             "choice": "1",
-            "destination": "011_Dwarf_Mines_1"
+            "destination": "020_Fairy_Godcollege"
         }
     ]
 }

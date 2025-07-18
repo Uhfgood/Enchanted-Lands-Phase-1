@@ -2,10 +2,6 @@
     "id": "014_Wizard_U_Hall",
     "label": "Wizard U Hall",
     "description": "Hubert sneaks into Wizard U and examines the \"hall of fame\" paintings and notices one is missing.\nAfter realizing what's missing, he leaves the school.\n\nHit 1 if you wish to go to Knight School Pool.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "013_Knight_School",
-    ],
     "doors":
     [
         {

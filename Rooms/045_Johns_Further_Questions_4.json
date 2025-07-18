@@ -1,0 +1,13 @@
+{
+    "id": "045_Johns_Further_Questions_4",
+    "label": "Johns Further Questions 4",
+    "description": "Hubert tells John he was in a flying train due to the magical mineral \"Quicksilver\" that permeates the Lands, and allows modern conveniences.   He explains that when a tourist first visits, they always step into a flying train if one is running.  While not strictly necessary, it sets up the vacation in a magical way.  Hubert also states that these days, there aren't many trains running.\n\nHit 1 if you want to know about Dwarves and Gnomes.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Johns_Further_Questions_10",
+            "choice": "1",
+            "destination": "045_Johns_Further_Questions_10"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "id": "045_Johns_Further_Questions_1",
+    "label": "Johns Further Questions 1",
+    "description": "John asks about the two little men he's encountered, the first one being short and fat and kidnapping a young woman before the crash.  The other being slightly taller and stockier asking for his help recovering some papers.  Hubert tells a little bit about Gnomes (the first one) and Dwarves (the slightly taller one) and  how they've been at odds for years.  That the kidnapping makes it especially important, as that was the Gnome King.\n\nHit 1 to ask about the schools.\nHit 2 to ask about the flying trains.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Johns_Further_Questions_5",
+            "choice": "1",
+            "destination": "045_Johns_Further_Questions_5"
+        },
+        {
+            "id": "Door_To_Johns_Further_Questions_6",
+            "choice": "2",
+            "destination": "045_Johns_Further_Questions_6"
+        }
+    ]
+}

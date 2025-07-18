@@ -2,10 +2,6 @@
     "id": "026_Max_Mines_3",
     "label": "Max Mines 3",
     "description": "Back in the mines, gnome guards are easily overpowered after they hear what sounds like an explosion.\nThe slaves get released and start to run out of the mines.\nHubert shouts for everyone to head to the Bats-in-the-Belfry Hotel.\n\nHit 1 if you wish to go to Bats In The Belfry 2.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "020_Fairy_Godcollege_2",
-    ],
     "doors":
     [
         {

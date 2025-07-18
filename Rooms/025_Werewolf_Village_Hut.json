@@ -2,10 +2,6 @@
     "id": "025_Werewolf_Village_Hut",
     "label": "Werewolf Village Hut",
     "description": "When Kurt gets back to the werewolf village he goes into Rottweiler's hut and starts to grab the totem.\nThorne, Rottweiler's third in command, stops Kurt from getting the totem, they fight, and Kurt takes the totem.\n\nHit 1 if you wish to go to Fairy Godcollege 3.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "030_Bats_In_The_Belfry_2",
-    ],
     "doors":
     [
         {

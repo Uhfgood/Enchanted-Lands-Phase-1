@@ -2,10 +2,6 @@
     "id": "020_Fairy_Godcollege_5",
     "label": "Fairy Godcollege 5",
     "description": "The count stops at the door to the library as it closes, and then peeks into the windows of the door.\nThe Count then sees the girl being sucked into a book, and figures this must be what happened to the Princess.\nThe Count makes it back to Hubert and John.\n\nHit 1 if you wish to go to Fairy Godcollege 6.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "041_Fairy_Godcollege_Incinerator",
-    ],
     "doors":
     [
         {

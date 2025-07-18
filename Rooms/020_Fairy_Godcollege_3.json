@@ -2,10 +2,6 @@
     "id": "020_Fairy_Godcollege_3",
     "label": "Fairy Godcollege 3",
     "description": "Kurt returns to Violet at Fairy Godcollege.\nShe casts a spell, which visibly alters Kurt, and then he goes back to the Village.\n\nHit 1 if you wish to go to Werewolf Village 3.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "025_Werewolf_Village_Hut",
-    ],
     "doors":
     [
         {

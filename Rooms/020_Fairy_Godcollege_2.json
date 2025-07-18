@@ -2,10 +2,6 @@
     "id": "020_Fairy_Godcollege_2",
     "label": "Fairy Godcollege 2",
     "description": "Kurt then takes Red's \"riding hood\" back to Violet at Fairy Godcollege.\nKurt reveals Red was promising to remove their curses, and that he didn't want that.\nHe asks Violet to enhance the effects.\nViolet agrees if he steals the \"Totem of Leadership\" and brings it to her, because she claims it will bind the pack to him.\n\nHit 1 if you wish to go to Max Mines 3.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "037_Werewolf_Village_Road",
-    ],
     "doors":
     [
         {

@@ -1,13 +1,13 @@
 {
     "id": "009_Random_Villages_7",
     "label": "Random Villages 7",
-    "description": "Burly patron.\n\nHit 0 to quit.",
+    "description": "Zanzibar decides to do a little slight-of-hand with a cups and balls trick.\nZanzibar gets three cups and a piece of cork from the barkeep.\nHe puts the cups upside down on the bar, and then puts a piece of cork on the bottom of one of the cups.\nHe then puts another cup on top of it, says some words, the cup seems to drop a bit, and then when he picks up both cups, the cork falls out of the bottom. \nHe does a few more tricks like this, while Corvus hops around and grabs coins from various open coin-purses, and the top of empty tables.\nHe now has a enough coins to do the 'coin-doubling' scam.\n\nHit 1 to continue.\n\nHit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Lapsewood_Edge",
+            "id": "Door_To_Random_Villages_9",
             "choice": "1",
-            "destination": "010_Lapsewood_Edge"
+            "destination": "009_Random_Villages_9"
         }
     ]
 }

@@ -2,10 +2,6 @@
     "id": "025_Werewolf_Village_2",
     "label": "Werewolf Village 2",
     "description": "In the werewolf village, they tell Red they want proof of the curse being lifted.\nShe leaves and brings Max back to the village, who promptly gets rid of the curse for a few of them.\nThe Werewolves led by Rottweiler, throw Red into a hut, and discuss, and then Kurt comes back to the village.\nThe Werewolves debate joining Max's army and eventually agree, and then bring Red back out.\nRed goes back to Max's mines and tells him the news, as Kurt and a lot of the other werewolves start grumbling.\n\nHit 1 if you wish to go to Bats In The Belfry.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "008_Lapsewood_3",
-    ],
     "doors":
     [
         {

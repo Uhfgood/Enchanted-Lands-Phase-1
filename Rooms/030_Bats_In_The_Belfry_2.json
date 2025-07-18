@@ -2,10 +2,6 @@
     "id": "030_Bats_In_The_Belfry_2",
     "label": "Bats In The Belfry 2",
     "description": "Back at the Bats-in-the-Belfry, Hubert changes Sir William back into a man.\nHubert then sends John and Sir William to Knight School, to inform them and enlist their help.\n\nHit 1 if you wish to go to Werewolf Village Hut.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "026_Max_Mines_3",
-    ],
     "doors":
     [
         {

@@ -1,17 +1,13 @@
 {
     "id": "011_Dwarf_Mines",
     "label": "Dwarf Mines",
-    "description": "Near the dwarf mines, Roland, the half-dwarf/half-giant approaches the entrance.\nAn old dwarf Roland knows stumbles out and tells him his Dad is trapped in the Gnome Kingdom.\n\nHit 1 if you wish to go to Knight School Entrance.\n\nHit 0 to quit.",
-    "inbound":
-    [
-        "010_Lapsewood_Edge",
-    ],
+    "description": "Near the dwarf mines, Roland, the half-dwarf/half-giant approaches the entrance.\nAn old dwarf Roland knows stumbles out and tells him his Dad is trapped in the Gnome Kingdom.\n\nNear the dwarf mines, Roland, the half-dwarf/half-giant approaches the entrance.\nA worn-out dwarf stumbles out and collapses before Roland.\n\nMeanwhile at the edge of Lapsewood, Hubert and John are just exiting the leafless forest.\n\nHit 1 to continue.\n\nHit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Knight_School_Entrance",
+            "id": "Door_To_Dwarf_Mines_1",
             "choice": "1",
-            "destination": "012_Knight_School_Entrance"
+            "destination": "011_Dwarf_Mines_1"
         }
     ]
 }
