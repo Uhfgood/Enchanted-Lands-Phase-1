@@ -1,7 +1,7 @@
 {
     "id": "012_Knight_School_Entrance_2",
     "label": "Knight School Entrance 2",
-    "description": "At the Knight School entrance, John talks to the guards, and then gains entrance to the school.\n\nHit 1 if you wish to go to Knight School.\n\nHit 0 to quit.",
+    "description": "\nHit 1 if you wish to go to Knight School.\n\nHit 0 to quit.",
     "doors":
     [
         {

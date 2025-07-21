@@ -1,13 +1,18 @@
 {
     "id": "012_Knight_School_Entrance_1",
     "label": "Knight School Entrance 1",
-    "description": "At the Knight School entrance, John talks to the guards, and then gains entrance to the school.\n\nHit 1 if you wish to go to Knight School.\n\nHit 0 to quit.",
+    "description": "John attempts to enter the \"Enrollment\" tent, but is told he needs to have a badge to enter into any of the tents.\nA knight sort of stumbles about apparently having had too much to drink.\nJohn also notices a number of souvenir stands, with various items, including those on a badge.\n\nHit 1 if you want John to take the drunk Knight's armor with badge.\nHit 2 if you want to find a way to construct a fake badge.\n\nHit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Knight_School",
+            "id": "Door_To_Knight_School_Entrance_2",
             "choice": "1",
-            "destination": "013_Knight_School"
+            "destination": "012_Knight_School_Entrance_2"
+        },
+        {
+            "id": "Door_To_Knight_School_Entrance_3",
+            "choice": "2",
+            "destination": "012_Knight_School_Entrance_3"
         }
     ]
 }
