@@ -1,7 +1,7 @@
 {
     "id": "012_Knight_School_Entrance_3",
     "label": "Knight School Entrance 3",
-    "description": "At the Knight School entrance, John talks to the guards, and then gains entrance to the school.\n\nHit 1 if you wish to go to Knight School.\n\nHit 0 to quit.",
+    "description": "John decides that maybe the best way to get a badge might be to build one if he can get the right components.\nA badge is in the shape of a shield, with a mini coat-of-arms at the top and a name at the bottom.\nJohn is able to get objects to build a badge from the various sovenir stands.\n\nHit 1 if you wish to proceed.\n\nHit 0 to quit.",
     "doors":
     [
         {
