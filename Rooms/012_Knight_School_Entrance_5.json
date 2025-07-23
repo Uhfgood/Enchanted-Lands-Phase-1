@@ -1,0 +1,13 @@
+{
+    "id": "012_Knight_School_Entrance_5",
+    "label": "Knight School Entrance 5",
+    "description": "Conk drunk night over the head.\n\nHit 1 to investigate Knight School.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School",
+            "choice": "1",
+            "destination": "013_Knight_School"
+        }
+    ]
+}
