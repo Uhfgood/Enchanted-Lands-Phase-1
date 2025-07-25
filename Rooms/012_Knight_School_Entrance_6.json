@@ -1,0 +1,13 @@
+{
+    "id": "012_Knight_School_Entrance_6",
+    "label": "Knight School Entrance 6",
+    "description": "John decides to loose the vendor's horse, so he quietly sneaks over to the horse, unties the rope, leads the horse out, and then slaps it super hard on the hind quarters causing the horse to rear up and gallop away while the vendor runs after it.\n\nJohn then picks from several of the items on the stand, and builds himself a mostly accurate badge that looks like the ones all the knights are wearing.\nAfter being rejected from the enrollment tent, John looks around and tries to figure out why his badge didn't work, and he notices the Knight School emblem is a griffin with a mustache.  Getting created he finds a quill pen and inkwell nearby and then scribbles a lousy mustache on his badge.\n\nMuch to his suprrise the guard let's him in.\n\nHit 1 to continue to investigate Knight School\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School",
+            "choice": "1",
+            "destination": "013_Knight_School"
+        }
+    ]
+}

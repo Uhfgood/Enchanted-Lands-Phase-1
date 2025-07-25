@@ -1,0 +1,13 @@
+{
+    "id": "012_Knight_School_Entrance_7",
+    "label": "Knight School Entrance 7",
+    "description": "there's a fireeater nearby performing for the few toursts left, when John gets it in his head to distract the fireeater by shouting \"Look out! Your pants are on fire!\".\nThe performer is distracted long enough to drop the torch and it sets the build-a-badge stand on fire.  While everyone including the vender are trying to put out the fire, John absconds with a few items needed to complete his badge.\nWhen he takes the makeshift badge to the enrollment tent, they tell him that's not official, and so after some looking around notices the Knight School's griffin seems to have a mustache, and so he finds a quill and ink and draws in the mustache and is able to now go into the tents.\n\nHit 1 to investigate Knight School\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School",
+            "choice": "1",
+            "destination": "013_Knight_School"
+        }
+    ]
+}

@@ -1,13 +1,18 @@
 {
     "id": "012_Knight_School_Entrance_3",
     "label": "Knight School Entrance 3",
-    "description": "John decides that maybe the best way to get a badge might be to build one if he can get the right components.\nA badge is in the shape of a shield, with a mini coat-of-arms at the top and a name at the bottom.\nJohn is able to get objects to build a badge from the various sovenir stands.\n\nHit 1 if you wish to proceed.\n\nHit 0 to quit.",
+    "description": "John decides that maybe the best way to get a badge might be to build one if he can get the right components.\nLooking at one of the stands, he notices you can build a mini-coat-of-arms by picking out he components from several bins on the stand, and assembling them.  The souvenirs almost look like official Knight School badges.\nYour only problem is the vendor can spot you if you try to take anything.\nSo you need a distraction.\n\nThere are two possibilies either do something with the vender's horse, which is hobbled behind the stand, or distract a fireeater that is perfroming nearby.\n\nHit 1 to let loose the vender's horse.\nHit 2 to distract the fire eater.\n\nHit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Knight_School",
+            "id": "Door_To_Knight_School_Entrance_6",
             "choice": "1",
-            "destination": "013_Knight_School"
+            "destination": "012_Knight_School_Entrance_6"
+        },
+        {
+            "id": "Door_To_Knight_School_Entrance_7",
+            "choice": "2",
+            "destination": "012_Knight_School_Entrance_7"
         }
     ]
 }
