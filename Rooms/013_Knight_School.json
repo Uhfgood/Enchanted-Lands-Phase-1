@@ -1,7 +1,7 @@
 {
     "id": "013_Knight_School",
     "label": "Knight School",
-    "description": "While inside Knight School, John learns a Princess was going to speak at Princess Prep but never made it.\nSomeone tells him the Knights are using real weapons, and dragons are terrorizing small villages.\n\nHit 1 if you wish to go to Wizard U Hall.\n\nHit 0 to quit.",
+    "description": "While inside Knight School, John learns a Princess was going to speak at Princess Prep but never made it, before it was closed down and the headmistress there hasn't been seen in months.\nSomeone tells him the Knights are using real weapons, and dragons are terrorizing small villages.\n\nHit 1 if you wish to go to Wizard U Hall.\n\nHit 0 to quit.",
     "doors":
     [
         {
