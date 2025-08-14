@@ -1,0 +1,13 @@
+{
+    "id": "013_Knight_School_2",
+    "label": "Knight School 2",
+    "description": "Enrollment tent.\n\nJohn  enteres the enrollment tent, and notices a single man in royal garb, at a small makeshift desk.\nJohn attempts to ask him a few questions, only to have the officer stop him and direct him toward the \"challenge table.\"\nThe challenge table has three knights ready to conduct each challenge.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_3",
+            "choice": "1",
+            "destination": "013_Knight_School_3"
+        }
+    ]
+}

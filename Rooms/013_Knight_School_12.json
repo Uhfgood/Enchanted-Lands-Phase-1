@@ -1,0 +1,13 @@
+{
+    "id": "013_Knight_School_12",
+    "label": "Knight School 12",
+    "description": "Trial by Combat.\n \nJohn manages to win the trial by the sword, and finally gets to ask some questions.\n\nHit 1 to go and ask the commander a few questions.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_13",
+            "choice": "1",
+            "destination": "013_Knight_School_13"
+        }
+    ]
+}

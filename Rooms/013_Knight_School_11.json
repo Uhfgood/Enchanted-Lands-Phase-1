@@ -1,0 +1,13 @@
+{
+    "id": "013_Knight_School_11",
+    "label": "Knight School 11",
+    "description": "Trial by Mount.\n\nJohn finally beats his opponent at the joust!\nHe then heads to the commander's tent to ask him some questions regarding the school.\n\nHit 1 to continue to the commander's tent.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_13",
+            "choice": "1",
+            "destination": "013_Knight_School_13"
+        }
+    ]
+}

@@ -1,13 +1,13 @@
 {
     "id": "013_Knight_School",
     "label": "Knight School",
-    "description": "While inside Knight School, John learns a Princess was going to speak at Princess Prep but never made it, before it was closed down and the headmistress there hasn't been seen in months.\nSomeone tells him the Knights are using real weapons, and dragons are terrorizing small villages.\n\nHit 1 if you wish to go to Wizard U Hall.\n\nHit 0 to quit.",
+    "description": "Finally able to go anywhere he wants, John decides to start exploring the grounds, and talking to people.\nAccording to some gossiping princesses, a special guest was invited to Princess Prep, but she never made it there.\nRecognizing John, they figure he must have been the tourist that entered the train, that the princess was on.\nFurther more, the headmistress at Princess Prep has been missing for months.\n\nJohn decides to enter the enrollment tent.\n\nHit 1 to continue.\n\nHit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Wizard_U_Hall",
+            "id": "Door_To_Knight_School_2",
             "choice": "1",
-            "destination": "014_Wizard_U_Hall"
+            "destination": "013_Knight_School_2"
         }
     ]
 }

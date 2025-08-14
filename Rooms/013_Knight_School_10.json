@@ -1,0 +1,13 @@
+{
+    "id": "013_Knight_School_10",
+    "label": "Knight School 10",
+    "description": "Trial by Mount.\n\nFor his final challenge, John unseats his opponent in the Joust!\nHe is then able to ask the commander some questions regarding the school.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_13",
+            "choice": "1",
+            "destination": "013_Knight_School_13"
+        }
+    ]
+}

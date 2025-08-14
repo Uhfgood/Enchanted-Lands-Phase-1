@@ -1,0 +1,23 @@
+{
+    "id": "013_Knight_School_3",
+    "label": "Knight School 3",
+    "description": "The challenge table.  \n\nNow at the challenge table, again John tries to ask questions.\nThe Knights stop him and ask him which challenge he wants to complete.\nWhen he tries a couple more times they only counter with \"What challenge?\"\n\nHit 1 to pick Trial by Gauntlet.\nHit 2 to pick Trial by Combat.\nHit 3 to pick Trial by Mount.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_4",
+            "choice": "1",
+            "destination": "013_Knight_School_4"
+        },
+        {
+            "id": "Door_To_Knight_School_5",
+            "choice": "2",
+            "destination": "013_Knight_School_5"
+        },
+        {
+            "id": "Door_To_Knight_School_6",
+            "choice": "3",
+            "destination": "013_Knight_School_6"
+        }
+    ]
+}

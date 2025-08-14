@@ -1,0 +1,13 @@
+{
+    "id": "013_Knight_School_7",
+    "label": "Knight School 7",
+    "description": "Trial by Combat.\n\nJohn faces an anonymous opponent, manages to beat him with the sword, and then gets ready for the final challenge.\ns\nHit 1 to continue to the final challenge.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_10",
+            "choice": "1",
+            "destination": "013_Knight_School_10"
+        }
+    ]
+}

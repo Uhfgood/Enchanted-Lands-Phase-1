@@ -1,0 +1,13 @@
+{
+    "id": "013_Knight_School_13",
+    "label": "Knight School 13",
+    "description": "Finally able to ask some questions, he first asks about whether the weapons in the induction process are real.\nThe commander tells him, that the Enchanted Guard must be ready at all times, and since there's not many tourists, they've decided to use Knight School as it was originally intended.\nHe also tells John, that there's something big going on at the castle, and that it has something to do with the closures.\nFinally he mentions that it's a good thing Knight School reverted to it's original mandate, since now all the friendly dragons are now terrorizing small villages.\n\nMeanwhile Hubert is devising a way into Wizard U.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_Hall",
+            "choice": "1",
+            "destination": "014_Wizard_U_Hall"
+        }
+    ]
+}
