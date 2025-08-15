@@ -5,9 +5,9 @@
     "doors":
     [
         {
-            "id": "Door_To_Wizard_U_Hall",
+            "id": "Door_To_Wizard_U",
             "choice": "1",
-            "destination": "014_Wizard_U_Hall"
+            "destination": "046_Wizard_U"
         }
     ]
 }
