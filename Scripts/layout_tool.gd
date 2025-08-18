@@ -233,7 +233,7 @@ func _on_save_button_pressed():
 		#}
 			
 		filename = room.id + ".json"
-		SaveRoomDataForRoom( room, filename )	
+		SaveRoomDataForRoom( room, filename )
 		
 		if( room.id != room.original_id ):
 		#{
@@ -289,6 +289,8 @@ func _on_save_button_pressed():
 	#}  // end for room_id
 	
 	removed_rooms.clear()
+	
+	line_overlay.UpdateAllLines();
 	
 #} // end func _on_save_button_pressed()
 
@@ -348,8 +350,8 @@ func _exit_tree():
 			rooms.remove_child(room)
 			room.queue_free()
 	
+	# Remove the line overlay at the end so it's no longer in the tree until reload
 	if( line_overlay ): 
-		print( "***removing line overlay" )
 		layout_tool.set_owner( null )
 		layout_tool.remove_child(line_overlay)
 		line_overlay.queue_free()
@@ -411,36 +413,15 @@ func SaveMetadataForRoom( room, filename ):
 
 func SaveRoomDataForRoom(room, filename: String):
 #{
-	var jsonpath = ROOMS_DIR + filename
-	var file = FileAccess.open(jsonpath, FileAccess.WRITE)
-	if FileAccess.get_open_error() == OK:
+	var jsonpath = ROOMS_DIR + filename;
+	var file = FileAccess.open(jsonpath, FileAccess.WRITE);
+	if( FileAccess.get_open_error() == OK ):
+	#{
 		# Manually construct the JSON string with the desired order
 		var json_str = "{\n"
 		json_str += '    "id": ' + JSON.stringify(room.id) + ",\n"
 		json_str += '    "label": ' + JSON.stringify(room.label) + ",\n"
 		json_str += '    "description": ' + JSON.stringify(room.description) + ",\n"
-		
-		## inbound data
-		#json_str += '    "inbound":\n'
-		#json_str += '    [\n'
-#
-		#var in_strings = []
-		#var in_count = 0
-		#for inbound in room.inbound_rooms:
-			#if( inbound != "" ):
-				#var in_data = ''
-				#in_data += '        ' + JSON.stringify( inbound )
-				#in_strings.append( in_data )
-				#in_count += 1
-		#
-		#for i in range( in_count ):
-			#json_str += in_strings[ i ]
-			#if( i < in_strings.size() - 1 ):
-				#json_str += ",\n"		
-			#
-		#if in_strings.size() > 0:
-			#json_str += "\n"
-		#json_str += "    ],\n"
 		
 		# door data
 		json_str += '    "doors":\n'
@@ -469,6 +450,8 @@ func SaveRoomDataForRoom(room, filename: String):
 		file.close()
 				
 		print("Room data saved for: ", filename)
+		
+	#}  // end if FileAccess
 	else:
 		print("Couldn't open file for writing: ", jsonpath)
 		
@@ -538,7 +521,7 @@ func LoadAllRooms():
 				var json_name = filename.replace(".json", "")
 				var room = LayoutRoom.CreateFromJSON(json_name)
 				if room:
-					print( "Room: " + room.id + " created.")
+					#print( "Room: " + room.id + " created.")
 					rooms_dict[ room.id ] = room
 					AddRoomToLayoutTool(room)
 					LoadMetadataForRoom(room, filename)
@@ -579,8 +562,8 @@ func UpdateOverlay():
 		if room is LayoutRoom:
 			if( room.previous_position != room.position ):
 				line_overlay.UpdateLines( room.id );
-			room.previous_position = room.position;
-			
+				room.previous_position = room.position;
+				
 	#}  // end for room
 	
 #}  // end func UpdateLines()

@@ -1,0 +1,18 @@
+{
+    "id": "046_Wizard_U_5",
+    "label": "Wizard U 5",
+    "description": "The mouse looks up the teleportation spell, and casts it onto Hubert.\nInstantly Hubert disappears, and then reappears right up against the wall, as if he had rammed it with his face.\n\nHit 1 if you want the mouse to try the unlock spell now.\nHit 2 if you want the mouse to try the shrink spell.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_8",
+            "choice": "1",
+            "destination": "046_Wizard_U_8"
+        },
+        {
+            "id": "Door_To_Wizard_U_9",
+            "choice": "3",
+            "destination": "046_Wizard_U_9"
+        }
+    ]
+}

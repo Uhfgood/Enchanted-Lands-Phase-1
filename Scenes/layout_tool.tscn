@@ -4095,7 +4095,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U" type="Node2D" parent="Rooms"]
-position = Vector2(-1863, -122)
+position = Vector2(-1870, -92)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["013_Knight_School_13", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 046_Wizard_U_1;", "ch: 2, dest: 046_Wizard_U_2;", "ch: 3, dest: 046_Wizard_U_3;", "", "", "", "", "", ""]
@@ -4112,39 +4112,6 @@ Hubert then offers to help him find his wand if he helps Hubert in return.
 HIt 1 to search the grounds.
 Hit 2 to ask the mouse to examine himself.
 hit 3 to ask the mouse to retrace his steps.
-
-Hubert searches the grounds, but doesn't seem to find anything. 
-When he gets back just before telling him the bad news he spots it behind the mouse's ear.
-He then tells the mouse to check behind his ear, and realizes he did that when he needed both paws for the training manual.
-
-Hit 1 to continue.
-
-Hubert asks the mouse to examine his own person.
-The mouse starts checking pockets, his hat, and finally his paw hit's behind his ear.
-After pulling it out the mouse recalls putting it there in order to read the training manual with both paws.
-
-Hit 1 to continue.
-
-Hubert asks the little mouse wizard to retrace his steps and think of where he last saw it. 
-The mouse claims he was trying to levitate a piece of cheese from the icebox, and needed to look in the training manual.
-While recalling it, he remembered it was in his ear, to which Hubert promptly pulls it out and then hands it back to him.
-
-Hit 1 to continue.
-
-The mouse asks Hubert what he needs, and Hubert tells him he needs to get inside the school even though it’s all closed up.
-The mouse replies in the affirmative and pulls out the training manual.
-
-The mouse says sure, and pulls up a spell to shrink someone, and shrinks Hubert down to his size with his newly found wand.
-Hubert then enters the wall into the mouses dorm room.  Then passes through the mouses room door.
-
-Once inside the mouse reverses the spell and Hubert grows back to normal size.
-Hubert makes his way to the trophy room, and notices a display case that had previously housed a quicksilver scepter, was now empty, with no signs of tampering.
-
-Next Hubert goes to the Wizard University “Hall of Fame” he noticed one of the portraits is missing.
-Hubert realized it was the portrait of Maximilian Spell who had attempted to take over other realms before and was banished.
-Hubert looks at the other portraits and notices the other wizards have a shocked or surprised look on their faces.
-
-When Hubert came back to the mouse’s dorm room, he shrunk Hubert again, and when Hubert was outside, restored him back to his normal size.
 
 Hit 0 to quit."
 
@@ -4164,28 +4131,220 @@ script = ExtResource("3_0pr41")
 color = Color(0.733333, 1, 0.2, 1)
 
 [node name="Wizard U 1" type="Node2D" parent="Rooms"]
-position = Vector2(-2479, 388)
+position = Vector2(-2538, 309)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 046_Wizard_U_4;", "", "", "", "", "", "", "", ""]
 id = "046_Wizard_U_1"
 label = "Wizard U 1"
-description = "There's nothing here yet.  Hit 0 to quit."
+description = "Hubert searches the grounds, but doesn't seem to find anything. 
+When he gets back just before telling him the bad news he spots it behind the mouse's ear.
+He then tells the mouse to check behind his ear, and realizes he did that when he needed both paws for the training manual.
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+
+[node name="Door_To_Wizard_U_4" type="Node2D" parent="Rooms/Wizard U 1"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U 2" type="Node2D" parent="Rooms"]
-position = Vector2(-1832, 405)
+position = Vector2(-1871, 309)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 046_Wizard_U_4;", "", "", "", "", "", "", "", ""]
 id = "046_Wizard_U_2"
 label = "Wizard U 2"
-description = "There's nothing here yet.  Hit 0 to quit."
+description = "Hubert asks the mouse to examine his own person.
+The mouse starts checking pockets, his hat, and finally his paw hit's behind his ear.
+After pulling it out the mouse recalls putting it there in order to read the training manual with both paws.
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+
+[node name="Door_To_Wizard_U_4" type="Node2D" parent="Rooms/Wizard U 2"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U 3" type="Node2D" parent="Rooms"]
-position = Vector2(-1175, 399)
+position = Vector2(-1205, 312)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 046_Wizard_U_4;", "", "", "", "", "", "", "", ""]
 id = "046_Wizard_U_3"
 label = "Wizard U 3"
-description = "There's nothing here yet.  Hit 0 to quit."
+description = "Hubert asks the little mouse wizard to retrace his steps and think of where he last saw it. 
+The mouse claims he was trying to levitate a piece of cheese from the icebox, and needed to look in the training manual.
+While recalling it, he remembered it was in his ear, to which Hubert promptly pulls it out and then hands it back to him.
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+
+[node name="Door_To_Wizard_U_4" type="Node2D" parent="Rooms/Wizard U 3"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Wizard U 4" type="Node2D" parent="Rooms"]
+position = Vector2(-1871, 815)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["046_Wizard_U_1", "046_Wizard_U_2", "046_Wizard_U_3", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 046_Wizard_U_5;", "ch: 2, dest: 046_Wizard_U_6;", "ch: 3, dest: 046_Wizard_U_9;", "", "", "", "", "", ""]
+id = "046_Wizard_U_4"
+label = "Wizard U 4"
+description = "The mouse asks Hubert what he needs, and Hubert tells him he needs to get inside the school even though it’s all closed up.
+The mouse asks Hubert why he needs him when Hubert is an actual wizard.
+Hubert responds with the fact he only has half of his magic, and he doesn't know how something will manifest itself until he does it.
+The mouse replies in the affirmative and pulls out the training manual.
+
+Hit 1 if you want the mouse to cast a teleportation spell.
+Hit 2 if you want the mouse to cast an unlock spell.
+Hit 3 if you want the mouse to cast a shrink spell on Hubert.
+
+Hit 0 to quit."
+
+[node name="Door_To_Wizard_U_5" type="Node2D" parent="Rooms/Wizard U 4"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Wizard_U_6" type="Node2D" parent="Rooms/Wizard U 4"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="Door_To_Wizard_U_9" type="Node2D" parent="Rooms/Wizard U 4"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(0.733333, 1, 0.2, 1)
+
+[node name="Wizard U 5" type="Node2D" parent="Rooms"]
+position = Vector2(-2638, 1029)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["046_Wizard_U_4", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 046_Wizard_U_8;", "ch: 3, dest: 046_Wizard_U_9;", "", "", "", "", "", "", ""]
+id = "046_Wizard_U_5"
+label = "Wizard U 5"
+description = "The mouse looks up the teleportation spell, and casts it onto Hubert.
+Instantly Hubert disappears, and then reappears right up against the wall, as if he had rammed it with his face.
+
+Hit 1 if you want the mouse to try the unlock spell now.
+Hit 2 if you want the mouse to try the shrink spell.
+
+Hit 0 to quit."
+
+[node name="Door_To_Wizard_U_8" type="Node2D" parent="Rooms/Wizard U 5"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Wizard_U_9" type="Node2D" parent="Rooms/Wizard U 5"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="Wizard U 6" type="Node2D" parent="Rooms"]
+position = Vector2(-1120, 1029)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["046_Wizard_U_4", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 046_Wizard_U_7;", "ch: 2, dest: 046_Wizard_U_9;", "", "", "", "", "", "", ""]
+id = "046_Wizard_U_6"
+label = "Wizard U 6"
+description = "The mouse casts the unlock spell on the padlock on the front door.
+A few sparks fly from the padlock it gets red hot and then white hot, and only succeeds in melting into a lumpy mass.
+
+Hit 1 for the mouse to cast the shrink spell.
+
+Hit 0 to quit."
+
+[node name="Door_To_Wizard_U_7" type="Node2D" parent="Rooms/Wizard U 6"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Wizard_U_9" type="Node2D" parent="Rooms/Wizard U 6"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="Wizard U 9" type="Node2D" parent="Rooms"]
+position = Vector2(-1871, 2047)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["046_Wizard_U_8", "046_Wizard_U_5", "046_Wizard_U_4", "046_Wizard_U_6", "046_Wizard_U_7", "", "", "", ""]
+door_specs = ["ch: 1, dest: 046_Wizard_U_10;", "", "", "", "", "", "", "", ""]
+id = "046_Wizard_U_9"
+label = "Wizard U 9"
+description = "The mouse pulls up a spell to shrink someone, and shrinks Hubert down to his size with his newly found wand.
+Hubert then enters the wall into the mouses dorm room.  Then passes through the mouses room door.
+Once inside the mouse reverses the spell and Hubert grows back to normal size.
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+
+[node name="Door_To_Wizard_U_10" type="Node2D" parent="Rooms/Wizard U 9"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Wizard U 10" type="Node2D" parent="Rooms"]
+position = Vector2(-1870, 2479)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["046_Wizard_U_9", "", "", "", "", "", "", "", ""]
+id = "046_Wizard_U_10"
+label = "Wizard U 10"
+description = "Hubert makes his way to the trophy room, and notices a display case that had previously housed a quicksilver scepter, was now empty, with no signs of tampering.
+
+Next Hubert goes to the Wizard University “Hall of Fame” he noticed one of the portraits is missing.
+Hubert realized it was the portrait of Maximilian Spell who had attempted to take over other realms before and was banished.
+Hubert looks at the other portraits and notices the other wizards have a shocked or surprised look on their faces.
+
+When Hubert came back to the mouse’s dorm room, he shrunk Hubert again, and when Hubert was outside, restored him back to his normal size.
+
+Hit 0 to quit."
+
+[node name="Wizard U 7" type="Node2D" parent="Rooms"]
+position = Vector2(-582, 1423)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["046_Wizard_U_6", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 046_Wizard_U_9;", "", "", "", "", "", "", "", ""]
+id = "046_Wizard_U_7"
+label = "Wizard U 7"
+description = "The mouse cast teleportation by waving his wand and saying the magic words from the manual. 
+Hubert then disappears and reappears as if he had run right into the wall.
+
+Hit 1 if you want the mouse to try the shrink spell.
+
+Hit 0 to quit."
+
+[node name="Door_To_Wizard_U_9" type="Node2D" parent="Rooms/Wizard U 7"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Wizard U 8" type="Node2D" parent="Rooms"]
+position = Vector2(-3234, 1465)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["046_Wizard_U_5", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 046_Wizard_U_9;", "", "", "", "", "", "", "", ""]
+id = "046_Wizard_U_8"
+label = "Wizard U 8"
+description = "The mouse casts the unlock spell on the front door.
+The padlock starts to get hot, and then melts into an unbreakable mass of metal.
+
+Hit 1 for the mouse to cast the shrink spell.
+
+Hit 0 to quit."
+
+[node name="Door_To_Wizard_U_9" type="Node2D" parent="Rooms/Wizard U 8"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
 
 [node name="LineOverlay" type="Node2D" parent="."]
 z_index = -4096

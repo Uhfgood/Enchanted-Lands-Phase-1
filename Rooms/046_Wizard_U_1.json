@@ -1,8 +1,13 @@
 {
     "id": "046_Wizard_U_1",
     "label": "Wizard U 1",
-    "description": "There's nothing here yet.  Hit 0 to quit.",
+    "description": "Hubert searches the grounds, but doesn't seem to find anything. \nWhen he gets back just before telling him the bad news he spots it behind the mouse's ear.\nHe then tells the mouse to check behind his ear, and realizes he did that when he needed both paws for the training manual.\n\nHit 1 to continue.\n\nHit 0 to quit.",
     "doors":
     [
+        {
+            "id": "Door_To_Wizard_U_4",
+            "choice": "1",
+            "destination": "046_Wizard_U_4"
+        }
     ]
 }

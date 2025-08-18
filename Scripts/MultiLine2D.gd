@@ -7,7 +7,7 @@ var _room_data : Dictionary
 
 var rooms : Dictionary:
 	get:
-		return _room_data
+		return( _room_data );
 
 var line_width = 5.0
 var palette = [
@@ -39,46 +39,31 @@ func InitLines( room_contents ):
 func UpdateAllLines( line_thickness : float = 5.0 ):
 #{
 	for room in rooms.values():
-		UpdateLines( room.id, line_thickness, false )
+		UpdateLines( room.id, line_thickness, false );
 	
-	queue_redraw()
+	queue_redraw();
 
 #}  // end func UpdateAllLines()
 
 func UpdateLines( room_id : String, thickness : float = 5.0, do_redraw : bool = true ):
 #{
-	var room = rooms[ room_id ]
+	if( !rooms ):
+		return;
+		
+	var room = null;
+	if( rooms.has( room_id ) ):
+		room = rooms[ room_id ]
 	
 	# Make sure it's valid
 	if( !room ):
 		return;
 
+	#print( "Updating lines for ", room_id );
 	line_width = thickness;
-
-	var panel = room.get_node_or_null( "Panel" );
-	var vbox = panel.get_node_or_null( "VBox" );
-	var name_label = vbox.get_node_or_null( "NameLabel" );
-
-	var separator_y = 0;
-	var center_y = 0;
-	if( name_label and vbox and panel ):
-	#{
-		# Calculate the vertical position of the Separator
-		var name_label_height = name_label.get_minimum_size().y;
-		var separation = vbox.get_theme_constant("separation");
-		separator_y = name_label_height + separation;  # Separator's top edge relative to VBox
-
-		# Adjust for VBox's position within the Panel
-		separator_y += vbox.position.y;
-		center_y = panel.size.y / 2;
-	#}
 	
 	# Since we do have a room, read the door data
 	var door_data = room.GetDoorData();
-	# If there is no door_data, then no need to update the lines
-	if( door_data.size() < 1 ):
-		return;
-	
+
 	# If it doesn't already have a room entry, then create one
 	if( not lines.has( room.id ) ):
 		lines[ room.id ] = {}
@@ -94,7 +79,6 @@ func UpdateLines( room_id : String, thickness : float = 5.0, do_redraw : bool = 
 			line_collection.erase( dest_id )
 	
 	# Now we've got both door data, and a lines dictionary, even if empty.
-	
 	for door in door_data:
 	#{
 		# Make sure the destination room is there else skip over it
@@ -103,12 +87,8 @@ func UpdateLines( room_id : String, thickness : float = 5.0, do_redraw : bool = 
 						
 		var dest_room : LayoutRoom = rooms[ door.destination ];
 		
-		#var room_pos = Vector2( room.position.x, ( room.position.y - separator_y ) + center_y );
-		#var dest_pos = Vector2( dest_room.position.x, ( dest_room.position.y - separator_y ) + center_y );
-		var start_pos = room.GetCenterPos(); #room_pos; #room.position
-		var end_pos = dest_room.GetCenterPos(); #dest_pos; #dest_room.position
-		#print( "room: " + room.id + ", room position = " + str( room.position ) + ", room center = " + str( room.GetCenterPos() ) )
-		#print( "dest room: " + dest_room.id + ", dest position = " + str( dest_room.position ) + ", dest room center = " + str( dest_room.GetCenterPos() ) )
+		var start_pos = room.GetCenterPos();
+		var end_pos = dest_room.GetCenterPos();
 		
 		if not line_collection.has( door.destination ):
 			# Assign next color from palette, cycle through palette
@@ -124,16 +104,20 @@ func UpdateLines( room_id : String, thickness : float = 5.0, do_redraw : bool = 
 			line_collection[ door.destination ][ "start" ] = start_pos;
 			line_collection[ door.destination ][ "end" ] = end_pos;
 	
+	#}  // end for door
+	
 	# go through each inbound link
 	for inbound in room.inbound_rooms:
 	#{
+		#print( "inbound for " + room.id + " = " + inbound );
 		# make sure we have an entry for the source room
 		if( lines.has( inbound ) ):
 		#{
 			# check to see that the room lines collection has an entry for the current room
 			# and then update the end position of that particular line, to the room's current position.
 			if( lines[ inbound ].has( room.id ) ):
-				lines[ inbound ][ room.id ][ "end" ] = room.GetCenterPos(); #room.position
+				lines[ inbound ][ room.id ][ "end" ] = room.GetCenterPos();
+				#print( "Inbound updating ", room.id );
 		#}
 	#}
 		

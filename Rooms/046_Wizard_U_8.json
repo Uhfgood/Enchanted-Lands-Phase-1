@@ -1,0 +1,13 @@
+{
+    "id": "046_Wizard_U_8",
+    "label": "Wizard U 8",
+    "description": "The mouse casts the unlock spell on the front door.\nThe padlock starts to get hot, and then melts into an unbreakable mass of metal.\n\nHit 1 for the mouse to cast the shrink spell.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_9",
+            "choice": "1",
+            "destination": "046_Wizard_U_9"
+        }
+    ]
+}
