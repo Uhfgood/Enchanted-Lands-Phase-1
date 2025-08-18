@@ -1,19 +1,32 @@
 @tool
-class_name EditorMap extends Node
+class_name LayoutTool extends Node
 
 var is_removing_room: bool = false
 
 # Flag to prevent load_all_rooms from running multiple times
 static var has_loaded_rooms = false
 
+@onready var layout_tool = $"."
 @onready var rooms = $Rooms
+
+var line_overlay = null
+
 var currently_selected_room = null
 
 const ROOMS_DIR = "res://Rooms/"
 var rooms_dict = {}
 var removed_rooms : Array[String] = []
 
-# At the top of editor_map.gd, add:
+func get_room_children() -> Array:
+#{
+	var room_children = []
+	for child in rooms.get_children():
+		if( child is LayoutRoom ):
+			room_children.append( child );
+	return( room_children );
+#}
+
+# At the top of layout_tool.gd, add:
 var holding_node: Node = Node.new()
 
 func _on_selection_changed():
@@ -21,11 +34,11 @@ func _on_selection_changed():
 	if( !Engine.is_editor_hint() ):
 		return
 
-	#print( "_on_selection_changed executed" )
+	print( "_on_selection_changed executed" )
 	
 	# Ignore selection changes during removal
 	if is_removing_room:
-		#print("Ignoring selection change during room removal.")
+		print("Ignoring selection change during room removal.")
 		return
 	
 	var editor_selection = EditorInterface.get_selection()
@@ -37,11 +50,11 @@ func _on_selection_changed():
 		# Safety check: Ensure the node is still valid
 		if is_instance_valid(selected_node):
 		#{
-			#print("Selected Node: ", selected_node.name)
-			if(selected_node is EditorRoom):
+			print("Selected Node: ", selected_node.name)
+			if(selected_node is LayoutRoom):
 				currently_selected_room = selected_node
 			else:
-				#print( "Currently selected node is not a room." )
+				print( "Currently selected node is not a room." )
 				currently_selected_room = null
 			
 		#} // end if is_instance_valid
@@ -49,8 +62,8 @@ func _on_selection_changed():
 			print("Selected node is invalid (possibly freed).")
 			
 	#}  // end if not selected_nodes.is_empty()
-	#else:
-		#print("No nodes selected")
+	else:
+		print("No nodes selected")
 
 #}  // end func _on_selection_changed()
 
@@ -63,7 +76,7 @@ func get_unique_room_label( base_label : String ) -> String:
 	
 	# Get all existing room labels under room_map
 	var existing_labels = []
-	for child in rooms.get_children():
+	for child in get_room_children():
 		existing_labels.append( child.label )  # Use label property
 	
 	# Increment suffix until a unique label is found
@@ -79,14 +92,14 @@ func get_unique_room_label( base_label : String ) -> String:
 
 func _on_add_room_button_pressed():
 #{
-	#print( "---" )
+	print( "---" )
 	var unique_label = get_unique_room_label( "New Location" )
 	var new_id = "000_" + unique_label.replace( " ", "_" )
 	var new_label = unique_label
 	var new_desc = "There's nothing here yet.  Hit 0 to quit."
-	var new_room = EditorRoom.Create( new_id, new_label, new_desc )
+	var new_room = LayoutRoom.Create( new_id, new_label, new_desc )
 	new_room.SetupVisuals()
-	AddRoomToEditorMap( new_room )
+	AddRoomToLayoutTool( new_room )
 	
 	if( Engine.is_editor_hint() ):
 	#{
@@ -94,8 +107,8 @@ func _on_add_room_button_pressed():
 		var editor_selection = EditorInterface.get_selection()
 		editor_selection.clear()
 		editor_selection.add_node( new_room )
-		#print( "Selected new room: " + new_room.label + "." )
-		#print( "---" )
+		print( "Selected new room: " + new_room.label + "." )
+		print( "---" )
 	#}
 	
 #}  // end _on_add_room_button_pressed():
@@ -103,7 +116,7 @@ func _on_add_room_button_pressed():
 # create a dictionary so I can rebuild inbound list later
 func RebuildRoomsDictionary():	
 	rooms_dict.clear()
-	for room in rooms.get_children():
+	for room in get_room_children():
 		rooms_dict[ room.id ] = room 
 
 func AssignInboundRooms():
@@ -176,20 +189,15 @@ func _on_remove_room_button_pressed():
 	RebuildRoomsDictionary()
 	
 	AssignInboundRooms()
-
-	# Update inbound links and visuals for remaining rooms
-	for room in rooms.get_children():
-		room.UpdateInboundVisuals()
-		room.UpdateDoorLines()
 	
-	#print( "Removed room: ", room_id )
+	print( "Removed room: ", room_id )
 	
 	if( Engine.is_editor_hint() ):
 	#{
 		# Synchronous reconnection
 		if not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
 			editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
-			#print("Reconnected selection_changed signal")
+			print("Reconnected selection_changed signal")
 	#}
 				
 	#for child in holding_node.get_children():
@@ -205,18 +213,13 @@ func _on_save_button_pressed():
 	RebuildRoomsDictionary()
 
 	# wanted to create all the doors before assinging inbounds
-	for room in rooms.get_children():
+	for room in get_room_children():
 		room.CreateDoorsFromSpecs()
 
 	# assign inbounds before saving any rooms
 	AssignInboundRooms()
 
-	for room in rooms_dict.values():
-		room.UpdateDoorVisuals()
-		room.UpdateInboundVisuals()
-		room.UpdateDoorLines()
-
-	for room in rooms.get_children():
+	for room in get_room_children():
 	#{
 		var filename = room.id + ".meta"
 		if FileAccess.file_exists( ROOMS_DIR + filename ):
@@ -293,7 +296,7 @@ func _on_save_button_pressed():
 	#if what == NOTIFICATION_EDITOR_PRE_SAVE:
 		#print("Editor pre-save, clearing Rooms to prevent saving")
 		#if rooms:
-			#for room in rooms.get_children():
+			#for room in get_room_children():
 				#rooms.remove_child(room)
 				#room.queue_free()
 		## Trigger reload after save
@@ -306,19 +309,19 @@ func _on_save_button_pressed():
 	#EditorInterface.reload_scene_from_path(scene_path)
 					
 func _ready():
-	#print("EditorMap _ready, instance:%s, has_loaded_rooms: %s" % [self, has_loaded_rooms])
+	print("LayoutTool _ready, instance:%s, has_loaded_rooms: %s" % [self, has_loaded_rooms])
 	if rooms:
-		#print( "parent= " + rooms.get_parent().name )
-		#print("Clearing %d rooms in _ready" % rooms.get_child_count())
-		for room in rooms.get_children():
+		print( "parent= " + rooms.get_parent().name )
+		print("Clearing %d rooms in _ready" % rooms.get_child_count())
+		for room in get_room_children():
 			rooms.remove_child(room)
 			room.queue_free()
 	if not has_loaded_rooms:
-		#print("Deferring LoadAllRooms to next idle frame")
+		print("Deferring LoadAllRooms to next idle frame")
 		#call_deferred("LoadAllRooms")
 		if( get_tree() ):
 			call_deferred("LoadAllRooms")
-			#print( "Call has been deferred." )
+			print( "Call has been deferred." )
 		else:
 			print( "Tree is invalid" )
 			
@@ -330,21 +333,28 @@ func _ready():
 		var editor_selection = EditorInterface.get_selection()
 		if editor_selection and not editor_selection.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
 			editor_selection.connect("selection_changed", Callable(self, "_on_selection_changed"))
-			#print("Connected selection_changed to EditorSelection")
+			print("Connected selection_changed to EditorSelection")
 	#}
 	
-#func _enter_tree():
-	#print("EditorMap entering tree, instance:%s" % self)
+func _enter_tree():
+	print("LayoutTool entering tree, instance:%s" % self)
 
 func _exit_tree():
-	#print("EditorMap exiting tree, instance:%s, Rooms children: %d" % [self, rooms.get_child_count()])
+	#print("LayoutTool exiting tree, instance:%s, Rooms children: %d" % [self, rooms.get_child_count()])
 	has_loaded_rooms = false
 	if rooms:
-		#print("Clearing %d rooms in _exit_tree" % rooms.get_child_count())
-		for room in rooms.get_children():
+		print("Clearing %d rooms in _exit_tree" % rooms.get_child_count())
+		for room in get_room_children():
 			rooms.remove_child(room)
 			room.queue_free()
 	
+	if( line_overlay ): 
+		print( "***removing line overlay" )
+		layout_tool.set_owner( null )
+		layout_tool.remove_child(line_overlay)
+		line_overlay.queue_free()
+		line_overlay = null
+
 	if( Engine.is_editor_hint() ):
 	#{
 		var editor_selection = EditorInterface.get_selection()
@@ -360,13 +370,13 @@ func _exit_tree():
 		holding_node.queue_free()
 		holding_node = null
 
-func AddRoomToEditorMap(room: EditorRoom):
+func AddRoomToLayoutTool(room: LayoutRoom):
 	if not room:
 		print("Error: Room is null")
 		return
 	rooms.add_child(room)
 	room.SetOwner(self)
-	room.editor_map = self
+	room.layout_tool = self
 	#room.SetupVisuals()
 		
 func CreateNewMetaFile( filename ):
@@ -457,12 +467,8 @@ func SaveRoomDataForRoom(room, filename: String):
 		json_str += "}"
 		file.store_string(json_str)
 		file.close()
-		
-		room.UpdateDoorVisuals()
-		room.UpdateInboundVisuals()
-		room.UpdateDoorLines()
-		
-		#print("Room data saved for: ", filename)
+				
+		print("Room data saved for: ", filename)
 	else:
 		print("Couldn't open file for writing: ", jsonpath)
 		
@@ -506,16 +512,17 @@ func topological_sort_rooms() -> Array:
 	var visited = {}
 	var temp_visited = {}
 
-	for room in rooms.get_children():
+	for room in get_room_children():
 		if not (room.id in visited):
 			_visit_room(room, sorted_rooms, visited, temp_visited)
 	return sorted_rooms
 	
 func LoadAllRooms():
 	#print("Running LoadAllRooms, instance:%s, stack: %s" % [self, get_stack()])
+	print( "Running LoadAllRooms" )
 	rooms_dict.clear()
 	
-	for child in rooms.get_children():
+	for child in get_room_children():
 		rooms.remove_child(child)
 		child.queue_free()
 
@@ -529,49 +536,69 @@ func LoadAllRooms():
 			filename = item
 			if filename.ends_with(".json"):
 				var json_name = filename.replace(".json", "")
-				var room = EditorRoom.CreateFromJSON(json_name)
+				var room = LayoutRoom.CreateFromJSON(json_name)
 				if room:
-					#print( "Room: " + room.id + " created.")
+					print( "Room: " + room.id + " created.")
 					rooms_dict[ room.id ] = room
-					AddRoomToEditorMap(room)
+					AddRoomToLayoutTool(room)
 					LoadMetadataForRoom(room, filename)
-				#if filename.begins_with("012"):
+				#if filename.begins_with("005"):
 				#	break
 
 	# Step 2: Assign inbound rooms for all rooms
 	AssignInboundRooms()
 
 	# Step 3: Update visuals for all rooms in dependency order
-	var sorted_rooms = topological_sort_rooms()
-	for room in sorted_rooms:
-		room.UpdateDoorVisuals()
-		room.UpdateInboundVisuals()
-		room.UpdateDoorLines()
+	#var sorted_rooms = topological_sort_rooms()
 
 	# Step 4: Initialize previous positions
-	for room in rooms.get_children():
-		if room is EditorRoom:
+	for room in get_room_children():
+		if room is LayoutRoom:
 			room.previous_position = room.position
-	#
-	#RebuildRoomsDictionary()
-	#for room in rooms_dict.values():
-		#room.UpdateDoorVisuals()
-		#room.UpdateInboundVisuals()
-		#room.UpdateDoorLines()
-
-func update_lines_for_room_and_dependents(room: Node) -> void:
-	# Update lines for this room (outbound lines)
-	room.UpdateDoorLines()
 	
-	# Update lines for all rooms that have this room as a destination (inbound lines)
-	for other_room in rooms.get_children():
-		if other_room != room and other_room is EditorRoom:
-			if( other_room.HasDestinationTo( room.id ) ):
-					other_room.UpdateDoorLines()
-					
-func _process(_delta: float) -> void:
+	#for room in rooms_dict.values():
+	#	print(room.name, room.position)
+	
+	var existing_overlay = layout_tool.find_child( "LineOverlay" )
+	if( existing_overlay ):
+		print( "overlay already exists, removing" )
+		layout_tool.remove_child( existing_overlay )
+		
+	line_overlay = MultiLine2D.new()
+	line_overlay.set_meta("_edit_lock_", true)
+	line_overlay.position = rooms.position
+	layout_tool.add_child( line_overlay )
+	line_overlay.name = "LineOverlay"
+	line_overlay.set_owner( self )
+	line_overlay.InitLines( rooms_dict )
+
+func UpdateOverlay():
+#{
 	for room in rooms.get_children():
-		if room is EditorRoom:
-			if room.previous_position != room.position:
-				update_lines_for_room_and_dependents(room)
-			room.previous_position = room.position
+	#{
+		if room is LayoutRoom:
+			if( room.previous_position != room.position ):
+				line_overlay.UpdateLines( room.id );
+			room.previous_position = room.position;
+			
+	#}  // end for room
+	
+#}  // end func UpdateLines()
+
+var last_zoom_level : float = 1.0;
+var line_thickness : float = 5.0;
+	
+func HandleZoom():
+#{
+	var current_zoom_level = get_viewport().get_final_transform().x.x;
+
+	if( abs( current_zoom_level - last_zoom_level ) > 0.025 ):
+		last_zoom_level = current_zoom_level;
+		line_thickness = 2.0 / current_zoom_level;
+		line_overlay.UpdateAllLines( line_thickness );
+
+#}  // end HandleZoom()
+
+func _process(_delta: float) -> void:
+	UpdateOverlay()
+	HandleZoom()
