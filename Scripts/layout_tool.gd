@@ -290,7 +290,8 @@ func _on_save_button_pressed():
 	
 	removed_rooms.clear()
 	
-	line_overlay.UpdateAllLines();
+	#line_overlay.UpdateAllLines();
+	line_overlay.UpdateAllLines( 2.0 / current_zoom_level );
 	
 #} // end func _on_save_button_pressed()
 
@@ -501,6 +502,7 @@ func topological_sort_rooms() -> Array:
 	return sorted_rooms
 	
 func LoadAllRooms():
+#{
 	#print("Running LoadAllRooms, instance:%s, stack: %s" % [self, get_stack()])
 	print( "Running LoadAllRooms" )
 	rooms_dict.clear()
@@ -525,35 +527,52 @@ func LoadAllRooms():
 					rooms_dict[ room.id ] = room
 					AddRoomToLayoutTool(room)
 					LoadMetadataForRoom(room, filename)
-				#if filename.begins_with("005"):
+				#if filename.begins_with("003"):
 				#	break
 
 	# Step 2: Assign inbound rooms for all rooms
-	AssignInboundRooms()
+	AssignInboundRooms();
 
 	# Step 3: Update visuals for all rooms in dependency order
-	#var sorted_rooms = topological_sort_rooms()
+	#var sorted_rooms = topological_sort_rooms();
 
 	# Step 4: Initialize previous positions
 	for room in get_room_children():
 		if room is LayoutRoom:
-			room.previous_position = room.position
+			room.previous_position = room.position;
 	
 	#for room in rooms_dict.values():
-	#	print(room.name, room.position)
+	#	print(room.name, room.position);
 	
-	var existing_overlay = layout_tool.find_child( "LineOverlay" )
+	var existing_overlay = layout_tool.find_child( "LineOverlay" );
 	if( existing_overlay ):
-		print( "overlay already exists, removing" )
-		layout_tool.remove_child( existing_overlay )
+		print( "overlay already exists, removing" );
+		layout_tool.remove_child( existing_overlay );
 		
-	line_overlay = MultiLine2D.new()
-	line_overlay.set_meta("_edit_lock_", true)
-	line_overlay.position = rooms.position
-	layout_tool.add_child( line_overlay )
-	line_overlay.name = "LineOverlay"
-	line_overlay.set_owner( self )
-	line_overlay.InitLines( rooms_dict )
+	line_overlay = MultiLine2D.new();
+	line_overlay.set_meta("_edit_lock_", true);
+	line_overlay.position = rooms.position;
+	layout_tool.add_child( line_overlay );
+	line_overlay.name = "LineOverlay";
+	line_overlay.set_owner( self );
+	line_overlay.InitLines( rooms_dict );
+
+	var existing_camera = layout_tool.find_child( "LayoutCamera" );
+	if( existing_camera ):
+		print( "camera already exists, removing" );
+		layout_tool.remove_child( existing_camera );
+	
+	var camera = LayoutCamera.new();
+	layout_tool.add_child( camera );
+	camera.make_current();
+	camera.name = "LayoutCamera";
+	camera.set_owner( self );
+	camera.room_container = rooms
+	camera._update_min_zoom()
+	
+	print( "End of LoadAllRooms" );
+	
+#}  // end LoadAllRooms
 
 func UpdateOverlay():
 #{
@@ -570,11 +589,12 @@ func UpdateOverlay():
 
 var last_zoom_level : float = 1.0;
 var line_thickness : float = 5.0;
-	
+var current_zoom_level = 2.0
+
 func HandleZoom():
 #{
-	var current_zoom_level = get_viewport().get_final_transform().x.x;
-
+	current_zoom_level = get_viewport().get_final_transform().x.x;
+	#print(current_zoom_level)
 	if( abs( current_zoom_level - last_zoom_level ) > 0.025 ):
 		last_zoom_level = current_zoom_level;
 		line_thickness = 2.0 / current_zoom_level;

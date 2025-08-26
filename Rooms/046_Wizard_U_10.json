@@ -1,8 +1,33 @@
 {
     "id": "046_Wizard_U_10",
     "label": "Wizard U 10",
-    "description": "Hubert makes his way to the trophy room, and notices a display case that had previously housed a quicksilver scepter, was now empty, with no signs of tampering.\n\nNext Hubert goes to the Wizard University “Hall of Fame” he noticed one of the portraits is missing.\nHubert realized it was the portrait of Maximilian Spell who had attempted to take over other realms before and was banished.\nHubert looks at the other portraits and notices the other wizards have a shocked or surprised look on their faces.\n\nWhen Hubert came back to the mouse’s dorm room, he shrunk Hubert again, and when Hubert was outside, restored him back to his normal size.\n\nHit 0 to quit.",
+    "description": "Hubert makes his way to the trophy room, and notices a display case that had previously housed a quicksilver scepter, was now empty, with no signs of tampering.\nAfter examining the case, Hubert is able to discern there was some magic use, but not to what extent until he does a closer examination.\nHubert tries a ward reveal spell.\nBecause of his broken magic, nothing happens at first, but then floating rotating lights appear, disappear, and then reappear again.\nHubert mutters something about the wards not being tripped.\nThen hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then\n\nHit 1 for Sight.\nHit 2 for Smell.\nHit 3 for Taste.\nHit 4 for Touch.\nHit 5. for Hear.\n\nHit 0 to quit.",
     "doors":
     [
+        {
+            "id": "Door_To_Wizard_U_TrophyRoom",
+            "choice": "1",
+            "destination": "047_Wizard_U_TrophyRoom"
+        },
+        {
+            "id": "Door_To_Wizard_U_TrophyRoom_1",
+            "choice": "2",
+            "destination": "047_Wizard_U_TrophyRoom_1"
+        },
+        {
+            "id": "Door_To_Wizard_U_TrophyRoom_2",
+            "choice": "3",
+            "destination": "047_Wizard_U_TrophyRoom_2"
+        },
+        {
+            "id": "Door_To_Wizard_U_TrophyRoom_3",
+            "choice": "4",
+            "destination": "047_Wizard_U_TrophyRoom_3"
+        },
+        {
+            "id": "Door_To_Wizard_U_TrophyRoom_4",
+            "choice": "5",
+            "destination": "047_Wizard_U_TrophyRoom_4"
+        }
     ]
 }

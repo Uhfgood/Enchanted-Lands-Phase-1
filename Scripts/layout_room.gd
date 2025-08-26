@@ -578,14 +578,13 @@ func SetupVisuals():
 
 		# Set the Panel's position to align the Room's origin with the center and separator
 		panel.position = Vector2(panel_center_x, -separator_y)
-		
 	else:
 		print("Panel already exists for room: ", name)
 	
 #} // end SetupVisuals()
 
 func resize_panel(panel: Panel, vbox: VBoxContainer, name_label: Label, desc_label: Label):
-
+#{
 	# Ensure the labels have updated their sizes
 	name_label.queue_redraw()
 	desc_label.queue_redraw()
@@ -641,6 +640,8 @@ func resize_panel(panel: Panel, vbox: VBoxContainer, name_label: Label, desc_lab
 	# Center the VBoxContainer within the Panel
 	var vbox_x_offset = (total_width - text_width) / 2  # Should be (584 - 560) / 2 = 12
 	vbox.position = Vector2(vbox_x_offset + 1, padding.y / 2)
+	
+#}  // end resize_panel()
 
 # calculate the actual center of the panel
 func GetCenterPos() -> Vector2:
