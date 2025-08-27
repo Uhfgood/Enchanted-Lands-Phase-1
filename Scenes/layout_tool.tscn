@@ -4165,15 +4165,48 @@ label = "Wizard U 10"
 description = "Hubert makes his way to the trophy room, and notices a display case that had previously housed a quicksilver scepter, was now empty, with no signs of tampering.
 After examining the case, Hubert is able to discern there was some magic use, but not to what extent until he does a closer examination.
 Hubert tries a ward reveal spell.
+
+Hit 1 for Sight.
+
+Hubert puts on a few hats and then casts a ward-reveal spell.
 Because of his broken magic, nothing happens at first, but then floating rotating lights appear, disappear, and then reappear again.
+Hubert also notices something peculiar, namely, that the lights appear to be in mid air in front of the case, and then seem to drift toward the case before hovering around it.
 Hubert mutters something about the wards not being tripped.
 Then hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then
 
-Hit 1 for Sight.
-Hit 2 for Smell.
-Hit 3 for Taste.
-Hit 4 for Touch.
-Hit 5. for Hear.
+Hit 2. for Sound
+
+Hubert puts on a few hats and then casts a ward-reveal spell.
+
+A low rumbling hum for the unnatural portal magic, and a sound as if someone was plucking the scales on a harp.
+
+Hubert mutters something about the wards not being tripped.
+Then hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then
+
+Hit 3 for Touch.
+
+Hubert puts on a few hats and then casts a ward-reveal spell.
+
+Hubert mutters something about the wards not being tripped.
+Then hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then
+
+Hit 4 for Taste.
+
+Hubert puts on a few hats and then casts a ward-reveal spell.
+
+Hubert mutters something about the wards not being tripped.
+Then hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then
+
+Hit 5 for Smell.
+
+Hubert puts on a few hats and then casts a ward-reveal spell.
+Hubert's half-magic still affects his spells but since these are fairly small, it still accomplishes his goal.
+He starts smelling, an acrid odor, like charred wood on a smouldering fire.
+Then the closer he gets the more it starts to smell like the air just after a thunderstorm.
+The smell fades in and out based on Hubert's 'haflway' magic.
+Hubert mutters something about the wards not being tripped.
+
+Then hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then
 
 Hit 0 to quit."
 
@@ -4398,7 +4431,7 @@ script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_10", "", "", "", "", "", "", "", ""]
 id = "047_Wizard_U_TrophyRoom_1"
 label = "Wizard U TrophyRoom 1"
-description = "Hit 1 for Smell.
+description = "Hit 1 for Sound.
 
 Hit 0 to quit."
 
@@ -4408,7 +4441,7 @@ script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_10", "", "", "", "", "", "", "", ""]
 id = "047_Wizard_U_TrophyRoom_2"
 label = "Wizard U TrophyRoom 2"
-description = "Hit 1 for Taste.
+description = "Hit 1 for Touch.
 
 Hit 0 to quit."
 
@@ -4418,7 +4451,7 @@ script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_10", "", "", "", "", "", "", "", ""]
 id = "047_Wizard_U_TrophyRoom_3"
 label = "Wizard U TrophyRoom 3"
-description = "Hit 1 for Touch.
+description = "Hit 1 for Taste.
 
 Hit 0 to quit."
 
@@ -4428,7 +4461,7 @@ script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_10", "", "", "", "", "", "", "", ""]
 id = "047_Wizard_U_TrophyRoom_4"
 label = "Wizard U TrophyRoom 4"
-description = "Hit 1. for Hear.
+description = "Hit 1. for Smell.
 
 Hit 0 to quit."
 
