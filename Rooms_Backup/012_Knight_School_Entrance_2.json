@@ -1,0 +1,18 @@
+{
+    "id": "012_Knight_School_Entrance_2",
+    "label": "Knight School Entrance 2",
+    "description": "Looking at the \"drunk\" Knight, John figures he might be able to easily get his badge.\nJohn talks to the drunk knight and when the drunk knight refuses to give him his badge, John seeks another way.\nIf John could get him even drunker, then maybe he would pass out, and he can take the badge.\nAnother way, is simply to knock him out, considering that he's almost there, a blow to the helmet could make him sleep for hours.\n\nHit 1 if you wish to find a way to get him so drunk, he'll pass out.\nHit 2 if you want John to find something he can use to knock him out.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_Entrance_4",
+            "choice": "1",
+            "destination": "012_Knight_School_Entrance_4"
+        },
+        {
+            "id": "Door_To_Knight_School_Entrance_5",
+            "choice": "2",
+            "destination": "012_Knight_School_Entrance_5"
+        }
+    ]
+}

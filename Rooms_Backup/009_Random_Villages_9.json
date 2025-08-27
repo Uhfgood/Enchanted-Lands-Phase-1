@@ -1,0 +1,13 @@
+{
+    "id": "009_Random_Villages_9",
+    "label": "Random Villages 9",
+    "description": "Coin doubling scam.  \n\nRealizing how gullible the patrons seem to be, he decides he'd do some coin-doubling magic, since they can't tell the real thing from sleight-of-hand.\nHe claims to be able to double their money, but with an element of risk that sometimes the magic doesn't work correctly.  \nWhen no one voluneers their money, he takes out a coin in hand, says some magic words and opens his hand to reveal 2 coins.  \nHe then asks for members of the 'audience' to trust him.  \nAfter a few of the patrons win money, everyone starts trying to give him their money.\nA couple of times the magic doesn't work, in fact the coins seem to disappear in a puff of smoke.\nWhen Zanzibar has enough coins, he then decides to stop the act and move on.\n\nBack in Lapsewood Hubert begins to tell John what he needs to do next.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Lapsewood_Edge",
+            "choice": "1",
+            "destination": "010_Lapsewood_Edge"
+        }
+    ]
+}

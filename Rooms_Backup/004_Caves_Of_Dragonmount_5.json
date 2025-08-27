@@ -1,0 +1,13 @@
+{
+    "id": "004_Caves_Of_Dragonmount_5",
+    "label": "Caves Of Dragonmount 5",
+    "description": "Chester listens for Shade's unusual snoring as he's usually sleeping in the front of his cave and after not hearing anything, looks inside and notices It's empty except for the gallery at the back where there are various suits of armor and weaponry.  Chester decides to check to see if Ember is home, by calling out to her in front of her cave.\n\nHit 1 if you wish to call out to Ember in front of her cave.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Caves_Of_Dragonmount_11",
+            "choice": "1",
+            "destination": "004_Caves_Of_Dragonmount_11"
+        }
+    ]
+}

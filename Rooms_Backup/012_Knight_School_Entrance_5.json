@@ -1,0 +1,13 @@
+{
+    "id": "012_Knight_School_Entrance_5",
+    "label": "Knight School Entrance 5",
+    "description": "Noticing the halberd's laying down from the gate guards, John grabs the halberd by the handle and starts to drag it because it's too heavy to pick up.  Then drags it over to Sir Drinksalot, and pushes it over to where the handle falls onto Sir Drinksalot's head thereby knocking him out.\nJohn grabs his badge now that he's been knocked out.\n\nHit 1 to investigate Knight School.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School",
+            "choice": "1",
+            "destination": "013_Knight_School"
+        }
+    ]
+}

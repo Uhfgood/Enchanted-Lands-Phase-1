@@ -1,0 +1,18 @@
+{
+    "id": "002_Hubert_Home_8",
+    "label": "Hubert Home 8",
+    "description": "Hubert puts his 3 magic hats on his desk where there also sits a large box which almost looks like a safe with a little door.  On the front of the box there is a small label which reads \"Magic Mailbox #001 of 100.  Property of Halfway Hubert.\"\n\nHit 1 if you wish to use the 'magic' mailbox.\nHit 2 if you wish to use a spell or two to send John his silver ticket.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Hubert_Home_9",
+            "choice": "1",
+            "destination": "002_Hubert_Home_9"
+        },
+        {
+            "id": "Door_To_Hubert_Home_10",
+            "choice": "2",
+            "destination": "002_Hubert_Home_10"
+        }
+    ]
+}

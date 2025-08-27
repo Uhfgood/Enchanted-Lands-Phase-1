@@ -14,7 +14,7 @@ position = Vector2(1446, 563)
 metadata/_edit_lock_ = true
 
 [node name="Main Menu" type="Node2D" parent="Rooms"]
-position = Vector2(-1013, -28877)
+position = Vector2(-1023, -28931)
 script = ExtResource("2_2nukr")
 door_specs = ["ch: 1, dest: 001_Enchanted_Lands;", "", "", "", "", "", "", "", ""]
 id = "000_Main_Menu"
@@ -2564,7 +2564,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Hall" type="Node2D" parent="Rooms"]
-position = Vector2(-1241, 663)
+position = Vector2(-1249, 670)
 script = ExtResource("2_2nukr")
 door_specs = ["ch: 1, dest: 015_Knight_School_Pool;", "", "", "", "", "", "", "", ""]
 id = "014_Wizard_U_Hall"

@@ -1,0 +1,13 @@
+{
+    "id": "012_Knight_School_Entrance",
+    "label": "Knight School Entrance",
+    "description": "Hubert instructs John to investigate Knight School and afterwards, Princess Prep.\nJohn eventually approaches the front entrance to Knight School.  \nThere are multiple \"knights\" walking in and out wearing badges.\nThere are two guards at the front gate with a closed sign on it who appear to be arguing as you approach.\nAs John questions the guards, a solution presents itself and he gives them chocolate, where they start shaking off all their armor.\nEventually it's revealed to be 2 parrots on their perches and John is free to enter and exit the grounds.\n\nHit 1 to walk past the guards.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_Entrance_1",
+            "choice": "1",
+            "destination": "012_Knight_School_Entrance_1"
+        }
+    ]
+}

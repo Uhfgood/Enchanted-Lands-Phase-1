@@ -1,0 +1,13 @@
+{
+    "id": "008_Lapsewood_13",
+    "label": "Lapsewood 13",
+    "description": "John asks Hubert who he is, and he explains he's a Wizard that helped the King turn Enchanted Lands into a tourist resort, but now the King is acting stragely.\n\nTo ask about why you're here, hit 1.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Lapsewood_16",
+            "choice": "1",
+            "destination": "008_Lapsewood_16"
+        }
+    ]
+}

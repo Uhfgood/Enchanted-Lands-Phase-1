@@ -1,0 +1,18 @@
+{
+    "id": "002_Hubert_Home_3",
+    "label": "Hubert Home 3",
+    "description": "Looking over Daniel, Hubert sees him getting bullied, but then through the help of an Okinawan karate instructor, overcomes his problems through a martial arts tournament.  Well maybe Daniel isn't quite the right fit, so Hubert goes back to the crystal ball.\n\nHit 1 to pick Harry.\nHit 2 to pick John.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Hubert_Home_5",
+            "choice": "1",
+            "destination": "002_Hubert_Home_5"
+        },
+        {
+            "id": "Door_To_Hubert_Home_7",
+            "choice": "1",
+            "destination": "002_Hubert_Home_7"
+        }
+    ]
+}

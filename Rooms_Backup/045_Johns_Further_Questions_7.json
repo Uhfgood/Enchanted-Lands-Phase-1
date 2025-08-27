@@ -1,0 +1,13 @@
+{
+    "id": "045_Johns_Further_Questions_7",
+    "label": "Johns Further Questions 7",
+    "description": "Hubert explains the four magical schools, Knight School, Princess Prep., Wizard U., and Fairy Godcollege, give tourists some training in being a Knight, a Princess, a Wizard, or a Fairy Godmother before them setting of on their adventure.\nHe also mentions they're closed up currently, and that they're going to figure out why.\n\nHit 1 if you want John to learn about the Dwarves and the Gnomes.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Johns_Further_Questions_13",
+            "choice": "1",
+            "destination": "045_Johns_Further_Questions_13"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "id": "009_Random_Villages_6",
+    "label": "Random Villages 6",
+    "description": "Zanzibar realizes since no one knows him, he can maybe get a few coins by performing.\nHe decides to use his 'mind-reading' act to hopefully gain him some money.\nUsing Corvus his pet crow, he pretends to be reading Corvus' mind, and eventually they give him money for a show.\nHe then decides to try his coin-doubling scam on them.\n\nHit 1 to continue.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Random_Villages_9",
+            "choice": "1",
+            "destination": "009_Random_Villages_9"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "id": "011_Dwarf_Mines_2",
+    "label": "Dwarf Mines 2",
+    "description": "Roland goes into the dwarf mines, and then from there finds a secret entrance into the Gnome Kingdom.\n\nHit 1 if you wish to continue.\n\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Grand_Enchanted_Landian_1",
+            "choice": "1",
+            "destination": "024_Grand_Enchanted_Landian_1"
+        }
+    ]
+}

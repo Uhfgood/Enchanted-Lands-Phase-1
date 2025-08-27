@@ -1,0 +1,13 @@
+{
+    "id": "046_Wizard_U_2",
+    "label": "Wizard U 2",
+    "description": "Hubert asks the mouse to examine his own person.\nThe mouse starts checking pockets, his hat, and finally his paw hit's behind his ear.\nAfter pulling it out the mouse recalls putting it there in order to read the training manual with both paws.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_4",
+            "choice": "1",
+            "destination": "046_Wizard_U_4"
+        }
+    ]
+}

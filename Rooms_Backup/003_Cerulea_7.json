@@ -1,0 +1,13 @@
+{
+    "id": "003_Cerulea_7",
+    "label": "Cerulea 7",
+    "description": "Zanzibar enters the Lilliputian Hotel.\nNoticing a sign that reads \"Prestidigitaters Anonymous Convention A\"  with an arrow pointing to the right, he follows the sign to the ballroom where he sees another sign, that looks liek a standard convention sign stating guest speakers ans so forth.\nHe goes in and sees a bunch of elderly men, most with beards, shuffle off into a side room, and he catches up to them, and noticing they're taking the cloaks off of a roll-in rack, Zanzibar grabs the last one seeing as nobody else seems to be exiting.\nAt first Zanzibar assumes it's a door, but then realizes it's something else, and after taking a deep breath, he walks through.  \n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Random_Villages",
+            "choice": "1",
+            "destination": "009_Random_Villages"
+        }
+    ]
+}

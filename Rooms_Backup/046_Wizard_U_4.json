@@ -1,0 +1,23 @@
+{
+    "id": "046_Wizard_U_4",
+    "label": "Wizard U 4",
+    "description": "The mouse asks Hubert what he needs, and Hubert tells him he needs to get inside the school even though it’s all closed up.\nThe mouse asks Hubert why he needs him when Hubert is an actual wizard.\nHubert responds with the fact he only has half of his magic, and he doesn't know how something will manifest itself until he does it.\nThe mouse replies in the affirmative and pulls out the training manual.\n\nHit 1 if you want the mouse to cast a teleportation spell.\nHit 2 if you want the mouse to cast an unlock spell.\nHit 3 if you want the mouse to cast a shrink spell on Hubert.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_5",
+            "choice": "1",
+            "destination": "046_Wizard_U_5"
+        },
+        {
+            "id": "Door_To_Wizard_U_9",
+            "choice": "3",
+            "destination": "046_Wizard_U_9"
+        },
+        {
+            "id": "Door_To_Wizard_U_6",
+            "choice": "2",
+            "destination": "046_Wizard_U_6"
+        }
+    ]
+}

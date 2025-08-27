@@ -1,0 +1,13 @@
+{
+    "id": "013_Knight_School_6",
+    "label": "Knight School 6",
+    "description": "Trial by Mount. \n\nFor the \"trial by mount\", John must unseat his opponent at the joust. \nAfter doing so, he then prepares for the next test.\n\nHit 1 to continue to the next challenge.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_9",
+            "choice": "1",
+            "destination": "013_Knight_School_9"
+        }
+    ]
+}

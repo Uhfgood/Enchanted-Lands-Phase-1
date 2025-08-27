@@ -1,0 +1,18 @@
+{
+    "id": "005_Sky_3",
+    "label": "Sky 3",
+    "description": "Chester flies close enough to be able to hit Shade with a burst of fire.\nHe then blows fire in front of Shade's eyes, when Shade starts to chase him.\nChester flies as fast as he can across the countryside, while executing amazing loops, and dives.\nEventually both Chester and Shade get tired, but before Chester gives out, Shade drops from the sky.\nChester flies away and decides to see if he can find Ember, and Glint.\n\nHit 1 to search for Ember.\nHit 2 to search for Glint\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Sky_4",
+            "choice": "1",
+            "destination": "005_Sky_4"
+        },
+        {
+            "id": "Door_To_Sky_5",
+            "choice": "2",
+            "destination": "005_Sky_5"
+        }
+    ]
+}

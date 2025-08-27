@@ -1,0 +1,13 @@
+{
+    "id": "008_Lapsewood_10",
+    "label": "Lapsewood 10",
+    "description": "John asks Hubert where he is, and Hubert proceeds to tell him that Enchanted Lands is a real magic kingdom turned tourist resort, but it has fallen on hard times.\n\nTo ask Hubert who he is, hit 2.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Lapsewood_13",
+            "choice": "1",
+            "destination": "008_Lapsewood_13"
+        }
+    ]
+}

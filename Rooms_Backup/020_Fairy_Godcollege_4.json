@@ -1,0 +1,13 @@
+{
+    "id": "020_Fairy_Godcollege_4",
+    "label": "Fairy Godcollege 4",
+    "description": "The Princess gets into Fairy GodCollege with the password, when she has to throw her bag into a box.\n\nHit 1 if you wish to go to Fairy Godcollege Library.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Fairy_Godcollege_Library",
+            "choice": "1",
+            "destination": "040_Fairy_Godcollege_Library"
+        }
+    ]
+}

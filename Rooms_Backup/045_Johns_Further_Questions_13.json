@@ -1,0 +1,13 @@
+{
+    "id": "045_Johns_Further_Questions_13",
+    "label": "Johns Further Questions 13",
+    "description": "John asks about the two small men one being short and fat, who kidnapped a girl on the train.   The other. taller and heartier  who was trying to get some papers to Hubert before being captured.  The short fat one is a Gnome and describes the Gnome King, and the slightly taller and stockier one being a Dwarf, and that the kidnapping makes this train crash specially important.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_Entrance",
+            "choice": "1",
+            "destination": "012_Knight_School_Entrance"
+        }
+    ]
+}

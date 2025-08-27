@@ -14,6 +14,8 @@ var line_overlay = null
 var currently_selected_room = null
 
 const ROOMS_DIR = "res://Rooms/"
+const LAYOUT_TOOL_DATA_DIR = "res://LayoutToolData/"
+
 var rooms_dict = {}
 var removed_rooms : Array[String] = []
 
@@ -222,7 +224,7 @@ func _on_save_button_pressed():
 	for room in get_room_children():
 	#{
 		var filename = room.id + ".meta"
-		if FileAccess.file_exists( ROOMS_DIR + filename ):
+		if FileAccess.file_exists( LAYOUT_TOOL_DATA_DIR + filename ):
 		#{
 			SaveMetadataForRoom( room, filename )
 		#}
@@ -240,9 +242,9 @@ func _on_save_button_pressed():
 			var old_json_path = ROOMS_DIR + room.original_id + ".json"
 			if( FileAccess.file_exists( old_json_path ) ):
 				DirAccess.open( ROOMS_DIR ).remove( old_json_path )
-			var old_meta_path = ROOMS_DIR + room.original_id + ".meta"
+			var old_meta_path = LAYOUT_TOOL_DATA_DIR + room.original_id + ".meta"
 			if( FileAccess.file_exists( old_meta_path ) ):
-				DirAccess.open( ROOMS_DIR ).remove( old_meta_path )
+				DirAccess.open( LAYOUT_TOOL_DATA_DIR ).remove( old_meta_path )
 			room.original_id = room.id	
 			
 		#}  // end if( room.id...
@@ -260,7 +262,7 @@ func _on_save_button_pressed():
 	for room_id in removed_rooms:
 	#{
 		# Delete the JSON file
-		var json_path = "res://Rooms/" + room_id + ".json"
+		var json_path = ROOMS_DIR + room_id + ".json"
 		var dir = DirAccess.open( "res://Rooms" )
 		if dir and dir.file_exists( json_path ):
 		#{
@@ -274,7 +276,7 @@ func _on_save_button_pressed():
 			print( "No JSON file found for " + room_id + "." )
 		
 		# Delete the meta file, if it exists meta
-		var meta_path = "res://Rooms/" + room_id + ".meta"
+		var meta_path = LAYOUT_TOOL_DATA_DIR + room_id + ".meta"
 		if dir and dir.file_exists( meta_path ):
 		#{
 			var error = dir.remove( meta_path )
@@ -387,8 +389,8 @@ func CreateNewMetaFile( filename ):
 	var metaname = filename
 	if( filename.ends_with( ".json" ) ): 
 		metaname = filename.replace(".json", ".meta")
-	if not FileAccess.file_exists( ROOMS_DIR + metaname ):
-		var meta_file = FileAccess.open( ROOMS_DIR + metaname, FileAccess.WRITE )
+	if not FileAccess.file_exists( LAYOUT_TOOL_DATA_DIR + metaname ):
+		var meta_file = FileAccess.open( LAYOUT_TOOL_DATA_DIR + metaname, FileAccess.WRITE )
 		if FileAccess.get_open_error() == OK:
 			var meta_data = {"x": 0, "y": 0}
 			meta_file.store_string( JSON.stringify( meta_data ) )
@@ -398,7 +400,7 @@ func CreateNewMetaFile( filename ):
 
 func SaveMetadataForRoom( room, filename ):
 #{
-	var metapath = ROOMS_DIR + filename
+	var metapath = LAYOUT_TOOL_DATA_DIR + filename
 	if FileAccess.file_exists( metapath ):
 		var file = FileAccess.open( metapath, FileAccess.WRITE )
 		if FileAccess.get_open_error() == OK:
@@ -461,7 +463,7 @@ func SaveRoomDataForRoom(room, filename: String):
 func LoadMetadataForRoom( room, filename ):
 #{
 	var metapath = filename.replace(".json", ".meta")
-	metapath = "res://Rooms/" + metapath
+	metapath = LAYOUT_TOOL_DATA_DIR + metapath
 	if FileAccess.file_exists( metapath ):
 		var file = FileAccess.open( metapath, FileAccess.READ )
 		var meta_data = JSON.parse_string( file.get_as_text() )
@@ -525,8 +527,8 @@ func LoadAllRooms():
 				if room:
 					#print( "Room: " + room.id + " created.")
 					rooms_dict[ room.id ] = room
-					AddRoomToLayoutTool(room)
-					LoadMetadataForRoom(room, filename)
+					AddRoomToLayoutTool( room );
+					LoadMetadataForRoom( room, filename );
 				#if filename.begins_with("003"):
 				#	break
 

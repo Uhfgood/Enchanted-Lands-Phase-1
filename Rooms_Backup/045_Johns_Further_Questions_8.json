@@ -1,0 +1,13 @@
+{
+    "id": "045_Johns_Further_Questions_8",
+    "label": "Johns Further Questions 8",
+    "description": "John asks about the two small men he's encountered, the first one being short and fat, who kidnapped a girl on the train.   The other. slightly taller and stockier who was trying to get some papers to Hubert before being captured.  The short fat one is a Gnome, and the slightly taller and stockier one being a Dwarf, and that the kidnapping makes this train crash specially important.\n\nHit 1 to ask about the various schools.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Johns_Further_Questions_14",
+            "choice": "1",
+            "destination": "045_Johns_Further_Questions_14"
+        }
+    ]
+}

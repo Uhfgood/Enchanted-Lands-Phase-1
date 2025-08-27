@@ -1,0 +1,13 @@
+{
+    "id": "008_Lapsewood_16",
+    "label": "Lapsewood 16",
+    "description": "John asks Hubert what he's doing there, and Hubert replies that he has some errands for John to run, and maybe his fresh pair of eyes can shed some light on the hard times Enchanted Lands is having.\n\nMeanwhile back in John's realm, A very dapper gentleman is running down the Las Vegas stip evading the police on foot, while a crow follows him from the air...\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Cerulea_6",
+            "choice": "1",
+            "destination": "003_Cerulea_6"
+        }
+    ]
+}

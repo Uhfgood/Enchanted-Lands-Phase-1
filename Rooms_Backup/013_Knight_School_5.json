@@ -1,0 +1,13 @@
+{
+    "id": "013_Knight_School_5",
+    "label": "Knight School 5",
+    "description": "Trial by Combat. \n\nJohn chooses trial by combat.  He's given his choice of hand weapon and shield.  He then manages to barely beat his opponent and then gets ready for the next test.\n\nHit 1 to continue to the next challenge.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_8",
+            "choice": "1",
+            "destination": "013_Knight_School_8"
+        }
+    ]
+}

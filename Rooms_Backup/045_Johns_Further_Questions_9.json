@@ -1,0 +1,13 @@
+{
+    "id": "045_Johns_Further_Questions_9",
+    "label": "Johns Further Questions 9",
+    "description": "Hubert tells John he was in a flying train due to the \"Quicksilver\" that makes inanimate objects levitate.  When a tourist first visits, they always step into a flying train if one is running.  While not strictly necessary, it sets up the vacation in a magical way.  Hubert also states that these days, there aren't many trains running.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_Entrance",
+            "choice": "1",
+            "destination": "012_Knight_School_Entrance"
+        }
+    ]
+}

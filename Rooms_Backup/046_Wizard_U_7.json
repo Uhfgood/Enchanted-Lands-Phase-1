@@ -1,0 +1,13 @@
+{
+    "id": "046_Wizard_U_7",
+    "label": "Wizard U 7",
+    "description": "The mouse cast teleportation by waving his wand and saying the magic words from the manual. \nHubert then disappears and reappears as if he had run right into the wall.\n\nHit 1 if you want the mouse to try the shrink spell.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_9",
+            "choice": "1",
+            "destination": "046_Wizard_U_9"
+        }
+    ]
+}

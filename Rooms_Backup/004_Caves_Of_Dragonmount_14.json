@@ -1,0 +1,13 @@
+{
+    "id": "004_Caves_Of_Dragonmount_14",
+    "label": "Caves Of Dragonmount 14",
+    "description": "Chester, doesn't want to invade Ember's space and opts to call out to her.  When he doesn't hear anything, he raps loudly on the entrance to her cave.  Chester then realizes  she's not around, and leaves to further search the skies.\n\nHit 1 to take to the skies in order to continue the search!\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Sky",
+            "choice": "1",
+            "destination": "005_Sky"
+        }
+    ]
+}

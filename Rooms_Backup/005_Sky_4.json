@@ -1,0 +1,13 @@
+{
+    "id": "005_Sky_4",
+    "label": "Sky 4",
+    "description": "After flying around for a while, Chester spots Ember.\nEmber keeps diving down and picking up and dropping villagers.\nNot wanting to hurt her, he decides on a peculiar movement method which has him flying around her at all sorts of angles and orientations, eventually making her dizzy.  \nShe decides to fly off, and then Chester breaks off his maneuvers.\n\nHit 1 to head toward Chester's cave under Dragonmount.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Chester_Cave",
+            "choice": "1",
+            "destination": "006_Chester_Cave"
+        }
+    ]
+}

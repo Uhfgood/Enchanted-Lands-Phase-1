@@ -1,0 +1,13 @@
+{
+    "id": "003_Cerulea_9",
+    "label": "Cerulea 9",
+    "description": "Zanzibar ducks into Gullver's Bar and talks to an old man sitting at a table.  The old man claims to be a wizard and that he's just having a few more drinks before returning to his own realm.  Zanzibar makes him do the magic, which after going into the alley behind the bar, finds the old man conjuring up some sort of portal, and tboth of them step through.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Random_Villages",
+            "choice": "1",
+            "destination": "009_Random_Villages"
+        }
+    ]
+}

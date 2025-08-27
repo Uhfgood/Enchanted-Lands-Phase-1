@@ -1,0 +1,13 @@
+{
+    "id": "002_Hubert_Home_12",
+    "label": "Hubert Home 12",
+    "description": "Hubert decides to try a 'clone conjure' spell, and conjures a ticket on his own desk.\nAfter running to the crystal ball, he notices that John now has an idential ticket, only something is off.\nThe ticket doesn't appear to contain quicksilver, but the message on the back seems to be intact.\nHubert waits for John to figure it out.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Cerulea_4",
+            "choice": "1",
+            "destination": "003_Cerulea_4"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "id": "004_Caves_Of_Dragonmount_12",
+    "label": "Caves Of Dragonmount 12",
+    "description": "Shade is usually snoring in the front of his cave, guarding his gallery in the back which house various suits of armour and weaponry.  After hearing nothing, Chester pokes his head in and notices It's empty.  Chester then realizes nobody's home and leaves for the skies to search some more.\n\nHit 1 to take to the skies in order to continue the search!\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Sky",
+            "choice": "1",
+            "destination": "005_Sky"
+        }
+    ]
+}

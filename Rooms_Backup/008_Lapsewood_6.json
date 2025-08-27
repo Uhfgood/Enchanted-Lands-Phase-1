@@ -1,0 +1,13 @@
+{
+    "id": "008_Lapsewood_6",
+    "label": "Lapsewood 6",
+    "description": "John starts rummaging through the pile that the Dwarf had pulled the chicken from.\nAmong the various platters, and food items, he notice a small leather satchel, with a bit of mustard on it.\nJohn picks up the satchel and hand it to the Dwarf.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Lapsewood_8",
+            "choice": "1",
+            "destination": "008_Lapsewood_8"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "id": "046_Wizard_U_6",
+    "label": "Wizard U 6",
+    "description": "The mouse casts the unlock spell on the padlock on the front door.\nA few sparks fly from the padlock it gets red hot and then white hot, and only succeeds in melting into a lumpy mass.\n\nHit 1 for the mouse to cast the shrink spell.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_9",
+            "choice": "2",
+            "destination": "046_Wizard_U_9"
+        },
+        {
+            "id": "Door_To_Wizard_U_7",
+            "choice": "1",
+            "destination": "046_Wizard_U_7"
+        }
+    ]
+}

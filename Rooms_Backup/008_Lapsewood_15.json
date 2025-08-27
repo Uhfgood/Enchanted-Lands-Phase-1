@@ -1,0 +1,13 @@
+{
+    "id": "008_Lapsewood_15",
+    "label": "Lapsewood 15",
+    "description": "John asks Hubert where they are, to which Hubert replies, the Sunny Nexus of Worlds,  in the real life magic kingdom \"Enchanted Lands\" turned tourist resort, where you can become a brave Knight or a powerful Wizard!\nTo ask Hubert who he is, hit 1.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Lapsewood_18",
+            "choice": "1",
+            "destination": "008_Lapsewood_18"
+        }
+    ]
+}

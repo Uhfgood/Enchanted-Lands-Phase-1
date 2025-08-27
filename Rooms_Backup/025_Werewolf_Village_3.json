@@ -1,0 +1,13 @@
+{
+    "id": "025_Werewolf_Village_3",
+    "label": "Werewolf Village 3",
+    "description": "At the village Kurt disposes of Rottweiler and most of his followers.\nWhen Violet casts the spell to alter Kurt, Thorne in the village sees Kurt's own followers change as well.\nThorne goes and hides just out of town, and waits.\n\nHit 1 if you wish to go to Bats In The Belfry Lobby.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Bats_In_The_Belfry_Lobby",
+            "choice": "1",
+            "destination": "038_Bats_In_The_Belfry_Lobby"
+        }
+    ]
+}

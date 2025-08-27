@@ -1,0 +1,13 @@
+{
+    "id": "007_Train_Cabin_1",
+    "label": "Train Cabin 1",
+    "description": "John shouts \"Hey!\" to the little man, who then sharply looks at him and grins before running to the cabin door, kicking it open.\nThe little man then messes with a little device simliar to what he put on the wall, and the cabin starts to spin as the little man with the woman jumps out.\nJohn falls and blacks out.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Lapsewood",
+            "choice": "1",
+            "destination": "008_Lapsewood"
+        }
+    ]
+}

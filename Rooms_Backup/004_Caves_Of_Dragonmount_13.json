@@ -1,0 +1,13 @@
+{
+    "id": "004_Caves_Of_Dragonmount_13",
+    "label": "Caves Of Dragonmount 13",
+    "description": "Inside Glint's cave, Chester notices all the gold coins strewn about.  Since Glint iisn't here he decides to take to the skies to continue searching.\n\nHit 1 to take to the skies in order to continue the search!\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Sky",
+            "choice": "1",
+            "destination": "005_Sky"
+        }
+    ]
+}

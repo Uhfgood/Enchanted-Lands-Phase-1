@@ -1,0 +1,13 @@
+{
+    "id": "002_Hubert_Home_1",
+    "label": "Hubert Home 1",
+    "description": "One of the loose papers he examines has a handwritten list of requirements for an assistant, which reads:\nLoner, possibly shy, not much interaction with the opposite sex, into fantasy, terribly honest, loyal to a fault, puts others needs before his own.\n\nHit 1 to go over to the crystal ball.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Hubert_Home_2",
+            "choice": "1",
+            "destination": "002_Hubert_Home_2"
+        }
+    ]
+}
