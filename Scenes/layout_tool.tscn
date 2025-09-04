@@ -14,7 +14,7 @@ position = Vector2(1446, 563)
 metadata/_edit_lock_ = true
 
 [node name="Main Menu" type="Node2D" parent="Rooms"]
-position = Vector2(-1023, -28931)
+position = Vector2(-1023, -28944)
 script = ExtResource("2_2nukr")
 door_specs = ["ch: 1, dest: 001_Enchanted_Lands;", "", "", "", "", "", "", "", ""]
 id = "000_Main_Menu"
@@ -4177,23 +4177,25 @@ Then hubert searches his bag and realizes he doesn't have the right hats, so wit
 Hit 2. for Sound
 
 Hubert puts on a few hats and then casts a ward-reveal spell.
-
-A low rumbling hum for the unnatural portal magic, and a sound as if someone was plucking the scales on a harp.
-
+As Hubert stands in front of the case, he hears an annoying low-pitched hum.
+As he approaches the case however, he starts hearing what sounds like someone playing scales on a harp.
+The harp sounds fade in and out, possibly meaning that his half-magic is affecting how muc he hears.
 Hubert mutters something about the wards not being tripped.
 Then hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then
 
 Hit 3 for Touch.
 
 Hubert puts on a few hats and then casts a ward-reveal spell.
-
+Standing at a certain distance in front of the case, a sudden chill overcomes Hubert.
+In order to avoid the chilling sensation he moves towards the case and it immediately gets warmer.
+It's obviously warmer right next to the case, but comfortably so.
 Hubert mutters something about the wards not being tripped.
 Then hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then
 
 Hit 4 for Taste.
 
-Hubert puts on a few hats and then casts a ward-reveal spell.
-
+Hubert puts on a few hats and then casts a ward-reveal spell.After a minute, he immediately has the sensation he's tasting dill pickles, noticing there's something not natural about that.
+As he gets closer to the case, he starts tasting what seems to be chocolate cake.
 Hubert mutters something about the wards not being tripped.
 Then hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then
 

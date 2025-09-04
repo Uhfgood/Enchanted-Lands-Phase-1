@@ -15,6 +15,10 @@ var currently_selected_room = null
 
 const ROOMS_DIR = "res://Rooms/"
 const LAYOUT_TOOL_DATA_DIR = "res://LayoutToolData/"
+const ROOM_EXT = ".json"
+const META_EXT = ".metadata.json"
+
+var camera : Camera2D = null;
 
 var rooms_dict = {}
 var removed_rooms : Array[String] = []
@@ -223,7 +227,7 @@ func _on_save_button_pressed():
 
 	for room in get_room_children():
 	#{
-		var filename = room.id + ".meta"
+		var filename = room.id + META_EXT #".meta"
 		if FileAccess.file_exists( LAYOUT_TOOL_DATA_DIR + filename ):
 		#{
 			SaveMetadataForRoom( room, filename )
@@ -234,15 +238,15 @@ func _on_save_button_pressed():
 			SaveMetadataForRoom( room, filename )
 		#}
 			
-		filename = room.id + ".json"
+		filename = room.id + ROOM_EXT #".json"
 		SaveRoomDataForRoom( room, filename )
 		
 		if( room.id != room.original_id ):
 		#{
-			var old_json_path = ROOMS_DIR + room.original_id + ".json"
+			var old_json_path = ROOMS_DIR + room.original_id + ROOM_EXT #".json"
 			if( FileAccess.file_exists( old_json_path ) ):
 				DirAccess.open( ROOMS_DIR ).remove( old_json_path )
-			var old_meta_path = LAYOUT_TOOL_DATA_DIR + room.original_id + ".meta"
+			var old_meta_path = LAYOUT_TOOL_DATA_DIR + room.original_id + META_EXT #".meta"
 			if( FileAccess.file_exists( old_meta_path ) ):
 				DirAccess.open( LAYOUT_TOOL_DATA_DIR ).remove( old_meta_path )
 			room.original_id = room.id	
@@ -262,7 +266,7 @@ func _on_save_button_pressed():
 	for room_id in removed_rooms:
 	#{
 		# Delete the JSON file
-		var json_path = ROOMS_DIR + room_id + ".json"
+		var json_path = ROOMS_DIR + room_id + ROOM_EXT #".json"
 		var dir = DirAccess.open( "res://Rooms" )
 		if dir and dir.file_exists( json_path ):
 		#{
@@ -276,7 +280,7 @@ func _on_save_button_pressed():
 			print( "No JSON file found for " + room_id + "." )
 		
 		# Delete the meta file, if it exists meta
-		var meta_path = LAYOUT_TOOL_DATA_DIR + room_id + ".meta"
+		var meta_path = LAYOUT_TOOL_DATA_DIR + room_id + META_EXT #".meta"
 		if dir and dir.file_exists( meta_path ):
 		#{
 			var error = dir.remove( meta_path )
@@ -383,12 +387,52 @@ func AddRoomToLayoutTool(room: LayoutRoom):
 	room.SetOwner(self)
 	room.layout_tool = self
 	#room.SetupVisuals()
+
+func GetCameraStateJson() -> String:
+#{
+	var cam_x = 0;
+	var cam_y = 0;
+	var zoom_x = 1;
+	var zoom_y = 1;
+	
+	if( camera ):
+	#{
+		cam_x = camera.position.x;
+		cam_y = camera.position.y;
+		zoom_x = camera.zoom.x;
+		zoom_y = camera.zoom.y;
+	#}  // end if camera
+	
+	var data = {
+		"position": {
+			"x": cam_x,
+			"y": cam_y
+		},
+		"zoom": {
+			"x": zoom_x,
+			"y": zoom_y
+		}
+	}
+	
+	return JSON.stringify(data, "\t")  # Pretty-print with tabs for readability
+
+#}  // end get_camera_state_json()
+	
+func CreateNewProjectFile( filename ):
+#{
+	var project_filename = LAYOUT_TOOL_DATA_DIR + filename;
+	if( not FileAccess.file_exists( project_filename ) ):
+		var project_file = FileAccess.open( project_filename, FileAccess.WRITE );
+		if( FileAccess.get_open_error() == OK ):
+			project_file.store_string( GetCameraStateJson() );
+			project_file.close();
+#}
 		
 func CreateNewMetaFile( filename ):
 #{
 	var metaname = filename
-	if( filename.ends_with( ".json" ) ): 
-		metaname = filename.replace(".json", ".meta")
+	if( filename.ends_with( ROOM_EXT ) ): #".json" ) ): 
+		metaname = filename.replace(ROOM_EXT, META_EXT ); #".json", ".meta")
 	if not FileAccess.file_exists( LAYOUT_TOOL_DATA_DIR + metaname ):
 		var meta_file = FileAccess.open( LAYOUT_TOOL_DATA_DIR + metaname, FileAccess.WRITE )
 		if FileAccess.get_open_error() == OK:
@@ -462,7 +506,7 @@ func SaveRoomDataForRoom(room, filename: String):
 
 func LoadMetadataForRoom( room, filename ):
 #{
-	var metapath = filename.replace(".json", ".meta")
+	var metapath = filename.replace( ROOM_EXT, META_EXT ); #(".json", ".meta")
 	metapath = LAYOUT_TOOL_DATA_DIR + metapath
 	if FileAccess.file_exists( metapath ):
 		var file = FileAccess.open( metapath, FileAccess.READ )
@@ -521,8 +565,8 @@ func LoadAllRooms():
 		filelist = json_dir.get_files()
 		for item in filelist:
 			filename = item
-			if filename.ends_with(".json"):
-				var json_name = filename.replace(".json", "")
+			if filename.ends_with( ROOM_EXT ): #".json"):
+				var json_name = filename.replace( ROOM_EXT, "" ); #".json", "")
 				var room = LayoutRoom.CreateFromJSON(json_name)
 				if room:
 					#print( "Room: " + room.id + " created.")
@@ -564,7 +608,7 @@ func LoadAllRooms():
 		print( "camera already exists, removing" );
 		layout_tool.remove_child( existing_camera );
 	
-	var camera = LayoutCamera.new();
+	camera = LayoutCamera.new();
 	layout_tool.add_child( camera );
 	camera.make_current();
 	camera.name = "LayoutCamera";
