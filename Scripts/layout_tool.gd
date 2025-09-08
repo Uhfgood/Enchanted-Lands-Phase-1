@@ -431,13 +431,13 @@ func CreateNewProjectFile( filename ):
 func CreateNewMetaFile( filename ):
 #{
 	var metaname = filename
-	if( filename.ends_with( ROOM_EXT ) ): #".json" ) ): 
-		metaname = filename.replace(ROOM_EXT, META_EXT ); #".json", ".meta")
+	if( filename.ends_with( ROOM_EXT ) ):
+		metaname = filename.replace(ROOM_EXT, META_EXT );
 	if not FileAccess.file_exists( LAYOUT_TOOL_DATA_DIR + metaname ):
-		var meta_file = FileAccess.open( LAYOUT_TOOL_DATA_DIR + metaname, FileAccess.WRITE )
+		var meta_file = FileAccess.open( LAYOUT_TOOL_DATA_DIR + metaname, FileAccess.WRITE );
 		if FileAccess.get_open_error() == OK:
-			var meta_data = {"x": 0, "y": 0}
-			meta_file.store_string( JSON.stringify( meta_data ) )
+			var meta_data = {"x": 0, "y": 0};
+			meta_file.store_string( JSON.stringify( meta_data ) );
 			meta_file.close()
 		
 #} // end func LoadMetadataForRoom()
