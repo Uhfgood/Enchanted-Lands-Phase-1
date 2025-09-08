@@ -234,7 +234,7 @@ func _on_save_button_pressed():
 		#}
 		else:
 		#{
-			CreateNewMetaFile( filename )
+			#CreateNewMetaFile( filename )
 			SaveMetadataForRoom( room, filename )
 		#}
 			
@@ -443,6 +443,26 @@ func CreateNewMetaFile( filename ):
 #} // end func LoadMetadataForRoom()
 
 func SaveMetadataForRoom( room, filename ):
+#{
+	var room_x = 0;
+	var room_y = 0;
+	
+	if( room ):
+		room_x = room.position.x;
+		room_y = room.position.y;
+		
+	var metapath = LAYOUT_TOOL_DATA_DIR + filename
+	var file = FileAccess.open( metapath, FileAccess.WRITE )
+	if FileAccess.get_open_error() == OK:
+		var meta_data = {"x": room_x, "y": room_y}
+		file.store_string( JSON.stringify( meta_data ) )
+		file.close()
+	else:
+		print( "Couldn't open file for writing." )
+		
+#} // end func SaveMetadataForRoom()
+
+func SaveMetadataForRoom_old( room, filename ):
 #{
 	var metapath = LAYOUT_TOOL_DATA_DIR + filename
 	if FileAccess.file_exists( metapath ):
