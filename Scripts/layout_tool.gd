@@ -216,40 +216,34 @@ func _on_remove_room_button_pressed():
 	
 func _on_save_button_pressed():
 #{
-	RebuildRoomsDictionary()
+	self.SaveProjectFile( project_filename );
+	
+	RebuildRoomsDictionary();
 
 	# wanted to create all the doors before assinging inbounds
 	for room in get_room_children():
-		room.CreateDoorsFromSpecs()
+		room.CreateDoorsFromSpecs();
 
 	# assign inbounds before saving any rooms
-	AssignInboundRooms()
+	AssignInboundRooms();
 
 	for room in get_room_children():
 	#{
-		var filename = room.id + META_EXT #".meta"
-		if FileAccess.file_exists( LAYOUT_TOOL_DATA_DIR + filename ):
-		#{
-			SaveMetadataForRoom( room, filename )
-		#}
-		else:
-		#{
-			#CreateNewMetaFile( filename )
-			SaveMetadataForRoom( room, filename )
-		#}
-			
-		filename = room.id + ROOM_EXT #".json"
-		SaveRoomDataForRoom( room, filename )
+		var filename = room.id + META_EXT
+		SaveMetadataForRoom( room, filename );
+
+		filename = room.id + ROOM_EXT
+		SaveRoomDataForRoom( room, filename );
 		
 		if( room.id != room.original_id ):
 		#{
-			var old_json_path = ROOMS_DIR + room.original_id + ROOM_EXT #".json"
+			var old_json_path = ROOMS_DIR + room.original_id + ROOM_EXT;
 			if( FileAccess.file_exists( old_json_path ) ):
-				DirAccess.open( ROOMS_DIR ).remove( old_json_path )
-			var old_meta_path = LAYOUT_TOOL_DATA_DIR + room.original_id + META_EXT #".meta"
+				DirAccess.open( ROOMS_DIR ).remove( old_json_path );
+			var old_meta_path = LAYOUT_TOOL_DATA_DIR + room.original_id + META_EXT;
 			if( FileAccess.file_exists( old_meta_path ) ):
-				DirAccess.open( LAYOUT_TOOL_DATA_DIR ).remove( old_meta_path )
-			room.original_id = room.id	
+				DirAccess.open( LAYOUT_TOOL_DATA_DIR ).remove( old_meta_path );
+			room.original_id = room.id;
 			
 		#}  // end if( room.id...
 
@@ -418,30 +412,19 @@ func GetCameraStateJson() -> String:
 
 #}  // end get_camera_state_json()
 	
-func CreateNewProjectFile( filename ):
+var project_filename = "project.json";
+ 
+func SaveProjectFile( filename ):
 #{
-	var project_filename = LAYOUT_TOOL_DATA_DIR + filename;
-	if( not FileAccess.file_exists( project_filename ) ):
-		var project_file = FileAccess.open( project_filename, FileAccess.WRITE );
-		if( FileAccess.get_open_error() == OK ):
-			project_file.store_string( GetCameraStateJson() );
-			project_file.close();
-#}
-		
-#func CreateNewMetaFile( filename ):
-##{
-	#var metaname = filename
-	#if( filename.ends_with( ROOM_EXT ) ):
-		#metaname = filename.replace(ROOM_EXT, META_EXT );
-	#if not FileAccess.file_exists( LAYOUT_TOOL_DATA_DIR + metaname ):
-		#var meta_file = FileAccess.open( LAYOUT_TOOL_DATA_DIR + metaname, FileAccess.WRITE );
-		#if FileAccess.get_open_error() == OK:
-			#var meta_data = {"x": 0, "y": 0};
-			#meta_file.store_string( JSON.stringify( meta_data ) );
-			#meta_file.close()
-		#
-##} // end func LoadMetadataForRoom()
+	var project_path = LAYOUT_TOOL_DATA_DIR + filename;
+	var project_file = FileAccess.open( project_path, FileAccess.WRITE );
+	if( FileAccess.get_open_error() == OK ):
+		print( "Status of " + project_path + ": " + "ok" )
+		project_file.store_string( GetCameraStateJson() );
+		project_file.close();
 
+#}  // end SaveProjectFile()
+	
 func SaveMetadataForRoom( room, filename ):
 #{
 	var room_x = 0;
@@ -459,22 +442,6 @@ func SaveMetadataForRoom( room, filename ):
 		file.close()
 	else:
 		print( "Couldn't open file for writing." )
-		
-#} // end func SaveMetadataForRoom()
-
-#func SaveMetadataForRoom_old( room, filename ):
-##{
-	#var metapath = LAYOUT_TOOL_DATA_DIR + filename
-	#if FileAccess.file_exists( metapath ):
-		#var file = FileAccess.open( metapath, FileAccess.WRITE )
-		#if FileAccess.get_open_error() == OK:
-			#var meta_data = {"x": room.position.x, "y": room.position.y}
-			#file.store_string( JSON.stringify( meta_data ) )
-			#file.close()
-		#else:
-			#print( "Couldn't open file for writing." )
-	#else:
-		#CreateNewMetaFile( filename )
 		
 #} // end func SaveMetadataForRoom()
 
