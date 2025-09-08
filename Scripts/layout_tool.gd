@@ -428,19 +428,19 @@ func CreateNewProjectFile( filename ):
 			project_file.close();
 #}
 		
-func CreateNewMetaFile( filename ):
-#{
-	var metaname = filename
-	if( filename.ends_with( ROOM_EXT ) ):
-		metaname = filename.replace(ROOM_EXT, META_EXT );
-	if not FileAccess.file_exists( LAYOUT_TOOL_DATA_DIR + metaname ):
-		var meta_file = FileAccess.open( LAYOUT_TOOL_DATA_DIR + metaname, FileAccess.WRITE );
-		if FileAccess.get_open_error() == OK:
-			var meta_data = {"x": 0, "y": 0};
-			meta_file.store_string( JSON.stringify( meta_data ) );
-			meta_file.close()
-		
-#} // end func LoadMetadataForRoom()
+#func CreateNewMetaFile( filename ):
+##{
+	#var metaname = filename
+	#if( filename.ends_with( ROOM_EXT ) ):
+		#metaname = filename.replace(ROOM_EXT, META_EXT );
+	#if not FileAccess.file_exists( LAYOUT_TOOL_DATA_DIR + metaname ):
+		#var meta_file = FileAccess.open( LAYOUT_TOOL_DATA_DIR + metaname, FileAccess.WRITE );
+		#if FileAccess.get_open_error() == OK:
+			#var meta_data = {"x": 0, "y": 0};
+			#meta_file.store_string( JSON.stringify( meta_data ) );
+			#meta_file.close()
+		#
+##} // end func LoadMetadataForRoom()
 
 func SaveMetadataForRoom( room, filename ):
 #{
@@ -462,19 +462,19 @@ func SaveMetadataForRoom( room, filename ):
 		
 #} // end func SaveMetadataForRoom()
 
-func SaveMetadataForRoom_old( room, filename ):
-#{
-	var metapath = LAYOUT_TOOL_DATA_DIR + filename
-	if FileAccess.file_exists( metapath ):
-		var file = FileAccess.open( metapath, FileAccess.WRITE )
-		if FileAccess.get_open_error() == OK:
-			var meta_data = {"x": room.position.x, "y": room.position.y}
-			file.store_string( JSON.stringify( meta_data ) )
-			file.close()
-		else:
-			print( "Couldn't open file for writing." )
-	else:
-		CreateNewMetaFile( filename )
+#func SaveMetadataForRoom_old( room, filename ):
+##{
+	#var metapath = LAYOUT_TOOL_DATA_DIR + filename
+	#if FileAccess.file_exists( metapath ):
+		#var file = FileAccess.open( metapath, FileAccess.WRITE )
+		#if FileAccess.get_open_error() == OK:
+			#var meta_data = {"x": room.position.x, "y": room.position.y}
+			#file.store_string( JSON.stringify( meta_data ) )
+			#file.close()
+		#else:
+			#print( "Couldn't open file for writing." )
+	#else:
+		#CreateNewMetaFile( filename )
 		
 #} // end func SaveMetadataForRoom()
 

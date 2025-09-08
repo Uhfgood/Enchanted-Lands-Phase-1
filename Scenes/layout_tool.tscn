@@ -4468,6 +4468,7 @@ description = "Hit 1. for Smell.
 Hit 0 to quit."
 
 [node name="Wizard U TrophyRoom 5" type="Node2D" parent="Rooms"]
+position = Vector2(-1200, 120)
 script = ExtResource("2_2nukr")
 id = "047_Wizard_U_TrophyRoom_5"
 label = "Wizard U TrophyRoom 5"
