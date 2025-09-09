@@ -372,6 +372,8 @@ func _exit_tree():
 			holding_node.get_parent().remove_child(holding_node)
 		holding_node.queue_free()
 		holding_node = null
+		
+	self.SaveProjectFile( project_filename );
 
 func AddRoomToLayoutTool(room: LayoutRoom):
 	if not room:
@@ -493,17 +495,35 @@ func SaveRoomDataForRoom(room, filename: String):
 
 func LoadMetadataForRoom( room, filename ):
 #{
-	var metapath = filename.replace( ROOM_EXT, META_EXT ); #(".json", ".meta")
-	metapath = LAYOUT_TOOL_DATA_DIR + metapath
+	var metapath = filename.replace( ROOM_EXT, META_EXT );
+	metapath = LAYOUT_TOOL_DATA_DIR + metapath;
 	if FileAccess.file_exists( metapath ):
-		var file = FileAccess.open( metapath, FileAccess.READ )
-		var meta_data = JSON.parse_string( file.get_as_text() )
-		file.close()
+		var file = FileAccess.open( metapath, FileAccess.READ );
+		var meta_data = JSON.parse_string( file.get_as_text() );
+		file.close();
 		if meta_data:
-			room.position.x = meta_data[ "x" ]
-			room.position.y = meta_data[ "y" ]
+			room.position.x = meta_data[ "x" ];
+			room.position.y = meta_data[ "y" ];
 		else:
-			print( "No meta data read." )
+			print( "No meta data read." );
+		
+#} // end func LoadMetadataForRoom()
+
+func LoadProjectFile( filename ):
+#{
+	var metapath = LAYOUT_TOOL_DATA_DIR + filename;
+	if FileAccess.file_exists( metapath ):
+		var file = FileAccess.open( metapath, FileAccess.READ );
+		var meta_data = JSON.parse_string( file.get_as_text() );
+		file.close();
+		if meta_data:
+			if( camera ):
+				camera.position.x = meta_data[ "position" ][ "x" ];
+				camera.position.y = meta_data[ "position" ][ "y" ];
+				camera.zoom.x = meta_data[ "zoom" ][ "x" ];
+				camera.zoom.y = meta_data[ "zoom" ][ "y" ];
+		else:
+			print( "No meta data read." );
 		
 #} // end func LoadMetadataForRoom()
 
@@ -602,6 +622,14 @@ func LoadAllRooms():
 	camera.set_owner( self );
 	camera.room_container = rooms
 	camera._update_min_zoom()
+
+	if( camera ):
+		LoadProjectFile( project_filename );
+	else:
+		print( "Camera not initialized" );
+
+	UpdateOverlay()
+	HandleZoom()
 	
 	print( "End of LoadAllRooms" );
 	
@@ -627,7 +655,11 @@ var current_zoom_level = 2.0
 func HandleZoom():
 #{
 	current_zoom_level = get_viewport().get_final_transform().x.x;
-	#print(current_zoom_level)
+	
+	if( not Engine.is_editor_hint() ):
+		if( camera ):
+			current_zoom_level = camera.zoom.x;
+	
 	if( abs( current_zoom_level - last_zoom_level ) > 0.025 ):
 		last_zoom_level = current_zoom_level;
 		line_thickness = 2.0 / current_zoom_level;
@@ -636,5 +668,5 @@ func HandleZoom():
 #}  // end HandleZoom()
 
 func _process(_delta: float) -> void:
-	UpdateOverlay()
-	HandleZoom()
+	UpdateOverlay();
+	HandleZoom();

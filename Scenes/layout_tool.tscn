@@ -4159,7 +4159,7 @@ color = Color(1, 0.2, 0.2, 1)
 position = Vector2(-1253, -718)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_9", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 047_Wizard_U_TrophyRoom;", "ch: 2, dest: 047_Wizard_U_TrophyRoom_1;", "ch: 3, dest: 047_Wizard_U_TrophyRoom_2;", "ch: 4, dest: 047_Wizard_U_TrophyRoom_3;", "ch: 5, dest: 047_Wizard_U_TrophyRoom_4;", "", "", "", ""]
+door_specs = ["ch: 1, dest: 047_Wizard_U_Trophy_Room;", "ch: 2, dest: 047_Wizard_U_Trophy_Room_1;", "ch: 3, dest: 047_Wizard_U_Trophy_Room_2;", "ch: 4, dest: 047_Wizard_U_Trophy_Room_3;", "ch: 5, dest: 047_Wizard_U_Trophy_Room_4;", "", "", "", ""]
 id = "046_Wizard_U_10"
 label = "Wizard U 10"
 description = "Hubert makes his way to the trophy room, and notices a display case that had previously housed a quicksilver scepter, was now empty, with no signs of tampering.
@@ -4167,72 +4167,34 @@ After examining the case, Hubert is able to discern there was some magic use, bu
 Hubert tries a ward reveal spell.
 
 Hit 1 for Sight.
-
-Hubert puts on a few hats and then casts a ward-reveal spell.
-Because of his broken magic, nothing happens at first, but then floating rotating lights appear, disappear, and then reappear again.
-Hubert also notices something peculiar, namely, that the lights appear to be in mid air in front of the case, and then seem to drift toward the case before hovering around it.
-Hubert mutters something about the wards not being tripped.
-Then hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then
-
-Hit 2. for Sound
-
-Hubert puts on a few hats and then casts a ward-reveal spell.
-As Hubert stands in front of the case, he hears an annoying low-pitched hum.
-As he approaches the case however, he starts hearing what sounds like someone playing scales on a harp.
-The harp sounds fade in and out, possibly meaning that his half-magic is affecting how muc he hears.
-Hubert mutters something about the wards not being tripped.
-Then hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then
-
+Hit 2 for Sound
 Hit 3 for Touch.
-
-Hubert puts on a few hats and then casts a ward-reveal spell.
-Standing at a certain distance in front of the case, a sudden chill overcomes Hubert.
-In order to avoid the chilling sensation he moves towards the case and it immediately gets warmer.
-It's obviously warmer right next to the case, but comfortably so.
-Hubert mutters something about the wards not being tripped.
-Then hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then
-
 Hit 4 for Taste.
-
-Hubert puts on a few hats and then casts a ward-reveal spell.After a minute, he immediately has the sensation he's tasting dill pickles, noticing there's something not natural about that.
-As he gets closer to the case, he starts tasting what seems to be chocolate cake.
-Hubert mutters something about the wards not being tripped.
-Then hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then
-
 Hit 5 for Smell.
-
-Hubert puts on a few hats and then casts a ward-reveal spell.
-Hubert's half-magic still affects his spells but since these are fairly small, it still accomplishes his goal.
-He starts smelling, an acrid odor, like charred wood on a smouldering fire.
-Then the closer he gets the more it starts to smell like the air just after a thunderstorm.
-The smell fades in and out based on Hubert's 'haflway' magic.
-Hubert mutters something about the wards not being tripped.
-
-Then hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then
 
 Hit 0 to quit."
 
-[node name="Door_To_Wizard_U_TrophyRoom" type="Node2D" parent="Rooms/Wizard U 10"]
+[node name="Door_To_Wizard_U_Trophy_Room" type="Node2D" parent="Rooms/Wizard U 10"]
 visible = false
 script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
-[node name="Door_To_Wizard_U_TrophyRoom_1" type="Node2D" parent="Rooms/Wizard U 10"]
+[node name="Door_To_Wizard_U_Trophy_Room_1" type="Node2D" parent="Rooms/Wizard U 10"]
 visible = false
 script = ExtResource("3_0pr41")
 color = Color(1, 0.733333, 0.2, 1)
 
-[node name="Door_To_Wizard_U_TrophyRoom_2" type="Node2D" parent="Rooms/Wizard U 10"]
+[node name="Door_To_Wizard_U_Trophy_Room_2" type="Node2D" parent="Rooms/Wizard U 10"]
 visible = false
 script = ExtResource("3_0pr41")
 color = Color(0.733333, 1, 0.2, 1)
 
-[node name="Door_To_Wizard_U_TrophyRoom_3" type="Node2D" parent="Rooms/Wizard U 10"]
+[node name="Door_To_Wizard_U_Trophy_Room_3" type="Node2D" parent="Rooms/Wizard U 10"]
 visible = false
 script = ExtResource("3_0pr41")
 color = Color(0.2, 1, 0.2, 1)
 
-[node name="Door_To_Wizard_U_TrophyRoom_4" type="Node2D" parent="Rooms/Wizard U 10"]
+[node name="Door_To_Wizard_U_Trophy_Room_4" type="Node2D" parent="Rooms/Wizard U 10"]
 visible = false
 script = ExtResource("3_0pr41")
 color = Color(0.2, 1, 0.733333, 1)
@@ -4417,61 +4379,125 @@ visible = false
 script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
-[node name="Wizard U TrophyRoom" type="Node2D" parent="Rooms"]
-position = Vector2(-2458, -259)
+[node name="Wizard U Trophy Room" type="Node2D" parent="Rooms"]
+position = Vector2(-2530, -389)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_10", "", "", "", "", "", "", "", ""]
-id = "047_Wizard_U_TrophyRoom"
-label = "Wizard U TrophyRoom"
-description = "Hit 1 for Sight.
+door_specs = ["ch: 1, dest: 047_Wizard_U_Trophy_Room_5;", "", "", "", "", "", "", "", ""]
+id = "047_Wizard_U_Trophy_Room"
+label = "Wizard U Trophy Room"
+description = "Hubert puts on a few hats and then casts a ward-reveal spell.
+Because of his broken magic, nothing happens at first, but then floating rotating lights appear, disappear, and then reappear again.
+Hubert also notices something peculiar, namely, that the lights appear to be in mid air in front of the case, and then seem to drift toward the case before hovering around it.
+Hubert mutters something about the wards not being tripped.
+Then hubert searches his bag and realizes he doesn't have the right hats.
+
+Hit 1 to continue.
 
 Hit 0 to quit."
 
-[node name="Wizard U TrophyRoom 1" type="Node2D" parent="Rooms"]
-position = Vector2(-1833, -259)
+[node name="Door_To_Wizard_U_Trophy_Room_5" type="Node2D" parent="Rooms/Wizard U Trophy Room"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Wizard U Trophy Room 1" type="Node2D" parent="Rooms"]
+position = Vector2(-1905, -389)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_10", "", "", "", "", "", "", "", ""]
-id = "047_Wizard_U_TrophyRoom_1"
-label = "Wizard U TrophyRoom 1"
-description = "Hit 1 for Sound.
+door_specs = ["ch: 1, dest: 047_Wizard_U_Trophy_Room_5;", "", "", "", "", "", "", "", ""]
+id = "047_Wizard_U_Trophy_Room_1"
+label = "Wizard U Trophy Room 1"
+description = "Hubert puts on a few hats and then casts a ward-reveal spell.
+As Hubert stands in front of the case, he hears an annoying low-pitched hum.
+As he approaches the case however, he starts hearing what sounds like someone playing scales on a harp.
+The harp sounds fade in and out, possibly meaning that his half-magic is affecting how muc he hears.
+Hubert mutters something about the wards not being tripped.
+Then hubert searches his bag and realizes he doesn't have the right hats.
+
+Hit 1 to continue.
 
 Hit 0 to quit."
 
-[node name="Wizard U TrophyRoom 2" type="Node2D" parent="Rooms"]
-position = Vector2(-1200, -259)
+[node name="Door_To_Wizard_U_Trophy_Room_5" type="Node2D" parent="Rooms/Wizard U Trophy Room 1"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Wizard U Trophy Room 2" type="Node2D" parent="Rooms"]
+position = Vector2(-1272, -389)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_10", "", "", "", "", "", "", "", ""]
-id = "047_Wizard_U_TrophyRoom_2"
-label = "Wizard U TrophyRoom 2"
-description = "Hit 1 for Touch.
+door_specs = ["ch: 1, dest: 047_Wizard_U_Trophy_Room_5;", "", "", "", "", "", "", "", ""]
+id = "047_Wizard_U_Trophy_Room_2"
+label = "Wizard U Trophy Room 2"
+description = "Hubert puts on a few hats and then casts a ward-reveal spell.
+Standing at a certain distance in front of the case, a sudden chill overcomes Hubert.
+In order to avoid the chilling sensation he moves towards the case and it immediately gets warmer.
+It's obviously warmer right next to the case, but comfortably so.
+Hubert mutters something about the wards not being tripped.
+Then hubert searches his bag and realizes he doesn't have the right hats.
+
+Hit 1 to continue.
 
 Hit 0 to quit."
 
-[node name="Wizard U TrophyRoom 3" type="Node2D" parent="Rooms"]
-position = Vector2(-554, -259)
+[node name="Door_To_Wizard_U_Trophy_Room_5" type="Node2D" parent="Rooms/Wizard U Trophy Room 2"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Wizard U Trophy Room 3" type="Node2D" parent="Rooms"]
+position = Vector2(-626, -389)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_10", "", "", "", "", "", "", "", ""]
-id = "047_Wizard_U_TrophyRoom_3"
-label = "Wizard U TrophyRoom 3"
-description = "Hit 1 for Taste.
+door_specs = ["ch: 1, dest: 047_Wizard_U_Trophy_Room_5;", "", "", "", "", "", "", "", ""]
+id = "047_Wizard_U_Trophy_Room_3"
+label = "Wizard U Trophy Room 3"
+description = "Hubert puts on a few hats and then casts a ward-reveal spell.After a minute, he immediately has the sensation he's tasting dill pickles, noticing there's something not natural about that.
+As he gets closer to the case, he starts tasting what seems to be chocolate cake.
+Hubert mutters something about the wards not being tripped.
+Then hubert searches his bag and realizes he doesn't have the right hats.
+
+Hit 1 to continue.
 
 Hit 0 to quit."
 
-[node name="Wizard U TrophyRoom 4" type="Node2D" parent="Rooms"]
-position = Vector2(88, -259)
+[node name="Door_To_Wizard_U_Trophy_Room_5" type="Node2D" parent="Rooms/Wizard U Trophy Room 3"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Wizard U Trophy Room 4" type="Node2D" parent="Rooms"]
+position = Vector2(16, -389)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_10", "", "", "", "", "", "", "", ""]
-id = "047_Wizard_U_TrophyRoom_4"
-label = "Wizard U TrophyRoom 4"
-description = "Hit 1. for Smell.
+door_specs = ["ch: 1, dest: 047_Wizard_U_Trophy_Room_5;", "", "", "", "", "", "", "", ""]
+id = "047_Wizard_U_Trophy_Room_4"
+label = "Wizard U Trophy Room 4"
+description = "Hubert puts on a few hats and then casts a ward-reveal spell.
+Hubert's half-magic still affects his spells but since these are fairly small, it still accomplishes his goal.
+He starts smelling, an acrid odor, like charred wood on a smouldering fire.
+Then the closer he gets the more it starts to smell like the air just after a thunderstorm.
+The smell fades in and out based on Hubert's 'haflway' magic.
+Hubert mutters something about the wards not being tripped.
+Then hubert searches his bag and realizes he doesn't have the right hats.
+
+Hit 1 to continue.
 
 Hit 0 to quit."
 
-[node name="Wizard U TrophyRoom 5" type="Node2D" parent="Rooms"]
-position = Vector2(-2458, 414)
+[node name="Door_To_Wizard_U_Trophy_Room_5" type="Node2D" parent="Rooms/Wizard U Trophy Room 4"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Wizard U Trophy Room 5" type="Node2D" parent="Rooms"]
+position = Vector2(-1272, -84)
 script = ExtResource("2_2nukr")
-id = "047_Wizard_U_TrophyRoom_5"
-label = "Wizard U TrophyRoom 5"
+inbound_rooms = ["047_Wizard_U_Trophy_Room", "047_Wizard_U_Trophy_Room_1", "047_Wizard_U_Trophy_Room_2", "047_Wizard_U_Trophy_Room_3", "047_Wizard_U_Trophy_Room_4", "", "", "", ""]
+id = "047_Wizard_U_Trophy_Room_5"
+label = "Wizard U Trophy Room 5"
 description = "There's nothing here yet.  Hit 0 to quit."
 
 [node name="LineOverlay" type="Node2D" parent="."]
@@ -4481,4 +4507,5 @@ script = ExtResource("4_p3fhn")
 metadata/_edit_lock_ = true
 
 [node name="LayoutCamera" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
 script = ExtResource("5_xw3br")

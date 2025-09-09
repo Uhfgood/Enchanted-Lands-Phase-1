@@ -1,0 +1,13 @@
+{
+    "id": "047_Wizard_U_Trophy_Room",
+    "label": "Wizard U Trophy Room",
+    "description": "Hubert puts on a few hats and then casts a ward-reveal spell.\nBecause of his broken magic, nothing happens at first, but then floating rotating lights appear, disappear, and then reappear again.\nHubert also notices something peculiar, namely, that the lights appear to be in mid air in front of the case, and then seem to drift toward the case before hovering around it.\nHubert mutters something about the wards not being tripped.\nThen hubert searches his bag and realizes he doesn't have the right hats.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_Trophy_Room_5",
+            "choice": "1",
+            "destination": "047_Wizard_U_Trophy_Room_5"
+        }
+    ]
+}
