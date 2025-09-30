@@ -4,11 +4,9 @@ class_name LayoutRoom extends Node2D
 # Reference to the layout_tool node (set by layout_tool.gd)
 var layout_tool: Node = null
 
+signal clicked( room );
+
 var roomdata : Room
-
-var last_zoom_level: float = 1.0
-
-var line_thickness = 5.0
 
 func update_name_label(retry_count: int = 0, max_retries: int = 5) -> void:
 	if not is_inside_tree():  # Safety check: ensure node is in the scene tree
@@ -157,18 +155,18 @@ func _set( property: StringName, value: Variant ) -> bool:
 
 static func Create( n_id : String, n_label : String, n_desc : String ) -> LayoutRoom:
 #{
-	var room = LayoutRoom.new()
+	var room = LayoutRoom.new();
 	if( !room ):
-		return null
+		return null;
 	
-	room.roomdata = Room.Create( n_id, n_label, n_desc )	
-	room.original_id = n_id
-	room.name = n_label
-	room.inbound_rooms = [ "", "", "", "", "", "", "", "", "" ]
-	room.door_specs = [ "", "", "", "", "", "", "", "", "" ]
-	
-	print( "Creating ", room.name )
-	return room
+	room.roomdata = Room.Create( n_id, n_label, n_desc );
+	room.original_id = n_id;
+	room.name = n_label;
+	room.inbound_rooms = [ "", "", "", "", "", "", "", "", "" ];
+	room.door_specs = [ "", "", "", "", "", "", "", "", "" ];
+	room.SetupVisuals();
+	print( "Creating ", room.name );
+	return room;
 	
 #} // end create()
 	
@@ -505,6 +503,66 @@ func TruncateText(text: String, max_lines: int = 5, chars_per_line: int = 40) ->
 
 	return result
 		
+func _create_click_area(panel: Panel) -> void:
+	if has_node("ClickArea"):
+		get_node("ClickArea").queue_free()
+
+	var area = Area2D.new()
+	area.name = "ClickArea"
+	add_child(area)
+
+	# Position at the panel center
+	area.position = panel.position + panel.size * 0.5
+
+	var shape_node = CollisionShape2D.new()
+	shape_node.name = "ClickShape"
+	var rect_shape = RectangleShape2D.new()
+	rect_shape.extents = panel.size * 0.5
+	shape_node.shape = rect_shape
+	shape_node.disabled = false
+	area.add_child(shape_node)
+
+	# Connect signals
+	area.connect("input_event", Callable(self, "_on_area_input"))
+	area.connect("mouse_entered", Callable(self, "_on_area_hover_entered"))
+	area.connect("mouse_exited", Callable(self, "_on_area_hover_exited"))
+
+func _on_area_input(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		var shift = Input.is_key_pressed(KEY_SHIFT)
+		var ctrl = Input.is_key_pressed(KEY_CTRL)
+		print("Room clicked: ", name, ", Shift: ", shift, ", Ctrl: ", ctrl)
+		emit_signal("clicked", self, shift, ctrl)
+
+func _on_area_hover_entered():
+	print("Mouse entered!")
+	mouse_inside = true;
+	pass
+
+func _on_area_hover_exited():
+	print("Mouse exited!")
+	mouse_inside = false;
+	pass
+	
+func _update_click_area() -> void:
+#{
+	var panel = get_node_or_null("Panel")
+	var area = get_node_or_null("ClickArea")
+	var shape_node = area and area.get_node_or_null("ClickShape")
+	if not panel or not area or not shape_node:
+		return
+
+	area.position = panel.position + panel.size * 0.5
+
+	if shape_node.shape is RectangleShape2D:
+		shape_node.shape.extents = panel.size * 0.5
+	else:
+		var rect_shape = RectangleShape2D.new()
+		rect_shape.extents = panel.size * 0.5
+		shape_node.shape = rect_shape
+
+#}  // end _update_click_area()
+
 func SetupVisuals():
 #{
 	if not has_node("Panel"):
@@ -526,6 +584,8 @@ func SetupVisuals():
 		style.corner_radius_bottom_left = 5
 		style.corner_radius_bottom_right = 5
 		panel.add_theme_stylebox_override("panel", style)
+
+		panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 		add_child(panel)
 
@@ -578,10 +638,40 @@ func SetupVisuals():
 
 		# Set the Panel's position to align the Room's origin with the center and separator
 		panel.position = Vector2(panel_center_x, -separator_y)
+		
+		_create_click_area( panel );
+		
+		
 	else:
 		print("Panel already exists for room: ", name)
 	
 #} // end SetupVisuals()
+
+var is_selected = true;
+
+# Call this whenever selection changes
+func UpdateHighlight():
+#{
+	var panel = get_node_or_null( "Panel" );
+	if panel:
+		var style = panel.get_theme_stylebox( "panel" );
+		if not style:
+			style = StyleBoxFlat.new();
+		if is_selected:
+			style.border_color = Color( 1, 0.5, 0, 1 );  # Orange highlight
+			style.border_width_left = 3;
+			style.border_width_right = 3;
+			style.border_width_top = 3;
+			style.border_width_bottom = 3;
+		else:
+			style.border_color = Color( 0.8, 0.8, 0.8, 1 );  # Normal
+			style.border_width_left = 2;
+			style.border_width_right = 2 ;
+			style.border_width_top = 2;
+			style.border_width_bottom = 2;
+		panel.add_theme_stylebox_override( "panel", style );
+
+#}  // end UpdateHighlight()
 
 func resize_panel(panel: Panel, vbox: VBoxContainer, name_label: Label, desc_label: Label):
 #{
@@ -643,6 +733,9 @@ func resize_panel(panel: Panel, vbox: VBoxContainer, name_label: Label, desc_lab
 	
 #}  // end resize_panel()
 
+var was_clicked: bool = false;
+var mouse_inside : bool = false;
+
 # calculate the actual center of the panel
 func GetCenterPos() -> Vector2:
 #{
@@ -653,20 +746,42 @@ func GetCenterPos() -> Vector2:
 
 	var separator_y = 0;
 	var center_y = 0;
+
 	if( name_label and vbox and panel ):
 	#{
 		# Calculate the vertical position of the Separator
 		var name_label_height = name_label.get_minimum_size().y;
 		var separation = vbox.get_theme_constant("separation");
 		separator_y = name_label_height + separation;  # Separator's top edge relative to VBox
-
+			
 		# Adjust for VBox's position within the Panel
 		separator_y += vbox.position.y;
 		center_y = panel.size.y / 2;
 	#}
 
-	center_pos = Vector2( self.position.x, ( self.position.y - separator_y ) + center_y );
+	center_pos = Vector2( position.x, ( position.y - separator_y ) + center_y );
 
 	return( center_pos );
 	
 #}  // end func GetCenterPos()
+
+# For easy hit testing later.
+func GetPanelRect() -> Rect2:
+#{
+	var panel = get_node_or_null( "Panel" );
+	if( not panel ):
+		return( Rect2( Vector2.ZERO, Vector2.ZERO ) );
+
+	# Center position of the panel in world coordinates
+	var center = GetCenterPos();
+
+	# Top-left corner
+	var top_left = center - panel.size / 2;
+
+	var rect_top_left = panel.global_position
+	var rect_size = panel.size
+	print("Top-left:", rect_top_left, "Size:", rect_size)
+
+	return( Rect2( top_left, panel.size ) );
+	
+#}  // end GetPanelRect

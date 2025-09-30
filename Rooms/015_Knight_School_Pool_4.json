@@ -1,0 +1,13 @@
+{
+    "id": "015_Knight_School_Pool_4",
+    "label": "Knight School Pool 4",
+    "description": "The statue is of a handsome and extremely regal looking Knight kneeling in front of the pool, as if gazing into it, with his helmet under one arm, and his other arm over his knee holding onto his gauntlets.  \nIn front is a plaque that reads \"Sir William, Head of the Enchanted Gaurd, General of the armies of the Enchanted Lands, gazes in contemplation on the pool of reflection.\"  \nThe Statue seems to have the same face as the one in the reflecting pool.\nThe unicorn then decides to head out.\n\nMeanwhile John is trying to figure a way into Princess Prep...\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Princess_Prep",
+            "choice": "1",
+            "destination": "016_Princess_Prep"
+        }
+    ]
+}

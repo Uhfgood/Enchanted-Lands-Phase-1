@@ -21,9 +21,11 @@ func _input(event: InputEvent) -> void:
 
 		# --- ZOOM (mouse-centered, editor-style) ---
 		elif event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
-			_zoom_at_mouse(1 + zoom_speed)
+			#_zoom_at_mouse(1 + zoom_speed)
+			_zoom_centered(1 + zoom_speed)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
-			_zoom_at_mouse(1 - zoom_speed)
+			#_zoom_at_mouse(1 - zoom_speed)
+			_zoom_centered(1 - zoom_speed)
 
 	# --- PAN CAMERA ---
 	elif event is InputEventMouseMotion and is_panning:
@@ -43,6 +45,17 @@ func _zoom_at_mouse(factor: float) -> void:
 	var mouse_pos = get_global_mouse_position()
 	position = mouse_pos - (mouse_pos - position) * (new_zoom / old_zoom)
 
+	zoom = new_zoom
+
+# --- PURELY CENTERED ZOOM ---
+func _zoom_centered(factor: float) -> void:
+	var new_zoom = zoom * factor
+
+	# Clamp zoom dynamically
+	new_zoom.x = clamp(new_zoom.x, min_zoom, max_zoom)
+	new_zoom.y = clamp(new_zoom.y, min_zoom, max_zoom)
+
+	# Just apply zoom — no position shifting
 	zoom = new_zoom
 
 # --- NODE2D GLOBAL RECTANGLE ---

@@ -1,0 +1,13 @@
+{
+    "id": "047_Wizard_U_Trophy_Room_12",
+    "label": "Wizard U Trophy Room 12",
+    "description": "Hubert puts 3 hats on in a certain order, and says a few words.\nHubert runs his hands over the case, feeling for anything unusual.\nHe feels like something is knocking around in the case, then it stops.\n\nHit 1 to cast the \"Time Reconstruction\" spell.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_Trophy_Room_18",
+            "choice": "1",
+            "destination": "047_Wizard_U_Trophy_Room_18"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "id": "047_Wizard_U_Trophy_Room_24",
+    "label": "Wizard U Trophy Room 24",
+    "description": "Hubert grimaces at the thought of who it COULD be.\n\nHit 1 to continue onto the Hall of Fame.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_Hall",
+            "choice": "1",
+            "destination": "014_Wizard_U_Hall"
+        }
+    ]
+}

@@ -20,12 +20,14 @@ const META_EXT = ".metadata.json"
 
 var camera : Camera2D = null;
 
-var rooms_dict = {}
-var removed_rooms : Array[String] = []
+var current_highest_z_index = 0;
 
-func get_room_children() -> Array:
+var rooms_dict = {};
+var removed_rooms : Array[String] = [];
+
+func GetRoomChildren() -> Array:
 #{
-	var room_children = []
+	var room_children = [];
 	for child in rooms.get_children():
 		if( child is LayoutRoom ):
 			room_children.append( child );
@@ -82,7 +84,7 @@ func get_unique_room_label( base_label : String ) -> String:
 	
 	# Get all existing room labels under room_map
 	var existing_labels = []
-	for child in get_room_children():
+	for child in GetRoomChildren():
 		existing_labels.append( child.label )  # Use label property
 	
 	# Increment suffix until a unique label is found
@@ -98,13 +100,17 @@ func get_unique_room_label( base_label : String ) -> String:
 
 func _on_add_room_button_pressed():
 #{
-	print( "---" )
-	var unique_label = get_unique_room_label( "New Location" )
-	var new_id = "000_" + unique_label.replace( " ", "_" )
-	var new_label = unique_label
-	var new_desc = "There's nothing here yet.  Hit 0 to quit."
-	var new_room = LayoutRoom.Create( new_id, new_label, new_desc )
-	new_room.SetupVisuals()
+	print( "---" );
+	var unique_label = get_unique_room_label( "New Location" );
+	var new_id = "000_" + unique_label.replace( " ", "_" );
+	var new_label = unique_label;
+	var new_desc = "There's nothing here yet.  Hit 0 to quit.";
+	var new_room = LayoutRoom.Create( new_id, new_label, new_desc );
+	if( new_room ):
+		current_highest_z_index += 1;
+		new_room.z_index = current_highest_z_index;
+	
+	#new_room.SetupVisuals()
 	AddRoomToLayoutTool( new_room )
 	
 	if( Engine.is_editor_hint() ):
@@ -122,7 +128,7 @@ func _on_add_room_button_pressed():
 # create a dictionary so I can rebuild inbound list later
 func RebuildRoomsDictionary():	
 	rooms_dict.clear()
-	for room in get_room_children():
+	for room in GetRoomChildren():
 		rooms_dict[ room.id ] = room 
 
 func AssignInboundRooms():
@@ -221,13 +227,13 @@ func _on_save_button_pressed():
 	RebuildRoomsDictionary();
 
 	# wanted to create all the doors before assinging inbounds
-	for room in get_room_children():
+	for room in GetRoomChildren():
 		room.CreateDoorsFromSpecs();
 
 	# assign inbounds before saving any rooms
 	AssignInboundRooms();
 
-	for room in get_room_children():
+	for room in GetRoomChildren():
 	#{
 		var filename = room.id + META_EXT
 		SaveMetadataForRoom( room, filename );
@@ -299,7 +305,7 @@ func _on_save_button_pressed():
 	#if what == NOTIFICATION_EDITOR_PRE_SAVE:
 		#print("Editor pre-save, clearing Rooms to prevent saving")
 		#if rooms:
-			#for room in get_room_children():
+			#for room in GetRoomChildren():
 				#rooms.remove_child(room)
 				#room.queue_free()
 		## Trigger reload after save
@@ -316,7 +322,7 @@ func _ready():
 	if rooms:
 		print( "parent= " + rooms.get_parent().name )
 		print("Clearing %d rooms in _ready" % rooms.get_child_count())
-		for room in get_room_children():
+		for room in GetRoomChildren():
 			rooms.remove_child(room)
 			room.queue_free()
 	if not has_loaded_rooms:
@@ -339,6 +345,12 @@ func _ready():
 			print("Connected selection_changed to EditorSelection")
 	#}
 	
+	# Connect to all existing LayoutRooms
+	#for room in GetRoomChildren():
+	#	print( "Connecting ", room.name )
+	#	_connect_room(room)
+
+	
 func _enter_tree():
 	print("LayoutTool entering tree, instance:%s" % self)
 
@@ -347,7 +359,7 @@ func _exit_tree():
 	has_loaded_rooms = false
 	if rooms:
 		print("Clearing %d rooms in _exit_tree" % rooms.get_child_count())
-		for room in get_room_children():
+		for room in GetRoomChildren():
 			rooms.remove_child(room)
 			room.queue_free()
 	
@@ -372,7 +384,10 @@ func _exit_tree():
 			holding_node.get_parent().remove_child(holding_node)
 		holding_node.queue_free()
 		holding_node = null
-		
+	
+	if Engine.is_editor_hint():
+		return  # Don't save when editor is shutting down
+			
 	self.SaveProjectFile( project_filename );
 
 func AddRoomToLayoutTool(room: LayoutRoom):
@@ -549,7 +564,7 @@ func topological_sort_rooms() -> Array:
 	var visited = {}
 	var temp_visited = {}
 
-	for room in get_room_children():
+	for room in GetRoomChildren():
 		if not (room.id in visited):
 			_visit_room(room, sorted_rooms, visited, temp_visited)
 	return sorted_rooms
@@ -560,7 +575,7 @@ func LoadAllRooms():
 	print( "Running LoadAllRooms" )
 	rooms_dict.clear()
 	
-	for child in get_room_children():
+	for child in GetRoomChildren():
 		rooms.remove_child(child)
 		child.queue_free()
 
@@ -577,9 +592,12 @@ func LoadAllRooms():
 				var room = LayoutRoom.CreateFromJSON(json_name)
 				if room:
 					#print( "Room: " + room.id + " created.")
+					current_highest_z_index += 1;
+					room.z_index = current_highest_z_index;
 					rooms_dict[ room.id ] = room
 					AddRoomToLayoutTool( room );
 					LoadMetadataForRoom( room, filename );
+					
 				#if filename.begins_with("003"):
 				#	break
 
@@ -590,9 +608,10 @@ func LoadAllRooms():
 	#var sorted_rooms = topological_sort_rooms();
 
 	# Step 4: Initialize previous positions
-	for room in get_room_children():
+	for room in GetRoomChildren():
 		if room is LayoutRoom:
 			room.previous_position = room.position;
+			_connect_room( room )
 	
 	#for room in rooms_dict.values():
 	#	print(room.name, room.position);
@@ -628,8 +647,8 @@ func LoadAllRooms():
 	else:
 		print( "Camera not initialized" );
 
-	UpdateOverlay()
-	HandleZoom()
+	#UpdateOverlay()
+	#HandleZoom()
 	
 	print( "End of LoadAllRooms" );
 	
@@ -652,17 +671,17 @@ var last_zoom_level : float = 1.0;
 var line_thickness : float = 5.0;
 var current_zoom_level = 2.0
 
-func HandleZoom():
+func HandleZoom( ):
 #{
 	current_zoom_level = get_viewport().get_final_transform().x.x;
 	
 	if( not Engine.is_editor_hint() ):
 		if( camera ):
 			current_zoom_level = camera.zoom.x;
-	
-	if( abs( current_zoom_level - last_zoom_level ) > 0.025 ):
-		last_zoom_level = current_zoom_level;
-		line_thickness = 2.0 / current_zoom_level;
+			
+	last_zoom_level = current_zoom_level;
+	line_thickness = 2.0 / current_zoom_level;
+	if( line_overlay ):
 		line_overlay.UpdateAllLines( line_thickness );
 
 #}  // end HandleZoom()
@@ -670,3 +689,194 @@ func HandleZoom():
 func _process(_delta: float) -> void:
 	UpdateOverlay();
 	HandleZoom();
+
+func _connect_room(room: LayoutRoom) -> void:
+	room.connect("clicked", Callable(self, "_on_room_clicked"))
+
+func get_mouse_position() -> Vector2:
+	var mouse_pos = get_viewport().get_mouse_position()
+	var mouse_local = rooms.to_local(mouse_pos)
+	return mouse_local;
+
+var drag_start_pos := Vector2.ZERO
+
+# Currently selected rooms
+var selected_rooms: Array[LayoutRoom] = []
+
+# Simulate dragging state
+var is_dragging: bool = false
+
+func _on_room_clicked(room: LayoutRoom, shift: bool, ctrl: bool):
+	room.was_clicked = true  # mark that this room got clicke
+	
+	if shift:
+		if not selected_rooms.has(room):
+			selected_rooms.append(room)
+			room.is_selected = true
+			room.UpdateHighlight()
+	elif ctrl:
+		if selected_rooms.has(room):
+			selected_rooms.erase(room)
+			room.is_selected = false
+			room.UpdateHighlight()
+		else:
+			selected_rooms.append(room)
+			room.is_selected = true
+			room.UpdateHighlight()
+	else:
+		print("Clicked room:", room, "Selected rooms:", selected_rooms)
+		for r in selected_rooms:
+			print("   contains:", r, r == room)
+
+		# Normal click: clear all others only if the clicked room is not already selected
+		if not selected_rooms.has(room):
+			_clear_selection()  # your helper function
+			selected_rooms.append(room)
+			room.is_selected = true
+			room.UpdateHighlight()
+
+	# Start drag if clicked on selected room
+	if selected_rooms.has(room):
+		is_dragging = true
+		drag_start_pos = get_mouse_position()
+		print("Drag started on:", room.name)
+
+func _input(event):
+	
+	# Detect empty-space clicks
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		var clicked_any_room = false;
+		for room in GetRoomChildren():
+			if( room.mouse_inside ):
+				clicked_any_room = true;
+				break;
+		if( not clicked_any_room ):
+			_clear_selection();
+			print( "Clicked empty space: cleared selection" );
+	
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+			
+		# Drag end
+		is_dragging = false
+		print("Drag ended")
+	
+	# Mouse motion drag
+	elif event is InputEventMouseMotion and is_dragging:
+		#var delta = event.relative / get_zoom() if has_method("get_zoom") else event.relative
+		var delta = event.relative;
+		if camera:
+			delta /= camera.zoom;
+		for room in selected_rooms:
+			room.position += delta
+
+# This room.was_clicked logic is so I can detect 'empty space' without rearranging coordinate systems.
+func _input_was_clicked(event):
+	
+	# Detect empty-space clicks
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		#Reset all room click flags before processing
+		for room in GetRoomChildren():
+			room.was_clicked = false;
+	
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		var clicked_any_room = false;
+		for room in GetRoomChildren():
+			if( room.was_clicked ):
+				clicked_any_room = true;
+				break;
+		if( not clicked_any_room ):
+			_clear_selection();
+			print( "Clicked empty space: cleared selection" );
+			
+		# Drag end
+		is_dragging = false
+		print("Drag ended")
+	
+	# Mouse motion drag
+	elif event is InputEventMouseMotion and is_dragging:
+		#var delta = event.relative / get_zoom() if has_method("get_zoom") else event.relative
+		var delta = event.relative;
+		if camera:
+			delta /= camera.zoom;
+		for room in selected_rooms:
+			room.position += delta
+	
+func _input_old(event):
+	
+	# Detect empty-space clicks
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		var room_under_mouse = _get_room_under_mouse()
+		print("Room under mouse: ", room_under_mouse)
+
+		# Only clear selection if no modifier keys are held
+		if not room_under_mouse and not Input.is_key_pressed(KEY_SHIFT) and not Input.is_key_pressed(KEY_CTRL):
+			_clear_selection()
+			print("Clicked empty space: cleared selection")
+	
+	# Drag end
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		is_dragging = false
+		print("Drag ended")
+	
+	# Mouse motion drag
+	elif event is InputEventMouseMotion and is_dragging:
+		#var delta = event.relative / get_zoom() if has_method("get_zoom") else event.relative
+		var delta = event.relative;
+		if camera:
+			delta /= camera.zoom;
+		for room in selected_rooms:
+			room.position += delta
+
+# Helper to select a room
+func _select_room(room: LayoutRoom) -> void:
+	selected_rooms.append(room)
+	room.is_selected = true
+	room.UpdateHighlight()
+
+# Helper to clear all selections
+func _clear_selection() -> void:
+	for room in selected_rooms:
+		room.is_selected = false
+		room.UpdateHighlight()
+	selected_rooms.clear()
+
+# This only works with the main menu room
+func _get_room_under_mouse() -> LayoutRoom:
+	#var mouse_pos = get_mouse_position()  # already local to rooms
+	var mouse_pos = get_viewport().get_mouse_position()
+	
+	print( "mouse position = ", mouse_pos );
+	
+	var current_layout_rooms = GetRoomChildren();
+	var adjusted_mouse_pos = current_layout_rooms[ 0 ].position - mouse_pos;
+	print( "adjusted_mouse_pos = ", adjusted_mouse_pos );
+	
+	var room = current_layout_rooms[ 0 ];
+	if( !Engine.is_editor_hint()):
+			print( "room position = ", room.position );
+			print( "rooms container position = ", rooms.position );
+	var panel_rect = room.GetPanelRect()  # also local to rooms
+	if panel_rect.has_point( adjusted_mouse_pos ):
+		return room
+	else:
+		return null
+
+func _get_room_under_mouse_original() -> LayoutRoom:
+	#var mouse_pos = get_mouse_position()  # already local to rooms
+	var mouse_pos = rooms.to_global( get_viewport().get_mouse_position() );
+	
+	print( "mouse position = ", mouse_pos );
+	
+	var current_layout_rooms = GetRoomChildren();
+	var adjusted_mouse_pos = current_layout_rooms[ 0 ].position - mouse_pos;
+	print( "adjusted_mouse_pos = ", adjusted_mouse_pos );
+	
+	for room in current_layout_rooms:
+		if( !Engine.is_editor_hint()):
+			if( room.id == "000_Main_Menu" ):
+				print( "room position = ", room.position );
+				print( "rooms container position = ", rooms.position );
+		var panel_rect = room.GetPanelRect()  # also local to rooms
+		if panel_rect.has_point( adjusted_mouse_pos ):
+			return room
+	return null

@@ -1,0 +1,13 @@
+{
+    "id": "047_Wizard_U_Trophy_Room_22",
+    "label": "Wizard U Trophy Room 22",
+    "description": "Hubert thinks this looks like the work of none-other than Maximilian Spell, the evil sorcerer that was banished for trying to take over other realms.\n\nHit 1 to continue onto the Hall of Fame.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_Hall",
+            "choice": "1",
+            "destination": "014_Wizard_U_Hall"
+        }
+    ]
+}

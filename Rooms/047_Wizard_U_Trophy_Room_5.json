@@ -1,8 +1,23 @@
 {
     "id": "047_Wizard_U_Trophy_Room_5",
     "label": "Wizard U Trophy Room 5",
-    "description": "There's nothing here yet.  Hit 0 to quit.",
+    "description": "Having determined the wards have not been tripped, but that some \"wrong\" magic was executed here, he pulls up a few spells to help him reconstruct the crime.\n\nHit 1 to cast the \"Time Reconstruction\" spell.\nHit 2 to cast the \"Audio Deverberation\" spell.\nHit 3 to cast the \"Hand of Touching\" spell.\n\nHit 0 to quit.",
     "doors":
     [
+        {
+            "id": "Door_To_Wizard_U_Trophy_Room_6",
+            "choice": "1",
+            "destination": "047_Wizard_U_Trophy_Room_6"
+        },
+        {
+            "id": "Door_To_Wizard_U_Trophy_Room_7",
+            "choice": "2",
+            "destination": "047_Wizard_U_Trophy_Room_7"
+        },
+        {
+            "id": "Door_To_Wizard_U_Trophy_Room_8",
+            "choice": "3",
+            "destination": "047_Wizard_U_Trophy_Room_8"
+        }
     ]
 }

@@ -1,0 +1,13 @@
+{
+    "id": "015_Knight_School_Pool_2",
+    "label": "Knight School Pool 2",
+    "description": "The unicorn walks up to the pool, and beholding his reflection, notice it shimmer a bit and the face of a handsome and regal looking Knight starts staring back for a brief moment, before returning to his own reflection.  \nHe then looks up toward the statue, and starts walking.\n\nHit 1 to continue to the statue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_Pool_4",
+            "choice": "1",
+            "destination": "015_Knight_School_Pool_4"
+        }
+    ]
+}
