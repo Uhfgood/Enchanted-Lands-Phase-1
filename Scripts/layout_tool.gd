@@ -647,9 +647,12 @@ func LoadAllRooms():
 	else:
 		print( "Camera not initialized" );
 
-	#UpdateOverlay()
-	#HandleZoom()
-	
+	var selection_box := Area2D.new();
+	var collision_shape := CollisionShape2D.new();
+	collision_shape.shape = RectangleShape2D.new();
+	selection_box.add_child( collision_shape );
+	rooms.add_child( selection_box );
+
 	print( "End of LoadAllRooms" );
 	
 #}  // end LoadAllRooms
@@ -706,40 +709,54 @@ var selected_rooms: Array[LayoutRoom] = []
 # Simulate dragging state
 var is_dragging: bool = false
 
+var pending_room_click : LayoutRoom = null;
+var pending_shift : bool = false;
+var pending_ctrl : bool = false;
+
 func _on_room_clicked(room: LayoutRoom, shift: bool, ctrl: bool):
-	room.was_clicked = true  # mark that this room got clicke
+#begin
+	pending_room_click = room;
+	pending_shift = shift;
+	pending_ctrl = ctrl;
+#end; { func _on_room_clicked()
+
+func ProcessSingleClick(room: LayoutRoom, shift: bool, ctrl: bool):
+#{
+	room.was_clicked = true;  # mark that this room got clicke
 	
-	if shift:
+	if( shift ):
 		if not selected_rooms.has(room):
-			selected_rooms.append(room)
-			room.is_selected = true
-			room.UpdateHighlight()
-	elif ctrl:
-		if selected_rooms.has(room):
-			selected_rooms.erase(room)
-			room.is_selected = false
-			room.UpdateHighlight()
+			selected_rooms.append(room);
+			room.is_selected = true;
+			room.UpdateHighlight();
+	elif( ctrl ):
+		if( selected_rooms.has(room) ):
+			selected_rooms.erase(room);
+			room.is_selected = false;
+			room.UpdateHighlight();
 		else:
-			selected_rooms.append(room)
-			room.is_selected = true
-			room.UpdateHighlight()
+			selected_rooms.append(room);
+			room.is_selected = true;
+			room.UpdateHighlight();
 	else:
 		print("Clicked room:", room, "Selected rooms:", selected_rooms)
 		for r in selected_rooms:
-			print("   contains:", r, r == room)
+			print("   contains:", r, r == room);
 
 		# Normal click: clear all others only if the clicked room is not already selected
-		if not selected_rooms.has(room):
-			_clear_selection()  # your helper function
-			selected_rooms.append(room)
-			room.is_selected = true
-			room.UpdateHighlight()
+		if( not selected_rooms.has(room) ):
+			_clear_selection();  # your helper function
+			selected_rooms.append(room);
+			room.is_selected = true;
+			room.UpdateHighlight();
 
 	# Start drag if clicked on selected room
-	if selected_rooms.has(room):
-		is_dragging = true
-		drag_start_pos = get_mouse_position()
-		print("Drag started on:", room.name)
+	if( selected_rooms.has(room) ):
+		is_dragging = true;
+		drag_start_pos = get_mouse_position();
+		print("Drag started on:", room.name);
+		
+#}  // end ProcessSingleClick()
 
 func _input(event):
 	
