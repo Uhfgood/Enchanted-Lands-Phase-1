@@ -5278,6 +5278,6 @@ script = ExtResource("4_p3fhn")
 metadata/_edit_lock_ = true
 
 [node name="LayoutCamera" type="Camera2D" parent="."]
-position = Vector2(177.376, -31437.7)
-zoom = Vector2(0.4829, 0.4829)
+position = Vector2(529.75, -30954.5)
+zoom = Vector2(0.495104, 0.495104)
 script = ExtResource("5_xw3br")

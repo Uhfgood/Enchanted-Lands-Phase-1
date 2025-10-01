@@ -769,64 +769,6 @@ func _input(event):
 		for room in selected_rooms:
 			room.position += delta
 
-# This room.was_clicked logic is so I can detect 'empty space' without rearranging coordinate systems.
-func _input_was_clicked(event):
-	
-	# Detect empty-space clicks
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		#Reset all room click flags before processing
-		for room in GetRoomChildren():
-			room.was_clicked = false;
-	
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
-		var clicked_any_room = false;
-		for room in GetRoomChildren():
-			if( room.was_clicked ):
-				clicked_any_room = true;
-				break;
-		if( not clicked_any_room ):
-			_clear_selection();
-			print( "Clicked empty space: cleared selection" );
-			
-		# Drag end
-		is_dragging = false
-		print("Drag ended")
-	
-	# Mouse motion drag
-	elif event is InputEventMouseMotion and is_dragging:
-		#var delta = event.relative / get_zoom() if has_method("get_zoom") else event.relative
-		var delta = event.relative;
-		if camera:
-			delta /= camera.zoom;
-		for room in selected_rooms:
-			room.position += delta
-	
-func _input_old(event):
-	
-	# Detect empty-space clicks
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		var room_under_mouse = _get_room_under_mouse()
-		print("Room under mouse: ", room_under_mouse)
-
-		# Only clear selection if no modifier keys are held
-		if not room_under_mouse and not Input.is_key_pressed(KEY_SHIFT) and not Input.is_key_pressed(KEY_CTRL):
-			_clear_selection()
-			print("Clicked empty space: cleared selection")
-	
-	# Drag end
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
-		is_dragging = false
-		print("Drag ended")
-	
-	# Mouse motion drag
-	elif event is InputEventMouseMotion and is_dragging:
-		#var delta = event.relative / get_zoom() if has_method("get_zoom") else event.relative
-		var delta = event.relative;
-		if camera:
-			delta /= camera.zoom;
-		for room in selected_rooms:
-			room.position += delta
-
 # Helper to select a room
 func _select_room(room: LayoutRoom) -> void:
 	selected_rooms.append(room)
@@ -839,44 +781,3 @@ func _clear_selection() -> void:
 		room.is_selected = false
 		room.UpdateHighlight()
 	selected_rooms.clear()
-
-# This only works with the main menu room
-func _get_room_under_mouse() -> LayoutRoom:
-	#var mouse_pos = get_mouse_position()  # already local to rooms
-	var mouse_pos = get_viewport().get_mouse_position()
-	
-	print( "mouse position = ", mouse_pos );
-	
-	var current_layout_rooms = GetRoomChildren();
-	var adjusted_mouse_pos = current_layout_rooms[ 0 ].position - mouse_pos;
-	print( "adjusted_mouse_pos = ", adjusted_mouse_pos );
-	
-	var room = current_layout_rooms[ 0 ];
-	if( !Engine.is_editor_hint()):
-			print( "room position = ", room.position );
-			print( "rooms container position = ", rooms.position );
-	var panel_rect = room.GetPanelRect()  # also local to rooms
-	if panel_rect.has_point( adjusted_mouse_pos ):
-		return room
-	else:
-		return null
-
-func _get_room_under_mouse_original() -> LayoutRoom:
-	#var mouse_pos = get_mouse_position()  # already local to rooms
-	var mouse_pos = rooms.to_global( get_viewport().get_mouse_position() );
-	
-	print( "mouse position = ", mouse_pos );
-	
-	var current_layout_rooms = GetRoomChildren();
-	var adjusted_mouse_pos = current_layout_rooms[ 0 ].position - mouse_pos;
-	print( "adjusted_mouse_pos = ", adjusted_mouse_pos );
-	
-	for room in current_layout_rooms:
-		if( !Engine.is_editor_hint()):
-			if( room.id == "000_Main_Menu" ):
-				print( "room position = ", room.position );
-				print( "rooms container position = ", rooms.position );
-		var panel_rect = room.GetPanelRect()  # also local to rooms
-		if panel_rect.has_point( adjusted_mouse_pos ):
-			return room
-	return null
