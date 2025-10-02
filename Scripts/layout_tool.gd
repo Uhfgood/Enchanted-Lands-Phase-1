@@ -568,7 +568,12 @@ func topological_sort_rooms() -> Array:
 		if not (room.id in visited):
 			_visit_room(room, sorted_rooms, visited, temp_visited)
 	return sorted_rooms
-	
+
+# these are so we can do a box select
+var selection_box : Area2D;
+var collision_shape : CollisionShape2D;
+var selection_color_rect : ColorRect;
+
 func LoadAllRooms():
 #{
 	#print("Running LoadAllRooms, instance:%s, stack: %s" % [self, get_stack()])
@@ -647,11 +652,20 @@ func LoadAllRooms():
 	else:
 		print( "Camera not initialized" );
 
-	var selection_box := Area2D.new();
-	var collision_shape := CollisionShape2D.new();
+	# created collision shape and area2d at the class level (above this function)
+	selection_box = Area2D.new();
+	collision_shape = CollisionShape2D.new();
 	collision_shape.shape = RectangleShape2D.new();
 	selection_box.add_child( collision_shape );
 	rooms.add_child( selection_box );
+
+	# Create the visible rectangle for the drag box
+	selection_color_rect = ColorRect.new();
+	selection_color_rect.color = Color( 0.3, 0.6, 1, 0.3 );  # Semi-transparent blue
+	selection_color_rect.position = Vector2.ZERO;       # Start at origin
+	selection_color_rect.size = Vector2( 500, 500 ); #Vector2.ZERO;           # Start with zero size
+	selection_color_rect.visible = true;
+	rooms.add_child(selection_color_rect)                  # Add to rooms container
 
 	print( "End of LoadAllRooms" );
 	
@@ -692,7 +706,11 @@ func HandleZoom( ):
 func _process(_delta: float) -> void:
 	UpdateOverlay();
 	HandleZoom();
-
+	
+	if( not Engine.is_editor_hint() ):
+		if( camera ):
+			pass
+			
 func _connect_room(room: LayoutRoom) -> void:
 	room.connect("clicked", Callable(self, "_on_room_clicked"))
 
