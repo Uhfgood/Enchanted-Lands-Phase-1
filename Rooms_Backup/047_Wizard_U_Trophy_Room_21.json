@@ -1,0 +1,23 @@
+{
+    "id": "047_Wizard_U_Trophy_Room_21",
+    "label": "Wizard U Trophy Room 21",
+    "description": "So the conclusion Hubert draws, is a mysterious figure enters in with some sort of device, turns it on, and is able to pluck the scepter from the trophy case, via a mini-portal.  \n\nHit 1 If Hubert this this looks like the work of a previously banished sorcerer.\nHit 2 If Hubert thinks only a person of high intelligence and skill could have taken the scepter.\nHit 3 If Hubert is annoyed at the thought of who could very well commit this crime.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_Trophy_Room_22",
+            "choice": "1",
+            "destination": "047_Wizard_U_Trophy_Room_22"
+        },
+        {
+            "id": "Door_To_Wizard_U_Trophy_Room_23",
+            "choice": "2",
+            "destination": "047_Wizard_U_Trophy_Room_23"
+        },
+        {
+            "id": "Door_To_Wizard_U_Trophy_Room_24",
+            "choice": "3",
+            "destination": "047_Wizard_U_Trophy_Room_24"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "id": "045_Johns_Further_Questions_3",
+    "label": "Johns Further Questions 3",
+    "description": "John asks about the two small men he's encountered, the first one being short and fat   The other being slightly taller and stockier.  Hubert tells a little bit about smaller, fatter, Gnomes, and the slightly larger, and more stockier Dwarves.  John mentiones the young woman that was kidnapped by the gnome and Hubert mentions that the kidnapping makes it especially important, as that was the Gnome King.\n\nHit 1 to ask about the flying trains.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Johns_Further_Questions_9",
+            "choice": "1",
+            "destination": "045_Johns_Further_Questions_9"
+        }
+    ]
+}

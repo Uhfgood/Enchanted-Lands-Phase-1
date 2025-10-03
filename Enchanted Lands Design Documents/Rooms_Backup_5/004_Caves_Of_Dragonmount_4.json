@@ -1,0 +1,13 @@
+{
+    "id": "004_Caves_Of_Dragonmount_4",
+    "label": "Caves Of Dragonmount 4",
+    "description": "Chester, being the a gentleman dragon, doesn't invades Ember's privacy and instead decides to call to her.  After not receiving a response, he raps loudly on the cave entrance.  Chester decides she's probably not around, proceeds to check out Shade's home.\n\nHit 1 to check out Shade's cave.\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Caves_Of_Dragonmount_10",
+            "choice": "1",
+            "destination": "004_Caves_Of_Dragonmount_10"
+        }
+    ]
+}

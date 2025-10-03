@@ -1,0 +1,13 @@
+{
+    "id": "047_Wizard_U_Trophy_Room_11",
+    "label": "Wizard U Trophy Room 11",
+    "description": "Hubert puts 3 hats on in a certain order, and says a few words.\nA few minutes later, a faint image of a hooded figure is standing in front of the trophy case.\nThe figure seems to have a mysterious device in one hand, and the other seems to come out of mid air being empty. \nThe figure then drops his hands to his side, and walks backwards through the hallway and out of sight.\n\nHit 1 to cast the \"Hand of Touching\" splell.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_Trophy_Room_17",
+            "choice": "1",
+            "destination": "047_Wizard_U_Trophy_Room_17"
+        }
+    ]
+}

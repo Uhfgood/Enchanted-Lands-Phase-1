@@ -1,0 +1,13 @@
+{
+    "id": "015_Knight_School_Pool_3",
+    "label": "Knight School Pool 3",
+    "description": "The unicorn walks up to the pool, and beholding his reflection, notice it shimmer a bit and the face of a handsome and regal looking Knight starts staring back for a brief moment, before returning to his own reflection.  \nHe recognizes it as the same as the statues face.\nThe unicorn then decides to head out.\n\nMeanwhile John is trying to figure a way into Princess Prep...\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Princess_Prep",
+            "choice": "1",
+            "destination": "016_Princess_Prep"
+        }
+    ]
+}

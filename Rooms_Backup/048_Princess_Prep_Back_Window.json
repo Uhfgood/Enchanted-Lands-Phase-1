@@ -1,0 +1,13 @@
+{
+    "id": "048_Princess_Prep_Back_Window",
+    "label": "Princess Prep Back Window",
+    "description": "After examing the window thoroughly, it looks like the boards are well nailed into place, except for 1 loose nail.\nJohn pulls out the loose nail, and then proceeds to head to the shed, to see if he can find a tool to use.\n\nHit 1 to continue to the shed.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Princess_Prep_Shed_1",
+            "choice": "1",
+            "destination": "049_Princess_Prep_Shed_1"
+        }
+    ]
+}

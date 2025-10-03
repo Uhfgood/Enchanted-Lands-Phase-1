@@ -1,0 +1,13 @@
+{
+    "id": "047_Wizard_U_Trophy_Room_4",
+    "label": "Wizard U Trophy Room 4",
+    "description": "Hubert puts on a few hats and then casts a ward-reveal spell.\nHubert's half-magic still affects his spells but since these are fairly small, it still accomplishes his goal.\nHe starts smelling, an acrid odor, like charred wood on a smouldering fire.\nThen the closer he gets the more it starts to smell like the air just after a thunderstorm.\nThe smell fades in and out based on Hubert's 'haflway' magic.\nHubert mutters something about the wards not being tripped.\nThen hubert searches his bag and realizes he doesn't have the right hats.\nHubert returns to his house, and retrives a new configuration of hats, and then goes back to Wizard U.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_Trophy_Room_5",
+            "choice": "1",
+            "destination": "047_Wizard_U_Trophy_Room_5"
+        }
+    ]
+}

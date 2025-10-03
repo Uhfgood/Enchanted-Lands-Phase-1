@@ -1,0 +1,13 @@
+{
+    "id": "008_Lapsewood_11",
+    "label": "Lapsewood 11",
+    "description": "John asks Hubert who he is, to which Hubert restates his name, and that he is a Wizard.  He also recounts how he was the best friend and chief advisor to the King until the King started acting strangely.  He also explains briefly about his comprimised magic.\n\nTo learn why John is here, hit 1.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Lapsewood_14",
+            "choice": "1",
+            "destination": "008_Lapsewood_14"
+        }
+    ]
+}

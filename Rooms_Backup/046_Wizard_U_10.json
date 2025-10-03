@@ -1,33 +1,33 @@
 {
     "id": "046_Wizard_U_10",
     "label": "Wizard U 10",
-    "description": "Hubert makes his way to the trophy room, and notices a display case that had previously housed a quicksilver scepter, was now empty, with no signs of tampering.\nAfter examining the case, Hubert is able to discern there was some magic use, but not to what extent until he does a closer examination.\nHubert tries a ward reveal spell.\n\nHit 1 for Sight.\n\nHubert puts on a few hats and then casts a ward-reveal spell.\nBecause of his broken magic, nothing happens at first, but then floating rotating lights appear, disappear, and then reappear again.\nHubert also notices something peculiar, namely, that the lights appear to be in mid air in front of the case, and then seem to drift toward the case before hovering around it.\nHubert mutters something about the wards not being tripped.\nThen hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then\n\nHit 2. for Sound\n\nHubert puts on a few hats and then casts a ward-reveal spell.\n\nA low rumbling hum for the unnatural portal magic, and a sound as if someone was plucking the scales on a harp.\n\nHubert mutters something about the wards not being tripped.\nThen hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then\n\nHit 3 for Touch.\n\nHubert puts on a few hats and then casts a ward-reveal spell.\n\nHubert mutters something about the wards not being tripped.\nThen hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then\n\nHit 4 for Taste.\n\nHubert puts on a few hats and then casts a ward-reveal spell.\n\nHubert mutters something about the wards not being tripped.\nThen hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then\n\nHit 5 for Smell.\n\nHubert puts on a few hats and then casts a ward-reveal spell.\nHubert's half-magic still affects his spells but since these are fairly small, it still accomplishes his goal.\nHe starts smelling, an acrid odor, like charred wood on a smouldering fire.\nThen the closer he gets the more it starts to smell like the air just after a thunderstorm.\nThe smell fades in and out based on Hubert's 'haflway' magic.\nHubert mutters something about the wards not being tripped.\n\nThen hubert searches his bag and realizes he doesn't have the right hats, so with quicksilver in hand, opens a portal to his hat room, and then\n\nHit 0 to quit.",
+    "description": "Hubert makes his way to the trophy room, and notices a display case that had previously housed a quicksilver scepter, was now empty, with no signs of tampering.\nAfter examining the case, Hubert is able to discern there was some magic use, but not to what extent until he does a closer examination.\nHubert tries a ward reveal spell.\n\nHit 1 for Sight.\nHit 2 for Sound\nHit 3 for Touch.\nHit 4 for Taste.\nHit 5 for Smell.\n\nHit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Wizard_U_TrophyRoom",
+            "id": "Door_To_Wizard_U_Trophy_Room",
             "choice": "1",
-            "destination": "047_Wizard_U_TrophyRoom"
+            "destination": "047_Wizard_U_Trophy_Room"
         },
         {
-            "id": "Door_To_Wizard_U_TrophyRoom_1",
+            "id": "Door_To_Wizard_U_Trophy_Room_1",
             "choice": "2",
-            "destination": "047_Wizard_U_TrophyRoom_1"
+            "destination": "047_Wizard_U_Trophy_Room_1"
         },
         {
-            "id": "Door_To_Wizard_U_TrophyRoom_2",
+            "id": "Door_To_Wizard_U_Trophy_Room_2",
             "choice": "3",
-            "destination": "047_Wizard_U_TrophyRoom_2"
+            "destination": "047_Wizard_U_Trophy_Room_2"
         },
         {
-            "id": "Door_To_Wizard_U_TrophyRoom_3",
+            "id": "Door_To_Wizard_U_Trophy_Room_3",
             "choice": "4",
-            "destination": "047_Wizard_U_TrophyRoom_3"
+            "destination": "047_Wizard_U_Trophy_Room_3"
         },
         {
-            "id": "Door_To_Wizard_U_TrophyRoom_4",
+            "id": "Door_To_Wizard_U_Trophy_Room_4",
             "choice": "5",
-            "destination": "047_Wizard_U_TrophyRoom_4"
+            "destination": "047_Wizard_U_Trophy_Room_4"
         }
     ]
 }

@@ -1,0 +1,13 @@
+{
+    "id": "011_Dwarf_Mines_1",
+    "label": "Dwarf Mines 1",
+    "description": "Near the dwarf mines, Roland, the half-dwarf/half-giant approaches the entrance.\nAn old dwarf Roland knows stumbles out and tells him his Dad is trapped in the Gnome Kingdom.\n\nAn old dwarf Roland knows stumbles out and tells him his Dad is trapped in the Gnome Kingdom.\n\nMeanwhile at the edge of Lapsewood, Hubert and John are just exiting the leafless forest.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Dwarf_Mines_2",
+            "choice": "1",
+            "destination": "011_Dwarf_Mines_2"
+        }
+    ]
+}

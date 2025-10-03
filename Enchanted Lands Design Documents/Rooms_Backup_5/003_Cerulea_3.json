@@ -1,0 +1,13 @@
+{
+    "id": "003_Cerulea_3",
+    "label": "Cerulea 3",
+    "description": "While at home, John proceeds to read the book through.\nAfter reading it he's a bit confused and amused because of the diagrams.\nJohn returns to work, the next day, to a pretty uneventful workday.\nOn his way home, John stops at a local store for his favorite candy bar.\nUpon opening the wrapper, he notices a silver ticket inside, and pulls it out.\nFlipping the ticket over he reads the words on the back.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Cerulea_5",
+            "choice": "1",
+            "destination": "003_Cerulea_5"
+        }
+    ]
+}

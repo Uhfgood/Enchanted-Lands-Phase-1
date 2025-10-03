@@ -1,0 +1,13 @@
+{
+    "id": "008_Lapsewood_12",
+    "label": "Lapsewood 12",
+    "description": "Hubert tells John he's here because he needs someone from the outside, maybe someone he can trust, to help get to the bottom of things going on.\n\nTo ask Hubert where \"this\" is, hit 1.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Lapsewood_15",
+            "choice": "1",
+            "destination": "008_Lapsewood_15"
+        }
+    ]
+}

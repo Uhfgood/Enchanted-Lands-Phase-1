@@ -1,0 +1,13 @@
+{
+    "id": "008_Lapsewood_14",
+    "label": "Lapsewood 14",
+    "description": "John wants to know why he's here in Enchanted Lands, to which Hubert replies, that he brought him out of his realm into this one, to help him get to the bottom of the mystery about what's happening with the resort.\n\nTo ask Hubert where you are, hit 1.\n\nHit 0 to quit.\n",
+    "doors":
+    [
+        {
+            "id": "Door_To_Lapsewood_17",
+            "choice": "1",
+            "destination": "008_Lapsewood_17"
+        }
+    ]
+}

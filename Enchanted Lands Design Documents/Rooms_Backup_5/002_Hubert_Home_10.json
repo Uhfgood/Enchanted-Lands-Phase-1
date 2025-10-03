@@ -1,0 +1,18 @@
+{
+    "id": "002_Hubert_Home_10",
+    "label": "Hubert Home 10",
+    "description": "Going over to the bookcase behind the crystal ball, he selects a book entitled \"Professor Zorland's Hat Magick Compendium\".\nHe takes the book over to his desk and opens it somewhere in the middle and thumbs through a few pages.\nHe notes two spells, \"Object Translocation\" and \"Clone Conjure\".\n\nHit 1 to cast the \"Object Translocation\" spell.\nHit 2 to cast the \"Clone Conjure\" spell.\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Hubert_Home_11",
+            "choice": "1",
+            "destination": "002_Hubert_Home_11"
+        },
+        {
+            "id": "Door_To_Hubert_Home_13",
+            "choice": "2",
+            "destination": "002_Hubert_Home_13"
+        }
+    ]
+}

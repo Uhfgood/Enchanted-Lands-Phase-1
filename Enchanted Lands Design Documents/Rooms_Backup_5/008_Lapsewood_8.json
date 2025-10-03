@@ -1,0 +1,13 @@
+{
+    "id": "008_Lapsewood_8",
+    "label": "Lapsewood 8",
+    "description": "After thanking John, the dwarf introduces himself as Burly, and states that the papers in the satchel are very important, and that he was flying to go see the Wizard Hubert in order to hand him this document.\nJohn asks about the document, and Burly states it's something called an \"Omni-Gate\".\nJust then several riders bearing the King's standard come up and start asking people if they have seen a Dwarf which matches the description of Burly.\nBurly starts to run away and a rider sees him and grabs him, then returns back to the other riders.\nAnother rider approaches John and questions him, when John just politely says he just met him.\nThe rider then returns to the others, and they all leave with Burly slung across the front of the rider's saddle, like a sack of grain.\nJohn sees an old man, with a long white beard, and pointy blue hat, and matching blue robe, aproaching.  \nJohn guesses he's some kind of wizard because he's dressed like a stereotypical one and the fact he's no longer in his own realm.\n\nHit 1 to speak to the old wizard.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Lapsewood_9",
+            "choice": "1",
+            "destination": "008_Lapsewood_9"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "id": "005_Sky",
+    "label": "Sky",
+    "description": "As Chester is flying about, he notices his friend Shade, flying low, breathing fire on a small village.\nChester's first instinct is to protect the villagers, so he ponders a few methods to subdue his friend.\n\nHit 1 if you wish to ram into Shade before he starts another run.\nHit 2 if you wish to grab at Shade's tail in order to get him off balance.\nHit 3 if you wish to shoot a \"warning\" blast past Shade.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Sky_1",
+            "choice": "1",
+            "destination": "005_Sky_1"
+        },
+        {
+            "id": "Door_To_Sky_2",
+            "choice": "2",
+            "destination": "005_Sky_2"
+        },
+        {
+            "id": "Door_To_Sky_3",
+            "choice": "3",
+            "destination": "005_Sky_3"
+        }
+    ]
+}

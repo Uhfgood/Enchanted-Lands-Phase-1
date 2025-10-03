@@ -1,0 +1,23 @@
+{
+    "id": "002_Hubert_Home_2",
+    "label": "Hubert Home 2",
+    "description": "Hubert walks over to the giant crystal ball, and starts to peer into it.  He instructs the crystal ball to show him 3 likely candidates to help him figure out what's going on in the kingdom.  The ball shows 3 likely candidates, Daniel, John, and Harry.\n\nHit 1 if you wish to pick Daniel.\nHit 2 if you wish to pick John.\nHit 3 if you wish to pick Harry.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Hubert_Home_3",
+            "choice": "1",
+            "destination": "002_Hubert_Home_3"
+        },
+        {
+            "id": "Door_To_Hubert_Home_7",
+            "choice": "2",
+            "destination": "002_Hubert_Home_7"
+        },
+        {
+            "id": "Door_To_Hubert_Home_4",
+            "choice": "3",
+            "destination": "002_Hubert_Home_4"
+        }
+    ]
+}

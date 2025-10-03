@@ -1,0 +1,13 @@
+{
+    "id": "047_Wizard_U_Trophy_Room_23",
+    "label": "Wizard U Trophy Room 23",
+    "description": "Hubert thinks there's only one person smart enough to pull this off, but is holding judgment until he's able to examine the main hallway.\n\nHit 1 to continue to the Hall of Fame.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_Hall",
+            "choice": "1",
+            "destination": "014_Wizard_U_Hall"
+        }
+    ]
+}

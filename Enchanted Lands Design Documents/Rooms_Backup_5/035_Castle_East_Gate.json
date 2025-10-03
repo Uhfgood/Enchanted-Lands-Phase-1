@@ -1,0 +1,13 @@
+{
+    "id": "035_Castle_East_Gate",
+    "label": "Castle East Gate",
+    "description": "Violet comes out of the east gate of the castle toward the east side train depot.\nHubert confronts Violet and before she can do anything, casts the spell that returns the magic.\nViolet yells to alert the guards and Hubert starts running.\n\nHit 1 if you wish to go to East Depot.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_East_Depot",
+            "choice": "1",
+            "destination": "036_East_Depot"
+        }
+    ]
+}

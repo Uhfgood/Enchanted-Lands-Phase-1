@@ -1,13 +1,18 @@
 {
     "id": "016_Princess_Prep",
     "label": "Princess Prep",
-    "description": "When John sneaks into Princess Prep he learns her first stop was supposed to be the Grand Enchanted Landian Hotel.\n\nHit 1 if you wish to go to Random Villages 1.\n\nHit 0 to quit.",
+    "description": "When John sneaks into Princess Prep he learns her first stop was supposed to be the Grand Enchanted Landian Hotel.\n\nWhen John arrives at Princess Prep he approaches the front doors and attempts to open them, which fail.\nSomething seems to be barring them, so he makes his way around to the back, where there seems to be a boarded up, wide, picture window.\nLooking around he notices what looks to be a utility shed, probably for the groundskeeper to store all of his tools.\n\nHit 1 if you want John to examine the boarded up window.\nHit 2 if you would like John to examine the shed.\n\nHit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Random_Villages_1",
+            "id": "Door_To_Princess_Prep_Back_Window",
             "choice": "1",
-            "destination": "009_Random_Villages_1"
+            "destination": "048_Princess_Prep_Back_Window"
+        },
+        {
+            "id": "Door_To_Princess_Prep_Shed",
+            "choice": "2",
+            "destination": "049_Princess_Prep_Shed"
         }
     ]
 }

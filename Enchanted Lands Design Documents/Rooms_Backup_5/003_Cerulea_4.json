@@ -1,0 +1,13 @@
+{
+    "id": "003_Cerulea_4",
+    "label": "Cerulea 4",
+    "description": "On his way home, John stops at a local store for his favorite candy bar.\nUpon opening the wrapper, he notices part of a ticket appear inside, and then he flips it over.\nFlipping the ticket over he reads the words on the back.\nLooking at the words on the back, he realizes it's not complete.\nAs he's pondering what to do, another ticket appears inside the open wrapper.\nThis looks to be intact but different, in that it doesn't appear to have any silver in it.\nAfter flipping it over John recognizes the same words as the partial ticket.\nNow holding both the non-silver and partial tickets, he reads all the words off the back.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Cerulea_5",
+            "choice": "1",
+            "destination": "003_Cerulea_5"
+        }
+    ]
+}

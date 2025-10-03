@@ -1,0 +1,13 @@
+{
+    "id": "006_Chester_Cave",
+    "label": "Chester Cave",
+    "description": "Chester tends to hoard gold and silver tableware, and some bejewled items.  He's also got smaller collections of other items.  After having seen his friends act contrary to their nature, he reasons that they must be under some sort of enchantment, and thus decides to find a way to break it.\n\nAs Chester is flying home he spots yet another flying train which is somewhat unusual given the fact that there hasn't been much tourist activity as-of-late.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Train_Cabin",
+            "choice": "1",
+            "destination": "007_Train_Cabin"
+        }
+    ]
+}

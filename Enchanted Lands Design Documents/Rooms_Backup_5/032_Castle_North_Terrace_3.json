@@ -1,0 +1,13 @@
+{
+    "id": "032_Castle_North_Terrace_3",
+    "label": "Castle North Terrace 3",
+    "description": "Coming back down, out of breath and full of bruises and scratches, he notices the battle is almost over.\nAs it comes to a close, the Princess and Hubert manage to make their way over to John.\nJohn points to the machines controls, and Hubert runs over to the control panel to shut the machine down.\n\nHit 1 if you wish to go to Castle North Terrace Battlefield.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Castle_North_Terrace_Battlefield",
+            "choice": "1",
+            "destination": "044_Castle_North_Terrace_Battlefield"
+        }
+    ]
+}

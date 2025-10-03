@@ -1,0 +1,13 @@
+{
+    "id": "049_Princess_Prep_Shed",
+    "label": "Princess Prep Shed",
+    "description": "John heads to the utility shed, and notices the door has been padlocked.\nAs much as he tries to pull it off, and yank open the door, the padlock won't come off, and the door will not budge.  \n\nHit 1 to go back to the boarded up window.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Princess_Prep_Back_Window_1",
+            "choice": "1",
+            "destination": "048_Princess_Prep_Back_Window_1"
+        }
+    ]
+}

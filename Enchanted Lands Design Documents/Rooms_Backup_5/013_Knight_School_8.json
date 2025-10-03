@@ -1,0 +1,13 @@
+{
+    "id": "013_Knight_School_8",
+    "label": "Knight School 8",
+    "description": "Trial by Gauntlet. \n\nThe gauntlet is an obstacle course, which John finishes after a few failures, and then goes onto the last challenge.\n\nHit 1 to continue to the final challenge.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_11",
+            "choice": "1",
+            "destination": "013_Knight_School_11"
+        }
+    ]
+}

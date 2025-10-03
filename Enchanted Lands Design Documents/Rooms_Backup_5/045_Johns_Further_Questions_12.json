@@ -1,0 +1,13 @@
+{
+    "id": "045_Johns_Further_Questions_12",
+    "label": "Johns Further Questions 12",
+    "description": "Hubert explains the four magical schools for Knights, Princesses, Wizards, and Fairy Godmothers, give tourists a bit training before experiencing their fantasy vacation.\nHe also says they're closed, and wants to find out why.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Knight_School_Entrance",
+            "choice": "1",
+            "destination": "012_Knight_School_Entrance"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "id": "003_Cerulea_8",
+    "label": "Cerulea 8",
+    "description": "Zanzibar runs into the Blefescue, and the first thing he sees is a sign that says \"PA Convention B\" at the \nbanquet hall  to your left.   Down the hall first door on your left, with an arrow also pointing to the left.\nZanzibar notices a security guard following him, as he enters the banquet hall he notices a snack cart and runs to hide behind it.  As the guard stops, he stops, and then when the guard starts moving again, Zanzibar moves the snack cart along with the guard.   Oblivious to the guard is the fact the cart is moving of it's own free will.\nWhen Zanzibar reaches all the other men shuffling into a portal, he decides to shuffle in along with them.\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Random_Villages",
+            "choice": "1",
+            "destination": "009_Random_Villages"
+        }
+    ]
+}

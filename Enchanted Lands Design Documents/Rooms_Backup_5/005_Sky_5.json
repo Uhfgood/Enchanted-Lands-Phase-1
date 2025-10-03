@@ -1,0 +1,13 @@
+{
+    "id": "005_Sky_5",
+    "label": "Sky 5",
+    "description": "Glint lands in a random village, when Chester sees him.\nGlint starts approaching the end of the street, where they have a damsel tied to a pole.\nChester then flies above and just when he's directly over top drops down on Glints head, where both roll over and drop off a small cliff.\nChester awakens several minutes later, and realizes Glint is gone, and decides to return back to his own cave.\n\nHit 1 to return to Chester's cave.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Chester_Cave",
+            "choice": "1",
+            "destination": "006_Chester_Cave"
+        }
+    ]
+}

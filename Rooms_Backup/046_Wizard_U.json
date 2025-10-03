@@ -1,7 +1,7 @@
 {
     "id": "046_Wizard_U",
     "label": "Wizard U",
-    "description": "Hubert sneaks into Wizard U and examines the \"hall of fame\" paintings and notices one is missing.\nAfter realizing what's missing, he leaves the school.\n\nHubert examines the outside of the school, noting all the windows are boarded up and the door is padlocked.\nAfter examining further he notices a hole in the bottom of one of the side walls, with a little mouse standing, wearing wizard’s garb with a puzzled look on his face.\nHubert asks the mouse if he’s a a good wizard, to which the mouse replies he’s just a tourist but was getting good with his wand, until he lost it.\nHubert then offers to help him find his wand if he helps Hubert in return.\n\nHIt 1 to search the grounds.\nHit 2 to ask the mouse to examine himself.\nhit 3 to ask the mouse to retrace his steps.\n\nHit 0 to quit.",
+    "description": "Hubert examines the outside of the school, noting all the windows are boarded up and the door is padlocked.\nAfter examining further he notices a hole in the bottom of one of the side walls, with a little mouse standing, wearing wizard’s garb with a puzzled look on his face.\nHubert asks the mouse if he’s a a good wizard, to which the mouse replies he’s just a tourist but was getting good with his wand, until he lost it.\nHubert then offers to help him find his wand if he helps Hubert in return.\n\nHIt 1 to search the grounds.\nHit 2 to ask the mouse to examine himself.\nhit 3 to ask the mouse to retrace his steps.\n\nHit 0 to quit.",
     "doors":
     [
         {

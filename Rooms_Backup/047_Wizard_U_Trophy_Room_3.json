@@ -1,0 +1,13 @@
+{
+    "id": "047_Wizard_U_Trophy_Room_3",
+    "label": "Wizard U Trophy Room 3",
+    "description": "Hubert puts on a few hats and then casts a ward-reveal spell.After a minute, he immediately has the sensation he's tasting dill pickles, noticing there's something not natural about that.\nAs he gets closer to the case, he starts tasting what seems to be chocolate cake.\nHubert mutters something about the wards not being tripped.\nThen hubert searches his bag and realizes he doesn't have the right hats.\nHubert returns to his house, and retrives a new configuration of hats, and then goes back to Wizard U.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_Trophy_Room_5",
+            "choice": "1",
+            "destination": "047_Wizard_U_Trophy_Room_5"
+        }
+    ]
+}

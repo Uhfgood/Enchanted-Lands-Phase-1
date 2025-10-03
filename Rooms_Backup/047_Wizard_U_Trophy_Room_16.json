@@ -1,0 +1,13 @@
+{
+    "id": "047_Wizard_U_Trophy_Room_16",
+    "label": "Wizard U Trophy Room 16",
+    "description": "Hubert puts 3 hats on in a certain order, and says a few words.\nA few minutes later, Hubert hears a click, and then a low hum emanating from just in front of the case.\nHe hears a strange sound, similar to a portal opening, but somehow the pitch is different.\nThe next sound he hears, is the rustling of what sounds like clothing, maybe a robe.\nFinally he hears some knocking around emnanating from the case.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_Trophy_Room_21",
+            "choice": "1",
+            "destination": "047_Wizard_U_Trophy_Room_21"
+        }
+    ]
+}

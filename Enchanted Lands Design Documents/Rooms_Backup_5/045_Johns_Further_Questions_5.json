@@ -1,0 +1,13 @@
+{
+    "id": "045_Johns_Further_Questions_5",
+    "label": "Johns Further Questions 5",
+    "description": "Hubert explains the four schools, Knight School, Princess Prepatory, Wizard University, and Fairy Godcollege, will train tourists to be Knights, Princesses, Wizards, or Fairy Godmothers.\nHe also tells John they're going to investigate why they seem to be closed.\n\nHit 1 if you are interested in the flying trains.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Johns_Further_Questions_11",
+            "choice": "1",
+            "destination": "045_Johns_Further_Questions_11"
+        }
+    ]
+}

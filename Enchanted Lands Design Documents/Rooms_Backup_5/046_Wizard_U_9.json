@@ -1,0 +1,13 @@
+{
+    "id": "046_Wizard_U_9",
+    "label": "Wizard U 9",
+    "description": "The mouse pulls up a spell to shrink someone, and shrinks Hubert down to his size with his newly found wand.\nHubert then enters the wall into the mouses dorm room.  Then passes through the mouses room door.\nOnce inside the mouse reverses the spell and Hubert grows back to normal size.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Wizard_U_10",
+            "choice": "1",
+            "destination": "046_Wizard_U_10"
+        }
+    ]
+}

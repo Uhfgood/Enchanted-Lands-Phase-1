@@ -1,0 +1,13 @@
+{
+    "id": "009_Random_Villages",
+    "label": "Random Villages",
+    "description": "Zanzibar then does a few tricks for the first locals he sees, in some random village.\nZanzibar gets his crow, Corvus, to steal from the locals.\n\nOnce through the portal, Zanzibar and Corvus, appear in a closed up restaurant with the other wizards.  \nThe other wizards fill Zanzibar in with some pertinent information and sends him off toward the direction of a village.\nEveryone leaves and Zanzibar wanders in a random direction before coming to a small village.\n\nHit 1 to head out towards the \"Shedding Shetland\" tavern.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Random_Villages_5",
+            "choice": "1",
+            "destination": "009_Random_Villages_5"
+        }
+    ]
+}
