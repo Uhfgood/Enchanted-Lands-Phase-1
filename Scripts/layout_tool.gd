@@ -776,10 +776,33 @@ func ProcessSingleClick(room: LayoutRoom, shift: bool, ctrl: bool):
 		
 #}  // end ProcessSingleClick()
 
+# Returns the mouse position relative to the "rooms" node
+func get_mouse_in_rooms() -> Vector2:
+	# Mouse position in global/world coordinates (accounts for camera)
+	var mouse_global = get_viewport().get_mouse_position()
+	if camera:
+		mouse_global = camera.get_camera_transform().affine_inverse() * mouse_global
+	
+	# Convert global position to local position relative to the rooms node
+	return rooms.to_local(mouse_global)
+
 func _input(event):
 	
 	# Detect empty-space clicks
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if( camera ):
+		#{
+			var main_menu_pos = GetRoomChildren()[ 0 ].position;			
+			var local_mouse_pos = get_mouse_position();
+			local_mouse_pos /= camera.zoom
+			local_mouse_pos += main_menu_pos;
+			print( "local_mouse_pos = " + str( local_mouse_pos ) + ", main menu position = " + str( main_menu_pos ) );
+			print( "camera global: ", camera.global_position );
+			print( "main_menu global: ", rooms.to_global( main_menu_pos ) );
+			if( selection_color_rect ):
+				selection_color_rect.position = camera.global_position;
+		#}
+		
 		var clicked_any_room = false;
 		for room in GetRoomChildren():
 			if( room.mouse_inside ):
