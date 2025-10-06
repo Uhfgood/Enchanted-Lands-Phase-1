@@ -1,0 +1,8 @@
+{
+    "id": "048_Princess_Prep_Back_Window_2",
+    "label": "Princess Prep Back Window 2",
+    "description": "John takes the prybar and pulls off the boards.\nHe examines the window afterwards.  \nThere's a latch preventing the window from opening.\n\nHit 1 if you want to use the loose nail on the latch.\nHit 2 if you want to attempt to break the window with the prybar.\nHit 3 if you want to try to find a loose rock or brick to break open the window.\n\n Hit 0 to quit.",
+    "doors":
+    [
+    ]
+}

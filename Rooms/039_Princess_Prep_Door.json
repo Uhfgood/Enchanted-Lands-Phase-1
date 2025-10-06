@@ -1,13 +1,13 @@
 {
     "id": "039_Princess_Prep_Door",
     "label": "Princess Prep Door",
-    "description": "The Princess goes back to Princess Prep and sees a note on the door.\nThe Note says to go to Fairy GodCollege with a password.\nThe Princess with The Count, still a bat in her handbag, start towards Fairy Godcollege.\n\nHit 1 if you wish to go to Fairy Godcollege 4.\n\nHit 0 to quit.",
+    "description": "John decides to try the front door, only it doesn't seem to budge.\nJohn figures it must be barred from the inside, and then proceeds to go back to the back window.\n\nHit 1 to continue.\n\n Hit 0 to quit.",
     "doors":
     [
         {
-            "id": "Door_To_Fairy_Godcollege_4",
+            "id": "Door_To_Princess_Prep_Back_Window_2",
             "choice": "1",
-            "destination": "020_Fairy_Godcollege_4"
+            "destination": "048_Princess_Prep_Back_Window_2"
         }
     ]
 }

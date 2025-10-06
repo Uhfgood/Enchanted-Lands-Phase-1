@@ -774,7 +774,7 @@ func GetPanelRect() -> Rect2:
 
 	# Center position of the panel in world coordinates
 	var center = GetCenterPos();
-
+	
 	# Top-left corner
 	var top_left = center - panel.size / 2;
 

@@ -4,5 +4,15 @@
     "description": "There's a padlock on the door to the shed, when John uses the nail to try and pick the lock.  \nEventually the padlock opens, and John looks inside the shed.\nSeeing a prybar leaning against the wall, he grabs it.\n\nHit 1 to return to the back window.\nHit 2 to return to the front door.\n\nHit 0 to quit.",
     "doors":
     [
+        {
+            "id": "Door_To_Princess_Prep_Back_Window_2",
+            "choice": "1",
+            "destination": "048_Princess_Prep_Back_Window_2"
+        },
+        {
+            "id": "Door_To_Princess_Prep_Door",
+            "choice": "2",
+            "destination": "039_Princess_Prep_Door"
+        }
     ]
 }

@@ -714,10 +714,23 @@ func _process(_delta: float) -> void:
 func _connect_room(room: LayoutRoom) -> void:
 	room.connect("clicked", Callable(self, "_on_room_clicked"))
 
-func get_mouse_position() -> Vector2:
-	var mouse_pos = get_viewport().get_mouse_position()
-	var mouse_local = rooms.to_local(mouse_pos)
+func GetMousePosition() -> Vector2:
+#{
+	#var mouse_pos = camera.get_viewport().get_mouse_position()
+	#var mouse_local = rooms.to_local(mouse_pos)
+	
+	var mouse_local = Vector2.ZERO;
+	
+	if( camera ):
+	#{
+		var viewport_mouse_pos = camera.get_viewport().get_mouse_position();
+	#}
+	else:
+		print( "Warning: camera non-existant, defaulting to ZERO" );
+		
 	return mouse_local;
+
+#}  // end GetMousePosition
 
 var drag_start_pos := Vector2.ZERO
 
@@ -771,7 +784,7 @@ func ProcessSingleClick(room: LayoutRoom, shift: bool, ctrl: bool):
 	# Start drag if clicked on selected room
 	if( selected_rooms.has(room) ):
 		is_dragging = true;
-		drag_start_pos = get_mouse_position();
+		drag_start_pos = GetMousePosition();
 		print("Drag started on:", room.name);
 		
 #}  // end ProcessSingleClick()
@@ -792,13 +805,15 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if( camera ):
 		#{
-			var main_menu_pos = GetRoomChildren()[ 0 ].position;			
-			var local_mouse_pos = get_mouse_position();
+			var main_menu_pos = GetRoomChildren()[ 0 ].position;
+			var local_mouse_pos = GetMousePosition();
 			local_mouse_pos /= camera.zoom
 			local_mouse_pos += main_menu_pos;
 			print( "local_mouse_pos = " + str( local_mouse_pos ) + ", main menu position = " + str( main_menu_pos ) );
 			print( "camera global: ", camera.global_position );
 			print( "main_menu global: ", rooms.to_global( main_menu_pos ) );
+			print( "mouse viewport coords = ", camera.get_viewport().get_mouse_position() );
+			print( "mouse global position = ", camera.get_global_mouse_position() );
 			if( selection_color_rect ):
 				selection_color_rect.position = camera.global_position;
 		#}

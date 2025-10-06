@@ -5,9 +5,9 @@
     "doors":
     [
         {
-            "id": "Door_To_Princess_Prep_Door",
+            "id": "Door_To_Princess_Prep_Door_1",
             "choice": "1",
-            "destination": "039_Princess_Prep_Door"
+            "destination": "039_Princess_Prep_Door_1"
         }
     ]
 }

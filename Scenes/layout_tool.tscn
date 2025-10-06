@@ -2387,7 +2387,7 @@ z_index = 104
 position = Vector2(-2259, 28267)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["038_Bats_In_The_Belfry_Lobby", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 039_Princess_Prep_Door;", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 039_Princess_Prep_Door_1;", "", "", "", "", "", "", "", ""]
 id = "013_Knight_School_1"
 label = "Knight School 1"
 description = "John and Sir William arrive at Knight School.
@@ -2398,7 +2398,7 @@ Hit 1 if you wish to go to Princess Prep Door.
 
 Hit 0 to quit."
 
-[node name="Door_To_Princess_Prep_Door" type="Node2D" parent="Rooms/Knight School 1"]
+[node name="Door_To_Princess_Prep_Door_1" type="Node2D" parent="Rooms/Knight School 1"]
 visible = false
 script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
@@ -3049,7 +3049,7 @@ color = Color(1, 0.2, 0.2, 1)
 z_index = 133
 position = Vector2(-2268, 28895)
 script = ExtResource("2_2nukr")
-inbound_rooms = ["039_Princess_Prep_Door", "", "", "", "", "", "", "", ""]
+inbound_rooms = ["039_Princess_Prep_Door_1", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 040_Fairy_Godcollege_Library;", "", "", "", "", "", "", "", ""]
 id = "020_Fairy_Godcollege_4"
 label = "Fairy Godcollege 4"
@@ -3949,12 +3949,32 @@ color = Color(1, 0.2, 0.2, 1)
 
 [node name="Princess Prep Door" type="Node2D" parent="Rooms"]
 z_index = 176
+position = Vector2(-992, 2251)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["049_Princess_Prep_Shed_1", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 048_Princess_Prep_Back_Window_2;", "", "", "", "", "", "", "", ""]
+id = "039_Princess_Prep_Door"
+label = "Princess Prep Door"
+description = "John decides to try the front door, only it doesn't seem to budge.
+John figures it must be barred from the inside, and then proceeds to go back to the back window.
+
+Hit 1 to continue.
+
+ Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Back_Window_2" type="Node2D" parent="Rooms/Princess Prep Door"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Door 1" type="Node2D" parent="Rooms"]
+z_index = 177
 position = Vector2(-2267, 28578)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["013_Knight_School_1", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 020_Fairy_Godcollege_4;", "", "", "", "", "", "", "", ""]
-id = "039_Princess_Prep_Door"
-label = "Princess Prep Door"
+id = "039_Princess_Prep_Door_1"
+label = "Princess Prep Door 1"
 description = "The Princess goes back to Princess Prep and sees a note on the door.
 The Note says to go to Fairy GodCollege with a password.
 The Princess with The Count, still a bat in her handbag, start towards Fairy Godcollege.
@@ -3963,13 +3983,13 @@ Hit 1 if you wish to go to Fairy Godcollege 4.
 
 Hit 0 to quit."
 
-[node name="Door_To_Fairy_Godcollege_4" type="Node2D" parent="Rooms/Princess Prep Door"]
+[node name="Door_To_Fairy_Godcollege_4" type="Node2D" parent="Rooms/Princess Prep Door 1"]
 visible = false
 script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Fairy Godcollege Library" type="Node2D" parent="Rooms"]
-z_index = 177
+z_index = 178
 position = Vector2(-2269, 29225)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["020_Fairy_Godcollege_4", "", "", "", "", "", "", "", ""]
@@ -3989,7 +4009,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Fairy Godcollege Incinerator" type="Node2D" parent="Rooms"]
-z_index = 178
+z_index = 179
 position = Vector2(-2269, 29542)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["040_Fairy_Godcollege_Library", "", "", "", "", "", "", "", ""]
@@ -4011,7 +4031,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Castle Throne Room" type="Node2D" parent="Rooms"]
-z_index = 179
+z_index = 180
 position = Vector2(-2304, 31274)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["030_Bats_In_The_Belfry_4", "", "", "", "", "", "", "", ""]
@@ -4034,7 +4054,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Castle Throne Room 1" type="Node2D" parent="Rooms"]
-z_index = 180
+z_index = 181
 position = Vector2(-2349, 34081)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["044_Castle_North_Terrace_Battlefield", "", "", "", "", "", "", "", ""]
@@ -4051,7 +4071,7 @@ He then leaves them in peace to eat dinner and to talk.
 Hit 0 to quit."
 
 [node name="Castle North Terrace Catwalk" type="Node2D" parent="Rooms"]
-z_index = 181
+z_index = 182
 position = Vector2(-2332, 33043)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["032_Castle_North_Terrace_2", "", "", "", "", "", "", "", ""]
@@ -4074,7 +4094,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Castle North Terrace Battlefield" type="Node2D" parent="Rooms"]
-z_index = 182
+z_index = 183
 position = Vector2(-2359, 33712)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["032_Castle_North_Terrace_3", "", "", "", "", "", "", "", ""]
@@ -4094,7 +4114,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Johns Further Questions" type="Node2D" parent="Rooms"]
-z_index = 183
+z_index = 184
 position = Vector2(-2640, -12032)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["010_Lapsewood_Edge", "", "", "", "", "", "", "", ""]
@@ -4120,7 +4140,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.733333, 0.2, 1)
 
 [node name="Johns Further Questions 1" type="Node2D" parent="Rooms"]
-z_index = 184
+z_index = 185
 position = Vector2(-1254, -11921)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["010_Lapsewood_Edge", "", "", "", "", "", "", "", ""]
@@ -4145,7 +4165,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.733333, 0.2, 1)
 
 [node name="Johns Further Questions 10" type="Node2D" parent="Rooms"]
-z_index = 185
+z_index = 186
 position = Vector2(-2295, -11064)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["045_Johns_Further_Questions_4", "", "", "", "", "", "", "", ""]
@@ -4164,7 +4184,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Johns Further Questions 11" type="Node2D" parent="Rooms"]
-z_index = 186
+z_index = 187
 position = Vector2(-1606, -10976)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["045_Johns_Further_Questions_5", "", "", "", "", "", "", "", ""]
@@ -4183,7 +4203,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Johns Further Questions 12" type="Node2D" parent="Rooms"]
-z_index = 187
+z_index = 188
 position = Vector2(-920, -10986)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["045_Johns_Further_Questions_6", "", "", "", "", "", "", "", ""]
@@ -4203,7 +4223,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Johns Further Questions 13" type="Node2D" parent="Rooms"]
-z_index = 188
+z_index = 189
 position = Vector2(-242, -11117)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["045_Johns_Further_Questions_7", "", "", "", "", "", "", "", ""]
@@ -4222,7 +4242,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Johns Further Questions 14" type="Node2D" parent="Rooms"]
-z_index = 189
+z_index = 190
 position = Vector2(433, -11122)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["045_Johns_Further_Questions_8", "", "", "", "", "", "", "", ""]
@@ -4242,7 +4262,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Johns Further Questions 2" type="Node2D" parent="Rooms"]
-z_index = 190
+z_index = 191
 position = Vector2(91, -11997)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["010_Lapsewood_Edge", "", "", "", "", "", "", "", ""]
@@ -4267,7 +4287,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.733333, 0.2, 1)
 
 [node name="Johns Further Questions 3" type="Node2D" parent="Rooms"]
-z_index = 191
+z_index = 192
 position = Vector2(-2996, -11548)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["045_Johns_Further_Questions", "", "", "", "", "", "", "", ""]
@@ -4286,7 +4306,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Johns Further Questions 4" type="Node2D" parent="Rooms"]
-z_index = 192
+z_index = 193
 position = Vector2(-2290, -11555)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["045_Johns_Further_Questions", "", "", "", "", "", "", "", ""]
@@ -4305,7 +4325,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Johns Further Questions 5" type="Node2D" parent="Rooms"]
-z_index = 193
+z_index = 194
 position = Vector2(-1600, -11474)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["045_Johns_Further_Questions_1", "", "", "", "", "", "", "", ""]
@@ -4325,7 +4345,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Johns Further Questions 6" type="Node2D" parent="Rooms"]
-z_index = 194
+z_index = 195
 position = Vector2(-909, -11451)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["045_Johns_Further_Questions_1", "", "", "", "", "", "", "", ""]
@@ -4344,7 +4364,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Johns Further Questions 7" type="Node2D" parent="Rooms"]
-z_index = 195
+z_index = 196
 position = Vector2(-246, -11615)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["045_Johns_Further_Questions_2", "", "", "", "", "", "", "", ""]
@@ -4364,7 +4384,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Johns Further Questions 8" type="Node2D" parent="Rooms"]
-z_index = 196
+z_index = 197
 position = Vector2(434, -11619)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["045_Johns_Further_Questions_2", "", "", "", "", "", "", "", ""]
@@ -4383,7 +4403,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Johns Further Questions 9" type="Node2D" parent="Rooms"]
-z_index = 197
+z_index = 198
 position = Vector2(-2997, -11066)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["045_Johns_Further_Questions_3", "", "", "", "", "", "", "", ""]
@@ -4402,7 +4422,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U" type="Node2D" parent="Rooms"]
-z_index = 198
+z_index = 199
 position = Vector2(-1340, -6404)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["013_Knight_School_13", "", "", "", "", "", "", "", ""]
@@ -4436,7 +4456,7 @@ script = ExtResource("3_0pr41")
 color = Color(0.733333, 1, 0.2, 1)
 
 [node name="Wizard U 1" type="Node2D" parent="Rooms"]
-z_index = 199
+z_index = 200
 position = Vector2(-2008, -6003)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U", "", "", "", "", "", "", "", ""]
@@ -4457,7 +4477,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U 10" type="Node2D" parent="Rooms"]
-z_index = 200
+z_index = 201
 position = Vector2(-1340, -3833)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_9", "", "", "", "", "", "", "", ""]
@@ -4502,7 +4522,7 @@ script = ExtResource("3_0pr41")
 color = Color(0.2, 1, 0.733333, 1)
 
 [node name="Wizard U 2" type="Node2D" parent="Rooms"]
-z_index = 201
+z_index = 202
 position = Vector2(-1341, -6003)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U", "", "", "", "", "", "", "", ""]
@@ -4523,7 +4543,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U 3" type="Node2D" parent="Rooms"]
-z_index = 202
+z_index = 203
 position = Vector2(-675, -6000)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U", "", "", "", "", "", "", "", ""]
@@ -4544,7 +4564,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U 4" type="Node2D" parent="Rooms"]
-z_index = 203
+z_index = 204
 position = Vector2(-1341, -5497)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_1", "046_Wizard_U_2", "046_Wizard_U_3", "", "", "", "", "", ""]
@@ -4578,7 +4598,7 @@ script = ExtResource("3_0pr41")
 color = Color(0.733333, 1, 0.2, 1)
 
 [node name="Wizard U 5" type="Node2D" parent="Rooms"]
-z_index = 204
+z_index = 205
 position = Vector2(-2108, -5283)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_4", "", "", "", "", "", "", "", ""]
@@ -4604,7 +4624,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.733333, 0.2, 1)
 
 [node name="Wizard U 6" type="Node2D" parent="Rooms"]
-z_index = 205
+z_index = 206
 position = Vector2(-590, -5283)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_4", "", "", "", "", "", "", "", ""]
@@ -4629,7 +4649,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.733333, 0.2, 1)
 
 [node name="Wizard U 7" type="Node2D" parent="Rooms"]
-z_index = 206
+z_index = 207
 position = Vector2(-52, -4889)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_6", "", "", "", "", "", "", "", ""]
@@ -4649,7 +4669,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U 8" type="Node2D" parent="Rooms"]
-z_index = 207
+z_index = 208
 position = Vector2(-2704, -4847)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_5", "", "", "", "", "", "", "", ""]
@@ -4669,7 +4689,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U 9" type="Node2D" parent="Rooms"]
-z_index = 208
+z_index = 209
 position = Vector2(-1341, -4265)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_8", "046_Wizard_U_5", "046_Wizard_U_4", "046_Wizard_U_6", "046_Wizard_U_7", "", "", "", ""]
@@ -4690,7 +4710,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room" type="Node2D" parent="Rooms"]
-z_index = 209
+z_index = 210
 position = Vector2(-2617, -3504)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_10", "", "", "", "", "", "", "", ""]
@@ -4714,7 +4734,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 1" type="Node2D" parent="Rooms"]
-z_index = 210
+z_index = 211
 position = Vector2(-1992, -3504)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_10", "", "", "", "", "", "", "", ""]
@@ -4739,7 +4759,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 10" type="Node2D" parent="Rooms"]
-z_index = 211
+z_index = 212
 position = Vector2(-2088, -2456)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_6", "", "", "", "", "", "", "", ""]
@@ -4760,7 +4780,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 11" type="Node2D" parent="Rooms"]
-z_index = 212
+z_index = 213
 position = Vector2(-1651, -2159)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_7", "", "", "", "", "", "", "", ""]
@@ -4782,7 +4802,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 12" type="Node2D" parent="Rooms"]
-z_index = 213
+z_index = 214
 position = Vector2(-1036, -2159)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_7", "", "", "", "", "", "", "", ""]
@@ -4803,7 +4823,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 13" type="Node2D" parent="Rooms"]
-z_index = 214
+z_index = 215
 position = Vector2(-579, -2459)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_8", "", "", "", "", "", "", "", ""]
@@ -4825,7 +4845,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 14" type="Node2D" parent="Rooms"]
-z_index = 215
+z_index = 216
 position = Vector2(188, -2469)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_8", "", "", "", "", "", "", "", ""]
@@ -4848,7 +4868,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 15" type="Node2D" parent="Rooms"]
-z_index = 216
+z_index = 217
 position = Vector2(-2792, -1493)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_9", "", "", "", "", "", "", "", ""]
@@ -4869,7 +4889,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 16" type="Node2D" parent="Rooms"]
-z_index = 217
+z_index = 218
 position = Vector2(-2089, -1508)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_10", "", "", "", "", "", "", "", ""]
@@ -4892,7 +4912,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 17" type="Node2D" parent="Rooms"]
-z_index = 218
+z_index = 219
 position = Vector2(-1651, -1849)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_11", "", "", "", "", "", "", "", ""]
@@ -4913,7 +4933,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 18" type="Node2D" parent="Rooms"]
-z_index = 219
+z_index = 220
 position = Vector2(-1035, -1849)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_12", "", "", "", "", "", "", "", ""]
@@ -4935,7 +4955,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 19" type="Node2D" parent="Rooms"]
-z_index = 220
+z_index = 221
 position = Vector2(-564, -1530)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_13", "", "", "", "", "", "", "", ""]
@@ -4958,7 +4978,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 2" type="Node2D" parent="Rooms"]
-z_index = 221
+z_index = 222
 position = Vector2(-1359, -3504)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_10", "", "", "", "", "", "", "", ""]
@@ -4983,7 +5003,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 20" type="Node2D" parent="Rooms"]
-z_index = 222
+z_index = 223
 position = Vector2(188, -1523)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_14", "", "", "", "", "", "", "", ""]
@@ -5005,7 +5025,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 21" type="Node2D" parent="Rooms"]
-z_index = 223
+z_index = 224
 position = Vector2(-1326, -1151)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_15", "047_Wizard_U_Trophy_Room_16", "047_Wizard_U_Trophy_Room_17", "047_Wizard_U_Trophy_Room_18", "047_Wizard_U_Trophy_Room_19", "047_Wizard_U_Trophy_Room_20", "", "", ""]
@@ -5036,7 +5056,7 @@ script = ExtResource("3_0pr41")
 color = Color(0.733333, 1, 0.2, 1)
 
 [node name="Wizard U Trophy Room 22" type="Node2D" parent="Rooms"]
-z_index = 224
+z_index = 225
 position = Vector2(-2088, -777)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_21", "", "", "", "", "", "", "", ""]
@@ -5055,7 +5075,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 23" type="Node2D" parent="Rooms"]
-z_index = 225
+z_index = 226
 position = Vector2(-1332, -811)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_21", "", "", "", "", "", "", "", ""]
@@ -5074,7 +5094,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 24" type="Node2D" parent="Rooms"]
-z_index = 226
+z_index = 227
 position = Vector2(-542, -814)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_21", "", "", "", "", "", "", "", ""]
@@ -5093,7 +5113,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 3" type="Node2D" parent="Rooms"]
-z_index = 227
+z_index = 228
 position = Vector2(-713, -3504)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_10", "", "", "", "", "", "", "", ""]
@@ -5116,7 +5136,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 4" type="Node2D" parent="Rooms"]
-z_index = 228
+z_index = 229
 position = Vector2(-71, -3504)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["046_Wizard_U_10", "", "", "", "", "", "", "", ""]
@@ -5142,7 +5162,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Wizard U Trophy Room 5" type="Node2D" parent="Rooms"]
-z_index = 229
+z_index = 230
 position = Vector2(-1359, -3199)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room", "047_Wizard_U_Trophy_Room_1", "047_Wizard_U_Trophy_Room_2", "047_Wizard_U_Trophy_Room_3", "047_Wizard_U_Trophy_Room_4", "", "", "", ""]
@@ -5173,7 +5193,7 @@ script = ExtResource("3_0pr41")
 color = Color(0.733333, 1, 0.2, 1)
 
 [node name="Wizard U Trophy Room 6" type="Node2D" parent="Rooms"]
-z_index = 230
+z_index = 231
 position = Vector2(-1998, -2835)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_5", "", "", "", "", "", "", "", ""]
@@ -5201,7 +5221,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.733333, 0.2, 1)
 
 [node name="Wizard U Trophy Room 7" type="Node2D" parent="Rooms"]
-z_index = 231
+z_index = 232
 position = Vector2(-1348, -2835)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_5", "", "", "", "", "", "", "", ""]
@@ -5230,7 +5250,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.733333, 0.2, 1)
 
 [node name="Wizard U Trophy Room 8" type="Node2D" parent="Rooms"]
-z_index = 232
+z_index = 233
 position = Vector2(-688, -2835)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_5", "", "", "", "", "", "", "", ""]
@@ -5257,7 +5277,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.733333, 0.2, 1)
 
 [node name="Wizard U Trophy Room 9" type="Node2D" parent="Rooms"]
-z_index = 233
+z_index = 234
 position = Vector2(-2792, -2459)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["047_Wizard_U_Trophy_Room_6", "", "", "", "", "", "", "", ""]
@@ -5280,7 +5300,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Princess Prep Back Window" type="Node2D" parent="Rooms"]
-z_index = 234
+z_index = 235
 position = Vector2(-1640, 1118)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["016_Princess_Prep", "", "", "", "", "", "", "", ""]
@@ -5300,15 +5320,16 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Princess Prep Back Window 1" type="Node2D" parent="Rooms"]
-z_index = 235
+z_index = 236
 position = Vector2(-1005, 1489)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["049_Princess_Prep_Shed", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 049_Princess_Prep_Shed_1;", "", "", "", "", "", "", "", ""]
 id = "048_Princess_Prep_Back_Window_1"
 label = "Princess Prep Back Window 1"
-description = "After examing the window thoroughly, it looks like the boards are well nailed into place, except for 1 loose nail.
-John pulls out the loose nail, and then proceeds to head to the shed, to see if he can find a tool to use.
+description = "Returning from the shed, John examines the window thoroughly. 
+It looks like the boards are well nailed into place, except for 1 loose nail.
+John pulls out the loose nail, and then proceeds to head back to the shed, to see if he can find a tool to use.
 
 Hit 1 to continue to the shed.
 
@@ -5319,8 +5340,25 @@ visible = false
 script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
+[node name="Princess Prep Back Window 2" type="Node2D" parent="Rooms"]
+z_index = 237
+position = Vector2(-1638, 2883)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["049_Princess_Prep_Shed_1", "039_Princess_Prep_Door", "", "", "", "", "", "", ""]
+id = "048_Princess_Prep_Back_Window_2"
+label = "Princess Prep Back Window 2"
+description = "John takes the prybar and pulls off the boards.
+He examines the window afterwards.  
+There's a latch preventing the window from opening.
+
+Hit 1 if you want to use the loose nail on the latch.
+Hit 2 if you want to attempt to break the window with the prybar.
+Hit 3 if you want to try to find a loose rock or brick to break open the window.
+
+ Hit 0 to quit."
+
 [node name="Princess Prep Shed" type="Node2D" parent="Rooms"]
-z_index = 236
+z_index = 238
 position = Vector2(-1000, 1118)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["016_Princess_Prep", "", "", "", "", "", "", "", ""]
@@ -5340,10 +5378,11 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Princess Prep Shed 1" type="Node2D" parent="Rooms"]
-z_index = 237
+z_index = 239
 position = Vector2(-1640, 2251)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["048_Princess_Prep_Back_Window", "048_Princess_Prep_Back_Window_1", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 048_Princess_Prep_Back_Window_2;", "ch: 2, dest: 039_Princess_Prep_Door;", "", "", "", "", "", "", ""]
 id = "049_Princess_Prep_Shed_1"
 label = "Princess Prep Shed 1"
 description = "There's a padlock on the door to the shed, when John uses the nail to try and pick the lock.  
@@ -5355,12 +5394,22 @@ Hit 2 to return to the front door.
 
 Hit 0 to quit."
 
+[node name="Door_To_Princess_Prep_Back_Window_2" type="Node2D" parent="Rooms/Princess Prep Shed 1"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Princess_Prep_Door" type="Node2D" parent="Rooms/Princess Prep Shed 1"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.733333, 0.2, 1)
+
 [node name="LineOverlay" type="Node2D" parent="."]
 z_index = -4096
 script = ExtResource("4_p3fhn")
 metadata/_edit_lock_ = true
 
 [node name="LayoutCamera" type="Camera2D" parent="."]
-position = Vector2(928.398, -1940.48)
-zoom = Vector2(0.156388, 0.156388)
+position = Vector2(-1167.48, -31956.9)
+zoom = Vector2(0.972883, 0.972883)
 script = ExtResource("5_xw3br")
