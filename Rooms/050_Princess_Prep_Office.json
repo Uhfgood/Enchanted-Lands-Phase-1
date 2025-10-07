@@ -1,0 +1,23 @@
+{
+    "id": "050_Princess_Prep_Office",
+    "label": "Princess Prep Office",
+    "description": "John looks around the room to see what else is there.\nOther than the desk and the two plants that flank him, he notices the office chair turned up in the middle of the room.\nHe also ntoices a Filing cabinet to his right.\n\nHit 1 if you want John to check out the desk.\nHit 2 if you want John to check out the plants.\nHit 3 if you want John to check out the filing cabinet.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Princess_Prep_Office_1",
+            "choice": "1",
+            "destination": "050_Princess_Prep_Office_1"
+        },
+        {
+            "id": "Door_To_Princess_Prep_Office_2",
+            "choice": "2",
+            "destination": "050_Princess_Prep_Office_2"
+        },
+        {
+            "id": "Door_To_Princess_Prep_Office_6",
+            "choice": "3",
+            "destination": "050_Princess_Prep_Office_6"
+        }
+    ]
+}

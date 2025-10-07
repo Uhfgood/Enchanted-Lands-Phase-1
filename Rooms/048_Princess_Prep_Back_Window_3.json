@@ -1,0 +1,13 @@
+{
+    "id": "048_Princess_Prep_Back_Window_3",
+    "label": "Princess Prep Back Window 3",
+    "description": "John takes the loose nail he still posesses and after a couple of tries manages to undo the latch on the window, allowing him to open it.\nHe climbs through  to face a basic office desk, and a couple of plants to his left and right.\nOne of the plants seems to be shuddering of it's own accord.\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Princess_Prep_Office",
+            "choice": "1",
+            "destination": "050_Princess_Prep_Office"
+        }
+    ]
+}

@@ -5345,17 +5345,33 @@ z_index = 237
 position = Vector2(-1638, 2883)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["049_Princess_Prep_Shed_1", "039_Princess_Prep_Door", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 048_Princess_Prep_Back_Window_3;", "ch: 1, dest: 048_Princess_Prep_Back_Window_4;", "ch: 1, dest: 048_Princess_Prep_Back_Window_5;", "", "", "", "", "", ""]
 id = "048_Princess_Prep_Back_Window_2"
 label = "Princess Prep Back Window 2"
 description = "John takes the prybar and pulls off the boards.
 He examines the window afterwards.  
 There's a latch preventing the window from opening.
 
-Hit 1 if you want to use the loose nail on the latch.
-Hit 2 if you want to attempt to break the window with the prybar.
-Hit 3 if you want to try to find a loose rock or brick to break open the window.
+Hit 1 if you want John to use the loose nail on the latch.
+Hit 2 if you want John to attempt to force the window with the prybar.
+Hit 3 if you want John to try and find a loose rock or brick to break open the window.
 
- Hit 0 to quit."
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Back_Window_3" type="Node2D" parent="Rooms/Princess Prep Back Window 2"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Princess_Prep_Back_Window_4" type="Node2D" parent="Rooms/Princess Prep Back Window 2"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="Door_To_Princess_Prep_Back_Window_5" type="Node2D" parent="Rooms/Princess Prep Back Window 2"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(0.733333, 1, 0.2, 1)
 
 [node name="Princess Prep Shed" type="Node2D" parent="Rooms"]
 z_index = 238
@@ -5404,12 +5420,192 @@ visible = false
 script = ExtResource("3_0pr41")
 color = Color(1, 0.733333, 0.2, 1)
 
+[node name="Princess Prep Back Window 3" type="Node2D" parent="Rooms"]
+z_index = 240
+position = Vector2(-2290, 3206)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["048_Princess_Prep_Back_Window_2", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office;", "", "", "", "", "", "", "", ""]
+id = "048_Princess_Prep_Back_Window_3"
+label = "Princess Prep Back Window 3"
+description = "John takes the loose nail he still posesses and after a couple of tries manages to undo the latch on the window, allowing him to open it.
+He climbs through  to face a basic office desk, and a couple of plants to his left and right.
+One of the plants seems to be shuddering of it's own accord.
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office" type="Node2D" parent="Rooms/Princess Prep Back Window 3"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Back Window 4" type="Node2D" parent="Rooms"]
+z_index = 241
+position = Vector2(-1645, 3203)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["048_Princess_Prep_Back_Window_2", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office;", "", "", "", "", "", "", "", ""]
+id = "048_Princess_Prep_Back_Window_4"
+label = "Princess Prep Back Window 4"
+description = "John use the prybar to force open the window.  The latch finally breaks and he's able to slip in side.
+Once through  to face a basic office desk, and a couple of plants to his left and right.
+One of the plants seems to be shuddering of it's own accord.
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office" type="Node2D" parent="Rooms/Princess Prep Back Window 4"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Back Window 5" type="Node2D" parent="Rooms"]
+z_index = 242
+position = Vector2(-1005, 3203)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["048_Princess_Prep_Back_Window_2", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office;", "", "", "", "", "", "", "", ""]
+id = "048_Princess_Prep_Back_Window_5"
+label = "Princess Prep Back Window 5"
+description = "As John scans all around the window, he notices a corner brick seems loose, and after prying it away from the building, he uses it to smash in a pane of glass.
+He reaches around carefully and undoes the latch, and slides open the window.
+He climbs through  to face a basic office desk, and a couple of plants to his left and right.
+One of the plants seems to be shuddering of it's own accord.
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office" type="Node2D" parent="Rooms/Princess Prep Back Window 5"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Office" type="Node2D" parent="Rooms"]
+z_index = 243
+position = Vector2(-1651, 3539)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["048_Princess_Prep_Back_Window_3", "048_Princess_Prep_Back_Window_4", "048_Princess_Prep_Back_Window_5", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_1;", "ch: 2, dest: 050_Princess_Prep_Office_2;", "ch: 3, dest: 050_Princess_Prep_Office_6;", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office"
+label = "Princess Prep Office"
+description = "John looks around the room to see what else is there.
+Other than the desk and the two plants that flank him, he notices the office chair turned up in the middle of the room.
+He also ntoices a Filing cabinet to his right.
+
+Hit 1 if you want John to check out the desk.
+Hit 2 if you want John to check out the plants.
+Hit 3 if you want John to check out the filing cabinet.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office_1" type="Node2D" parent="Rooms/Princess Prep Office"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Princess_Prep_Office_2" type="Node2D" parent="Rooms/Princess Prep Office"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="Door_To_Princess_Prep_Office_6" type="Node2D" parent="Rooms/Princess Prep Office"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(0.733333, 1, 0.2, 1)
+
+[node name="Princess Prep Office 1" type="Node2D" parent="Rooms"]
+z_index = 246
+position = Vector2(-2745, 4068)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office", "", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_1"
+label = "Princess Prep Office 1"
+description = "There's nothing here yet.  Hit 0 to quit."
+
+[node name="Princess Prep Office 2" type="Node2D" parent="Rooms"]
+z_index = 247
+position = Vector2(-2066, 4068)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office", "", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_2"
+label = "Princess Prep Office 2"
+description = "There's nothing here yet.  Hit 0 to quit."
+
+[node name="Princess Prep Office 3" type="Node2D" parent="Rooms"]
+z_index = 248
+position = Vector2(-2745, 4421)
+script = ExtResource("2_2nukr")
+id = "050_Princess_Prep_Office_3"
+label = "Princess Prep Office 3"
+description = "There's nothing here yet.  Hit 0 to quit."
+
+[node name="Princess Prep Office 4" type="Node2D" parent="Rooms"]
+z_index = 249
+position = Vector2(-2068, 4418)
+script = ExtResource("2_2nukr")
+id = "050_Princess_Prep_Office_4"
+label = "Princess Prep Office 4"
+description = "There's nothing here yet.  Hit 0 to quit."
+
+[node name="Princess Prep Office 5" type="Node2D" parent="Rooms"]
+z_index = 250
+position = Vector2(-2423, 4756)
+script = ExtResource("2_2nukr")
+id = "050_Princess_Prep_Office_5"
+label = "Princess Prep Office 5"
+description = "There's nothing here yet.  Hit 0 to quit."
+
+[node name="Princess Prep Office 6" type="Node2D" parent="Rooms"]
+z_index = 251
+position = Vector2(-1056, 4068)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office", "", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_6"
+label = "Princess Prep Office 6"
+description = "There's nothing here yet.  Hit 0 to quit."
+
+[node name="Princess Prep Office 7" type="Node2D" parent="Rooms"]
+z_index = 252
+position = Vector2(-1400, 4418)
+script = ExtResource("2_2nukr")
+id = "050_Princess_Prep_Office_7"
+label = "Princess Prep Office 7"
+description = "There's nothing here yet.  Hit 0 to quit."
+
+[node name="Princess Prep Office 8" type="Node2D" parent="Rooms"]
+z_index = 253
+position = Vector2(-750, 4418)
+script = ExtResource("2_2nukr")
+id = "050_Princess_Prep_Office_8"
+label = "Princess Prep Office 8"
+description = "There's nothing here yet.  Hit 0 to quit."
+
+[node name="Princess Prep Office 9" type="Node2D" parent="Rooms"]
+z_index = 254
+position = Vector2(-1402, 4756)
+script = ExtResource("2_2nukr")
+id = "050_Princess_Prep_Office_9"
+label = "Princess Prep Office 9"
+description = "There's nothing here yet.  Hit 0 to quit."
+
+[node name="Princess Prep Office 10" type="Node2D" parent="Rooms"]
+z_index = 255
+position = Vector2(-750, 4756)
+script = ExtResource("2_2nukr")
+id = "050_Princess_Prep_Office_10"
+label = "Princess Prep Office 10"
+description = "There's nothing here yet.  Hit 0 to quit."
+
 [node name="LineOverlay" type="Node2D" parent="."]
 z_index = -4096
 script = ExtResource("4_p3fhn")
 metadata/_edit_lock_ = true
 
 [node name="LayoutCamera" type="Camera2D" parent="."]
-position = Vector2(-1167.48, -31956.9)
-zoom = Vector2(0.972883, 0.972883)
+position = Vector2(-1128.16, -31931.6)
+zoom = Vector2(1.48233, 1.48233)
 script = ExtResource("5_xw3br")
