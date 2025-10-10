@@ -8,6 +8,7 @@ static var has_loaded_rooms = false
 
 @onready var layout_tool = $"."
 @onready var rooms = $Rooms
+@onready var layout_cursor = $LayoutCursor
 
 var line_overlay = null
 
@@ -573,6 +574,8 @@ func topological_sort_rooms() -> Array:
 var selection_box : Area2D;
 var collision_shape : CollisionShape2D;
 var selection_color_rect : ColorRect;
+#var mouse_delta : Vector2;
+#var prev_mouse_pos : Vector2;
 
 func LoadAllRooms():
 #{
@@ -663,76 +666,20 @@ func LoadAllRooms():
 	selection_color_rect = ColorRect.new();
 	selection_color_rect.color = Color( 0.3, 0.6, 1, 0.3 );  # Semi-transparent blue
 	selection_color_rect.position = Vector2.ZERO;       # Start at origin
-	selection_color_rect.size = Vector2( 500, 500 ); #Vector2.ZERO;           # Start with zero size
-	selection_color_rect.visible = true;
+	selection_color_rect.size = Vector2( 20, 20 ); #Vector2.ZERO;           # Start with zero size
+	selection_color_rect.visible = false;
 	rooms.add_child(selection_color_rect)                  # Add to rooms container
 
+	#prev_mouse_pos = GetMousePosition();
+	#mouse_delta = Vector2.ZERO;
 	print( "End of LoadAllRooms" );
 	
 #}  // end LoadAllRooms
 
-func UpdateOverlay():
-#{
-	for room in rooms.get_children():
-	#{
-		if room is LayoutRoom:
-			if( room.previous_position != room.position ):
-				line_overlay.UpdateLines( room.id );
-				room.previous_position = room.position;
-				
-	#}  // end for room
-	
-#}  // end func UpdateLines()
-
-var last_zoom_level : float = 1.0;
-var line_thickness : float = 5.0;
-var current_zoom_level = 2.0
-
-func HandleZoom( ):
-#{
-	current_zoom_level = get_viewport().get_final_transform().x.x;
-	
-	if( not Engine.is_editor_hint() ):
-		if( camera ):
-			current_zoom_level = camera.zoom.x;
-			
-	last_zoom_level = current_zoom_level;
-	line_thickness = 2.0 / current_zoom_level;
-	if( line_overlay ):
-		line_overlay.UpdateAllLines( line_thickness );
-
-#}  // end HandleZoom()
-
-func _process(_delta: float) -> void:
-	UpdateOverlay();
-	HandleZoom();
-	
-	if( not Engine.is_editor_hint() ):
-		if( camera ):
-			pass
 			
 func _connect_room(room: LayoutRoom) -> void:
 	room.connect("clicked", Callable(self, "_on_room_clicked"))
 
-func GetMousePosition() -> Vector2:
-#{
-	#var mouse_pos = camera.get_viewport().get_mouse_position()
-	#var mouse_local = rooms.to_local(mouse_pos)
-	
-	var mouse_local = Vector2.ZERO;
-	
-	if( camera ):
-	#{
-		var viewport_mouse_pos = camera.get_viewport().get_mouse_position();
-	#}
-	else:
-		print( "Warning: camera non-existant, defaulting to ZERO" );
-		
-	return mouse_local;
-
-#}  // end GetMousePosition
-
-var drag_start_pos := Vector2.ZERO
 
 # Currently selected rooms
 var selected_rooms: Array[LayoutRoom] = []
@@ -750,6 +697,19 @@ func _on_room_clicked(room: LayoutRoom, shift: bool, ctrl: bool):
 	pending_shift = shift;
 	pending_ctrl = ctrl;
 #end; { func _on_room_clicked()
+
+# Helper to select a room
+func _select_room(room: LayoutRoom) -> void:
+	selected_rooms.append(room)
+	room.is_selected = true
+	room.UpdateHighlight()
+
+# Helper to clear all selections
+func _clear_selection() -> void:
+	for room in selected_rooms:
+		room.is_selected = false
+		room.UpdateHighlight()
+	selected_rooms.clear()
 
 func ProcessSingleClick(room: LayoutRoom, shift: bool, ctrl: bool):
 #{
@@ -784,7 +744,8 @@ func ProcessSingleClick(room: LayoutRoom, shift: bool, ctrl: bool):
 	# Start drag if clicked on selected room
 	if( selected_rooms.has(room) ):
 		is_dragging = true;
-		drag_start_pos = GetMousePosition();
+		if( camera ):
+			drag_start_pos = GetMousePosition();
 		print("Drag started on:", room.name);
 		
 #}  // end ProcessSingleClick()
@@ -799,23 +760,79 @@ func get_mouse_in_rooms() -> Vector2:
 	# Convert global position to local position relative to the rooms node
 	return rooms.to_local(mouse_global)
 
-func _input(event):
+func UpdateOverlay():
+#{
+	for room in rooms.get_children():
+	#{
+		if room is LayoutRoom:
+			if( room.previous_position != room.position ):
+				line_overlay.UpdateLines( room.id );
+				room.previous_position = room.position;
+				
+	#}  // end for room
 	
+#}  // end func UpdateLines()
+
+var last_zoom_level : float = 1.0;
+var line_thickness : float = 5.0;
+var current_zoom_level = 2.0
+
+func HandleZoom( ):
+#{
+	current_zoom_level = get_viewport().get_final_transform().x.x;
+	
+	if( not Engine.is_editor_hint() ):
+		if( camera ):
+			current_zoom_level = camera.zoom.x;
+			
+	last_zoom_level = current_zoom_level;
+	line_thickness = 2.0 / current_zoom_level;
+	if( line_overlay ):
+		line_overlay.UpdateAllLines( line_thickness );
+
+#}  // end HandleZoom()
+
+var drag_start_pos := Vector2.ZERO
+
+func GetMousePosition() -> Vector2:
+#{
+	
+	var mouse_pos = get_viewport().size / 2; #Vector2.ZERO;
+	
+	if( camera ):
+	#{
+		mouse_pos = camera.get_global_mouse_position();
+	#}
+	else:
+		print( "Warning: camera non-existant, defaulting to CENTER of viewport." );
+		
+	return mouse_pos;
+
+#}  // end GetMousePosition
+
+var is_moving = false;
+
+func _input(event):
+#{
 	# Detect empty-space clicks
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if( event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed ):
+		is_dragging = true;
+		drag_start_pos = GetMousePosition();
+		print( "---" );
+		print( "Drag started" );
+		print("drag start = ", drag_start_pos );
+
 		if( camera ):
 		#{
-			var main_menu_pos = GetRoomChildren()[ 0 ].position;
-			var local_mouse_pos = GetMousePosition();
-			local_mouse_pos /= camera.zoom
-			local_mouse_pos += main_menu_pos;
-			print( "local_mouse_pos = " + str( local_mouse_pos ) + ", main menu position = " + str( main_menu_pos ) );
-			print( "camera global: ", camera.global_position );
-			print( "main_menu global: ", rooms.to_global( main_menu_pos ) );
-			print( "mouse viewport coords = ", camera.get_viewport().get_mouse_position() );
-			print( "mouse global position = ", camera.get_global_mouse_position() );
-			if( selection_color_rect ):
-				selection_color_rect.position = camera.global_position;
+			#var main_menu_pos = GetRoomChildren()[ 0 ].position;
+			#print( "main_menu global: ", rooms.to_global( main_menu_pos ) );
+			#print( "mouse viewport coords = ", camera.get_viewport().get_mouse_position() );
+			#print( "mouse global position = ", GetMousePosition() );
+			
+			if( selection_box and selection_color_rect ):
+				selection_box.position = GetMousePosition();
+				selection_color_rect.visible = true;
+				selection_color_rect.position = selection_box.position;
 		#}
 		
 		var clicked_any_room = false;
@@ -831,26 +848,34 @@ func _input(event):
 			
 		# Drag end
 		is_dragging = false
-		print("Drag ended")
+		selection_color_rect.visible = false;
+		print("Drag ended");
 	
 	# Mouse motion drag
-	elif event is InputEventMouseMotion and is_dragging:
-		#var delta = event.relative / get_zoom() if has_method("get_zoom") else event.relative
+	if event is InputEventMouseMotion and is_dragging:
 		var delta = event.relative;
-		if camera:
-			delta /= camera.zoom;
+		is_moving = true;
+
 		for room in selected_rooms:
 			room.position += delta
+	else:
+		is_moving = false;
+		
+#} // end of _input()
 
-# Helper to select a room
-func _select_room(room: LayoutRoom) -> void:
-	selected_rooms.append(room)
-	room.is_selected = true
-	room.UpdateHighlight()
-
-# Helper to clear all selections
-func _clear_selection() -> void:
-	for room in selected_rooms:
-		room.is_selected = false
-		room.UpdateHighlight()
-	selected_rooms.clear()
+func _process( _delta: float ) -> void:
+	UpdateOverlay();
+	HandleZoom();
+	
+	if( not Engine.is_editor_hint() ):
+		if( camera ):
+			if( is_dragging and selected_rooms.is_empty() ):
+			
+				if( selection_box and selection_color_rect ):
+					
+					if( is_moving ):
+					
+						selection_box.position = GetMousePosition();
+						selection_color_rect.position = selection_box.position;
+						
+						pass;

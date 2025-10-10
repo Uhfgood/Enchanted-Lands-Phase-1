@@ -87,8 +87,8 @@ func UpdateLines( room_id : String, thickness : float = 5.0, do_redraw : bool = 
 						
 		var dest_room : LayoutRoom = rooms[ door.destination ];
 		
-		var start_pos = room.GetCenterPos();
-		var end_pos = dest_room.GetCenterPos();
+		var start_pos = room.global_position;
+		var end_pos = dest_room.global_position;
 		
 		if not line_collection.has( door.destination ):
 			# Assign next color from palette, cycle through palette
@@ -116,7 +116,7 @@ func UpdateLines( room_id : String, thickness : float = 5.0, do_redraw : bool = 
 			# check to see that the room lines collection has an entry for the current room
 			# and then update the end position of that particular line, to the room's current position.
 			if( lines[ inbound ].has( room.id ) ):
-				lines[ inbound ][ room.id ][ "end" ] = room.GetCenterPos();
+				lines[ inbound ][ room.id ][ "end" ] = room.global_position;
 				#print( "Inbound updating ", room.id );
 		#}
 	#}

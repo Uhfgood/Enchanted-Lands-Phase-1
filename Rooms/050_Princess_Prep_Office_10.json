@@ -1,8 +1,13 @@
 {
     "id": "050_Princess_Prep_Office_10",
     "label": "Princess Prep Office 10",
-    "description": "There's nothing here yet.  Hit 0 to quit.",
+    "description": "John notices the desk drawer is open, and he sees a paper which starts off as: \"Princess Karin Elspeth of Verdance itinerary\" and then lists off some activities, the first being \"checking in at the Grand Enchanted Landian Hotel\" which John notes for later.\n\nMeanwhile a con artist from Cerulea is about to take one his his biggest gambles...\n\nHit 1 to continue.\n\nHit 0 to exit.\n",
     "doors":
     [
+        {
+            "id": "Door_To_Random_Villages_1",
+            "choice": "1",
+            "destination": "009_Random_Villages_1"
+        }
     ]
 }

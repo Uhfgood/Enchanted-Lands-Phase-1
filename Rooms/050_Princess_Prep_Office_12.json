@@ -1,0 +1,13 @@
+{
+    "id": "050_Princess_Prep_Office_12",
+    "label": "Princess Prep Office 12",
+    "description": "John heads over to the plant where the voice is coming from, and starts plucking off flowers.\nEventually it releases it's captive, a middle-aged women, who confirms she is the Head Mistress.\nWhen she's able to talk she tells him that a male and female voice entered the room and ransacked the office.\nThe male said the female needed to get back to Fairy Godcollege if she's going to train an army of witches.\n\nHit 1 to continue to the desk.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Princess_Prep_Office_4",
+            "choice": "1",
+            "destination": "050_Princess_Prep_Office_4"
+        }
+    ]
+}

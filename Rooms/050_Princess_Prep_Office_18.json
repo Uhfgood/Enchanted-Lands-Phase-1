@@ -1,0 +1,13 @@
+{
+    "id": "050_Princess_Prep_Office_18",
+    "label": "Princess Prep Office 18",
+    "description": "John heads over to the plant where the voice is coming from, and starts plucking off flowers.\nEventually it releases it's captive, a middle-aged women, who confirms she is the Head Mistress.\nWhen she's able to talk she tells him that a male and female voice entered the room and ransacked the office.\nThe male said the female needed to get back to Fairy Godcollege if she's going to train an army of witches.\n\nMeanwhile a con artist from Cerulea is about to take one his his biggest gambles...\n\nHit 1 to continue.\n\nHit 0 to quit.",
+    "doors":
+    [
+        {
+            "id": "Door_To_Random_Villages_1",
+            "choice": "1",
+            "destination": "009_Random_Villages_1"
+        }
+    ]
+}

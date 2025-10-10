@@ -11,12 +11,12 @@
         },
         {
             "id": "Door_To_Princess_Prep_Back_Window_4",
-            "choice": "1",
+            "choice": "2",
             "destination": "048_Princess_Prep_Back_Window_4"
         },
         {
             "id": "Door_To_Princess_Prep_Back_Window_5",
-            "choice": "1",
+            "choice": "3",
             "destination": "048_Princess_Prep_Back_Window_5"
         }
     ]

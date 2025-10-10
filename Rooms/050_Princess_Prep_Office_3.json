@@ -1,8 +1,18 @@
 {
     "id": "050_Princess_Prep_Office_3",
     "label": "Princess Prep Office 3",
-    "description": "There's nothing here yet.  Hit 0 to quit.",
+    "description": "As John gets close to the shaking plant, he realizes the muffled sounds are actually someone trying to communicate.\nThe voice tells him to either check the other plant for some pruning shears, or start plucking flowers off.\n\nHit 1 to examine the other plant.\nHit 2 to start plucking off flowers.\n\nHit 0 to quit.",
     "doors":
     [
+        {
+            "id": "Door_To_Princess_Prep_Office_13",
+            "choice": "1",
+            "destination": "050_Princess_Prep_Office_13"
+        },
+        {
+            "id": "Door_To_Princess_Prep_Office_14",
+            "choice": "2",
+            "destination": "050_Princess_Prep_Office_14"
+        }
     ]
 }

@@ -1,8 +1,13 @@
 {
     "id": "050_Princess_Prep_Office_7",
     "label": "Princess Prep Office 7",
-    "description": "There's nothing here yet.  Hit 0 to quit.",
+    "description": "John notices the desk drawer is open, and he sees a paper which starts off as: \"Princess Karin Elspeth of Verdance itinerary\" and then lists off some activities, the first being \"checking in at the Grand Enchanted Landian Hotel\" which John notes for later.\nJohn hears what sounds like muffled speech coming from the \"active\" plant, and he turns around to where that plant is now on his left.\n\nHit 1 to examine the plant.\n\nHit 0 to exit.\n",
     "doors":
     [
+        {
+            "id": "Door_To_Princess_Prep_Office_9",
+            "choice": "1",
+            "destination": "050_Princess_Prep_Office_9"
+        }
     ]
 }

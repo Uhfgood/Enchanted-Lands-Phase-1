@@ -1,8 +1,18 @@
 {
     "id": "050_Princess_Prep_Office_6",
     "label": "Princess Prep Office 6",
-    "description": "There's nothing here yet.  Hit 0 to quit.",
+    "description": "John examines the filing cabinet.  \nHe notices Princess Karin's file folder sitting on top of the other folders, but there's nothing inside.\nAs he goes through the rest of the cabinet, he sees two files that were pulled up but apparently not looked through.\nThe name Violet Moonshadow is one one, and Scarlet \"Red\" Clover is on the other, John decides to take them.\n\nHit 1 for John to continue to the desk.\nHit 2 for John to check out the plants.\n\nHit 0 to quit.",
     "doors":
     [
+        {
+            "id": "Door_To_Princess_Prep_Office_7",
+            "choice": "1",
+            "destination": "050_Princess_Prep_Office_7"
+        },
+        {
+            "id": "Door_To_Princess_Prep_Office_8",
+            "choice": "2",
+            "destination": "050_Princess_Prep_Office_8"
+        }
     ]
 }

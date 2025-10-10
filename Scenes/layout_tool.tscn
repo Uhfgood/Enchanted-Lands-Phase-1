@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl74drpt5u5vp"]
+[gd_scene load_steps=7 format=3 uid="uid://bl74drpt5u5vp"]
 
 [ext_resource type="Script" path="res://Scripts/layout_tool.gd" id="1_jex0b"]
 [ext_resource type="Script" path="res://Scripts/layout_room.gd" id="2_2nukr"]
 [ext_resource type="Script" path="res://Scripts/layout_door.gd" id="3_0pr41"]
 [ext_resource type="Script" path="res://Scripts/MultiLine2D.gd" id="4_p3fhn"]
 [ext_resource type="Script" path="res://Scripts/layout_camera.gd" id="5_xw3br"]
+[ext_resource type="Script" path="res://Scripts/layout_cursor.gd" id="6_gn4we"]
 
 [node name="LayoutTool" type="Node"]
 script = ExtResource("1_jex0b")
@@ -1790,8 +1791,9 @@ color = Color(1, 0.2, 0.2, 1)
 
 [node name="Random Villages 1" type="Node2D" parent="Rooms"]
 z_index = 79
-position = Vector2(-1802, 7021)
+position = Vector2(-1793, 5342)
 script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_5", "050_Princess_Prep_Office_17", "050_Princess_Prep_Office_18", "050_Princess_Prep_Office_10", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 009_Random_Villages_2;", "", "", "", "", "", "", "", ""]
 id = "009_Random_Villages_1"
 label = "Random Villages 1"
@@ -1809,7 +1811,7 @@ color = Color(1, 0.2, 0.2, 1)
 
 [node name="Random Villages 2" type="Node2D" parent="Rooms"]
 z_index = 80
-position = Vector2(-1800, 7329)
+position = Vector2(-1796, 7302)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["009_Random_Villages_1", "", "", "", "", "", "", "", ""]
 door_specs = ["ch: 1, dest: 005_Sky_14;", "", "", "", "", "", "", "", ""]
@@ -2855,9 +2857,7 @@ inbound_rooms = ["015_Knight_School_Pool_3", "015_Knight_School_Pool_4", "", "",
 door_specs = ["ch: 1, dest: 048_Princess_Prep_Back_Window;", "ch: 2, dest: 049_Princess_Prep_Shed;", "", "", "", "", "", "", ""]
 id = "016_Princess_Prep"
 label = "Princess Prep"
-description = "When John sneaks into Princess Prep he learns her first stop was supposed to be the Grand Enchanted Landian Hotel.
-
-When John arrives at Princess Prep he approaches the front doors and attempts to open them, which fail.
+description = "When John arrives at Princess Prep he approaches the front doors and attempts to open them, which fail.
 Something seems to be barring them, so he makes his way around to the back, where there seems to be a boarded up, wide, picture window.
 Looking around he notices what looks to be a utility shed, probably for the groundskeeper to store all of his tools.
 
@@ -5345,7 +5345,7 @@ z_index = 237
 position = Vector2(-1638, 2883)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["049_Princess_Prep_Shed_1", "039_Princess_Prep_Door", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 048_Princess_Prep_Back_Window_3;", "ch: 1, dest: 048_Princess_Prep_Back_Window_4;", "ch: 1, dest: 048_Princess_Prep_Back_Window_5;", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 048_Princess_Prep_Back_Window_3;", "ch: 2, dest: 048_Princess_Prep_Back_Window_4;", "ch: 3, dest: 048_Princess_Prep_Back_Window_5;", "", "", "", "", "", ""]
 id = "048_Princess_Prep_Back_Window_2"
 label = "Princess Prep Back Window 2"
 description = "John takes the prybar and pulls off the boards.
@@ -5373,8 +5373,74 @@ visible = false
 script = ExtResource("3_0pr41")
 color = Color(0.733333, 1, 0.2, 1)
 
-[node name="Princess Prep Shed" type="Node2D" parent="Rooms"]
+[node name="Princess Prep Back Window 3" type="Node2D" parent="Rooms"]
 z_index = 238
+position = Vector2(-2290, 3206)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["048_Princess_Prep_Back_Window_2", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office;", "", "", "", "", "", "", "", ""]
+id = "048_Princess_Prep_Back_Window_3"
+label = "Princess Prep Back Window 3"
+description = "John takes the loose nail he still posesses and after a couple of tries manages to undo the latch on the window, allowing him to open it.
+He climbs through  to face a basic office desk, and a couple of plants to his left and right.
+One of the plants seems to be shuddering of it's own accord.
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office" type="Node2D" parent="Rooms/Princess Prep Back Window 3"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Back Window 4" type="Node2D" parent="Rooms"]
+z_index = 239
+position = Vector2(-1645, 3203)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["048_Princess_Prep_Back_Window_2", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office;", "", "", "", "", "", "", "", ""]
+id = "048_Princess_Prep_Back_Window_4"
+label = "Princess Prep Back Window 4"
+description = "John uses the prybar to force open the window.  
+The latch finally breaks and he's able to slip in side.
+Once through he faces a basic office desk, and a couple of plants to his left and right.
+One of the plants seems to be shuddering of it's own accord.
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office" type="Node2D" parent="Rooms/Princess Prep Back Window 4"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Back Window 5" type="Node2D" parent="Rooms"]
+z_index = 240
+position = Vector2(-1005, 3203)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["048_Princess_Prep_Back_Window_2", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office;", "", "", "", "", "", "", "", ""]
+id = "048_Princess_Prep_Back_Window_5"
+label = "Princess Prep Back Window 5"
+description = "As John scans all around the window, he notices a corner brick seems loose.
+After prying it away from the building, he uses it to smash in a pane of glass.
+He reaches around carefully and undoes the latch, and slides open the window.
+He climbs through to face a basic office desk, and a couple of plants to his left and right.
+One of the plants seems to be shuddering of it's own accord.
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office" type="Node2D" parent="Rooms/Princess Prep Back Window 5"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Shed" type="Node2D" parent="Rooms"]
+z_index = 241
 position = Vector2(-1000, 1118)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["016_Princess_Prep", "", "", "", "", "", "", "", ""]
@@ -5394,7 +5460,7 @@ script = ExtResource("3_0pr41")
 color = Color(1, 0.2, 0.2, 1)
 
 [node name="Princess Prep Shed 1" type="Node2D" parent="Rooms"]
-z_index = 239
+z_index = 242
 position = Vector2(-1640, 2251)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["048_Princess_Prep_Back_Window", "048_Princess_Prep_Back_Window_1", "", "", "", "", "", "", ""]
@@ -5420,70 +5486,6 @@ visible = false
 script = ExtResource("3_0pr41")
 color = Color(1, 0.733333, 0.2, 1)
 
-[node name="Princess Prep Back Window 3" type="Node2D" parent="Rooms"]
-z_index = 240
-position = Vector2(-2290, 3206)
-script = ExtResource("2_2nukr")
-inbound_rooms = ["048_Princess_Prep_Back_Window_2", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 050_Princess_Prep_Office;", "", "", "", "", "", "", "", ""]
-id = "048_Princess_Prep_Back_Window_3"
-label = "Princess Prep Back Window 3"
-description = "John takes the loose nail he still posesses and after a couple of tries manages to undo the latch on the window, allowing him to open it.
-He climbs through  to face a basic office desk, and a couple of plants to his left and right.
-One of the plants seems to be shuddering of it's own accord.
-
-Hit 1 to continue.
-
-Hit 0 to quit."
-
-[node name="Door_To_Princess_Prep_Office" type="Node2D" parent="Rooms/Princess Prep Back Window 3"]
-visible = false
-script = ExtResource("3_0pr41")
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="Princess Prep Back Window 4" type="Node2D" parent="Rooms"]
-z_index = 241
-position = Vector2(-1645, 3203)
-script = ExtResource("2_2nukr")
-inbound_rooms = ["048_Princess_Prep_Back_Window_2", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 050_Princess_Prep_Office;", "", "", "", "", "", "", "", ""]
-id = "048_Princess_Prep_Back_Window_4"
-label = "Princess Prep Back Window 4"
-description = "John use the prybar to force open the window.  The latch finally breaks and he's able to slip in side.
-Once through  to face a basic office desk, and a couple of plants to his left and right.
-One of the plants seems to be shuddering of it's own accord.
-
-Hit 1 to continue.
-
-Hit 0 to quit."
-
-[node name="Door_To_Princess_Prep_Office" type="Node2D" parent="Rooms/Princess Prep Back Window 4"]
-visible = false
-script = ExtResource("3_0pr41")
-color = Color(1, 0.2, 0.2, 1)
-
-[node name="Princess Prep Back Window 5" type="Node2D" parent="Rooms"]
-z_index = 242
-position = Vector2(-1005, 3203)
-script = ExtResource("2_2nukr")
-inbound_rooms = ["048_Princess_Prep_Back_Window_2", "", "", "", "", "", "", "", ""]
-door_specs = ["ch: 1, dest: 050_Princess_Prep_Office;", "", "", "", "", "", "", "", ""]
-id = "048_Princess_Prep_Back_Window_5"
-label = "Princess Prep Back Window 5"
-description = "As John scans all around the window, he notices a corner brick seems loose, and after prying it away from the building, he uses it to smash in a pane of glass.
-He reaches around carefully and undoes the latch, and slides open the window.
-He climbs through  to face a basic office desk, and a couple of plants to his left and right.
-One of the plants seems to be shuddering of it's own accord.
-
-Hit 1 to continue.
-
-Hit 0 to quit."
-
-[node name="Door_To_Princess_Prep_Office" type="Node2D" parent="Rooms/Princess Prep Back Window 5"]
-visible = false
-script = ExtResource("3_0pr41")
-color = Color(1, 0.2, 0.2, 1)
-
 [node name="Princess Prep Office" type="Node2D" parent="Rooms"]
 z_index = 243
 position = Vector2(-1651, 3539)
@@ -5492,9 +5494,11 @@ inbound_rooms = ["048_Princess_Prep_Back_Window_3", "048_Princess_Prep_Back_Wind
 door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_1;", "ch: 2, dest: 050_Princess_Prep_Office_2;", "ch: 3, dest: 050_Princess_Prep_Office_6;", "", "", "", "", "", ""]
 id = "050_Princess_Prep_Office"
 label = "Princess Prep Office"
-description = "John looks around the room to see what else is there.
-Other than the desk and the two plants that flank him, he notices the office chair turned up in the middle of the room.
-He also ntoices a Filing cabinet to his right.
+description = "A filing cabinet to John's left is open.  
+Files and papers are strewn about.  
+The desk chair is turned upside down.
+The desk itself is opened.
+The plant to his right seems to be shaking, in fact, it seems to have something inside of it.
 
 Hit 1 if you want John to check out the desk.
 Hit 2 if you want John to check out the plants.
@@ -5518,87 +5522,428 @@ script = ExtResource("3_0pr41")
 color = Color(0.733333, 1, 0.2, 1)
 
 [node name="Princess Prep Office 1" type="Node2D" parent="Rooms"]
-z_index = 246
-position = Vector2(-2745, 4068)
+z_index = 244
+position = Vector2(-3238, 3870)
 script = ExtResource("2_2nukr")
 inbound_rooms = ["050_Princess_Prep_Office", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_3;", "", "", "", "", "", "", "", ""]
 id = "050_Princess_Prep_Office_1"
 label = "Princess Prep Office 1"
-description = "There's nothing here yet.  Hit 0 to quit."
+description = "John notices the desk drawer is open, and he sees a paper which starts off as: \"Princess Karin Elspeth of Verdance itinerary\" and then lists off some activities, the first being \"checking in at the Grand Enchanted Landian Hotel\" which John notes for later.
+John hears what sounds like muffled speech coming from the \"active\" plant, and he turns around to where that plant is now on his left.
 
-[node name="Princess Prep Office 2" type="Node2D" parent="Rooms"]
-z_index = 247
-position = Vector2(-2066, 4068)
-script = ExtResource("2_2nukr")
-inbound_rooms = ["050_Princess_Prep_Office", "", "", "", "", "", "", "", ""]
-id = "050_Princess_Prep_Office_2"
-label = "Princess Prep Office 2"
-description = "There's nothing here yet.  Hit 0 to quit."
+Hit 1 to examine the plant.
 
-[node name="Princess Prep Office 3" type="Node2D" parent="Rooms"]
-z_index = 248
-position = Vector2(-2745, 4421)
-script = ExtResource("2_2nukr")
-id = "050_Princess_Prep_Office_3"
-label = "Princess Prep Office 3"
-description = "There's nothing here yet.  Hit 0 to quit."
+Hit 0 to exit.
 
-[node name="Princess Prep Office 4" type="Node2D" parent="Rooms"]
-z_index = 249
-position = Vector2(-2068, 4418)
-script = ExtResource("2_2nukr")
-id = "050_Princess_Prep_Office_4"
-label = "Princess Prep Office 4"
-description = "There's nothing here yet.  Hit 0 to quit."
+"
 
-[node name="Princess Prep Office 5" type="Node2D" parent="Rooms"]
-z_index = 250
-position = Vector2(-2423, 4756)
-script = ExtResource("2_2nukr")
-id = "050_Princess_Prep_Office_5"
-label = "Princess Prep Office 5"
-description = "There's nothing here yet.  Hit 0 to quit."
-
-[node name="Princess Prep Office 6" type="Node2D" parent="Rooms"]
-z_index = 251
-position = Vector2(-1056, 4068)
-script = ExtResource("2_2nukr")
-inbound_rooms = ["050_Princess_Prep_Office", "", "", "", "", "", "", "", ""]
-id = "050_Princess_Prep_Office_6"
-label = "Princess Prep Office 6"
-description = "There's nothing here yet.  Hit 0 to quit."
-
-[node name="Princess Prep Office 7" type="Node2D" parent="Rooms"]
-z_index = 252
-position = Vector2(-1400, 4418)
-script = ExtResource("2_2nukr")
-id = "050_Princess_Prep_Office_7"
-label = "Princess Prep Office 7"
-description = "There's nothing here yet.  Hit 0 to quit."
-
-[node name="Princess Prep Office 8" type="Node2D" parent="Rooms"]
-z_index = 253
-position = Vector2(-750, 4418)
-script = ExtResource("2_2nukr")
-id = "050_Princess_Prep_Office_8"
-label = "Princess Prep Office 8"
-description = "There's nothing here yet.  Hit 0 to quit."
-
-[node name="Princess Prep Office 9" type="Node2D" parent="Rooms"]
-z_index = 254
-position = Vector2(-1402, 4756)
-script = ExtResource("2_2nukr")
-id = "050_Princess_Prep_Office_9"
-label = "Princess Prep Office 9"
-description = "There's nothing here yet.  Hit 0 to quit."
+[node name="Door_To_Princess_Prep_Office_3" type="Node2D" parent="Rooms/Princess Prep Office 1"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
 
 [node name="Princess Prep Office 10" type="Node2D" parent="Rooms"]
-z_index = 255
-position = Vector2(-750, 4756)
+z_index = 245
+position = Vector2(-62, 4884)
 script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_15", "050_Princess_Prep_Office_16", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 009_Random_Villages_1;", "", "", "", "", "", "", "", ""]
 id = "050_Princess_Prep_Office_10"
 label = "Princess Prep Office 10"
-description = "There's nothing here yet.  Hit 0 to quit."
+description = "John notices the desk drawer is open, and he sees a paper which starts off as: \"Princess Karin Elspeth of Verdance itinerary\" and then lists off some activities, the first being \"checking in at the Grand Enchanted Landian Hotel\" which John notes for later.
+
+Meanwhile a con artist from Cerulea is about to take one his his biggest gambles...
+
+Hit 1 to continue.
+
+Hit 0 to exit.
+"
+
+[node name="Door_To_Random_Villages_1" type="Node2D" parent="Rooms/Princess Prep Office 10"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Office 11" type="Node2D" parent="Rooms"]
+z_index = 246
+position = Vector2(-2511, 4208)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_2", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_4;", "", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_11"
+label = "Princess Prep Office 11"
+description = "John heads over to the completely still plant and grabs the pruning shears that is sitting inside the pot.
+He then starts to prune the other plant, when it releases it's captive, a middle-aged women, who confirms she is the Head Mistress.
+When she's able to talk she tells him that a male and female voice entered the room and ransacked the office.
+The male said the female needed to get back to Fairy Godcollege if she's going to train an army of witches.
+
+Hit 1 to continue to the desk.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office_4" type="Node2D" parent="Rooms/Princess Prep Office 11"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Office 12" type="Node2D" parent="Rooms"]
+z_index = 247
+position = Vector2(-1859, 4208)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_2", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_4;", "", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_12"
+label = "Princess Prep Office 12"
+description = "John heads over to the plant where the voice is coming from, and starts plucking off flowers.
+Eventually it releases it's captive, a middle-aged women, who confirms she is the Head Mistress.
+When she's able to talk she tells him that a male and female voice entered the room and ransacked the office.
+The male said the female needed to get back to Fairy Godcollege if she's going to train an army of witches.
+
+Hit 1 to continue to the desk.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office_4" type="Node2D" parent="Rooms/Princess Prep Office 12"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Office 13" type="Node2D" parent="Rooms"]
+z_index = 248
+position = Vector2(-3540, 4533)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_3", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_5;", "", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_13"
+label = "Princess Prep Office 13"
+description = "John heads over to the completely still plant and grabs the pruning shears that is sitting inside the pot.
+He then starts to prune the other plant, when it releases it's captive, a middle-aged women, who confirms she is the Head Mistress.
+When she's able to talk she tells him that a male and female voice entered the room and ransacked the office.
+The male said the female needed to get back to Fairy Godcollege if she's going to train an army of witches.
+
+Hit 1 to search the filing cabinet.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office_5" type="Node2D" parent="Rooms/Princess Prep Office 13"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Office 14" type="Node2D" parent="Rooms"]
+z_index = 249
+position = Vector2(-2887, 4533)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_3", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_5;", "", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_14"
+label = "Princess Prep Office 14"
+description = "John heads over to the plant where the voice is coming from, and starts plucking off flowers.
+Eventually it releases it's captive, a middle-aged women, who confirms she is the Head Mistress.
+When she's able to talk she tells him that a male and female voice entered the room and ransacked the office.
+The male said the female needed to get back to Fairy Godcollege if she's going to train an army of witches.
+
+Hit 1 to continue to the filing cabinet.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office_5" type="Node2D" parent="Rooms/Princess Prep Office 14"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Office 15" type="Node2D" parent="Rooms"]
+z_index = 250
+position = Vector2(-395, 4568)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_8", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_10;", "", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_15"
+label = "Princess Prep Office 15"
+description = "John heads over to the completely still plant and grabs the pruning shears that is sitting inside the pot.
+He then starts to prune the other plant, when it releases it's captive, a middle-aged women, who confirms she is the Head Mistress.
+When she's able to talk she tells him that a male and female voice entered the room and ransacked the office.
+The male said the female needed to get back to Fairy Godcollege if she's going to train an army of witches.
+
+Hit 1 to continue to the desk.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office_10" type="Node2D" parent="Rooms/Princess Prep Office 15"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Office 16" type="Node2D" parent="Rooms"]
+z_index = 251
+position = Vector2(251, 4570)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_8", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_10;", "", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_16"
+label = "Princess Prep Office 16"
+description = "John heads over to the plant where the voice is coming from, and starts plucking off flowers.
+Eventually it releases it's captive, a middle-aged women, who confirms she is the Head Mistress.
+When she's able to talk she tells him that a male and female voice entered the room and ransacked the office.
+The male said the female needed to get back to Fairy Godcollege if she's going to train an army of witches.
+
+Hit 1 to continue to the desk.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office_10" type="Node2D" parent="Rooms/Princess Prep Office 16"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Office 17" type="Node2D" parent="Rooms"]
+z_index = 252
+position = Vector2(-1448, 4883)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_9", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 009_Random_Villages_1;", "", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_17"
+label = "Princess Prep Office 17"
+description = "John heads over to the completely still plant and grabs the pruning shears that is sitting inside the pot.
+He then starts to prune the other plant, when it releases it's captive, a middle-aged women, who confirms she is the Head Mistress.
+When she's able to talk she tells him that a male and female voice entered the room and ransacked the office.
+The male said the female needed to get back to Fairy Godcollege if she's going to train an army of witches.
+
+Meanwhile a con artist from Cerulea is about to take one his his biggest gambles...
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+
+[node name="Door_To_Random_Villages_1" type="Node2D" parent="Rooms/Princess Prep Office 17"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Office 18" type="Node2D" parent="Rooms"]
+z_index = 253
+position = Vector2(-815, 4879)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_9", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 009_Random_Villages_1;", "", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_18"
+label = "Princess Prep Office 18"
+description = "John heads over to the plant where the voice is coming from, and starts plucking off flowers.
+Eventually it releases it's captive, a middle-aged women, who confirms she is the Head Mistress.
+When she's able to talk she tells him that a male and female voice entered the room and ransacked the office.
+The male said the female needed to get back to Fairy Godcollege if she's going to train an army of witches.
+
+Meanwhile a con artist from Cerulea is about to take one his his biggest gambles...
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+
+[node name="Door_To_Random_Villages_1" type="Node2D" parent="Rooms/Princess Prep Office 18"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Office 2" type="Node2D" parent="Rooms"]
+z_index = 254
+position = Vector2(-2177, 3897)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_11;", "ch: 2, dest: 050_Princess_Prep_Office_12;", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_2"
+label = "Princess Prep Office 2"
+description = "As John gets close to the shaking plant, he realizes the muffled sounds are actually someone trying to communicate.
+The voice tells him to either check the other plant for some pruning shears, or start plucking flowers off.
+
+Hit 1 to examine the other plant.
+Hit 2 to start plucking off flowers.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office_11" type="Node2D" parent="Rooms/Princess Prep Office 2"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Princess_Prep_Office_12" type="Node2D" parent="Rooms/Princess Prep Office 2"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="Princess Prep Office 3" type="Node2D" parent="Rooms"]
+z_index = 255
+position = Vector2(-3222, 4193)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_1", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_13;", "ch: 2, dest: 050_Princess_Prep_Office_14;", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_3"
+label = "Princess Prep Office 3"
+description = "As John gets close to the shaking plant, he realizes the muffled sounds are actually someone trying to communicate.
+The voice tells him to either check the other plant for some pruning shears, or start plucking flowers off.
+
+Hit 1 to examine the other plant.
+Hit 2 to start plucking off flowers.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office_13" type="Node2D" parent="Rooms/Princess Prep Office 3"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Princess_Prep_Office_14" type="Node2D" parent="Rooms/Princess Prep Office 3"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="Princess Prep Office 4" type="Node2D" parent="Rooms"]
+z_index = 256
+position = Vector2(-2189, 4524)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_11", "050_Princess_Prep_Office_12", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_5;", "", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_4"
+label = "Princess Prep Office 4"
+description = "John notices the desk drawer is open, and he sees a paper which starts off as: \"Princess Karin Elspeth of Verdance itinerary\" and then lists off some activities, the first being \"checking in at the Grand Enchanted Landian Hotel\" which John notes for later.
+
+Hit 1 to search the filing cabinet.
+
+Hit 0 to exit.
+"
+
+[node name="Door_To_Princess_Prep_Office_5" type="Node2D" parent="Rooms/Princess Prep Office 4"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Office 5" type="Node2D" parent="Rooms"]
+z_index = 257
+position = Vector2(-2890, 4885)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_13", "050_Princess_Prep_Office_14", "050_Princess_Prep_Office_4", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 009_Random_Villages_1;", "", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_5"
+label = "Princess Prep Office 5"
+description = "John examines the filing cabinet.  
+He notices Princess Karin's file folder sitting on top of the other folders, but there's nothing inside.
+As he goes through the rest of the cabinet, he sees two files that were pulled up but apparently not looked through.
+The name Violet Moonshadow is one one, and Scarlet \"Red\" Clover is on the other, John decides to take them.
+
+Meanwhile a con artist from Cerulea is about to take one his his biggest gambles...
+
+Hit 1 to continue.
+
+Hit 0 to quit."
+
+[node name="Door_To_Random_Villages_1" type="Node2D" parent="Rooms/Princess Prep Office 5"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Office 6" type="Node2D" parent="Rooms"]
+z_index = 258
+position = Vector2(-689, 3858)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_7;", "ch: 2, dest: 050_Princess_Prep_Office_8;", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_6"
+label = "Princess Prep Office 6"
+description = "John examines the filing cabinet.  
+He notices Princess Karin's file folder sitting on top of the other folders, but there's nothing inside.
+As he goes through the rest of the cabinet, he sees two files that were pulled up but apparently not looked through.
+The name Violet Moonshadow is one one, and Scarlet \"Red\" Clover is on the other, John decides to take them.
+
+Hit 1 for John to continue to the desk.
+Hit 2 for John to check out the plants.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office_7" type="Node2D" parent="Rooms/Princess Prep Office 6"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Princess_Prep_Office_8" type="Node2D" parent="Rooms/Princess Prep Office 6"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="Princess Prep Office 7" type="Node2D" parent="Rooms"]
+z_index = 259
+position = Vector2(-1145, 4178)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_6", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_9;", "", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_7"
+label = "Princess Prep Office 7"
+description = "John notices the desk drawer is open, and he sees a paper which starts off as: \"Princess Karin Elspeth of Verdance itinerary\" and then lists off some activities, the first being \"checking in at the Grand Enchanted Landian Hotel\" which John notes for later.
+John hears what sounds like muffled speech coming from the \"active\" plant, and he turns around to where that plant is now on his left.
+
+Hit 1 to examine the plant.
+
+Hit 0 to exit.
+"
+
+[node name="Door_To_Princess_Prep_Office_9" type="Node2D" parent="Rooms/Princess Prep Office 7"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Princess Prep Office 8" type="Node2D" parent="Rooms"]
+z_index = 260
+position = Vector2(-68, 4265)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_6", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_15;", "ch: 2, dest: 050_Princess_Prep_Office_16;", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_8"
+label = "Princess Prep Office 8"
+description = "As John gets close to the shaking plant, he realizes the muffled sounds are actually someone trying to communicate.
+The voice tells him to either check the other plant for some pruning shears, or start plucking flowers off.
+
+Hit 1 to examine the other plant.
+Hit 2 to start plucking off flowers.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office_15" type="Node2D" parent="Rooms/Princess Prep Office 8"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Princess_Prep_Office_16" type="Node2D" parent="Rooms/Princess Prep Office 8"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="Princess Prep Office 9" type="Node2D" parent="Rooms"]
+z_index = 261
+position = Vector2(-1136, 4569)
+script = ExtResource("2_2nukr")
+inbound_rooms = ["050_Princess_Prep_Office_7", "", "", "", "", "", "", "", ""]
+door_specs = ["ch: 1, dest: 050_Princess_Prep_Office_17;", "ch: 2, dest: 050_Princess_Prep_Office_18;", "", "", "", "", "", "", ""]
+id = "050_Princess_Prep_Office_9"
+label = "Princess Prep Office 9"
+description = "As John gets close to the shaking plant, he realizes the muffled sounds are actually someone trying to communicate.
+The voice tells him to either check the other plant for some pruning shears, or start plucking flowers off.
+
+Hit 1 to examine the other plant.
+Hit 2 to start plucking off flowers.
+
+Hit 0 to quit."
+
+[node name="Door_To_Princess_Prep_Office_17" type="Node2D" parent="Rooms/Princess Prep Office 9"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="Door_To_Princess_Prep_Office_18" type="Node2D" parent="Rooms/Princess Prep Office 9"]
+visible = false
+script = ExtResource("3_0pr41")
+color = Color(1, 0.733333, 0.2, 1)
+
+[node name="LayoutCursor" type="Node2D" parent="."]
+script = ExtResource("6_gn4we")
 
 [node name="LineOverlay" type="Node2D" parent="."]
 z_index = -4096
@@ -5606,6 +5951,6 @@ script = ExtResource("4_p3fhn")
 metadata/_edit_lock_ = true
 
 [node name="LayoutCamera" type="Camera2D" parent="."]
-position = Vector2(-1128.16, -31931.6)
-zoom = Vector2(1.48233, 1.48233)
+position = Vector2(-1083.4, -32224.8)
+zoom = Vector2(4.57382, 4.57382)
 script = ExtResource("5_xw3br")

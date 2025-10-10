@@ -1,8 +1,13 @@
 {
     "id": "050_Princess_Prep_Office_5",
     "label": "Princess Prep Office 5",
-    "description": "There's nothing here yet.  Hit 0 to quit.",
+    "description": "John examines the filing cabinet.  \nHe notices Princess Karin's file folder sitting on top of the other folders, but there's nothing inside.\nAs he goes through the rest of the cabinet, he sees two files that were pulled up but apparently not looked through.\nThe name Violet Moonshadow is one one, and Scarlet \"Red\" Clover is on the other, John decides to take them.\n\nMeanwhile a con artist from Cerulea is about to take one his his biggest gambles...\n\nHit 1 to continue.\n\nHit 0 to quit.",
     "doors":
     [
+        {
+            "id": "Door_To_Random_Villages_1",
+            "choice": "1",
+            "destination": "009_Random_Villages_1"
+        }
     ]
 }
