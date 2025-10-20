@@ -792,7 +792,7 @@ func HandleZoom( ):
 
 #}  // end HandleZoom()
 
-var drag_start_pos := Vector2.ZERO
+var drag_start_pos : Vector2 = Vector2.ZERO
 
 func GetMousePosition() -> Vector2:
 #{
@@ -812,6 +812,26 @@ func GetMousePosition() -> Vector2:
 
 var is_moving = false;
 
+func UpdateSelectionBox():
+#{
+	if( !( selection_box and selection_color_rect and collision_shape ) ):
+		print( "Either selection_box, color_rect, collsion shape, don't exist." );
+		return;
+		
+	var current_pos = GetMousePosition();
+	var top = min( drag_start_pos.y, current_pos.y );
+	var left = min( drag_start_pos.x, current_pos.x );
+	var top_left = Vector2( left, top );						
+	selection_box.position = top_left; #GetMousePosition();
+	selection_color_rect.position = selection_box.position;
+	
+	var size = abs( current_pos - drag_start_pos );
+	
+	collision_shape.shape.size = size;
+	selection_color_rect.size = size;
+
+#}  // end UpdateSelectionBox
+
 func _input(event):
 #{
 	# Detect empty-space clicks
@@ -822,18 +842,20 @@ func _input(event):
 		print( "Drag started" );
 		print("drag start = ", drag_start_pos );
 
-		if( camera ):
+		#if( camera ):
 		#{
 			#var main_menu_pos = GetRoomChildren()[ 0 ].position;
 			#print( "main_menu global: ", rooms.to_global( main_menu_pos ) );
 			#print( "mouse viewport coords = ", camera.get_viewport().get_mouse_position() );
 			#print( "mouse global position = ", GetMousePosition() );
 			
-			if( selection_box and selection_color_rect ):
-				selection_box.position = GetMousePosition();
-				selection_color_rect.visible = true;
-				selection_color_rect.position = selection_box.position;
+			#if( selection_box and selection_color_rect ):
+				#selection_box.position = GetMousePosition();
+				#selection_color_rect.visible = true;
+				#selection_color_rect.position = selection_box.position;
 		#}
+		selection_color_rect.visible = true;
+		UpdateSelectionBox();
 		
 		var clicked_any_room = false;
 		for room in GetRoomChildren():
@@ -874,8 +896,17 @@ func _process( _delta: float ) -> void:
 				if( selection_box and selection_color_rect ):
 					
 					if( is_moving ):
-					
-						selection_box.position = GetMousePosition();
-						selection_color_rect.position = selection_box.position;
-						
-						pass;
+						#var current_pos = GetMousePosition();
+						#var top = min( drag_start_pos.y, current_pos.y );
+						#var left = min( drag_start_pos.x, current_pos.x );
+						#var top_left = Vector2( left, top );						
+						#selection_box.position = top_left; #GetMousePosition();
+						#selection_color_rect.position = selection_box.position;
+						#
+						#var size = abs( current_pos - drag_start_pos );
+						#
+						#collision_shape.shape.size = size;
+						#selection_color_rect.size = size;
+						#
+						#pass;
+						UpdateSelectionBox();
