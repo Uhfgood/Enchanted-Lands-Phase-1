@@ -509,6 +509,8 @@ func _create_click_area(panel: Panel) -> void:
 
 	var area = Area2D.new()
 	area.name = "ClickArea"
+	area.collision_layer = 2;
+	area.collision_mask = 1;
 	add_child(area)
 
 	# Position at the panel center

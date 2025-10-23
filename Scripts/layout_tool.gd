@@ -661,6 +661,9 @@ func LoadAllRooms():
 	collision_shape.shape = RectangleShape2D.new();
 	selection_box.add_child( collision_shape );
 	rooms.add_child( selection_box );
+	selection_box.connect( "area_entered", Callable( self, "_on_area_entered" ) );
+	selection_box.collision_layer = 1;
+	selection_box.collision_mask = 2;
 
 	# Create the visible rectangle for the drag box
 	selection_color_rect = ColorRect.new();
@@ -668,6 +671,7 @@ func LoadAllRooms():
 	selection_color_rect.position = Vector2.ZERO;       # Start at origin
 	selection_color_rect.size = Vector2( 20, 20 ); #Vector2.ZERO;           # Start with zero size
 	selection_color_rect.visible = false;
+	selection_color_rect.z_index = 999;
 	rooms.add_child(selection_color_rect)                  # Add to rooms container
 
 	#prev_mouse_pos = GetMousePosition();
@@ -676,7 +680,18 @@ func LoadAllRooms():
 	
 #}  // end LoadAllRooms
 
-			
+var rooms_to_select : Array[String] = [];
+
+func _on_area_entered( area : Area2D ):
+#{
+	var area_parent = area.get_parent();
+	print( "selection box area entered by ", area_parent.id );
+	if( area_parent.id not in rooms_to_select ):
+		print( "room id appended" );
+		rooms_to_select.append( area_parent.id );
+		
+#} // end _on_area_entered
+
 func _connect_room(room: LayoutRoom) -> void:
 	room.connect("clicked", Callable(self, "_on_room_clicked"))
 
@@ -700,16 +715,20 @@ func _on_room_clicked(room: LayoutRoom, shift: bool, ctrl: bool):
 
 # Helper to select a room
 func _select_room(room: LayoutRoom) -> void:
-	selected_rooms.append(room)
-	room.is_selected = true
-	room.UpdateHighlight()
+	if( not room in selected_rooms ):
+		selected_rooms.append(room)
+		room.is_selected = true
+		room.UpdateHighlight()
 
 # Helper to clear all selections
 func _clear_selection() -> void:
+#{
 	for room in selected_rooms:
-		room.is_selected = false
-		room.UpdateHighlight()
-	selected_rooms.clear()
+		room.is_selected = false;
+		room.UpdateHighlight();
+	selected_rooms.clear();
+	print( "Room selection cleared." );
+#}  // end _clear_selection()
 
 func ProcessSingleClick(room: LayoutRoom, shift: bool, ctrl: bool):
 #{
@@ -784,6 +803,12 @@ func HandleZoom( ):
 	if( not Engine.is_editor_hint() ):
 		if( camera ):
 			current_zoom_level = camera.zoom.x;
+			# Handle the zoom leve for the cursor.
+			var min_zoom_scale = 0.75  # tweak this to taste
+
+			# Make the cursor shrink/grow with zoom, but not below a certain minimum
+			var scale_factor = max( 1.0 / current_zoom_level, min_zoom_scale )
+			layout_cursor.scale = Vector2( scale_factor, scale_factor )
 			
 	last_zoom_level = current_zoom_level;
 	line_thickness = 2.0 / current_zoom_level;
@@ -828,6 +853,7 @@ func UpdateSelectionBox():
 	var size = abs( current_pos - drag_start_pos );
 	
 	collision_shape.shape.size = size;
+	collision_shape.position = size * 0.5;
 	selection_color_rect.size = size;
 
 #}  // end UpdateSelectionBox
@@ -837,6 +863,8 @@ func _input(event):
 	# Detect empty-space clicks
 	if( event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed ):
 		is_dragging = true;
+		rooms_to_select.clear();
+		_clear_selection();
 		drag_start_pos = GetMousePosition();
 		print( "---" );
 		print( "Drag started" );
@@ -857,18 +885,25 @@ func _input(event):
 		selection_color_rect.visible = true;
 		UpdateSelectionBox();
 		
-		var clicked_any_room = false;
-		for room in GetRoomChildren():
-			if( room.mouse_inside ):
-				clicked_any_room = true;
-				break;
-		if( not clicked_any_room ):
-			_clear_selection();
-			print( "Clicked empty space: cleared selection" );
+		#var clicked_any_room = false;
+		#for room in GetRoomChildren():
+			#if( room.mouse_inside ):
+				#clicked_any_room = true;
+				#break;
+		#if( not clicked_any_room ):
+			#_clear_selection();
+			#print( "Clicked empty space: cleared selection" );
 	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			
 		# Drag end
+		print( rooms_to_select );
+		for id in rooms_to_select:
+			selected_rooms.append( rooms_dict[ id ] );
+			rooms_dict[ id ].UpdateHighlight()
+			
+		rooms_to_select.clear();
+			
 		is_dragging = false
 		selection_color_rect.visible = false;
 		print("Drag ended");
@@ -878,8 +913,8 @@ func _input(event):
 		var delta = event.relative;
 		is_moving = true;
 
-		for room in selected_rooms:
-			room.position += delta
+		#for room in selected_rooms:
+		#	room.position += delta
 	else:
 		is_moving = false;
 		
