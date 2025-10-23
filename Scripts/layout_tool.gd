@@ -662,6 +662,7 @@ func LoadAllRooms():
 	selection_box.add_child( collision_shape );
 	rooms.add_child( selection_box );
 	selection_box.connect( "area_entered", Callable( self, "_on_area_entered" ) );
+	selection_box.connect( "area_exited", Callable( self, "_on_area_exited" ) );
 	selection_box.collision_layer = 1;
 	selection_box.collision_mask = 2;
 
@@ -689,6 +690,16 @@ func _on_area_entered( area : Area2D ):
 	if( area_parent.id not in rooms_to_select ):
 		print( "room id appended" );
 		rooms_to_select.append( area_parent.id );
+		
+#} // end _on_area_entered
+
+func _on_area_exited( area : Area2D ):
+#{
+	var area_parent = area.get_parent();
+	print( "selection box area exited ", area_parent.id );
+	if( area_parent.id in rooms_to_select ):
+		print( "room id removed" );
+		rooms_to_select.erase( area_parent.id );
 		
 #} // end _on_area_entered
 
@@ -858,90 +869,77 @@ func UpdateSelectionBox():
 
 #}  // end UpdateSelectionBox
 
-func _input(event):
+func _input( event ):
 #{
 	# Detect empty-space clicks
 	if( event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed ):
+	#{
 		is_dragging = true;
-		rooms_to_select.clear();
-		_clear_selection();
 		drag_start_pos = GetMousePosition();
 		print( "---" );
 		print( "Drag started" );
 		print("drag start = ", drag_start_pos );
 
-		#if( camera ):
-		#{
-			#var main_menu_pos = GetRoomChildren()[ 0 ].position;
-			#print( "main_menu global: ", rooms.to_global( main_menu_pos ) );
-			#print( "mouse viewport coords = ", camera.get_viewport().get_mouse_position() );
-			#print( "mouse global position = ", GetMousePosition() );
-			
-			#if( selection_box and selection_color_rect ):
-				#selection_box.position = GetMousePosition();
-				#selection_color_rect.visible = true;
-				#selection_color_rect.position = selection_box.position;
-		#}
 		selection_color_rect.visible = true;
 		UpdateSelectionBox();
-		
-		#var clicked_any_room = false;
-		#for room in GetRoomChildren():
-			#if( room.mouse_inside ):
-				#clicked_any_room = true;
-				#break;
-		#if( not clicked_any_room ):
-			#_clear_selection();
-			#print( "Clicked empty space: cleared selection" );
 	
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+	#}  // end if event is InputEventMouseButton pressed
 			
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+	#{
 		# Drag end
 		print( rooms_to_select );
+		_clear_selection();
 		for id in rooms_to_select:
 			selected_rooms.append( rooms_dict[ id ] );
-			rooms_dict[ id ].UpdateHighlight()
+
+		for room in selected_rooms:
+			room.is_selected = true;
+			room.UpdateHighlight();
 			
 		rooms_to_select.clear();
 			
 		is_dragging = false
 		selection_color_rect.visible = false;
+		print( selected_rooms );
 		print("Drag ended");
 	
-	# Mouse motion drag
-	if event is InputEventMouseMotion and is_dragging:
-		var delta = event.relative;
-		is_moving = true;
+	#}  // end if event is InputEventMouseButton not pressed
 
-		#for room in selected_rooms:
-		#	room.position += delta
-	else:
-		is_moving = false;
-		
+	# Mouse motion drag
+	if( event is InputEventMouseMotion ):
+	#{
+		if( not Engine.is_editor_hint() ):
+			if( is_dragging ) :
+				is_moving = true;
+				#if( selection_box and selection_color_rect ):
+					#UpdateSelectionBox();
+			else:
+				is_moving = false;
+				
+	#}  // end if event is InputEventMouseMotion
+	
 #} // end of _input()
 
+func _physics_process(_delta: float) -> void:
+	if( is_moving ):
+		if( selection_box and selection_color_rect ):
+			UpdateSelectionBox();
+			var overlapping_areas = selection_box.get_overlapping_areas()
+			print( "overlapping areas:");
+			print( overlapping_areas );
+			for area in overlapping_areas:
+				var room = area.get_parent();
+				if( room is LayoutRoom ):
+					print( "overlapping room: ", room.id );
+					if( room.id not in rooms_to_select ):
+						print( "overlapping room id appended" );
+						rooms_to_select.append( room.id );
+
+	
 func _process( _delta: float ) -> void:
+#{
 	UpdateOverlay();
 	HandleZoom();
 	
-	if( not Engine.is_editor_hint() ):
-		if( camera ):
-			if( is_dragging and selected_rooms.is_empty() ):
-			
-				if( selection_box and selection_color_rect ):
-					
-					if( is_moving ):
-						#var current_pos = GetMousePosition();
-						#var top = min( drag_start_pos.y, current_pos.y );
-						#var left = min( drag_start_pos.x, current_pos.x );
-						#var top_left = Vector2( left, top );						
-						#selection_box.position = top_left; #GetMousePosition();
-						#selection_color_rect.position = selection_box.position;
-						#
-						#var size = abs( current_pos - drag_start_pos );
-						#
-						#collision_shape.shape.size = size;
-						#selection_color_rect.size = size;
-						#
-						#pass;
-						UpdateSelectionBox();
+#} // end _process

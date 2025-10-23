@@ -650,7 +650,7 @@ func SetupVisuals():
 	
 #} // end SetupVisuals()
 
-var is_selected = true;
+var is_selected = false;
 
 # Call this whenever selection changes
 func UpdateHighlight():
