@@ -524,28 +524,6 @@ func _create_click_area(panel: Panel) -> void:
 	shape_node.disabled = false
 	area.add_child(shape_node)
 
-	# Connect signals
-	#area.connect("input_event", Callable(self, "_on_area_input"))
-	#area.connect("mouse_entered", Callable(self, "_on_area_hover_entered"))
-	#area.connect("mouse_exited", Callable(self, "_on_area_hover_exited"))
-
-#func _on_area_input(_viewport, event, _shape_idx):
-	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		#var shift = Input.is_key_pressed(KEY_SHIFT)
-		#var ctrl = Input.is_key_pressed(KEY_CTRL)
-		#print("Room clicked: ", name, ", Shift: ", shift, ", Ctrl: ", ctrl)
-		#emit_signal("clicked", self, shift, ctrl)
-#
-#func _on_area_hover_entered():
-	##print("Mouse entered!")
-	#mouse_inside = true;
-	#pass
-#
-#func _on_area_hover_exited():
-	##print("Mouse exited!")
-	#mouse_inside = false;
-	#pass
-	
 func _update_click_area() -> void:
 #{
 	var panel = get_node_or_null("Panel")
@@ -626,20 +604,8 @@ func SetupVisuals():
 		vbox.add_child(desc_label)
 
 		resize_panel(panel, vbox, name_label, desc_label)
-	
-		## Calculate the horizontal center of the Panel
-		#var panel_center_x = -panel.size.x / 2
-#
-		## Calculate the vertical position of the Separator
-		#var name_label_height = name_label.get_minimum_size().y
-		#var separation = vbox.get_theme_constant("separation")
-		#var separator_y = name_label_height + separation  # Separator's top edge relative to VBox
-#
-		## Adjust for VBox's position within the Panel
-		#separator_y += vbox.position.y
-#
-		## Set the Panel's position to align the Room's origin with the center
-		#panel.position = Vector2(panel_center_x, -separator_y)
+	#
+		# Set the Panel's position to align the Room's origin with the center
 		panel.position = -( panel.size / 2 );
 		
 		_create_click_area( panel );
@@ -735,71 +701,3 @@ func resize_panel(panel: Panel, vbox: VBoxContainer, name_label: Label, desc_lab
 	vbox.position = Vector2(vbox_x_offset + 1, padding.y / 2)
 	
 #}  // end resize_panel()
-
-var was_clicked: bool = false;
-var mouse_inside : bool = false;
-
-# calculate the actual center of the panel
-#func GetCenterPos() -> Vector2:
-##{
-	#var center_pos = Vector2.ZERO;
-	#var panel = self.get_node_or_null( "Panel" );
-	#var vbox = panel.get_node_or_null( "VBox" );
-	#var name_label = vbox.get_node_or_null( "NameLabel" );
-#
-	#var separator_y = 0;
-	#var center_y = 0;
-#
-	#if( name_label and vbox and panel ):
-	##{
-		## Calculate the vertical position of the Separator
-		#var name_label_height = name_label.get_minimum_size().y;
-		#var separation = vbox.get_theme_constant("separation");
-		#separator_y = name_label_height + separation;  # Separator's top edge relative to VBox
-			#
-		## Adjust for VBox's position within the Panel
-		#separator_y += vbox.position.y;
-		#center_y = panel.size.y / 2;
-	##}
-#
-	#center_pos = Vector2( position.x, ( position.y - separator_y ) + center_y );
-#
-	#return( center_pos );
-	
-#}  // end func GetCenterPos()
-
-#func GetPanelRect() -> Rect2:
-##{
-	#var panel = get_node_or_null( "Panel" );
-	#if( not panel ):
-		#return( Rect2( Vector2.ZERO, Vector2.ZERO ) );
-#
-	#var top_left = panel.global_position - ( panel.size / 2 );
-#
-	#print("Top-left:", top_left, "Size:", panel.size)
-#
-	#return( Rect2( top_left, panel.size ) );
-	#
-##}  // end GetPanelRect
-#
-## For easy hit testing later.
-#func GetPanelRect_old() -> Rect2:
-##{
-	#var panel = get_node_or_null( "Panel" );
-	#if( not panel ):
-		#return( Rect2( Vector2.ZERO, Vector2.ZERO ) );
-#
-	## Center position of the panel in world coordinates
-	##var center = GetCenterPos();
-	#
-	## Top-left corner
-	##var top_left = center - panel.size / 2;
-	#var top_left = panel.global_position - ( panel.size / 2 );
-#
-	##var rect_top_left = panel.global_position
-	##var rect_size = panel.size
-	#print("Top-left:", top_left, "Size:", panel.size)
-#
-	#return( Rect2( top_left, panel.size ) );
-	#
-##}  // end GetPanelRect

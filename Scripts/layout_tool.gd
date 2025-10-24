@@ -346,12 +346,6 @@ func _ready():
 			print("Connected selection_changed to EditorSelection")
 	#}
 	
-	# Connect to all existing LayoutRooms
-	#for room in GetRoomChildren():
-	#	print( "Connecting ", room.name )
-	#	_connect_room(room)
-
-	
 func _enter_tree():
 	print("LayoutTool entering tree, instance:%s" % self)
 
@@ -615,15 +609,6 @@ func LoadAllRooms():
 	# Step 3: Update visuals for all rooms in dependency order
 	#var sorted_rooms = topological_sort_rooms();
 
-	# Step 4: Initialize previous positions
-	#for room in GetRoomChildren():
-		#if room is LayoutRoom:
-			#room.previous_position = room.position;
-			#_connect_room( room )
-	
-	#for room in rooms_dict.values():
-	#	print(room.name, room.position);
-	
 	var existing_overlay = layout_tool.find_child( "LineOverlay" );
 	if( existing_overlay ):
 		print( "overlay already exists, removing" );
@@ -700,9 +685,6 @@ func _on_area_exited( area : Area2D ):
 		rooms_to_select.erase( area_parent.id );
 		
 #} // end _on_area_entered
-
-#func _connect_room(room: LayoutRoom) -> void:
-#	room.connect("clicked", Callable(self, "_on_room_clicked"))
 
 # Currently selected rooms
 var selected_rooms: Array[LayoutRoom] = []
