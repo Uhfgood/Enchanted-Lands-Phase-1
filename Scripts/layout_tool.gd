@@ -616,10 +616,10 @@ func LoadAllRooms():
 	#var sorted_rooms = topological_sort_rooms();
 
 	# Step 4: Initialize previous positions
-	for room in GetRoomChildren():
-		if room is LayoutRoom:
-			room.previous_position = room.position;
-			_connect_room( room )
+	#for room in GetRoomChildren():
+		#if room is LayoutRoom:
+			#room.previous_position = room.position;
+			#_connect_room( room )
 	
 	#for room in rooms_dict.values():
 	#	print(room.name, room.position);
@@ -686,9 +686,8 @@ var rooms_to_select : Array[String] = [];
 func _on_area_entered( area : Area2D ):
 #{
 	var area_parent = area.get_parent();
-	print( "selection box area entered by ", area_parent.id );
+	print( "selection box entering panel area: ", area_parent.id );
 	if( area_parent.id not in rooms_to_select ):
-		print( "room id appended" );
 		rooms_to_select.append( area_parent.id );
 		
 #} // end _on_area_entered
@@ -696,22 +695,23 @@ func _on_area_entered( area : Area2D ):
 func _on_area_exited( area : Area2D ):
 #{
 	var area_parent = area.get_parent();
-	print( "selection box area exited ", area_parent.id );
+	print( "selection box exited panel area: ", area_parent.id );
 	if( area_parent.id in rooms_to_select ):
-		print( "room id removed" );
 		rooms_to_select.erase( area_parent.id );
 		
 #} // end _on_area_entered
 
-func _connect_room(room: LayoutRoom) -> void:
-	room.connect("clicked", Callable(self, "_on_room_clicked"))
-
+#func _connect_room(room: LayoutRoom) -> void:
+#	room.connect("clicked", Callable(self, "_on_room_clicked"))
 
 # Currently selected rooms
 var selected_rooms: Array[LayoutRoom] = []
 
 # Simulate dragging state
 var is_dragging: bool = false
+
+var shft_mod : bool = false;
+var ctrl_mod : bool = false;
 
 var pending_room_click : LayoutRoom = null;
 var pending_shift : bool = false;
@@ -871,6 +871,9 @@ func UpdateSelectionBox():
 
 func _input( event ):
 #{
+	shft_mod = Input.is_key_pressed( KEY_SHIFT );
+	ctrl_mod = Input.is_key_pressed( KEY_CTRL );
+
 	# Detect empty-space clicks
 	if( event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed ):
 	#{
@@ -878,20 +881,20 @@ func _input( event ):
 		drag_start_pos = GetMousePosition();
 		print( "---" );
 		print( "Drag started" );
-		print("drag start = ", drag_start_pos );
 
 		selection_color_rect.visible = true;
 		UpdateSelectionBox();
-	
+		
 	#}  // end if event is InputEventMouseButton pressed
-			
+
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 	#{
 		# Drag end
-		print( rooms_to_select );
 		_clear_selection();
 		for id in rooms_to_select:
 			selected_rooms.append( rooms_dict[ id ] );
+		
+		print( "Rooms selected: ", selected_rooms );
 
 		for room in selected_rooms:
 			room.is_selected = true;
@@ -901,9 +904,8 @@ func _input( event ):
 			
 		is_dragging = false
 		selection_color_rect.visible = false;
-		print( selected_rooms );
-		print("Drag ended");
-	
+		print( "Drag ended." );
+		
 	#}  // end if event is InputEventMouseButton not pressed
 
 	# Mouse motion drag
@@ -926,16 +928,11 @@ func _physics_process(_delta: float) -> void:
 		if( selection_box and selection_color_rect ):
 			UpdateSelectionBox();
 			var overlapping_areas = selection_box.get_overlapping_areas()
-			print( "overlapping areas:");
-			print( overlapping_areas );
 			for area in overlapping_areas:
 				var room = area.get_parent();
 				if( room is LayoutRoom ):
-					print( "overlapping room: ", room.id );
 					if( room.id not in rooms_to_select ):
-						print( "overlapping room id appended" );
 						rooms_to_select.append( room.id );
-
 	
 func _process( _delta: float ) -> void:
 #{

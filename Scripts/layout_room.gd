@@ -4,7 +4,7 @@ class_name LayoutRoom extends Node2D
 # Reference to the layout_tool node (set by layout_tool.gd)
 var layout_tool: Node = null
 
-signal clicked( room );
+#signal clicked( room );
 
 var roomdata : Room
 
@@ -504,11 +504,11 @@ func TruncateText(text: String, max_lines: int = 5, chars_per_line: int = 40) ->
 	return result
 		
 func _create_click_area(panel: Panel) -> void:
-	if has_node("ClickArea"):
-		get_node("ClickArea").queue_free()
+	if has_node("InteractiveArea"):
+		get_node("InteractiveArea").queue_free()
 
 	var area = Area2D.new()
-	area.name = "ClickArea"
+	area.name = "InteractiveArea"
 	area.collision_layer = 2;
 	area.collision_mask = 1;
 	add_child(area)
@@ -517,7 +517,7 @@ func _create_click_area(panel: Panel) -> void:
 	area.position = panel.position + panel.size * 0.5
 
 	var shape_node = CollisionShape2D.new()
-	shape_node.name = "ClickShape"
+	shape_node.name = "HitBox"
 	var rect_shape = RectangleShape2D.new()
 	rect_shape.extents = panel.size * 0.5
 	shape_node.shape = rect_shape
@@ -525,32 +525,32 @@ func _create_click_area(panel: Panel) -> void:
 	area.add_child(shape_node)
 
 	# Connect signals
-	area.connect("input_event", Callable(self, "_on_area_input"))
-	area.connect("mouse_entered", Callable(self, "_on_area_hover_entered"))
-	area.connect("mouse_exited", Callable(self, "_on_area_hover_exited"))
+	#area.connect("input_event", Callable(self, "_on_area_input"))
+	#area.connect("mouse_entered", Callable(self, "_on_area_hover_entered"))
+	#area.connect("mouse_exited", Callable(self, "_on_area_hover_exited"))
 
-func _on_area_input(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		var shift = Input.is_key_pressed(KEY_SHIFT)
-		var ctrl = Input.is_key_pressed(KEY_CTRL)
-		print("Room clicked: ", name, ", Shift: ", shift, ", Ctrl: ", ctrl)
-		emit_signal("clicked", self, shift, ctrl)
-
-func _on_area_hover_entered():
-	#print("Mouse entered!")
-	mouse_inside = true;
-	pass
-
-func _on_area_hover_exited():
-	#print("Mouse exited!")
-	mouse_inside = false;
-	pass
+#func _on_area_input(_viewport, event, _shape_idx):
+	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		#var shift = Input.is_key_pressed(KEY_SHIFT)
+		#var ctrl = Input.is_key_pressed(KEY_CTRL)
+		#print("Room clicked: ", name, ", Shift: ", shift, ", Ctrl: ", ctrl)
+		#emit_signal("clicked", self, shift, ctrl)
+#
+#func _on_area_hover_entered():
+	##print("Mouse entered!")
+	#mouse_inside = true;
+	#pass
+#
+#func _on_area_hover_exited():
+	##print("Mouse exited!")
+	#mouse_inside = false;
+	#pass
 	
 func _update_click_area() -> void:
 #{
 	var panel = get_node_or_null("Panel")
-	var area = get_node_or_null("ClickArea")
-	var shape_node = area and area.get_node_or_null("ClickShape")
+	var area = get_node_or_null("InteractiveArea")
+	var shape_node = area and area.get_node_or_null("HitBox")
 	if not panel or not area or not shape_node:
 		return
 
@@ -768,38 +768,38 @@ var mouse_inside : bool = false;
 	
 #}  // end func GetCenterPos()
 
-func GetPanelRect() -> Rect2:
-#{
-	var panel = get_node_or_null( "Panel" );
-	if( not panel ):
-		return( Rect2( Vector2.ZERO, Vector2.ZERO ) );
-
-	var top_left = panel.global_position - ( panel.size / 2 );
-
-	print("Top-left:", top_left, "Size:", panel.size)
-
-	return( Rect2( top_left, panel.size ) );
-	
-#}  // end GetPanelRect
-
-# For easy hit testing later.
-func GetPanelRect_old() -> Rect2:
-#{
-	var panel = get_node_or_null( "Panel" );
-	if( not panel ):
-		return( Rect2( Vector2.ZERO, Vector2.ZERO ) );
-
-	# Center position of the panel in world coordinates
-	#var center = GetCenterPos();
-	
-	# Top-left corner
-	#var top_left = center - panel.size / 2;
-	var top_left = panel.global_position - ( panel.size / 2 );
-
-	#var rect_top_left = panel.global_position
-	#var rect_size = panel.size
-	print("Top-left:", top_left, "Size:", panel.size)
-
-	return( Rect2( top_left, panel.size ) );
-	
-#}  // end GetPanelRect
+#func GetPanelRect() -> Rect2:
+##{
+	#var panel = get_node_or_null( "Panel" );
+	#if( not panel ):
+		#return( Rect2( Vector2.ZERO, Vector2.ZERO ) );
+#
+	#var top_left = panel.global_position - ( panel.size / 2 );
+#
+	#print("Top-left:", top_left, "Size:", panel.size)
+#
+	#return( Rect2( top_left, panel.size ) );
+	#
+##}  // end GetPanelRect
+#
+## For easy hit testing later.
+#func GetPanelRect_old() -> Rect2:
+##{
+	#var panel = get_node_or_null( "Panel" );
+	#if( not panel ):
+		#return( Rect2( Vector2.ZERO, Vector2.ZERO ) );
+#
+	## Center position of the panel in world coordinates
+	##var center = GetCenterPos();
+	#
+	## Top-left corner
+	##var top_left = center - panel.size / 2;
+	#var top_left = panel.global_position - ( panel.size / 2 );
+#
+	##var rect_top_left = panel.global_position
+	##var rect_size = panel.size
+	#print("Top-left:", top_left, "Size:", panel.size)
+#
+	#return( Rect2( top_left, panel.size ) );
+	#
+##}  // end GetPanelRect
