@@ -687,7 +687,8 @@ func _on_area_exited( area : Area2D ):
 #} // end _on_area_entered
 
 # Currently selected rooms
-var selected_rooms: Array[LayoutRoom] = []
+#var selected_rooms: Array[LayoutRoom] = []
+var selected_rooms: Dictionary = {}
 
 # Simulate dragging state
 var is_dragging: bool = false
@@ -707,60 +708,60 @@ func _on_room_clicked(room: LayoutRoom, shift: bool, ctrl: bool):
 #end; { func _on_room_clicked()
 
 # Helper to select a room
-func _select_room(room: LayoutRoom) -> void:
-	if( not room in selected_rooms ):
-		selected_rooms.append(room)
-		room.is_selected = true
-		room.UpdateHighlight()
+#func _select_room(room: LayoutRoom) -> void:
+	#if( not room in selected_rooms ):
+		#selected_rooms.append(room)
+		#room.is_selected = true
+		#room.UpdateHighlight()
 
 # Helper to clear all selections
 func _clear_selection() -> void:
 #{
-	for room in selected_rooms:
+	for room in selected_rooms.values():
 		room.is_selected = false;
 		room.UpdateHighlight();
 	selected_rooms.clear();
 	print( "Room selection cleared." );
 #}  // end _clear_selection()
 
-func ProcessSingleClick(room: LayoutRoom, shift: bool, ctrl: bool):
-#{
-	room.was_clicked = true;  # mark that this room got clicke
-	
-	if( shift ):
-		if not selected_rooms.has(room):
-			selected_rooms.append(room);
-			room.is_selected = true;
-			room.UpdateHighlight();
-	elif( ctrl ):
-		if( selected_rooms.has(room) ):
-			selected_rooms.erase(room);
-			room.is_selected = false;
-			room.UpdateHighlight();
-		else:
-			selected_rooms.append(room);
-			room.is_selected = true;
-			room.UpdateHighlight();
-	else:
-		print("Clicked room:", room, "Selected rooms:", selected_rooms)
-		for r in selected_rooms:
-			print("   contains:", r, r == room);
-
-		# Normal click: clear all others only if the clicked room is not already selected
-		if( not selected_rooms.has(room) ):
-			_clear_selection();  # your helper function
-			selected_rooms.append(room);
-			room.is_selected = true;
-			room.UpdateHighlight();
-
-	# Start drag if clicked on selected room
-	if( selected_rooms.has(room) ):
-		is_dragging = true;
-		if( camera ):
-			drag_start_pos = GetMousePosition();
-		print("Drag started on:", room.name);
-		
-#}  // end ProcessSingleClick()
+#func ProcessSingleClick(room: LayoutRoom, shift: bool, ctrl: bool):
+##{
+	#room.was_clicked = true;  # mark that this room got clicke
+	#
+	#if( shift ):
+		#if not selected_rooms.has(room):
+			#selected_rooms.append(room);
+			#room.is_selected = true;
+			#room.UpdateHighlight();
+	#elif( ctrl ):
+		#if( selected_rooms.has(room) ):
+			#selected_rooms.erase(room);
+			#room.is_selected = false;
+			#room.UpdateHighlight();
+		#else:
+			#selected_rooms.append(room);
+			#room.is_selected = true;
+			#room.UpdateHighlight();
+	#else:
+		#print("Clicked room:", room, "Selected rooms:", selected_rooms)
+		#for r in selected_rooms:
+			#print("   contains:", r, r == room);
+#
+		## Normal click: clear all others only if the clicked room is not already selected
+		#if( not selected_rooms.has(room) ):
+			#_clear_selection();  # your helper function
+			#selected_rooms.append(room);
+			#room.is_selected = true;
+			#room.UpdateHighlight();
+#
+	## Start drag if clicked on selected room
+	#if( selected_rooms.has(room) ):
+		#is_dragging = true;
+		#if( camera ):
+			#drag_start_pos = GetMousePosition();
+		#print("Drag started on:", room.name);
+		#
+##}  // end ProcessSingleClick()
 
 # Returns the mouse position relative to the "rooms" node
 func get_mouse_in_rooms() -> Vector2:
@@ -872,18 +873,54 @@ func _input( event ):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 	#{
 		# Drag end
-		_clear_selection();
-		for id in rooms_to_select:
-			selected_rooms.append( rooms_dict[ id ] );
+		var rooms_to_add : Array[String] = [];
+		var rooms_to_remove : Array[String] = [];
 		
-		print( "Rooms selected: ", selected_rooms );
+		#toggle room panels
+		if( ctrl_mod and not shft_mod ):
+		#{
+			# Already in there? Add to removal list
+			for room_id in rooms_to_select:
+				if( selected_rooms.has( room_id ) ):
+					rooms_to_remove.append( room_id );
+				else:
+					rooms_to_add.append( room_id );
+			
+			for room_id in rooms_to_remove:
+				selected_rooms[ room_id ].is_selected = false;
+				selected_rooms[ room_id ].UpdateHighlight();
+				selected_rooms.erase( room_id );
+				
+			for room_id in rooms_to_add:
+				if( rooms_dict.has( room_id ) ):
+					selected_rooms[ room_id ] = rooms_dict[ room_id ];
+					selected_rooms[ room_id ].is_selected = true;
+					selected_rooms[ room_id ].UpdateHighlight();
+		
+		#}  // end if ctrl_mod and not shft_mod
+		
+		# regular select and shft (add) select
+		if( not ctrl_mod ):
+		#{
+			if( not shft_mod ):
+				_clear_selection();
+				
+			for id in rooms_to_select:
+				#selected_rooms.append( rooms_dict[ id ] );
+				if( rooms_dict.has( id ) ):
+					selected_rooms[ id ] = rooms_dict[ id ];
+				else:
+					print( id + " is not in the rooms dictionary." );
+			
+			print( "Rooms selected: ", selected_rooms );
 
-		for room in selected_rooms:
-			room.is_selected = true;
-			room.UpdateHighlight();
-			
+			for room in selected_rooms.values():
+				room.is_selected = true;
+				room.UpdateHighlight();
+				
+		#}  // end if not ctrl_mod only
+		
 		rooms_to_select.clear();
-			
 		is_dragging = false
 		selection_color_rect.visible = false;
 		print( "Drag ended." );
@@ -915,7 +952,7 @@ func _physics_process(_delta: float) -> void:
 				if( room is LayoutRoom ):
 					if( room.id not in rooms_to_select ):
 						rooms_to_select.append( room.id );
-	
+
 func _process( _delta: float ) -> void:
 #{
 	UpdateOverlay();
